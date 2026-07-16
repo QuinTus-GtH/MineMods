@@ -15,7 +15,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 ::-webkit-scrollbar{width:8px}
 ::-webkit-scrollbar-track{background:var(--bg-secondary)}
 ::-webkit-scrollbar-thumb{background:var(--mc-green);border-radius:4px}
-
 .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg-header);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-color);transition:var(--transition)}
 .header.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.2)}
 .header-inner{max-width:1400px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -30,40 +29,14 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .nav-link.nav-cta{color:white;background:linear-gradient(135deg,#f16436,#e04e2e);font-weight:700;box-shadow:0 2px 10px rgba(241,100,54,.35)}
 .nav-link.nav-cta:hover{transform:translateY(-2px);box-shadow:0 4px 18px rgba(241,100,54,.5);color:white}
 .cf-icon{width:18px;height:18px;object-fit:contain;flex-shrink:0;display:block}
-
-/* Bell icon */
 .bell-btn{position:relative;width:44px;height:44px;border-radius:12px;border:1px solid var(--border-color);background:var(--bg-input);color:var(--text-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition);padding:0}
 .bell-btn:hover{border-color:var(--mc-green);color:var(--mc-green-light)}
 .bell-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .bell-btn.has-notif svg{animation:bellShake 2s ease-in-out infinite}
 @keyframes bellShake{0%,50%,100%{transform:rotate(0)}5%,15%,25%{transform:rotate(15deg)}10%,20%,30%{transform:rotate(-15deg)}35%{transform:rotate(0)}}
-
-/* Badge de notification : petit cercle rouge parfait en haut à droite */
-.bell-badge{
-    position:absolute;
-    top:2px;
-    right:2px;
-    background:var(--mc-redstone);
-    color:white;
-    font-size:9px;
-    font-weight:800;
-    width:16px;
-    height:16px;
-    padding:0;
-    border-radius:50%;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    border:2px solid var(--bg-header);
-    line-height:1;
-    aspect-ratio:1/1;
-    min-width:16px;
-    min-height:16px;
-    box-sizing:content-box;
-}
+.bell-badge{position:absolute;top:2px;right:2px;background:var(--mc-redstone);color:white;font-size:9px;font-weight:800;width:16px;height:16px;padding:0;border-radius:50%;display:none;align-items:center;justify-content:center;border:2px solid var(--bg-header);line-height:1;aspect-ratio:1/1;min-width:16px;min-height:16px;box-sizing:content-box}
 .bell-badge.visible{display:flex}
 .bell-badge.wide{width:auto;min-width:20px;padding:0 4px;border-radius:8px;aspect-ratio:auto}
-
 .bell-dropdown{position:absolute;top:calc(100% + 8px);right:0;width:380px;max-height:500px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.4);display:none;z-index:1001;overflow:hidden;flex-direction:column}
 .bell-dropdown.open{display:flex}
 .bell-header{padding:16px;border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
@@ -87,7 +60,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .notif-btn.reject:hover{background:rgba(255,26,26,.1);border-color:var(--mc-redstone)}
 .notif-btn.dismiss{background:var(--bg-card);color:var(--text-secondary);border:1px solid var(--border-color)}
 .notif-btn.dismiss:hover{background:var(--border-color);color:var(--text-primary)}
-
 .user-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:10px;background:var(--bg-input);border:1px solid var(--border-color);color:var(--text-primary);font-size:13px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:var(--transition);position:relative}
 .user-badge:hover{border-color:var(--mc-green);color:var(--mc-green-light)}
 .user-badge.logged-in{border-color:rgba(126,200,80,.4);background:rgba(126,200,80,.06)}
@@ -106,7 +78,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .mobile-menu{position:absolute;top:100%;left:0;right:0;background:var(--bg-header);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-color);padding:16px 24px;display:none;flex-direction:column;gap:4px;box-shadow:0 8px 30px rgba(0,0,0,.3)}
 .mobile-menu.open{display:flex}
 .mobile-menu .nav-link{width:100%;justify-content:flex-start;padding:12px 16px}
-
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0}
 .hero-bg-image{position:absolute;inset:0;background:url('./images/home/background.png') center/cover no-repeat;filter:brightness(.95) saturate(1.05)}
@@ -130,7 +101,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .hero-stat-number{font-family:'Press Start 2P',monospace;font-size:24px;color:var(--mc-green-light);display:block;text-shadow:0 2px 14px rgba(0,0,0,.85)}
 .hero-stat-label{font-size:13px;color:#e8e8f0;margin-top:8px;text-shadow:0 2px 10px rgba(0,0,0,.8)}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-
 .catalog{max-width:1400px;margin:0 auto;padding:80px 24px 120px}
 .section-header{text-align:center;margin-bottom:48px}
 .section-header h2{font-family:'Press Start 2P',monospace;font-size:clamp(18px,3vw,30px);margin-bottom:16px}
@@ -193,7 +163,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .tab-btn.active{background:linear-gradient(135deg,var(--mc-green),var(--mc-green-light));color:white;border-color:transparent;box-shadow:0 4px 15px rgba(93,140,62,.35)}
 .tab-btn .count{background:rgba(255,255,255,.2);padding:2px 8px;border-radius:8px;font-size:11px}
 .tab-btn.active .count{background:rgba(255,255,255,.3)}
-
 .mods-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .mods-grid.list-view{grid-template-columns:1fr}
 .mod-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:18px;overflow:hidden;transition:var(--transition);box-shadow:var(--shadow-card);position:relative;animation:cardAppear .6s ease both;display:flex;flex-direction:column}
@@ -237,7 +206,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .page-btn.active{background:linear-gradient(135deg,var(--mc-green),var(--mc-green-light));color:white;border-color:transparent;box-shadow:0 4px 12px rgba(93,140,62,.4)}
 .page-btn:disabled{opacity:.4;cursor:not-allowed}
 .page-dots{padding:0 6px;color:var(--text-muted)}
-
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:all .3s}
 .modal-overlay.active{opacity:1;visibility:visible}
 .modal{background:var(--bg-card);border:1px solid var(--border-color);border-radius:24px;width:100%;max-width:750px;max-height:90vh;overflow-y:auto;transform:scale(.9) translateY(20px);transition:transform .3s;box-shadow:0 25px 80px rgba(0,0,0,.5);position:relative}
@@ -289,7 +257,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .playlist-chip.in-playlist .plus{display:none}
 .btn-new-playlist{padding:6px 14px;border-radius:10px;background:none;border:1px dashed var(--border-color);color:var(--text-muted);font-size:13px;font-weight:600;cursor:pointer;transition:var(--transition)}
 .btn-new-playlist:hover{border-color:var(--mc-green);color:var(--mc-green-light)}
-
 .collections-panel{display:none}
 .collections-panel.active{display:block}
 .collections-header-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
@@ -324,35 +291,9 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .collection-alert-list li::before{content:'•';position:absolute;left:4px}
 .collection-alert-list .dep-link{color:inherit;text-decoration:underline;cursor:pointer;font-weight:700}
 .collection-alert-list .dep-link:hover{opacity:.8}
-.mod-card.incompatible {
-    border: 2px solid var(--mc-redstone) !important;
-    box-shadow: 0 0 0 3px rgba(255,26,26,.2), 0 4px 20px rgba(255,26,26,.25) !important;
-    position: relative;
-}
-
-/* On positionne le badge par rapport à l'image (parent du badge) */
-.mod-card.incompatible .mod-card-image-wrapper {
-    position: relative;
-}
-.incompat-badge {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--mc-redstone);
-    color: white;
-    font-size: 11px;
-    font-weight: 800;
-    padding: 8px 14px;
-    border-radius: 8px;
-    z-index: 3;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    box-shadow: 0 4px 16px rgba(0,0,0,.5), 0 0 0 2px rgba(255,255,255,.15);
-    text-align: center;
-    white-space: nowrap;
-    backdrop-filter: blur(4px);
-}
+.mod-card.incompatible{border:2px solid var(--mc-redstone)!important;box-shadow:0 0 0 3px rgba(255,26,26,.2),0 4px 20px rgba(255,26,26,.25)!important;position:relative}
+.mod-card.incompatible .mod-card-image-wrapper{position:relative}
+.incompat-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--mc-redstone);color:white;font-size:11px;font-weight:800;padding:8px 14px;border-radius:8px;z-index:3;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 4px 16px rgba(0,0,0,.5),0 0 0 2px rgba(255,255,255,.15);text-align:center;white-space:nowrap;backdrop-filter:blur(4px)}
 .modal-actions{display:flex;gap:12px}
 .modal-actions .btn-download{flex:1;padding:14px;font-size:15px}
 .login-required{text-align:center;padding:60px 24px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:20px}
@@ -368,6 +309,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .btn-secondary:hover{border-color:var(--mc-redstone);color:var(--mc-redstone)}
 .btn-primary{padding:10px 20px;border-radius:10px;background:linear-gradient(135deg,var(--mc-green),var(--mc-green-light));color:white;border:none;cursor:pointer;font-weight:700;font-size:13px;font-family:'Inter',sans-serif;transition:var(--transition)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(93,140,62,.4)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none}
 .form-error{color:var(--mc-redstone);font-size:13px;font-weight:600;margin-bottom:12px;display:none}
 .form-error.visible{display:block}
 .form-info-banner{background:rgba(74,237,217,.08);border:1px solid rgba(74,237,217,.3);color:var(--mc-diamond);padding:10px 14px;border-radius:10px;font-size:12.5px;font-weight:600;margin-bottom:16px;line-height:1.5}
@@ -392,7 +334,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .collection-picker-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--border-color);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--transition)}
 .collection-picker-item.selected .collection-picker-check{border-color:var(--mc-green);background:var(--mc-green);color:white}
 .collection-picker-item.selected .collection-picker-check::after{content:'✓';font-weight:800;font-size:14px}
-
 .footer{background:var(--bg-secondary);border-top:1px solid var(--border-color);padding:48px 24px;text-align:center}
 .footer-content{max-width:1400px;margin:0 auto}
 .footer-logo{font-family:'Press Start 2P',monospace;font-size:14px;margin-bottom:12px}
@@ -414,6 +355,44 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 </style>
 </head>
 <body>
+
+<!-- ═══ FIREBASE SDK ═══ -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import {
+    getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+    signOut, onAuthStateChanged, deleteUser
+  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  import {
+    getFirestore, doc, setDoc, getDoc, updateDoc, deleteDoc,
+    collection, query, where, getDocs, onSnapshot, arrayUnion, arrayRemove
+  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDlMeyunjoO1ZFQO883dTiRxkGCPk6iHiE",
+    authDomain: "minemods-8d14a.firebaseapp.com",
+    projectId: "minemods-8d14a",
+    storageBucket: "minemods-8d14a.firebasestorage.app",
+    messagingSenderId: "85414226347",
+    appId: "1:85414226347:web:5c7470ed4d34d06c0ecaee"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  window.firebaseAuth = auth;
+  window.firebaseDb = db;
+  window.firebaseFn = {
+    createUserWithEmailAndPassword, signInWithEmailAndPassword,
+    signOut, onAuthStateChanged, deleteUser,
+    doc, setDoc, getDoc, updateDoc, deleteDoc,
+    collection, query, where, getDocs, onSnapshot, arrayUnion, arrayRemove
+  };
+  window.firebaseReady = true;
+  window.dispatchEvent(new Event('firebase-ready'));
+</script>
+
 <header class="header" id="header">
     <div class="header-inner">
         <a class="logo" onclick="showHome()">
@@ -566,53 +545,10 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 <footer class="footer"><div class="footer-content"><div class="footer-logo">Mine<span>Mods</span></div><p>Site non affilié à Mojang Studios ni à Microsoft.<br>Liens vers <a href="https://www.curseforge.com/minecraft" target="_blank" rel="noopener">CurseForge</a>.</p></div></footer>
 <button class="back-to-top" id="backToTop">↑</button>
 
-<!-- Firebase SDK -->
-<script type="module">
-  // Import Firebase modules
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import {
-    getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
-    signOut, onAuthStateChanged, deleteUser
-  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-  import {
-    getFirestore, doc, setDoc, getDoc, updateDoc, deleteDoc,
-    collection, query, where, getDocs, onSnapshot, arrayUnion, arrayRemove
-  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-  // Config Firebase (projet minemods-8d14a)
-  const firebaseConfig = {
-    apiKey: "AIzaSyDlMeyunjoO1ZFQO883dTiRxkGCPk6iHiE",
-    authDomain: "minemods-8d14a.firebaseapp.com",
-    projectId: "minemods-8d14a",
-    storageBucket: "minemods-8d14a.firebasestorage.app",
-    messagingSenderId: "85414226347",
-    appId: "1:85414226347:web:5c7470ed4d34d06c0ecaee"
-  };
-
-  // Initialisation
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
-
-  // Expose Firebase globalement pour le script principal
-  window.firebaseAuth = auth;
-  window.firebaseDb = db;
-  window.firebaseFn = {
-    createUserWithEmailAndPassword, signInWithEmailAndPassword,
-    signOut, onAuthStateChanged, deleteUser,
-    doc, setDoc, getDoc, updateDoc, deleteDoc,
-    collection, query, where, getDocs, onSnapshot, arrayUnion, arrayRemove
-  };
-  window.firebaseReady = true;
-  window.dispatchEvent(new Event('firebase-ready'));
-</script>
-
 <script>
 const IMAGE_BASE_PATH='./images/mods/';
 const ITEMS_PER_PAGE=8;
-// Note : on garde LS_CURRENT_USER pour retenir qui est connecté au refresh
 const LS_CURRENT_USER='minemods-current-user';
-// Firebase : plus besoin de stocker les comptes en local
 const MAX_SUGGESTIONS=6;
 
 const CATEGORIES=[
@@ -625,9 +561,7 @@ const CATEGORIES=[
     {id:'bibliotheque',name:'Bibliothèque',icon:'📚',desc:'API et librairies requises par d\'autres mods.',order:7}
 ];
 
-// Base des mods triée par catégorie puis alphabétique (dans le code source)
 const MODS_DATABASE=[
-    // ═══ AVENTURE ═══
     {id:64,name:"Apotheosis",categories:["aventure","utilitaire"],description:"Refonte du système d'enchantement et de loot avec affixes et gemmes.",fullDescription:"Apotheosis révolutionne les enchantements, potions, spawners et loot.",image:"apotheosis.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:5.1,sizePerVersion:{"1.20.1":5.1,"1.19.2":4.7,"1.18.2":4.3,"1.16.5":3.8},dependencies:["Placebo"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/apotheosis"},
     {id:10,name:"Ars Nouveau",categories:["aventure","creatures"],description:"Créez vos propres sorts personnalisés et apprivoisez des familiers uniques.",fullDescription:"Ars Nouveau propose un système entièrement personnalisable.",image:"ars-nouveau.png",versions:["1.20.1","1.19.2"],loaders:["Forge","NeoForge"],sizeMo:13.5,sizePerVersion:{"1.20.1":13.5,"1.19.2":12.4},dependencies:["GeckoLib","Patchouli"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/ars-nouveau"},
     {id:62,name:"Better Combat",categories:["aventure","utilitaire"],description:"Refonte du système de combat avec animations et combos réalistes.",fullDescription:"Better Combat révolutionne le combat.",image:"better-combat.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:3.2,sizePerVersion:{"1.20.1":3.2,"1.19.2":3.0,"1.18.2":2.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/better-combat-by-daedelus"},
@@ -639,15 +573,11 @@ const MODS_DATABASE=[
     {id:65,name:"Origins",categories:["aventure","utilitaire"],description:"Choisissez une origine avec pouvoirs et faiblesses uniques dès le début.",fullDescription:"Origins permet de choisir une race de personnage.",image:"origins.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Fabric","Quilt"],sizeMo:4.6,sizePerVersion:{"1.20.1":4.6,"1.19.2":4.3,"1.18.2":4.0,"1.16.5":3.5},dependencies:["Fabric API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/origins"},
     {id:3,name:"The Aether",categories:["aventure","biomes"],description:"Dimension céleste avec donjons, boss et créatures uniques.",fullDescription:"The Aether ajoute une dimension céleste.",image:"the-aether.png",versions:["1.20.1","1.19.4"],loaders:["Forge","NeoForge"],sizeMo:17.8,sizePerVersion:{"1.20.1":17.8,"1.19.4":16.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/aether"},
     {id:1,name:"Twilight Forest",categories:["aventure","biomes","creatures"],description:"Un monde parallèle rempli de donjons, de boss et de forêts mystérieuses.",fullDescription:"The Twilight Forest est un mod d'aventure incontournable.",image:"twilight-forest.png",versions:["1.20.1","1.19.4","1.18.2","1.16.5","1.12.2"],loaders:["Forge","NeoForge"],sizeMo:14.2,sizePerVersion:{"1.20.1":14.2,"1.19.4":13.5,"1.18.2":12.8,"1.16.5":10.9,"1.12.2":8.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest"},
-
-    // ═══ DÉCORATION ═══
     {id:8,name:"Chisel & Bits",categories:["decoration","utilitaire"],description:"Sculptez chaque bloc pour des créations d'une précision inégalée.",fullDescription:"Chisel & Bits permet de modifier chaque bloc au niveau du 1/16ème.",image:"chisel-and-bits.png",versions:["1.20.1","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:5.3,sizePerVersion:{"1.20.1":5.3,"1.18.2":4.8,"1.16.5":4.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/chisels-bits"},
     {id:78,name:"Macaw's Doors",categories:["decoration"],description:"Une variété de portes stylées dans tous les matériaux vanilla et modés.",fullDescription:"Macaw's Doors offre plus de 20 styles de portes.",image:"mcw-doors.png",versions:["1.21","1.20.1","1.19.4","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:3.8,sizePerVersion:{"1.21":4.2,"1.20.1":3.8,"1.19.4":3.5,"1.18.2":3.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/macaws-doors"},
     {id:6,name:"Macaw's Furniture",categories:["decoration"],description:"Des dizaines de meubles réalistes pour décorer vos constructions Minecraft.",fullDescription:"Macaw's Furniture ajoute une vaste collection de meubles réalistes.",image:"macaws-furniture.png",versions:["1.21","1.20.1","1.19.4","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:6.4,sizePerVersion:{"1.21":6.9,"1.20.1":6.4,"1.19.4":5.8,"1.18.2":5.2},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/macaws-furniture"},
     {id:77,name:"Macaw's Roofs",categories:["decoration"],description:"Ajoute des toits inclinés et angles décoratifs pour tous les blocs.",fullDescription:"Macaw's Roofs ajoute des toits inclinés.",image:"mcw-roofs.png",versions:["1.21","1.20.1","1.19.4","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:4.7,sizePerVersion:{"1.21":5.1,"1.20.1":4.7,"1.19.4":4.3,"1.18.2":3.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/macaws-roofs"},
     {id:7,name:"Supplementaries",categories:["decoration","utilitaire"],description:"Blocs décoratifs et fonctionnels qui complètent le vanilla.",fullDescription:"Supplementaries ajoute des éléments qui auraient pu exister dans le vanilla.",image:"supplementaries.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:8.7,sizePerVersion:{"1.20.1":8.7,"1.19.2":7.9,"1.18.2":7.2},dependencies:["Moonlight Lib"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/supplementaries"},
-
-    // ═══ CRÉATURES ═══
     {id:18,name:"Alex's Caves",categories:["creatures","biomes","aventure"],description:"6 biomes de grottes uniques avec créatures et loots exclusifs.",fullDescription:"Alex's Caves ajoute 6 nouveaux biomes de grottes.",image:"alexs-caves.png",versions:["1.20.1","1.19.4","1.18.2"],loaders:["Forge","NeoForge"],sizeMo:31.2,sizePerVersion:{"1.20.1":31.2,"1.19.4":29.4,"1.18.2":27.1},dependencies:["Citadel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/alexs-caves"},
     {id:9,name:"Alex's Mobs",categories:["creatures"],description:"Plus de 80 créatures réalistes et fantastiques avec des comportements uniques.",fullDescription:"Alex's Mobs enrichit la faune de Minecraft avec plus de 80 créatures.",image:"alexs-mobs.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:22.6,sizePerVersion:{"1.20.1":22.6,"1.19.2":20.4,"1.18.2":18.9,"1.16.5":16.2},dependencies:["Citadel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/alexs-mobs"},
     {id:66,name:"Aquaculture 2",categories:["creatures","aventure"],description:"Ajoute plus de 30 poissons, des cannes améliorées et un système de pêche complet.",fullDescription:"Aquaculture 2 étend la pêche vanilla.",image:"aquaculture.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:5.8,sizePerVersion:{"1.20.1":5.8,"1.19.2":5.4,"1.18.2":5.0,"1.16.5":4.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/aquaculture"},
@@ -661,8 +591,6 @@ const MODS_DATABASE=[
     {id:21,name:"Pandora's Creatures",categories:["creatures","aventure"],description:"Ajoute une variété de nouvelles créatures uniques et hostiles à travers l'Overworld.",fullDescription:"Pandora's Creatures enrichit l'Overworld.",image:"pandoras-creatures.png",versions:["1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:6.8,sizePerVersion:{"1.19.2":6.8,"1.18.2":6.3,"1.16.5":5.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/pandoras-creatures"},
     {id:17,name:"Untamed Wilds",categories:["creatures","biomes"],description:"Créatures sauvages, prédateurs et espèces menacées du monde réel.",fullDescription:"Untamed Wilds ajoute une multitude de créatures sauvages.",image:"untamed-wilds.png",versions:["1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:12.6,sizePerVersion:{"1.19.2":12.6,"1.18.2":11.8,"1.16.5":10.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/untamedwilds"},
     {id:20,name:"Xenoclus 2",categories:["aventure","creatures"],description:"Ajoute un boss légendaire extraterrestre avec un donjon dédié.",fullDescription:"Xenoclus 2 est un mod boss.",image:"xenoclus.png",versions:["1.19.2","1.18.2"],loaders:["Forge"],sizeMo:4.3,sizePerVersion:{"1.19.2":4.3,"1.18.2":4.0},dependencies:["GeckoLib"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/xenoclus-2"},
-
-    // ═══ BIOMES ═══
     {id:25,name:"Better Nether",categories:["biomes"],description:"Refonte complète du Nether avec de nouveaux biomes exotiques.",fullDescription:"Better Nether transforme radicalement le Nether.",image:"better-nether.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Fabric","Quilt"],sizeMo:8.9,sizePerVersion:{"1.20.1":8.9,"1.19.2":8.3,"1.18.2":7.7,"1.16.5":6.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/betternether"},
     {id:26,name:"Better Village",categories:["biomes","decoration"],description:"Améliore drastiquement les villages avec de nouvelles structures et bâtiments.",fullDescription:"Better Village transforme les villages vanilla.",image:"better-village.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:3.7,sizePerVersion:{"1.20.1":3.7,"1.19.2":3.4,"1.18.2":3.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/better-village-forge"},
     {id:22,name:"Biomes O' Plenty",categories:["biomes","decoration"],description:"Plus de 50 nouveaux biomes spectaculaires pour une exploration infinie.",fullDescription:"Biomes O' Plenty transforme la génération du monde.",image:"biomes-o-plenty.png",versions:["1.20.1","1.19.4","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:11.3,sizePerVersion:{"1.20.1":11.3,"1.19.4":10.5,"1.18.2":9.7,"1.16.5":8.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty"},
@@ -676,8 +604,6 @@ const MODS_DATABASE=[
     {id:71,name:"William Wythers' Overhauled Overworld",categories:["biomes"],description:"Refonte complète de l'Overworld avec des dizaines de nouveaux biomes.",fullDescription:"William Wythers' Overhauled Overworld réimagine l'Overworld vanilla.",image:"wwoo.png",versions:["1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:9.2,sizePerVersion:{"1.19.2":9.2,"1.18.2":8.5,"1.16.5":7.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/william-wythers-overhauled-overworld"},
     {id:68,name:"YUNG's Better Dungeons",categories:["biomes","aventure"],description:"Refonte complète des donjons vanilla avec structures massives et loot amélioré.",fullDescription:"YUNG's Better Dungeons remplace les donjons vanilla.",image:"yungs-dungeons.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:3.4,sizePerVersion:{"1.20.1":3.4,"1.19.2":3.1,"1.18.2":2.9,"1.16.5":2.5},dependencies:["YUNG's API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/yungs-better-dungeons"},
     {id:69,name:"YUNG's Better Strongholds",categories:["biomes","aventure"],description:"Refonte totale des Strongholds vanilla, transformés en immenses forteresses.",fullDescription:"YUNG's Better Strongholds transforme les Strongholds.",image:"yungs-strongholds.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:2.6,sizePerVersion:{"1.20.1":2.6,"1.19.2":2.4,"1.18.2":2.2,"1.16.5":1.9},dependencies:["YUNG's API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/yungs-better-strongholds"},
-
-    // ═══ UTILITAIRE ═══
     {id:33,name:"Applied Energistics 2",categories:["utilitaire"],description:"Un système de stockage numérique et d'automatisation avancé.",fullDescription:"Applied Energistics 2 révolutionne le stockage.",image:"applied-energistics-2.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:18.7,sizePerVersion:{"1.20.1":18.7,"1.19.2":17.1,"1.18.2":15.9,"1.16.5":14.0},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2"},
     {id:73,name:"AppleSkin",categories:["utilitaire"],description:"Affiche la nourriture, saturation et effet potentiel des aliments dans le HUD.",fullDescription:"AppleSkin est un mod QoL essentiel.",image:"appleskin.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.5,sizePerVersion:{"1.21":0.6,"1.20.4":0.5,"1.20.1":0.5,"1.19.2":0.5,"1.18.2":0.4,"1.16.5":0.4,"1.12.2":0.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/appleskin"},
     {id:44,name:"AstikorCarts",categories:["utilitaire","decoration"],description:"Ajoute des chariots tirés par des chevaux pour transporter items et animaux.",fullDescription:"AstikorCarts ajoute plusieurs types de chariots tirables.",image:"astikorcarts.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:1.2,sizePerVersion:{"1.20.1":1.2,"1.19.2":1.1,"1.18.2":1.0,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/astikorcarts"},
@@ -699,14 +625,10 @@ const MODS_DATABASE=[
     {id:42,name:"Tough As Nails",categories:["utilitaire"],description:"Ajoute la faim, la soif et la température corporelle pour un survival réaliste.",fullDescription:"Tough As Nails ajoute des mécaniques de survie avancées.",image:"tough-as-nails.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:2.9,sizePerVersion:{"1.20.1":2.9,"1.19.2":2.7,"1.18.2":2.5,"1.16.5":2.2},dependencies:["GlitchCore"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/tough-as-nails"},
     {id:36,name:"Waystones",categories:["utilitaire","aventure"],description:"Pierres de téléportation pour voyager rapidement entre vos bases.",fullDescription:"Waystones ajoute des pierres de téléportation.",image:"waystones.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:2.4,sizePerVersion:{"1.21":2.7,"1.20.4":2.5,"1.20.1":2.4,"1.19.2":2.2,"1.18.2":2.0},dependencies:["Balm"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/waystones"},
     {id:37,name:"Xaero's Minimap",categories:["utilitaire"],description:"Minimap complète avec waypoints, radar de mobs et carte.",fullDescription:"Xaero's Minimap affiche une carte en temps réel.",image:"xaeros-minimap.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:1.1,sizePerVersion:{"1.21":1.3,"1.20.4":1.2,"1.20.1":1.1,"1.19.2":1.0,"1.18.2":0.9,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/xaeros-minimap"},
-
-    // ═══ NOURRITURE ═══
     {id:46,name:"Farmer's Delight",categories:["nourriture","utilitaire"],description:"Étend le système de cuisine avec de nouvelles cultures et repas.",fullDescription:"Farmer's Delight enrichit le système alimentaire.",image:"farmers-delight.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:6.2,sizePerVersion:{"1.20.1":6.2,"1.19.2":5.7,"1.18.2":5.3,"1.16.5":4.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/farmers-delight"},
     {id:79,name:"Let's Do: Bakery",categories:["nourriture","decoration"],description:"Créez votre boulangerie avec fours, viennoiseries et pains artisanaux.",fullDescription:"Let's Do: Bakery vous permet de créer une boulangerie complète.",image:"bakery.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:9.3,sizePerVersion:{"1.20.1":9.3,"1.19.2":8.6},dependencies:["Let's Do API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/lets-do-bakery"},
     {id:48,name:"Let's Do: Vinery",categories:["nourriture","decoration"],description:"Cultivez la vigne, produisez du vin et gérez votre propre vignoble.",fullDescription:"Let's Do: Vinery est un mod agricole splendide.",image:"vinery.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:14.8,sizePerVersion:{"1.20.1":14.8,"1.19.2":13.7},dependencies:["Let's Do API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/vinery"},
     {id:47,name:"Pam's HarvestCraft 2",categories:["nourriture"],description:"Centaines de nouvelles cultures, arbres fruitiers et recettes.",fullDescription:"Pam's HarvestCraft 2 est la référence des mods alimentaires.",image:"pams-harvestcraft.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:24.3,sizePerVersion:{"1.20.1":24.3,"1.19.2":22.1,"1.18.2":20.6,"1.16.5":17.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/pams-harvestcraft-2-food-core"},
-
-    // ═══ BIBLIOTHÈQUE ═══
     {id:49,name:"Architectury API",categories:["bibliotheque"],description:"API multi-loader qui permet aux mods d'être compatibles Forge et Fabric.",fullDescription:"Architectury API est une bibliothèque essentielle.",image:"architectury.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:1.4,sizePerVersion:{"1.21":1.5,"1.20.4":1.4,"1.20.1":1.4,"1.19.2":1.3,"1.18.2":1.2,"1.16.5":1.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/architectury-api"},
     {id:51,name:"Citadel",categories:["bibliotheque"],description:"Bibliothèque avancée pour l'IA, les rendus 3D et les particules des mods de créatures.",fullDescription:"Citadel est une bibliothèque puissante.",image:"citadel.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:1.9,sizePerVersion:{"1.20.1":1.9,"1.19.2":1.8,"1.18.2":1.7,"1.16.5":1.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/citadel"},
     {id:57,name:"Cristel Lib",categories:["bibliotheque"],description:"Bibliothèque utilisée par certains mods de biomes et de structures.",fullDescription:"Cristel Lib fournit des outils communs.",image:"cristellib.png",versions:["1.21","1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.6,sizePerVersion:{"1.21":0.7,"1.20.1":0.6,"1.19.2":0.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/cristel-lib"},
@@ -717,7 +639,7 @@ const MODS_DATABASE=[
     {id:60,name:"Let's Do API",categories:["bibliotheque"],description:"API commune pour la série de mods « Let's Do ».",fullDescription:"Let's Do API est la bibliothèque de base pour tous les mods de la série Let's Do.",image:"letsdo-api.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.8,sizePerVersion:{"1.20.1":0.8,"1.19.2":0.7},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/do-api"},
     {id:54,name:"LibraryFerret",categories:["bibliotheque"],description:"Bibliothèque légère fournissant des utilitaires communs à plusieurs mods.",fullDescription:"LibraryFerret est une petite bibliothèque utilitaire.",image:"libraryferret.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","NeoForge"],sizeMo:0.4,sizePerVersion:{"1.20.1":0.4,"1.19.2":0.4,"1.18.2":0.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/library-ferret-forge"},
     {id:53,name:"Patchouli",categories:["bibliotheque"],description:"Bibliothèque de création de guides et livres in-game utilisée par de nombreux mods.",fullDescription:"Patchouli permet aux modders de créer facilement des livres-guides interactifs.",image:"patchouli.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:1.2,sizePerVersion:{"1.20.1":1.2,"1.19.2":1.1,"1.18.2":1.0,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/patchouli"},
-    {id:81,name:"Placebo",categories:["bibliotheque"],description:"Bibliothèque essentielle développée par Shadows_of_Fire, requise par Apotheosis.",fullDescription:"Placebo est une bibliothèque de base utilisée par plusieurs mods de Shadows_of_Fire, notamment Apotheosis, Gateways to Eternity et FastFurnace.",image:"placebo.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:0.9,sizePerVersion:{"1.20.1":0.9,"1.19.2":0.8,"1.18.2":0.7,"1.16.5":0.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/placebo"},
+    {id:81,name:"Placebo",categories:["bibliotheque"],description:"Bibliothèque essentielle développée par Shadows_of_Fire, requise par Apotheosis.",fullDescription:"Placebo est une bibliothèque de base utilisée par plusieurs mods de Shadows_of_Fire, notamment Apotheosis.",image:"placebo.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:0.9,sizePerVersion:{"1.20.1":0.9,"1.19.2":0.8,"1.18.2":0.7,"1.16.5":0.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/placebo"},
     {id:55,name:"PuzzlesLib",categories:["bibliotheque"],description:"Bibliothèque commune pour les mods de Fuzs.",fullDescription:"Puzzles Lib est une bibliothèque essentielle développée par Fuzs.",image:"puzzleslib.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.7,sizePerVersion:{"1.21":1.9,"1.20.4":1.8,"1.20.1":1.7,"1.19.2":1.6,"1.18.2":1.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/puzzles-lib"},
     {id:56,name:"Sophisticated Core",categories:["bibliotheque"],description:"Bibliothèque de base pour les mods Sophisticated.",fullDescription:"Sophisticated Core est la bibliothèque partagée par tous les mods Sophisticated.",image:"sophisticated-core.png",versions:["1.21","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:2.3,sizePerVersion:{"1.21":2.5,"1.20.1":2.3,"1.19.2":2.1,"1.18.2":2.0,"1.16.5":1.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/sophisticated-core"},
     {id:80,name:"YUNG's API",categories:["bibliotheque"],description:"API commune requise par tous les mods de structures de YUNG.",fullDescription:"YUNG's API est la bibliothèque commune à tous les mods de structures développés par YUNGNICKYOUNG.",image:"yungs-api.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.7,sizePerVersion:{"1.20.1":0.7,"1.19.2":0.6,"1.18.2":0.6,"1.16.5":0.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/yungs-api"}
@@ -747,6 +669,33 @@ function findModByName(name){
     return MODS_DATABASE.find(m=>normalizeStr(m.name)===target);
 }
 
+// ═══ FIREBASE HELPERS ═══
+async function fbGetUser(pseudo){
+    const {doc,getDoc}=window.firebaseFn;
+    try{
+        const pseudoDoc=await getDoc(doc(window.firebaseDb,'pseudos',pseudo.toLowerCase()));
+        if(!pseudoDoc.exists())return null;
+        const uid=pseudoDoc.data().uid;
+        const userDoc=await getDoc(doc(window.firebaseDb,'users',uid));
+        if(!userDoc.exists())return null;
+        return {uid,...userDoc.data()};
+    }catch(e){console.error('fbGetUser:',e);return null}
+}
+
+async function fbSaveCurrentUserData(){
+    if(!currentUser||!currentUser.uid)return;
+    const {doc,updateDoc}=window.firebaseFn;
+    try{
+        await updateDoc(doc(window.firebaseDb,'users',currentUser.uid),{
+            favorites,collections,notifications
+        });
+    }catch(e){console.error('Erreur sauvegarde:',e)}
+}
+
+function saveFavorites(){fbSaveCurrentUserData()}
+function saveCollections(){fbSaveCurrentUserData()}
+function saveNotifications(){fbSaveCurrentUserData()}
+
 let currentUser=null;
 let selectedCategories=new Set();
 let currentVersion='all';
@@ -762,44 +711,8 @@ let strictSearchModName=null;
 let favorites=[];
 let collections=[];
 let notifications=[];
-
-// ═══ FIREBASE HELPERS ═══
-async function fbGetUser(pseudo){
-    const {doc,getDoc}=window.firebaseFn;
-    const pseudoDoc=await getDoc(doc(window.firebaseDb,'pseudos',pseudo.toLowerCase()));
-    if(!pseudoDoc.exists())return null;
-    const uid=pseudoDoc.data().uid;
-    const userDoc=await getDoc(doc(window.firebaseDb,'users',uid));
-    if(!userDoc.exists())return null;
-    return {uid,...userDoc.data()};
-}
-
-async function fbSaveCurrentUserData(){
-    if(!currentUser||!currentUser.uid)return;
-    const {doc,updateDoc}=window.firebaseFn;
-    try{
-        await updateDoc(doc(window.firebaseDb,'users',currentUser.uid),{
-            favorites,collections,notifications
-        });
-    }catch(e){console.error('Erreur sauvegarde:',e)}
-}
-
-async function fbLoadCurrentUserData(){
-    if(!currentUser||!currentUser.uid)return;
-    const {doc,getDoc}=window.firebaseFn;
-    const userDoc=await getDoc(doc(window.firebaseDb,'users',currentUser.uid));
-    if(userDoc.exists()){
-        const data=userDoc.data();
-        favorites=data.favorites||[];
-        collections=data.collections||[];
-        notifications=data.notifications||[];
-    }
-}
-
-// Wrappers pour compatibilité avec le code existant
-function saveFavorites(){fbSaveCurrentUserData()}
-function saveCollections(){fbSaveCurrentUserData()}
-function saveNotifications(){fbSaveCurrentUserData()}
+let realtimeUnsubscribe=null;
+let selectedPickerColId=null;
 
 const modsGrid=document.getElementById('modsGrid');const searchInput=document.getElementById('searchInput');const searchClearBtn=document.getElementById('searchClearBtn');const searchSuggestions=document.getElementById('searchSuggestions');const versionFilter=document.getElementById('versionFilter');const categoriesGrid=document.getElementById('categoriesGrid');const resultsCount=document.getElementById('resultsCount');const modalOverlay=document.getElementById('modalOverlay');const themeToggle=document.getElementById('themeToggle');const header=document.getElementById('header');const backToTop=document.getElementById('backToTop');const catalogSection=document.getElementById('catalogSection');const filtersPanel=document.getElementById('filtersPanel');const sortSelect=document.getElementById('sortSelect');const pagination=document.getElementById('pagination');const heroParticles=document.getElementById('heroParticles');const mobileMenuBtn=document.getElementById('mobileMenuBtn');const mobileMenu=document.getElementById('mobileMenu');const userBadge=document.getElementById('userBadge');const userAvatar=document.getElementById('userAvatar');const userPseudoEl=document.getElementById('userPseudo');const userDropdown=document.getElementById('userDropdown');const favoritesPanel=document.getElementById('favoritesPanel');const collectionsPanel=document.getElementById('collectionsPanel');const bellBtn=document.getElementById('bellBtn');const bellBadge=document.getElementById('bellBadge');const bellDropdown=document.getElementById('bellDropdown');const bellList=document.getElementById('bellList');
 
@@ -813,31 +726,18 @@ function formatSize(mo){return mo<10?mo.toFixed(1)+' Mo':Math.round(mo)+' Mo'}
 function getCategoryLabel(id){const c=CATEGORIES.find(x=>x.id===id);return c?c.name:id}
 function escapeHtml(str){return String(str).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
-// ═══ SURBRILLANCE INTELLIGENTE ═══
-// Règles :
-// - L'apostrophe est surlignée dès qu'elle est présente entre deux caractères du match
-//   (que la requête contienne ou non l'apostrophe elle-même)
-// - Elle est aussi surlignée si la requête se termine juste avant elle ET que
-//   la requête contient l'apostrophe (ex: "let's")
-// - Elle N'EST PAS surlignée si elle est au tout début ou juste après la fin du match
-//   sans être encadrée par des caractères matchés
 function highlightMatch(text, query){
     if(!query || !text) return escapeHtml(text);
-
     const normQuery = normalizeStr(query);
     if(!normQuery) return escapeHtml(text);
-
-    // Construction du mapping char par char
-    const mapping = [];  // mapping[i] = position dans normText, ou -1
+    const mapping = [];
     let normText = '';
     let lastWasSpace = false;
-
     for(let i = 0; i < text.length; i++){
         const c = text[i].toLowerCase();
         const decomposed = c.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-
         if(isApostrophe(c)){
-            mapping.push(-1); // apostrophe ignorée dans le texte normalisé
+            mapping.push(-1);
         } else if(/[a-z0-9]/i.test(decomposed) && decomposed.length === 1){
             mapping.push(normText.length);
             normText += decomposed.toLowerCase();
@@ -853,12 +753,9 @@ function highlightMatch(text, query){
         }
     }
     normText = normText.trim();
-
     const matchStart = normText.indexOf(normQuery);
     if(matchStart === -1) return escapeHtml(text);
     const matchEnd = matchStart + normQuery.length;
-
-    // Trouve les positions originales correspondant à des chars normalisés du match
     let origStart = -1, origEnd = -1;
     for(let i = 0; i < mapping.length; i++){
         if(mapping[i] === -1) continue;
@@ -867,64 +764,28 @@ function highlightMatch(text, query){
             origEnd = i + 1;
         }
     }
-
     if(origStart === -1) return escapeHtml(text);
-
-    // ═══ EXTENSION : inclure les apostrophes situées ENTRE deux caractères matchés ═══
-    // On étend origEnd pour englober les apostrophes suivies d'un caractère matché.
-    // Exemple : sur "Let's", si la requête est "let" → origStart=0, origEnd=3 ("Let")
-    //          Si la requête est "let'" ou "let's" → on doit aussi inclure l'apostrophe.
-    //
-    // Règle : on regarde la position juste après origEnd. Si c'est une apostrophe suivie
-    // d'un caractère qui fait partie du match, on l'étend. Si la requête contient elle-même
-    // une apostrophe à la fin de son match, on étend jusqu'à celle-ci.
-
-    // Vérifie si la requête (normalisée) contient une apostrophe originale
     const queryHasApostrophe = /['']/.test(query);
-
-    // Cas 1 : si la requête contient une apostrophe, on étend origEnd pour inclure
-    // l'apostrophe qui suit immédiatement le dernier caractère matché
     if(queryHasApostrophe && origEnd < text.length && isApostrophe(text[origEnd])){
         origEnd++;
     }
-
-    // Construction du HTML segment par segment
     let result = escapeHtml(text.substring(0, origStart));
     let segStart = origStart;
-
     for(let k = origStart; k < origEnd; k++){
         if(isApostrophe(text[k])){
-            // Décider si cette apostrophe doit être surlignée
             let shouldHighlight = false;
-
-            // Cas A : la requête contient une apostrophe → on surligne toujours
-            if(queryHasApostrophe){
+            if(queryHasApostrophe){shouldHighlight = true}
+            else if(k + 1 < mapping.length && mapping[k+1] !== -1 && mapping[k+1] >= matchStart && mapping[k+1] < matchEnd){
                 shouldHighlight = true;
             }
-            // Cas B : la requête ne contient pas d'apostrophe → on surligne uniquement
-            // si le caractère SUIVANT est aussi matché (apostrophe entre 2 chars du match)
-            else if(k + 1 < mapping.length && mapping[k+1] !== -1
-                    && mapping[k+1] >= matchStart && mapping[k+1] < matchEnd){
-                shouldHighlight = true;
-            }
-
             if(!shouldHighlight){
-                // Fermer le segment surligné actuel et laisser l'apostrophe en clair
-                if(k > segStart){
-                    result += '<mark>' + escapeHtml(text.substring(segStart, k)) + '</mark>';
-                }
+                if(k > segStart){result += '<mark>' + escapeHtml(text.substring(segStart, k)) + '</mark>'}
                 result += escapeHtml(text[k]);
                 segStart = k + 1;
             }
-            // Sinon, on continue le segment surligné
         }
     }
-
-    // Fermer le dernier segment surligné s'il reste du contenu
-    if(segStart < origEnd){
-        result += '<mark>' + escapeHtml(text.substring(segStart, origEnd)) + '</mark>';
-    }
-
+    if(segStart < origEnd){result += '<mark>' + escapeHtml(text.substring(segStart, origEnd)) + '</mark>'}
     result += escapeHtml(text.substring(origEnd));
     return result;
 }
@@ -948,9 +809,7 @@ function getFilteredMods(){
         case'name-asc':list.sort((a,b)=>a.name.localeCompare(b.name));break;
         case'name-desc':list.sort((a,b)=>b.name.localeCompare(a.name));break;
         case'size':list.sort((a,b)=>b.sizeMo-a.sizeMo);break;
-        case'recent':
-        default:
-            list.sort((a,b)=>latestVersionNum(b)-latestVersionNum(a));break;
+        case'recent':default:list.sort((a,b)=>latestVersionNum(b)-latestVersionNum(a));break;
     }
     return list;
 }
@@ -977,8 +836,8 @@ function renderCategories(){
 function modCardHTML(mod,i,showRemoveFromCol,colId,incompatible,readOnly){
     const isFav=favorites.includes(mod.id);
     return`<div class="mod-card ${incompatible?'incompatible':''}" style="animation-delay:${(i||0)*0.04}s">
-    <div class="mod-card-image-wrapper">
-        ${incompatible?`<div class="incompat-badge">⚠️ Version incompatible</div>`:''}
+        <div class="mod-card-image-wrapper">
+            ${incompatible?`<div class="incompat-badge">⚠️ Version incompatible</div>`:''}
             <img class="mod-card-image" src="${getModImageUrl(mod)}" alt="${escapeHtml(mod.name)}" loading="lazy" onerror="this.onerror=null;this.src='${getImageFallback()}'">
             <div class="mod-card-badges">${mod.categories.map(c=>`<span class="mod-badge ${c}">${getCategoryLabel(c)}</span>`).join('')}</div>
             ${!readOnly?`<button class="fav-btn ${isFav?'active':''}" title="Favoris" onclick="toggleFavorite(${mod.id},this,event)">${STAR_OUTLINE}</button>`:''}
@@ -1203,10 +1062,10 @@ function openAuthModal(mode){
     const isRegister=mode==='register';
     openPromptModal({
         title:isRegister?'📝 Créer un compte':'🔐 Se connecter',
-        hint:isRegister?'Créez un compte pour sauvegarder vos favoris et partager vos collections avec vos amis.':'Connectez-vous pour retrouver vos favoris et collections.',
-        extraContent:`<div class="form-info-banner">💡 <strong>Info :</strong> Les comptes sont stockés dans ce navigateur. Pour un vrai système multi-appareils, un backend Firebase peut être ajouté.</div>`,
-        inputsHtml:`<input type="text" class="prompt-input" id="authPseudo" placeholder="Pseudo (2-20 caractères)" autocomplete="off"><input type="password" class="prompt-input" id="authPassword" placeholder="Mot de passe (min. 4 caractères)" autocomplete="${isRegister?'new-password':'current-password'}">${isRegister?'<input type="password" class="prompt-input" id="authPasswordConfirm" placeholder="Confirmez le mot de passe" autocomplete="new-password">':''}`,
-        actionsHtml:`<button class="btn-secondary" onclick="openAuthModal('${isRegister?'login':'register'}')">${isRegister?'← Se connecter':'Créer un compte →'}</button><button class="btn-primary" onclick="submitAuth('${mode}')">${isRegister?'S\'inscrire':'Se connecter'}</button>`,
+        hint:isRegister?'Créez un compte pour sauvegarder vos favoris et partager vos collections avec vos amis, même depuis un autre appareil.':'Connectez-vous pour retrouver vos favoris et collections.',
+        extraContent:`<div class="form-info-banner">☁️ <strong>Powered by Firebase :</strong> vos données sont synchronisées en ligne et accessibles depuis n'importe quel appareil.</div>`,
+        inputsHtml:`<input type="text" class="prompt-input" id="authPseudo" placeholder="Pseudo (2-20 caractères)" autocomplete="off"><input type="password" class="prompt-input" id="authPassword" placeholder="Mot de passe (min. 6 caractères)" autocomplete="${isRegister?'new-password':'current-password'}">${isRegister?'<input type="password" class="prompt-input" id="authPasswordConfirm" placeholder="Confirmez le mot de passe" autocomplete="new-password">':''}`,
+        actionsHtml:`<button class="btn-secondary" onclick="openAuthModal('${isRegister?'login':'register'}')">${isRegister?'← Se connecter':'Créer un compte →'}</button><button class="btn-primary" id="authSubmitBtn" onclick="submitAuth('${mode}')">${isRegister?'S\'inscrire':'Se connecter'}</button>`,
         onOpen:()=>{const el=document.getElementById('authPseudo');if(el)el.focus()}
     });
     setTimeout(()=>{['authPseudo','authPassword','authPasswordConfirm'].forEach(id=>{const el=document.getElementById(id);if(el){el.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();submitAuth(mode)}})}})},150);
@@ -1218,50 +1077,38 @@ async function submitAuth(mode){
     if(!pseudo){showPromptError('Le pseudo est requis');return}
     if(pseudo.length<2||pseudo.length>20){showPromptError('Le pseudo doit contenir entre 2 et 20 caractères');return}
     if(!/^[a-zA-Z0-9_\-]+$/.test(pseudo)){showPromptError('Le pseudo ne peut contenir que des lettres, chiffres, _ et -');return}
-    if(!pwd||pwd.length<4){showPromptError('Le mot de passe doit contenir au moins 4 caractères');return}
+    if(!pwd||pwd.length<6){showPromptError('Le mot de passe doit contenir au moins 6 caractères');return}
 
-    // Firebase utilise des emails → on transforme pseudo en pseudo@minemods.local
     const email=pseudo.toLowerCase()+'@minemods.local';
     const {createUserWithEmailAndPassword,signInWithEmailAndPassword,doc,setDoc,getDoc}=window.firebaseFn;
+    const btn=document.getElementById('authSubmitBtn');
+    if(btn){btn.disabled=true;btn.textContent='Chargement...'}
 
     try{
         if(mode==='register'){
             const pwdConfirm=document.getElementById('authPasswordConfirm').value;
-            if(pwd!==pwdConfirm){showPromptError('Les mots de passe ne correspondent pas');return}
-
-            // Vérifier que le pseudo n'est pas déjà pris
+            if(pwd!==pwdConfirm){showPromptError('Les mots de passe ne correspondent pas');if(btn){btn.disabled=false;btn.textContent='S\'inscrire'}return}
             const existing=await getDoc(doc(window.firebaseDb,'pseudos',pseudo.toLowerCase()));
-            if(existing.exists()){showPromptError('Ce pseudo est déjà utilisé');return}
-
-            // Créer le compte
+            if(existing.exists()){showPromptError('Ce pseudo est déjà utilisé');if(btn){btn.disabled=false;btn.textContent='S\'inscrire'}return}
             const cred=await createUserWithEmailAndPassword(window.firebaseAuth,email,pwd);
             const uid=cred.user.uid;
-
-            // Créer le doc user + le doc pseudo pour recherche
-            await setDoc(doc(window.firebaseDb,'users',uid),{
-                pseudo,favorites:[],collections:[],notifications:[]
-            });
+            await setDoc(doc(window.firebaseDb,'users',uid),{pseudo,favorites:[],collections:[],notifications:[]});
             await setDoc(doc(window.firebaseDb,'pseudos',pseudo.toLowerCase()),{uid,pseudo});
-
             currentUser={uid,pseudo};
             localStorage.setItem(LS_CURRENT_USER,pseudo);
             favorites=[];collections=[];notifications=[];
             showToast('info',`🎉 Bienvenue ${pseudo} !`);
         } else {
-            // login
             const cred=await signInWithEmailAndPassword(window.firebaseAuth,email,pwd);
             const uid=cred.user.uid;
             const userDoc=await getDoc(doc(window.firebaseDb,'users',uid));
-            if(!userDoc.exists()){showPromptError('Compte introuvable');return}
+            if(!userDoc.exists()){showPromptError('Compte introuvable');if(btn){btn.disabled=false;btn.textContent='Se connecter'}return}
             const data=userDoc.data();
             currentUser={uid,pseudo:data.pseudo};
             localStorage.setItem(LS_CURRENT_USER,data.pseudo);
-            favorites=data.favorites||[];
-            collections=data.collections||[];
-            notifications=data.notifications||[];
+            favorites=data.favorites||[];collections=data.collections||[];notifications=data.notifications||[];
             showToast('info',`👋 Rebonjour ${data.pseudo} !`);
         }
-
         updateUserBadge();updateTabCounts();updateBellBadge();
         if(currentTab==='favorites')renderFavorites();
         if(currentTab==='collections')renderCollections();
@@ -1273,10 +1120,12 @@ async function submitAuth(mode){
         if(e.code==='auth/email-already-in-use')msg='Ce pseudo est déjà utilisé';
         else if(e.code==='auth/wrong-password'||e.code==='auth/invalid-credential')msg='Mot de passe incorrect';
         else if(e.code==='auth/user-not-found')msg='Ce compte n\'existe pas';
-        else if(e.code==='auth/weak-password')msg='Le mot de passe est trop faible';
+        else if(e.code==='auth/weak-password')msg='Le mot de passe est trop faible (min. 6 caractères)';
         else if(e.code==='auth/network-request-failed')msg='Erreur réseau, vérifiez votre connexion';
+        else if(e.code==='auth/too-many-requests')msg='Trop de tentatives, réessayez plus tard';
         else msg=e.message;
         showPromptError(msg);
+        if(btn){btn.disabled=false;btn.textContent=mode==='register'?'S\'inscrire':'Se connecter'}
     }
 }
 
@@ -1297,19 +1146,17 @@ async function logout(){
 
 async function deleteAccount(){
     if(!currentUser)return;
-    if(!confirm(`Supprimer le compte "${currentUser.pseudo}" ?\nToutes vos données seront perdues.`))return;
+    if(!confirm(`Supprimer le compte "${currentUser.pseudo}" ?\nToutes vos données seront perdues définitivement.`))return;
     const {deleteDoc,doc,deleteUser}=window.firebaseFn;
     try{
-        // Supprime les docs Firestore
         await deleteDoc(doc(window.firebaseDb,'users',currentUser.uid));
         await deleteDoc(doc(window.firebaseDb,'pseudos',currentUser.pseudo.toLowerCase()));
-        // Supprime le compte Auth
         await deleteUser(window.firebaseAuth.currentUser);
         logout();
         showToast('error','🗑️ Compte supprimé');
     }catch(e){
         console.error(e);
-        showToast('error','Erreur lors de la suppression. Reconnectez-vous et réessayez.');
+        showToast('error','Erreur. Déconnectez-vous et reconnectez-vous puis réessayez.');
     }
 }
 
@@ -1320,19 +1167,12 @@ function renderUserDropdown(){if(!currentUser){userDropdown.innerHTML=`<div clas
 function updateUserBadge(){if(currentUser){userPseudoEl.textContent=currentUser.pseudo;userAvatar.textContent=currentUser.pseudo.charAt(0).toUpperCase();userBadge.classList.add('logged-in')}else{userPseudoEl.textContent='Se connecter';userAvatar.textContent='?';userBadge.classList.remove('logged-in')}}
 
 async function createNotification(targetPseudo,notif){
-    const {doc,updateDoc,arrayUnion,getDoc}=window.firebaseFn;
+    const {doc,updateDoc,arrayUnion}=window.firebaseFn;
     const user=await fbGetUser(targetPseudo);
     if(!user)return false;
-    const newNotif={
-        id:Date.now()+Math.floor(Math.random()*10000),
-        read:false,
-        timestamp:Date.now(),
-        ...notif
-    };
+    const newNotif={id:Date.now()+Math.floor(Math.random()*10000),read:false,timestamp:Date.now(),...notif};
     try{
-        await updateDoc(doc(window.firebaseDb,'users',user.uid),{
-            notifications:arrayUnion(newNotif)
-        });
+        await updateDoc(doc(window.firebaseDb,'users',user.uid),{notifications:arrayUnion(newNotif)});
         return true;
     }catch(e){console.error(e);return false}
 }
@@ -1343,23 +1183,14 @@ function updateBellBadge(){
     if(unread>0){
         if(unread>9){bellBadge.textContent='9+';bellBadge.classList.add('wide')}
         else{bellBadge.textContent=String(unread);bellBadge.classList.remove('wide')}
-        bellBadge.classList.add('visible');
-        bellBtn.classList.add('has-notif');
-    } else {
-        bellBadge.classList.remove('visible');
-        bellBtn.classList.remove('has-notif');
-    }
+        bellBadge.classList.add('visible');bellBtn.classList.add('has-notif');
+    } else {bellBadge.classList.remove('visible');bellBtn.classList.remove('has-notif')}
 }
 
 function toggleBellDropdown(force){if(force===false){bellDropdown.classList.remove('open');return}if(!currentUser){openAuthModal('login');return}bellDropdown.classList.toggle('open');if(bellDropdown.classList.contains('open')){renderBellList();notifications.forEach(n=>n.read=true);saveNotifications();updateBellBadge()}}
 function closeBellDropdown(){bellDropdown.classList.remove('open')}
 bellBtn.addEventListener('click',e=>{e.stopPropagation();toggleBellDropdown()});
-document.getElementById('clearAllNotifs').addEventListener('click',async ()=>{
-    if(!confirm('Effacer toutes les notifications ?'))return;
-    notifications=[];
-    await fbSaveCurrentUserData();
-    updateBellBadge();renderBellList();
-});
+document.getElementById('clearAllNotifs').addEventListener('click',async ()=>{if(!confirm('Effacer toutes les notifications ?'))return;notifications=[];await fbSaveCurrentUserData();updateBellBadge();renderBellList()});
 function formatRelativeTime(ts){const diff=Date.now()-ts;const s=Math.floor(diff/1000);if(s<60)return 'à l\'instant';const m=Math.floor(s/60);if(m<60)return `il y a ${m} min`;const h=Math.floor(m/60);if(h<24)return `il y a ${h}h`;const d=Math.floor(h/24);return `il y a ${d}j`}
 
 function renderBellList(){
@@ -1387,14 +1218,9 @@ function renderBellList(){
     }).join('');
 }
 
-async function dismissNotif(notifId){
-    notifications=notifications.filter(n=>n.id!==notifId);
-    await fbSaveCurrentUserData();
-    updateBellBadge();renderBellList();
-}
+async function dismissNotif(notifId){notifications=notifications.filter(n=>n.id!==notifId);await fbSaveCurrentUserData();updateBellBadge();renderBellList()}
 
-// ═══ PARTAGE (renommé) ═══
-function shareCollection(colId){
+async function shareCollection(colId){
     if(!currentUser){showToast('error','Connectez-vous d\'abord');return}
     const col=collections.find(c=>c.id===colId);if(!col)return;
     openPromptModal({
@@ -1415,25 +1241,14 @@ async function doShareCollection(colId){
     if(!target){showPromptError(`⚠️ L'utilisateur "${val}" n'existe pas`);return}
     const col=collections.find(c=>c.id===colId);
     if(!col){showPromptError('Collection introuvable');return}
-    const ok=await createNotification(target.pseudo,{
-        type:'share-offer',
-        from:currentUser.pseudo,
-        data:{name:col.name,modIds:[...col.modIds],originalId:col.id}
-    });
+    const ok=await createNotification(target.pseudo,{type:'share-offer',from:currentUser.pseudo,data:{name:col.name,modIds:[...col.modIds],originalId:col.id}});
     if(ok){showToast('info',`✅ Partage envoyé à ${target.pseudo}`);closePromptModal()}
     else{showPromptError('Erreur lors de l\'envoi')}
 }
 
 async function acceptShareOffer(notifId){
     const notif=notifications.find(n=>n.id===notifId);if(!notif)return;
-    const newCol={
-        id:Date.now()+Math.floor(Math.random()*10000),
-        name:notif.data.name,
-        modIds:[...notif.data.modIds],
-        owner:currentUser.pseudo,
-        imported:true,
-        sharedFrom:notif.from
-    };
+    const newCol={id:Date.now()+Math.floor(Math.random()*10000),name:notif.data.name,modIds:[...notif.data.modIds],owner:currentUser.pseudo,imported:true,sharedFrom:notif.from};
     collections.push(newCol);
     notifications=notifications.filter(n=>n.id!==notifId);
     await fbSaveCurrentUserData();
@@ -1452,7 +1267,6 @@ async function rejectShareOffer(notifId){
     showToast('info',`Partage refusé`);
 }
 
-// ═══ IMPORT ═══
 function openImportCollectionPrompt(){
     if(!currentUser){openAuthModal('login');return}
     openPromptModal({
@@ -1484,7 +1298,6 @@ async function chooseCollectionToImport(){
     });
 }
 
-let selectedPickerColId=null;
 function selectPickerItem(el){document.querySelectorAll('.collection-picker-item').forEach(i=>i.classList.remove('selected'));el.classList.add('selected');selectedPickerColId=parseInt(el.dataset.colid)}
 
 async function doRequestImport(friendPseudo){
@@ -1493,11 +1306,7 @@ async function doRequestImport(friendPseudo){
     if(!target){showPromptError('Utilisateur introuvable');return}
     const col=(target.collections||[]).find(c=>c.id===selectedPickerColId);
     if(!col){showPromptError('Collection introuvable');return}
-    const ok=await createNotification(friendPseudo,{
-        type:'import-request',
-        from:currentUser.pseudo,
-        data:{collectionId:col.id,collectionName:col.name}
-    });
+    const ok=await createNotification(friendPseudo,{type:'import-request',from:currentUser.pseudo,data:{collectionId:col.id,collectionName:col.name}});
     if(ok){showToast('info',`✅ Demande envoyée à ${friendPseudo}`);selectedPickerColId=null;closePromptModal()}
     else{showPromptError('Erreur lors de l\'envoi')}
 }
@@ -1508,29 +1317,15 @@ async function acceptImportRequest(notifId){
     if(!col){
         showToast('error','⚠️ Vous n\'avez plus cette collection');
         notifications=notifications.filter(n=>n.id!==notifId);
-        await fbSaveCurrentUserData();
-        updateBellBadge();renderBellList();
+        await fbSaveCurrentUserData();updateBellBadge();renderBellList();
         return;
     }
     const target=await fbGetUser(notif.from);
     if(!target){showToast('error','Utilisateur destinataire introuvable');return}
-
-    // Ajoute la collection chez le demandeur
     const {doc,updateDoc,arrayUnion}=window.firebaseFn;
-    const shared={
-        id:Date.now()+Math.floor(Math.random()*10000),
-        name:col.name,
-        modIds:[...col.modIds],
-        owner:target.pseudo,
-        imported:true,
-        sharedFrom:currentUser.pseudo
-    };
-    try{
-        await updateDoc(doc(window.firebaseDb,'users',target.uid),{
-            collections:arrayUnion(shared)
-        });
-    }catch(e){console.error(e);showToast('error','Erreur');return}
-
+    const shared={id:Date.now()+Math.floor(Math.random()*10000),name:col.name,modIds:[...col.modIds],owner:target.pseudo,imported:true,sharedFrom:currentUser.pseudo};
+    try{await updateDoc(doc(window.firebaseDb,'users',target.uid),{collections:arrayUnion(shared)})}
+    catch(e){console.error(e);showToast('error','Erreur');return}
     await createNotification(notif.from,{type:'accepted',from:currentUser.pseudo,data:{collectionName:col.name}});
     notifications=notifications.filter(n=>n.id!==notifId);
     await fbSaveCurrentUserData();
@@ -1547,8 +1342,6 @@ async function rejectImportRequest(notifId){
     showToast('info','Demande refusée');
 }
 
-let realtimeUnsubscribe=null;
-
 function setupRealtimeSync(){
     if(!currentUser||!currentUser.uid)return;
     if(realtimeUnsubscribe){realtimeUnsubscribe();realtimeUnsubscribe=null}
@@ -1557,7 +1350,9 @@ function setupRealtimeSync(){
         if(!snap.exists())return;
         const data=snap.data();
         const oldNotifIds=new Set(notifications.map(n=>n.id));
+        const oldColIds=new Set(collections.map(c=>c.id));
         const newNotifs=(data.notifications||[]).filter(n=>!oldNotifIds.has(n.id));
+        const newCols=(data.collections||[]).filter(c=>!oldColIds.has(c.id));
         favorites=data.favorites||[];
         collections=data.collections||[];
         notifications=data.notifications||[];
@@ -1565,11 +1360,9 @@ function setupRealtimeSync(){
         if(bellDropdown.classList.contains('open'))renderBellList();
         if(currentTab==='favorites')renderFavorites();
         if(currentTab==='collections')renderCollections();
-        // Toast pour nouvelles notifs
         const nonRead=newNotifs.filter(n=>!n.read);
-        if(nonRead.length>0){
-            showToast('info',`🔔 ${nonRead.length} nouvelle${nonRead.length>1?'s':''} notification${nonRead.length>1?'s':''}`);
-        }
+        if(nonRead.length>0){showToast('info',`🔔 ${nonRead.length} nouvelle${nonRead.length>1?'s':''} notification${nonRead.length>1?'s':''}`)}
+        if(newCols.filter(c=>c.imported).length>0){showToast('info',`📥 Nouvelle collection reçue !`)}
     });
 }
 
@@ -1587,32 +1380,31 @@ function init(){
     document.querySelectorAll('.fade-in-section').forEach(s=>{if(s.getBoundingClientRect().top<window.innerHeight)s.classList.add('visible')});
 }
 
-// Attendre que Firebase soit prêt puis vérifier si l'utilisateur est déjà connecté
 function initFirebaseAuth(){
     const {onAuthStateChanged,doc,getDoc}=window.firebaseFn;
     onAuthStateChanged(window.firebaseAuth,async (user)=>{
         if(user){
-            const savedPseudo=localStorage.getItem(LS_CURRENT_USER);
-            const userDoc=await getDoc(doc(window.firebaseDb,'users',user.uid));
-            if(userDoc.exists()){
-                const data=userDoc.data();
-                currentUser={uid:user.uid,pseudo:data.pseudo};
-                favorites=data.favorites||[];
-                collections=data.collections||[];
-                notifications=data.notifications||[];
-                updateUserBadge();updateTabCounts();updateBellBadge();
-                if(currentTab==='favorites')renderFavorites();
-                if(currentTab==='collections')renderCollections();
-                setupRealtimeSync();
-            }
+            try{
+                const userDoc=await getDoc(doc(window.firebaseDb,'users',user.uid));
+                if(userDoc.exists()){
+                    const data=userDoc.data();
+                    currentUser={uid:user.uid,pseudo:data.pseudo};
+                    favorites=data.favorites||[];
+                    collections=data.collections||[];
+                    notifications=data.notifications||[];
+                    updateUserBadge();updateTabCounts();updateBellBadge();
+                    if(currentTab==='favorites')renderFavorites();
+                    if(currentTab==='collections')renderCollections();
+                    setupRealtimeSync();
+                }
+            }catch(e){console.error('Erreur chargement user:',e)}
         }
     });
 }
 
+document.addEventListener('DOMContentLoaded',init);
 if(window.firebaseReady){initFirebaseAuth()}
 else{window.addEventListener('firebase-ready',initFirebaseAuth)}
-
-document.addEventListener('DOMContentLoaded',init);
 </script>
 </body>
 </html>
