@@ -566,11 +566,53 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 <footer class="footer"><div class="footer-content"><div class="footer-logo">Mine<span>Mods</span></div><p>Site non affilié à Mojang Studios ni à Microsoft.<br>Liens vers <a href="https://www.curseforge.com/minecraft" target="_blank" rel="noopener">CurseForge</a>.</p></div></footer>
 <button class="back-to-top" id="backToTop">↑</button>
 
+<!-- Firebase SDK -->
+<script type="module">
+  // Import Firebase modules
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import {
+    getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+    signOut, onAuthStateChanged, deleteUser
+  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  import {
+    getFirestore, doc, setDoc, getDoc, updateDoc, deleteDoc,
+    collection, query, where, getDocs, onSnapshot, arrayUnion, arrayRemove
+  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  // Config Firebase (projet minemods-8d14a)
+  const firebaseConfig = {
+    apiKey: "AIzaSyDlMeyunjoO1ZFQO883dTiRxkGCPk6iHiE",
+    authDomain: "minemods-8d14a.firebaseapp.com",
+    projectId: "minemods-8d14a",
+    storageBucket: "minemods-8d14a.firebasestorage.app",
+    messagingSenderId: "85414226347",
+    appId: "1:85414226347:web:5c7470ed4d34d06c0ecaee"
+  };
+
+  // Initialisation
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // Expose Firebase globalement pour le script principal
+  window.firebaseAuth = auth;
+  window.firebaseDb = db;
+  window.firebaseFn = {
+    createUserWithEmailAndPassword, signInWithEmailAndPassword,
+    signOut, onAuthStateChanged, deleteUser,
+    doc, setDoc, getDoc, updateDoc, deleteDoc,
+    collection, query, where, getDocs, onSnapshot, arrayUnion, arrayRemove
+  };
+  window.firebaseReady = true;
+  window.dispatchEvent(new Event('firebase-ready'));
+</script>
+
 <script>
 const IMAGE_BASE_PATH='./images/mods/';
 const ITEMS_PER_PAGE=8;
-const LS_ACCOUNTS='minemods-accounts';
+// Note : on garde LS_CURRENT_USER pour retenir qui est connecté au refresh
 const LS_CURRENT_USER='minemods-current-user';
+// Firebase : plus besoin de stocker les comptes en local
 const MAX_SUGGESTIONS=6;
 
 const CATEGORIES=[
@@ -721,38 +763,43 @@ let favorites=[];
 let collections=[];
 let notifications=[];
 
-function getAccounts(){return JSON.parse(localStorage.getItem(LS_ACCOUNTS)||'{}')}
-function saveAccounts(a){localStorage.setItem(LS_ACCOUNTS,JSON.stringify(a))}
-function simpleHash(s){let hash=0;for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);hash=((hash<<5)-hash)+c;hash|=0}return String(hash)}
+// ═══ FIREBASE HELPERS ═══
+async function fbGetUser(pseudo){
+    const {doc,getDoc}=window.firebaseFn;
+    const pseudoDoc=await getDoc(doc(window.firebaseDb,'pseudos',pseudo.toLowerCase()));
+    if(!pseudoDoc.exists())return null;
+    const uid=pseudoDoc.data().uid;
+    const userDoc=await getDoc(doc(window.firebaseDb,'users',uid));
+    if(!userDoc.exists())return null;
+    return {uid,...userDoc.data()};
+}
 
-function loadSession(){
-    const saved=localStorage.getItem(LS_CURRENT_USER);
-    if(saved){
-        const accounts=getAccounts();
-        const user=accounts[saved.toLowerCase()];
-        if(user){
-            currentUser={pseudo:user.pseudo,passwordHash:user.passwordHash};
-            favorites=user.favorites||[];
-            collections=user.collections||[];
-            notifications=user.notifications||[];
-        }
+async function fbSaveCurrentUserData(){
+    if(!currentUser||!currentUser.uid)return;
+    const {doc,updateDoc}=window.firebaseFn;
+    try{
+        await updateDoc(doc(window.firebaseDb,'users',currentUser.uid),{
+            favorites,collections,notifications
+        });
+    }catch(e){console.error('Erreur sauvegarde:',e)}
+}
+
+async function fbLoadCurrentUserData(){
+    if(!currentUser||!currentUser.uid)return;
+    const {doc,getDoc}=window.firebaseFn;
+    const userDoc=await getDoc(doc(window.firebaseDb,'users',currentUser.uid));
+    if(userDoc.exists()){
+        const data=userDoc.data();
+        favorites=data.favorites||[];
+        collections=data.collections||[];
+        notifications=data.notifications||[];
     }
 }
 
-function persistUserData(){
-    if(!currentUser)return;
-    const accounts=getAccounts();
-    const key=currentUser.pseudo.toLowerCase();
-    if(!accounts[key])return;
-    accounts[key].favorites=favorites;
-    accounts[key].collections=collections;
-    accounts[key].notifications=notifications;
-    saveAccounts(accounts);
-}
-
-function saveFavorites(){persistUserData()}
-function saveCollections(){persistUserData()}
-function saveNotifications(){persistUserData()}
+// Wrappers pour compatibilité avec le code existant
+function saveFavorites(){fbSaveCurrentUserData()}
+function saveCollections(){fbSaveCurrentUserData()}
+function saveNotifications(){fbSaveCurrentUserData()}
 
 const modsGrid=document.getElementById('modsGrid');const searchInput=document.getElementById('searchInput');const searchClearBtn=document.getElementById('searchClearBtn');const searchSuggestions=document.getElementById('searchSuggestions');const versionFilter=document.getElementById('versionFilter');const categoriesGrid=document.getElementById('categoriesGrid');const resultsCount=document.getElementById('resultsCount');const modalOverlay=document.getElementById('modalOverlay');const themeToggle=document.getElementById('themeToggle');const header=document.getElementById('header');const backToTop=document.getElementById('backToTop');const catalogSection=document.getElementById('catalogSection');const filtersPanel=document.getElementById('filtersPanel');const sortSelect=document.getElementById('sortSelect');const pagination=document.getElementById('pagination');const heroParticles=document.getElementById('heroParticles');const mobileMenuBtn=document.getElementById('mobileMenuBtn');const mobileMenu=document.getElementById('mobileMenu');const userBadge=document.getElementById('userBadge');const userAvatar=document.getElementById('userAvatar');const userPseudoEl=document.getElementById('userPseudo');const userDropdown=document.getElementById('userDropdown');const favoritesPanel=document.getElementById('favoritesPanel');const collectionsPanel=document.getElementById('collectionsPanel');const bellBtn=document.getElementById('bellBtn');const bellBadge=document.getElementById('bellBadge');const bellDropdown=document.getElementById('bellDropdown');const bellList=document.getElementById('bellList');
 
@@ -1165,42 +1212,106 @@ function openAuthModal(mode){
     setTimeout(()=>{['authPseudo','authPassword','authPasswordConfirm'].forEach(id=>{const el=document.getElementById(id);if(el){el.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();submitAuth(mode)}})}})},150);
 }
 
-function submitAuth(mode){
+async function submitAuth(mode){
     const pseudo=document.getElementById('authPseudo').value.trim();
     const pwd=document.getElementById('authPassword').value;
     if(!pseudo){showPromptError('Le pseudo est requis');return}
     if(pseudo.length<2||pseudo.length>20){showPromptError('Le pseudo doit contenir entre 2 et 20 caractères');return}
     if(!/^[a-zA-Z0-9_\-]+$/.test(pseudo)){showPromptError('Le pseudo ne peut contenir que des lettres, chiffres, _ et -');return}
     if(!pwd||pwd.length<4){showPromptError('Le mot de passe doit contenir au moins 4 caractères');return}
-    const accounts=getAccounts();
-    const key=pseudo.toLowerCase();
-    if(mode==='register'){
-        const pwdConfirm=document.getElementById('authPasswordConfirm').value;
-        if(pwd!==pwdConfirm){showPromptError('Les mots de passe ne correspondent pas');return}
-        if(accounts[key]){showPromptError('Ce pseudo est déjà utilisé');return}
-        accounts[key]={pseudo,passwordHash:simpleHash(pwd),favorites:[],collections:[],notifications:[]};
-        saveAccounts(accounts);
-        currentUser={pseudo,passwordHash:accounts[key].passwordHash};
-        localStorage.setItem(LS_CURRENT_USER,pseudo);
-        favorites=[];collections=[];notifications=[];
-        showToast('info',`🎉 Bienvenue ${pseudo} !`);
-    } else {
-        const acc=accounts[key];
-        if(!acc){showPromptError('Ce compte n\'existe pas');return}
-        if(acc.passwordHash!==simpleHash(pwd)){showPromptError('Mot de passe incorrect');return}
-        currentUser={pseudo:acc.pseudo,passwordHash:acc.passwordHash};
-        localStorage.setItem(LS_CURRENT_USER,acc.pseudo);
-        favorites=acc.favorites||[];collections=acc.collections||[];notifications=acc.notifications||[];
-        showToast('info',`👋 Rebonjour ${acc.pseudo} !`);
+
+    // Firebase utilise des emails → on transforme pseudo en pseudo@minemods.local
+    const email=pseudo.toLowerCase()+'@minemods.local';
+    const {createUserWithEmailAndPassword,signInWithEmailAndPassword,doc,setDoc,getDoc}=window.firebaseFn;
+
+    try{
+        if(mode==='register'){
+            const pwdConfirm=document.getElementById('authPasswordConfirm').value;
+            if(pwd!==pwdConfirm){showPromptError('Les mots de passe ne correspondent pas');return}
+
+            // Vérifier que le pseudo n'est pas déjà pris
+            const existing=await getDoc(doc(window.firebaseDb,'pseudos',pseudo.toLowerCase()));
+            if(existing.exists()){showPromptError('Ce pseudo est déjà utilisé');return}
+
+            // Créer le compte
+            const cred=await createUserWithEmailAndPassword(window.firebaseAuth,email,pwd);
+            const uid=cred.user.uid;
+
+            // Créer le doc user + le doc pseudo pour recherche
+            await setDoc(doc(window.firebaseDb,'users',uid),{
+                pseudo,favorites:[],collections:[],notifications:[]
+            });
+            await setDoc(doc(window.firebaseDb,'pseudos',pseudo.toLowerCase()),{uid,pseudo});
+
+            currentUser={uid,pseudo};
+            localStorage.setItem(LS_CURRENT_USER,pseudo);
+            favorites=[];collections=[];notifications=[];
+            showToast('info',`🎉 Bienvenue ${pseudo} !`);
+        } else {
+            // login
+            const cred=await signInWithEmailAndPassword(window.firebaseAuth,email,pwd);
+            const uid=cred.user.uid;
+            const userDoc=await getDoc(doc(window.firebaseDb,'users',uid));
+            if(!userDoc.exists()){showPromptError('Compte introuvable');return}
+            const data=userDoc.data();
+            currentUser={uid,pseudo:data.pseudo};
+            localStorage.setItem(LS_CURRENT_USER,data.pseudo);
+            favorites=data.favorites||[];
+            collections=data.collections||[];
+            notifications=data.notifications||[];
+            showToast('info',`👋 Rebonjour ${data.pseudo} !`);
+        }
+
+        updateUserBadge();updateTabCounts();updateBellBadge();
+        if(currentTab==='favorites')renderFavorites();
+        if(currentTab==='collections')renderCollections();
+        renderMods();closePromptModal();
+        setupRealtimeSync();
+    }catch(e){
+        console.error(e);
+        let msg='Erreur inconnue';
+        if(e.code==='auth/email-already-in-use')msg='Ce pseudo est déjà utilisé';
+        else if(e.code==='auth/wrong-password'||e.code==='auth/invalid-credential')msg='Mot de passe incorrect';
+        else if(e.code==='auth/user-not-found')msg='Ce compte n\'existe pas';
+        else if(e.code==='auth/weak-password')msg='Le mot de passe est trop faible';
+        else if(e.code==='auth/network-request-failed')msg='Erreur réseau, vérifiez votre connexion';
+        else msg=e.message;
+        showPromptError(msg);
     }
+}
+
+async function logout(){
+    if(!currentUser)return;
+    const {signOut}=window.firebaseFn;
+    try{await signOut(window.firebaseAuth)}catch(e){console.error(e)}
+    if(realtimeUnsubscribe){realtimeUnsubscribe();realtimeUnsubscribe=null}
+    currentUser=null;
+    localStorage.removeItem(LS_CURRENT_USER);
+    favorites=[];collections=[];notifications=[];
     updateUserBadge();updateTabCounts();updateBellBadge();
     if(currentTab==='favorites')renderFavorites();
     if(currentTab==='collections')renderCollections();
-    renderMods();closePromptModal();
+    renderMods();closeUserDropdown();
+    showToast('info','👋 Vous êtes déconnecté');
 }
 
-function logout(){if(!currentUser)return;currentUser=null;localStorage.removeItem(LS_CURRENT_USER);favorites=[];collections=[];notifications=[];updateUserBadge();updateTabCounts();updateBellBadge();if(currentTab==='favorites')renderFavorites();if(currentTab==='collections')renderCollections();renderMods();closeUserDropdown();showToast('info','👋 Vous êtes déconnecté')}
-function deleteAccount(){if(!currentUser)return;if(!confirm(`Supprimer le compte "${currentUser.pseudo}" ?\nToutes vos données seront perdues.`))return;const accounts=getAccounts();delete accounts[currentUser.pseudo.toLowerCase()];saveAccounts(accounts);logout();showToast('error','🗑️ Compte supprimé')}
+async function deleteAccount(){
+    if(!currentUser)return;
+    if(!confirm(`Supprimer le compte "${currentUser.pseudo}" ?\nToutes vos données seront perdues.`))return;
+    const {deleteDoc,doc,deleteUser}=window.firebaseFn;
+    try{
+        // Supprime les docs Firestore
+        await deleteDoc(doc(window.firebaseDb,'users',currentUser.uid));
+        await deleteDoc(doc(window.firebaseDb,'pseudos',currentUser.pseudo.toLowerCase()));
+        // Supprime le compte Auth
+        await deleteUser(window.firebaseAuth.currentUser);
+        logout();
+        showToast('error','🗑️ Compte supprimé');
+    }catch(e){
+        console.error(e);
+        showToast('error','Erreur lors de la suppression. Reconnectez-vous et réessayez.');
+    }
+}
 
 function toggleUserDropdown(force){if(force===false){userDropdown.classList.remove('open');return}if(!currentUser){openAuthModal('login');return}userDropdown.classList.toggle('open');if(userDropdown.classList.contains('open'))renderUserDropdown()}
 function closeUserDropdown(){userDropdown.classList.remove('open')}
@@ -1208,14 +1319,22 @@ userBadge.addEventListener('click',e=>{e.stopPropagation();toggleUserDropdown()}
 function renderUserDropdown(){if(!currentUser){userDropdown.innerHTML=`<div class="user-dropdown-header">Compte</div><button class="user-dropdown-item" onclick="openAuthModal('login')">🔐 Se connecter</button><button class="user-dropdown-item" onclick="openAuthModal('register')">📝 Créer un compte</button>`;return}userDropdown.innerHTML=`<div class="user-dropdown-header">Connecté en tant que</div><div style="padding:0 14px 8px;font-size:14px;font-weight:800;color:var(--text-primary)">${escapeHtml(currentUser.pseudo)}</div><div class="user-dropdown-divider"></div><button class="user-dropdown-item" onclick="closeUserDropdown();switchTab('favorites')">⭐ Mes favoris (${favorites.length})</button><button class="user-dropdown-item" onclick="closeUserDropdown();switchTab('collections')">📁 Mes collections (${collections.length})</button><div class="user-dropdown-divider"></div><button class="user-dropdown-item" onclick="logout()">🚪 Déconnexion</button><button class="user-dropdown-item danger" onclick="deleteAccount()">🗑️ Supprimer le compte</button>`}
 function updateUserBadge(){if(currentUser){userPseudoEl.textContent=currentUser.pseudo;userAvatar.textContent=currentUser.pseudo.charAt(0).toUpperCase();userBadge.classList.add('logged-in')}else{userPseudoEl.textContent='Se connecter';userAvatar.textContent='?';userBadge.classList.remove('logged-in')}}
 
-function createNotification(targetPseudo,notif){
-    const accounts=getAccounts();
-    const key=targetPseudo.toLowerCase();
-    if(!accounts[key])return false;
-    if(!accounts[key].notifications)accounts[key].notifications=[];
-    accounts[key].notifications.unshift({id:Date.now()+Math.floor(Math.random()*10000),read:false,timestamp:Date.now(),...notif});
-    saveAccounts(accounts);
-    return true;
+async function createNotification(targetPseudo,notif){
+    const {doc,updateDoc,arrayUnion,getDoc}=window.firebaseFn;
+    const user=await fbGetUser(targetPseudo);
+    if(!user)return false;
+    const newNotif={
+        id:Date.now()+Math.floor(Math.random()*10000),
+        read:false,
+        timestamp:Date.now(),
+        ...notif
+    };
+    try{
+        await updateDoc(doc(window.firebaseDb,'users',user.uid),{
+            notifications:arrayUnion(newNotif)
+        });
+        return true;
+    }catch(e){console.error(e);return false}
 }
 
 function updateBellBadge(){
@@ -1235,7 +1354,12 @@ function updateBellBadge(){
 function toggleBellDropdown(force){if(force===false){bellDropdown.classList.remove('open');return}if(!currentUser){openAuthModal('login');return}bellDropdown.classList.toggle('open');if(bellDropdown.classList.contains('open')){renderBellList();notifications.forEach(n=>n.read=true);saveNotifications();updateBellBadge()}}
 function closeBellDropdown(){bellDropdown.classList.remove('open')}
 bellBtn.addEventListener('click',e=>{e.stopPropagation();toggleBellDropdown()});
-document.getElementById('clearAllNotifs').addEventListener('click',()=>{if(!confirm('Effacer toutes les notifications ?'))return;notifications=[];saveNotifications();updateBellBadge();renderBellList()});
+document.getElementById('clearAllNotifs').addEventListener('click',async ()=>{
+    if(!confirm('Effacer toutes les notifications ?'))return;
+    notifications=[];
+    await fbSaveCurrentUserData();
+    updateBellBadge();renderBellList();
+});
 function formatRelativeTime(ts){const diff=Date.now()-ts;const s=Math.floor(diff/1000);if(s<60)return 'à l\'instant';const m=Math.floor(s/60);if(m<60)return `il y a ${m} min`;const h=Math.floor(m/60);if(h<24)return `il y a ${h}h`;const d=Math.floor(h/24);return `il y a ${d}j`}
 
 function renderBellList(){
@@ -1263,84 +1387,93 @@ function renderBellList(){
     }).join('');
 }
 
-function dismissNotif(notifId){notifications=notifications.filter(n=>n.id!==notifId);saveNotifications();updateBellBadge();renderBellList()}
+async function dismissNotif(notifId){
+    notifications=notifications.filter(n=>n.id!==notifId);
+    await fbSaveCurrentUserData();
+    updateBellBadge();renderBellList();
+}
 
 // ═══ PARTAGE (renommé) ═══
 function shareCollection(colId){
     if(!currentUser){showToast('error','Connectez-vous d\'abord');return}
     const col=collections.find(c=>c.id===colId);if(!col)return;
-    const accounts=getAccounts();
-    const otherUsers=Object.values(accounts).filter(a=>a.pseudo.toLowerCase()!==currentUser.pseudo.toLowerCase());
-    let friendsHtml='';
-    if(otherUsers.length>0){friendsHtml=`<div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:8px">Utilisateurs inscrits</div><div class="friends-list">${otherUsers.map(a=>`<div class="friend-item" onclick="document.getElementById('shareRecipient').value='${escapeHtml(a.pseudo).replace(/'/g,"\\'")}'"><span class="avatar-circle">${escapeHtml(a.pseudo.charAt(0).toUpperCase())}</span><span class="name">${escapeHtml(a.pseudo)}</span></div>`).join('')}</div>`}
     openPromptModal({
         title:`📤 Partager « ${col.name} »`,
         hint:`Le destinataire recevra une <strong>notification</strong> et pourra <strong>accepter ou refuser</strong> votre partage.`,
-        extraContent:friendsHtml,
+        extraContent:'',
         inputsHtml:`<input type="text" class="prompt-input" id="shareRecipient" placeholder="Pseudo destinataire" autocomplete="off">`,
         actionsHtml:`<button class="btn-secondary" onclick="closePromptModal()">Annuler</button><button class="btn-primary" onclick="doShareCollection(${colId})">Partager</button>`,
         onOpen:()=>{const el=document.getElementById('shareRecipient');if(el)el.focus()}
     });
 }
 
-function doShareCollection(colId){
+async function doShareCollection(colId){
     const val=document.getElementById('shareRecipient').value.trim();
     if(!val){showPromptError('Entrez un pseudo');return}
     if(val.toLowerCase()===currentUser.pseudo.toLowerCase()){showPromptError('Vous ne pouvez pas vous envoyer à vous-même');return}
-    const accounts=getAccounts();
-    const targetKey=val.toLowerCase();
-    if(!accounts[targetKey]){showPromptError(`⚠️ L'utilisateur "${val}" n'a pas de compte`);return}
+    const target=await fbGetUser(val);
+    if(!target){showPromptError(`⚠️ L'utilisateur "${val}" n'existe pas`);return}
     const col=collections.find(c=>c.id===colId);
     if(!col){showPromptError('Collection introuvable');return}
-    createNotification(accounts[targetKey].pseudo,{type:'share-offer',from:currentUser.pseudo,data:{name:col.name,modIds:[...col.modIds],originalId:col.id}});
-    showToast('info',`✅ Partage envoyé à ${accounts[targetKey].pseudo}`);
-    closePromptModal();
+    const ok=await createNotification(target.pseudo,{
+        type:'share-offer',
+        from:currentUser.pseudo,
+        data:{name:col.name,modIds:[...col.modIds],originalId:col.id}
+    });
+    if(ok){showToast('info',`✅ Partage envoyé à ${target.pseudo}`);closePromptModal()}
+    else{showPromptError('Erreur lors de l\'envoi')}
 }
 
-function acceptShareOffer(notifId){
+async function acceptShareOffer(notifId){
     const notif=notifications.find(n=>n.id===notifId);if(!notif)return;
-    const newCol={id:Date.now()+Math.floor(Math.random()*10000),name:notif.data.name,modIds:[...notif.data.modIds],owner:currentUser.pseudo,imported:true,sharedFrom:notif.from};
-    collections.push(newCol);saveCollections();updateTabCounts();
-    createNotification(notif.from,{type:'accepted',from:currentUser.pseudo,data:{collectionName:notif.data.name}});
-    notifications=notifications.filter(n=>n.id!==notifId);saveNotifications();updateBellBadge();renderBellList();
+    const newCol={
+        id:Date.now()+Math.floor(Math.random()*10000),
+        name:notif.data.name,
+        modIds:[...notif.data.modIds],
+        owner:currentUser.pseudo,
+        imported:true,
+        sharedFrom:notif.from
+    };
+    collections.push(newCol);
+    notifications=notifications.filter(n=>n.id!==notifId);
+    await fbSaveCurrentUserData();
+    await createNotification(notif.from,{type:'accepted',from:currentUser.pseudo,data:{collectionName:notif.data.name}});
+    updateTabCounts();updateBellBadge();renderBellList();
     if(currentTab==='collections')renderCollections();
     showToast('info',`✅ Collection « ${notif.data.name} » ajoutée`);
 }
 
-function rejectShareOffer(notifId){
+async function rejectShareOffer(notifId){
     const notif=notifications.find(n=>n.id===notifId);if(!notif)return;
-    createNotification(notif.from,{type:'rejected',from:currentUser.pseudo,data:{collectionName:notif.data.name}});
-    notifications=notifications.filter(n=>n.id!==notifId);saveNotifications();updateBellBadge();renderBellList();
+    notifications=notifications.filter(n=>n.id!==notifId);
+    await fbSaveCurrentUserData();
+    await createNotification(notif.from,{type:'rejected',from:currentUser.pseudo,data:{collectionName:notif.data.name}});
+    updateBellBadge();renderBellList();
     showToast('info',`Partage refusé`);
 }
 
 // ═══ IMPORT ═══
 function openImportCollectionPrompt(){
     if(!currentUser){openAuthModal('login');return}
-    const accounts=getAccounts();
-    const otherUsers=Object.values(accounts).filter(a=>a.pseudo.toLowerCase()!==currentUser.pseudo.toLowerCase());
-    let friendsHtml='';
-    if(otherUsers.length>0){friendsHtml=`<div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:8px">Utilisateurs inscrits</div><div class="friends-list">${otherUsers.map(a=>`<div class="friend-item" onclick="document.getElementById('importFrom').value='${escapeHtml(a.pseudo).replace(/'/g,"\\'")}'"><span class="avatar-circle">${escapeHtml(a.pseudo.charAt(0).toUpperCase())}</span><span class="name">${escapeHtml(a.pseudo)}</span></div>`).join('')}</div>`}
     openPromptModal({
         title:`📥 Importer une collection`,
         hint:`Étape 1 sur 2 : entrez le pseudo de la personne dont vous voulez importer une collection.`,
-        extraContent:friendsHtml,
+        extraContent:'',
         inputsHtml:`<input type="text" class="prompt-input" id="importFrom" placeholder="Pseudo" autocomplete="off">`,
         actionsHtml:`<button class="btn-secondary" onclick="closePromptModal()">Annuler</button><button class="btn-primary" onclick="chooseCollectionToImport()">Suivant →</button>`,
         onOpen:()=>{const el=document.getElementById('importFrom');if(el)el.focus()}
     });
 }
 
-function chooseCollectionToImport(){
+async function chooseCollectionToImport(){
     const val=document.getElementById('importFrom').value.trim();
     if(!val){showPromptError('Entrez un pseudo');return}
-    const accounts=getAccounts();
-    const targetKey=val.toLowerCase();
-    if(!accounts[targetKey]){showPromptError(`⚠️ L'utilisateur "${val}" n'a pas de compte`);return}
-    if(targetKey===currentUser.pseudo.toLowerCase()){showPromptError('Impossible d\'importer vos propres collections');return}
-    const friendCols=(accounts[targetKey].collections||[]).filter(c=>!c.imported);
-    if(friendCols.length===0){showPromptError(`${accounts[targetKey].pseudo} n'a créé aucune collection`);return}
-    const friendPseudo=accounts[targetKey].pseudo;
+    if(val.toLowerCase()===currentUser.pseudo.toLowerCase()){showPromptError('Impossible d\'importer vos propres collections');return}
+    const target=await fbGetUser(val);
+    if(!target){showPromptError(`⚠️ L'utilisateur "${val}" n'existe pas`);return}
+    const friendCols=(target.collections||[]).filter(c=>!c.imported);
+    if(friendCols.length===0){showPromptError(`${target.pseudo} n'a créé aucune collection`);return}
+    const friendPseudo=target.pseudo;
     let pickerHtml=`<div class="collection-picker-list">${friendCols.map((c,i)=>`<div class="collection-picker-item" data-idx="${i}" data-colid="${c.id}" onclick="selectPickerItem(this)"><div class="collection-picker-icon">📁</div><div class="collection-picker-info"><div class="collection-picker-name">${escapeHtml(c.name)}</div><div class="collection-picker-meta">${c.modIds.length} mod${c.modIds.length>1?'s':''}</div></div><div class="collection-picker-check"></div></div>`).join('')}</div>`;
     openPromptModal({
         title:`📥 Choisir une collection`,
@@ -1354,77 +1487,95 @@ function chooseCollectionToImport(){
 let selectedPickerColId=null;
 function selectPickerItem(el){document.querySelectorAll('.collection-picker-item').forEach(i=>i.classList.remove('selected'));el.classList.add('selected');selectedPickerColId=parseInt(el.dataset.colid)}
 
-function doRequestImport(friendPseudo){
+async function doRequestImport(friendPseudo){
     if(!selectedPickerColId){showPromptError('Choisissez une collection');return}
-    const accounts=getAccounts();
-    const targetKey=friendPseudo.toLowerCase();
-    const friendAcc=accounts[targetKey];if(!friendAcc){showPromptError('Utilisateur introuvable');return}
-    const col=(friendAcc.collections||[]).find(c=>c.id===selectedPickerColId);
+    const target=await fbGetUser(friendPseudo);
+    if(!target){showPromptError('Utilisateur introuvable');return}
+    const col=(target.collections||[]).find(c=>c.id===selectedPickerColId);
     if(!col){showPromptError('Collection introuvable');return}
-    createNotification(friendPseudo,{type:'import-request',from:currentUser.pseudo,data:{collectionId:col.id,collectionName:col.name}});
-    showToast('info',`✅ Demande envoyée à ${friendPseudo}`);
-    selectedPickerColId=null;
-    closePromptModal();
+    const ok=await createNotification(friendPseudo,{
+        type:'import-request',
+        from:currentUser.pseudo,
+        data:{collectionId:col.id,collectionName:col.name}
+    });
+    if(ok){showToast('info',`✅ Demande envoyée à ${friendPseudo}`);selectedPickerColId=null;closePromptModal()}
+    else{showPromptError('Erreur lors de l\'envoi')}
 }
 
-function acceptImportRequest(notifId){
+async function acceptImportRequest(notifId){
     const notif=notifications.find(n=>n.id===notifId);if(!notif)return;
     const col=collections.find(c=>c.id===notif.data.collectionId&&!c.imported);
     if(!col){
         showToast('error','⚠️ Vous n\'avez plus cette collection');
         notifications=notifications.filter(n=>n.id!==notifId);
-        saveNotifications();updateBellBadge();renderBellList();
+        await fbSaveCurrentUserData();
+        updateBellBadge();renderBellList();
         return;
     }
-    const accounts=getAccounts();
-    const targetKey=notif.from.toLowerCase();
-    if(!accounts[targetKey]){showToast('error','Utilisateur destinataire introuvable');return}
-    if(!accounts[targetKey].collections)accounts[targetKey].collections=[];
+    const target=await fbGetUser(notif.from);
+    if(!target){showToast('error','Utilisateur destinataire introuvable');return}
 
+    // Ajoute la collection chez le demandeur
+    const {doc,updateDoc,arrayUnion}=window.firebaseFn;
     const shared={
         id:Date.now()+Math.floor(Math.random()*10000),
         name:col.name,
         modIds:[...col.modIds],
-        owner:accounts[targetKey].pseudo,
+        owner:target.pseudo,
         imported:true,
         sharedFrom:currentUser.pseudo
     };
+    try{
+        await updateDoc(doc(window.firebaseDb,'users',target.uid),{
+            collections:arrayUnion(shared)
+        });
+    }catch(e){console.error(e);showToast('error','Erreur');return}
 
-    // Retire les anciennes versions et ajoute la nouvelle
-    accounts[targetKey].collections=accounts[targetKey].collections.filter(c=>!(c.imported&&c.sharedFrom===currentUser.pseudo&&c.name===col.name));
-    accounts[targetKey].collections.push(shared);
-
-    // Notification "acceptée" pour le demandeur AVEC les données de la collection
-    if(!accounts[targetKey].notifications)accounts[targetKey].notifications=[];
-    accounts[targetKey].notifications.unshift({
-        id:Date.now()+Math.floor(Math.random()*10000)+1,
-        read:false,
-        timestamp:Date.now(),
-        type:'accepted',
-        from:currentUser.pseudo,
-        data:{collectionName:col.name}
-    });
-
-    saveAccounts(accounts);
-
-    // Retirer la notif de demande côté récepteur
+    await createNotification(notif.from,{type:'accepted',from:currentUser.pseudo,data:{collectionName:col.name}});
     notifications=notifications.filter(n=>n.id!==notifId);
-    saveNotifications();updateBellBadge();renderBellList();
-
+    await fbSaveCurrentUserData();
+    updateBellBadge();renderBellList();
     showToast('info',`✅ ${notif.from} a reçu votre collection`);
 }
 
-function rejectImportRequest(notifId){
+async function rejectImportRequest(notifId){
     const notif=notifications.find(n=>n.id===notifId);if(!notif)return;
-    createNotification(notif.from,{type:'rejected',from:currentUser.pseudo,data:{collectionName:notif.data.collectionName}});
-    notifications=notifications.filter(n=>n.id!==notifId);saveNotifications();updateBellBadge();renderBellList();
+    notifications=notifications.filter(n=>n.id!==notifId);
+    await fbSaveCurrentUserData();
+    await createNotification(notif.from,{type:'rejected',from:currentUser.pseudo,data:{collectionName:notif.data.collectionName}});
+    updateBellBadge();renderBellList();
     showToast('info','Demande refusée');
+}
+
+let realtimeUnsubscribe=null;
+
+function setupRealtimeSync(){
+    if(!currentUser||!currentUser.uid)return;
+    if(realtimeUnsubscribe){realtimeUnsubscribe();realtimeUnsubscribe=null}
+    const {doc,onSnapshot}=window.firebaseFn;
+    realtimeUnsubscribe=onSnapshot(doc(window.firebaseDb,'users',currentUser.uid),(snap)=>{
+        if(!snap.exists())return;
+        const data=snap.data();
+        const oldNotifIds=new Set(notifications.map(n=>n.id));
+        const newNotifs=(data.notifications||[]).filter(n=>!oldNotifIds.has(n.id));
+        favorites=data.favorites||[];
+        collections=data.collections||[];
+        notifications=data.notifications||[];
+        updateTabCounts();updateBellBadge();
+        if(bellDropdown.classList.contains('open'))renderBellList();
+        if(currentTab==='favorites')renderFavorites();
+        if(currentTab==='collections')renderCollections();
+        // Toast pour nouvelles notifs
+        const nonRead=newNotifs.filter(n=>!n.read);
+        if(nonRead.length>0){
+            showToast('info',`🔔 ${nonRead.length} nouvelle${nonRead.length>1?'s':''} notification${nonRead.length>1?'s':''}`);
+        }
+    });
 }
 
 function init(){
     createParticles();
     populateVersionFilter();
-    loadSession();
     updateUserBadge();
     updateBellBadge();
     renderCategories();
@@ -1434,56 +1585,33 @@ function init(){
     const vers=[...new Set(MODS_DATABASE.flatMap(m=>m.versions))].length;
     setTimeout(()=>{animateCounter(document.getElementById('statMods'),MODS_DATABASE.length);animateCounter(document.getElementById('statCategories'),cats);animateCounter(document.getElementById('statVersions'),vers)},500);
     document.querySelectorAll('.fade-in-section').forEach(s=>{if(s.getBoundingClientRect().top<window.innerHeight)s.classList.add('visible')});
-
-    // Poll pour les notifs ET les nouvelles collections importées
-    setInterval(()=>{
-        if(!currentUser)return;
-        const accounts=getAccounts();
-        const acc=accounts[currentUser.pseudo.toLowerCase()];
-        if(!acc)return;
-
-        // ═══ 1. Synchronisation des notifications ═══
-        const remoteNotifs=acc.notifications||[];
-        const currentIds=new Set(notifications.map(n=>n.id));
-        const newNotifs=remoteNotifs.filter(n=>!currentIds.has(n.id));
-        if(newNotifs.length>0){
-            notifications=[...newNotifs,...notifications];
-            updateBellBadge();
-            if(bellDropdown.classList.contains('open'))renderBellList();
-            const nonRead=newNotifs.filter(n=>!n.read);
-            if(nonRead.length>0){
-                showToast('info',`🔔 ${nonRead.length} nouvelle${nonRead.length>1?'s':''} notification${nonRead.length>1?'s':''}`);
-            }
-        }
-        const remoteIds=new Set(remoteNotifs.map(n=>n.id));
-        notifications=notifications.filter(n=>remoteIds.has(n.id));
-
-        // ═══ 2. Synchronisation des collections importées (NOUVEAU) ═══
-        // Détecte les collections qui ont été ajoutées dans le compte du côté du recepteur
-        // (via acceptShareOffer ou acceptImportRequest depuis une autre session/onglet)
-        const remoteCols=acc.collections||[];
-        const localColIds=new Set(collections.map(c=>c.id));
-        const newImportedCols=remoteCols.filter(c=>!localColIds.has(c.id));
-        if(newImportedCols.length>0){
-            collections.push(...newImportedCols);
-            updateTabCounts();
-            if(currentTab==='collections')renderCollections();
-            const importedCount=newImportedCols.filter(c=>c.imported).length;
-            if(importedCount>0){
-                showToast('info',`📥 ${importedCount} nouvelle${importedCount>1?'s':''} collection${importedCount>1?'s':''} reçue${importedCount>1?'s':''}`);
-            }
-        }
-
-        // Synchronisation inverse : détecte les collections supprimées ailleurs
-        const remoteColIds=new Set(remoteCols.map(c=>c.id));
-        const beforeCount=collections.length;
-        collections=collections.filter(c=>remoteColIds.has(c.id));
-        if(collections.length!==beforeCount){
-            updateTabCounts();
-            if(currentTab==='collections')renderCollections();
-        }
-    },2500);
 }
+
+// Attendre que Firebase soit prêt puis vérifier si l'utilisateur est déjà connecté
+function initFirebaseAuth(){
+    const {onAuthStateChanged,doc,getDoc}=window.firebaseFn;
+    onAuthStateChanged(window.firebaseAuth,async (user)=>{
+        if(user){
+            const savedPseudo=localStorage.getItem(LS_CURRENT_USER);
+            const userDoc=await getDoc(doc(window.firebaseDb,'users',user.uid));
+            if(userDoc.exists()){
+                const data=userDoc.data();
+                currentUser={uid:user.uid,pseudo:data.pseudo};
+                favorites=data.favorites||[];
+                collections=data.collections||[];
+                notifications=data.notifications||[];
+                updateUserBadge();updateTabCounts();updateBellBadge();
+                if(currentTab==='favorites')renderFavorites();
+                if(currentTab==='collections')renderCollections();
+                setupRealtimeSync();
+            }
+        }
+    });
+}
+
+if(window.firebaseReady){initFirebaseAuth()}
+else{window.addEventListener('firebase-ready',initFirebaseAuth)}
+
 document.addEventListener('DOMContentLoaded',init);
 </script>
 </body>
