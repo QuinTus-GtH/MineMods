@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MineMods — Découvrez les meilleurs mods Minecraft</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--mc-green:#5D8C3E;--mc-green-light:#7EC850;--mc-diamond:#4AEDD9;--mc-gold:#FCDB05;--mc-redstone:#FF1A1A;--mc-emerald:#17DD62;--mc-purple:#A946E8;--mc-orange:#D87F33;--transition:all 0.3s cubic-bezier(0.4,0,0.2,1);--card-radius:16px}
+[data-theme="dark"]{--bg-primary:#0a0a0f;--bg-secondary:#12121a;--bg-card:#1a1a2e;--bg-input:#1e1e30;--bg-cat-card:#181828;--text-primary:#f0f0f5;--text-secondary:#a0a0b8;--text-muted:#6a6a85;--border-color:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.15);--shadow-card:0 4px 24px rgba(0,0,0,0.4);--shadow-card-hover:0 12px 48px rgba(0,0,0,0.6);--glow-green:0 0 30px rgba(126,200,80,0.15);--bg-header:rgba(10,10,15,0.92)}
+[data-theme="light"]{--bg-primary:#f5f0eb;--bg-secondary:#ece5dc;--bg-card:#ffffff;--bg-input:#ffffff;--bg-cat-card:#ffffff;--text-primary:#1a1a2e;--text-secondary:#555566;--text-muted:#888899;--border-color:rgba(0,0,0,0.1);--border-hover:rgba(0,0,0,0.2);--shadow-card:0 4px 20px rgba(0,0,0,0.08);--shadow-card-hover:0 12px 40px rgba(0,0,0,0.15);--glow-green:0 0 30px rgba(93,140,62,0.1);--bg-header:rgba(245,240,235,0.92)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--mc-green) var(--bg-secondary)}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color:var(--text-primary);transition:background-color .5s,color .5s;overflow-x:hidden;line-height:1.6}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg-secondary)}
+::-webkit-scrollbar-thumb{background:var(--mc-green);border-radius:4px}
+
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg-header);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-color);transition:var(--transition)}
+.header.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.2)}
+.header-inner{max-width:1400px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text-primary);cursor:pointer;flex-shrink:0}
+.logo-icon{width:42px;height:42px;border-radius:10px;overflow:hidden;background:var(--bg-card);box-shadow:0 4px 15px rgba(93,140,62,.3)}
+.logo-icon img{width:100%;height:100%;object-fit:cover;display:block}
+.logo-text{font-family:'Press Start 2P',monospace;font-size:16px;letter-spacing:2px}
+.logo-text span{color:var(--mc-green-light)}
+.nav-controls{display:flex;align-items:center;gap:12px}
+.nav-link{padding:8px 16px;border-radius:10px;text-decoration:none;color:var(--text-secondary);font-weight:500;font-size:14px;transition:var(--transition);cursor:pointer;border:none;background:none;font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:8px}
+.nav-link:hover{color:var(--text-primary);background:var(--border-color)}
+.nav-link.nav-cta{color:white;background:linear-gradient(135deg,#f16436,#e04e2e);font-weight:700;box-shadow:0 2px 10px rgba(241,100,54,.35)}
+.nav-link.nav-cta:hover{transform:translateY(-2px);box-shadow:0 4px 18px rgba(241,100,54,.5);color:white}
+.cf-icon{width:18px;height:18px;object-fit:contain;flex-shrink:0;display:block}
+
+/* Bell icon */
+.bell-btn{position:relative;width:44px;height:44px;border-radius:12px;border:1px solid var(--border-color);background:var(--bg-input);color:var(--text-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition);padding:0}
+.bell-btn:hover{border-color:var(--mc-green);color:var(--mc-green-light)}
+.bell-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bell-btn.has-notif svg{animation:bellShake 2s ease-in-out infinite}
+@keyframes bellShake{0%,50%,100%{transform:rotate(0)}5%,15%,25%{transform:rotate(15deg)}10%,20%,30%{transform:rotate(-15deg)}35%{transform:rotate(0)}}
+
+/* Badge de notification : petit cercle rouge parfait en haut à droite */
+.bell-badge{
+    position:absolute;
+    top:2px;
+    right:2px;
+    background:var(--mc-redstone);
+    color:white;
+    font-size:9px;
+    font-weight:800;
+    width:16px;
+    height:16px;
+    padding:0;
+    border-radius:50%;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    border:2px solid var(--bg-header);
+    line-height:1;
+    aspect-ratio:1/1;
+    min-width:16px;
+    min-height:16px;
+    box-sizing:content-box;
+}
+.bell-badge.visible{display:flex}
+.bell-badge.wide{width:auto;min-width:20px;padding:0 4px;border-radius:8px;aspect-ratio:auto}
+
+.bell-dropdown{position:absolute;top:calc(100% + 8px);right:0;width:380px;max-height:500px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.4);display:none;z-index:1001;overflow:hidden;flex-direction:column}
+.bell-dropdown.open{display:flex}
+.bell-header{padding:16px;border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.bell-header h3{font-size:15px;font-weight:800;color:var(--text-primary)}
+.bell-header .clear-all{font-size:11px;color:var(--text-muted);cursor:pointer;font-weight:600;transition:var(--transition);background:none;border:none;font-family:'Inter',sans-serif}
+.bell-header .clear-all:hover{color:var(--mc-redstone)}
+.bell-list{flex:1;overflow-y:auto;padding:6px}
+.bell-empty{padding:40px 20px;text-align:center;color:var(--text-muted);font-size:13px}
+.bell-empty-icon{font-size:36px;margin-bottom:8px;opacity:.5}
+.notif-item{padding:12px 14px;border-radius:10px;margin-bottom:6px;background:var(--bg-secondary);border:1px solid var(--border-color);border-left:3px solid var(--mc-diamond);transition:var(--transition)}
+.notif-item.unread{border-left-color:var(--mc-gold);background:rgba(252,219,5,.05)}
+.notif-item .notif-title{font-size:13px;font-weight:800;color:var(--text-primary);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.notif-item .notif-desc{font-size:12px;color:var(--text-secondary);margin-bottom:10px;line-height:1.5}
+.notif-item .notif-desc strong{color:var(--text-primary)}
+.notif-item .notif-time{font-size:10px;color:var(--text-muted);margin-bottom:8px}
+.notif-actions{display:flex;gap:6px;flex-wrap:wrap}
+.notif-btn{padding:6px 12px;border-radius:8px;font-size:11.5px;font-weight:700;cursor:pointer;border:none;transition:var(--transition);font-family:'Inter',sans-serif;flex:1;min-width:80px}
+.notif-btn.accept{background:linear-gradient(135deg,var(--mc-green),var(--mc-green-light));color:white}
+.notif-btn.accept:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(93,140,62,.4)}
+.notif-btn.reject{background:var(--bg-card);color:var(--mc-redstone);border:1px solid rgba(255,26,26,.3)}
+.notif-btn.reject:hover{background:rgba(255,26,26,.1);border-color:var(--mc-redstone)}
+.notif-btn.dismiss{background:var(--bg-card);color:var(--text-secondary);border:1px solid var(--border-color)}
+.notif-btn.dismiss:hover{background:var(--border-color);color:var(--text-primary)}
+
+.user-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:10px;background:var(--bg-input);border:1px solid var(--border-color);color:var(--text-primary);font-size:13px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:var(--transition);position:relative}
+.user-badge:hover{border-color:var(--mc-green);color:var(--mc-green-light)}
+.user-badge.logged-in{border-color:rgba(126,200,80,.4);background:rgba(126,200,80,.06)}
+.user-badge .avatar-circle{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--mc-green),var(--mc-diamond));color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px}
+.user-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.4);min-width:220px;padding:6px;display:none;z-index:1001}
+.user-dropdown.open{display:block}
+.user-dropdown-item{padding:10px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;color:var(--text-primary);display:flex;align-items:center;gap:10px;transition:background .2s ease;text-align:left;border:none;background:none;width:100%;font-family:'Inter',sans-serif}
+.user-dropdown-item:hover{background:rgba(126,200,80,.1);color:var(--mc-green-light)}
+.user-dropdown-item.danger:hover{background:rgba(255,26,26,.1);color:var(--mc-redstone)}
+.user-dropdown-divider{height:1px;background:var(--border-color);margin:4px 0}
+.user-dropdown-header{padding:12px 14px 8px;font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.theme-toggle{width:44px;height:44px;border-radius:12px;border:1px solid var(--border-color);background:var(--bg-input);color:var(--text-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;transition:var(--transition)}
+.theme-toggle:hover{border-color:var(--mc-green);box-shadow:var(--glow-green);transform:rotate(20deg)}
+.mobile-menu-btn{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--border-color);background:var(--bg-input);color:var(--text-primary);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.mobile-menu-btn span{width:20px;height:2px;background:var(--text-primary);border-radius:2px}
+.mobile-menu{position:absolute;top:100%;left:0;right:0;background:var(--bg-header);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-color);padding:16px 24px;display:none;flex-direction:column;gap:4px;box-shadow:0 8px 30px rgba(0,0,0,.3)}
+.mobile-menu.open{display:flex}
+.mobile-menu .nav-link{width:100%;justify-content:flex-start;padding:12px 16px}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg-image{position:absolute;inset:0;background:url('./images/home/background.png') center/cover no-repeat;filter:brightness(.95) saturate(1.05)}
+.hero-veil{position:absolute;inset:0;background:rgba(0,0,0,.1);z-index:1}
+[data-theme="light"] .hero-veil{background:rgba(0,0,0,.08)}
+.hero-overlay{position:absolute;inset:0;z-index:2;pointer-events:none}
+[data-theme="dark"] .hero-overlay{background:linear-gradient(180deg,transparent 0%,transparent 65%,rgba(10,10,15,.6) 88%,#0a0a0f 100%)}
+[data-theme="light"] .hero-overlay{background:linear-gradient(180deg,transparent 0%,transparent 65%,rgba(245,240,235,.6) 88%,#f5f0eb 100%)}
+.hero-particles{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.particle{position:absolute;bottom:-20px;border-radius:2px;opacity:0;animation:floatUp linear infinite;box-shadow:0 0 8px currentColor}
+@keyframes floatUp{0%{transform:translateY(0) translateX(0) rotate(0);opacity:0}10%{opacity:var(--po,.7)}50%{transform:translateY(-50vh) translateX(var(--d,20px)) rotate(180deg)}90%{opacity:var(--po,.7)}100%{transform:translateY(-105vh) translateX(calc(var(--d,20px)*2)) rotate(360deg);opacity:0}}
+.sparkle{position:absolute;background:white;border-radius:50%;opacity:0;animation:twinkle ease-in-out infinite;box-shadow:0 0 6px rgba(255,255,255,.8)}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:.9;transform:scale(1.4)}}
+.hero-content{position:relative;z-index:3;text-align:center;padding:0 24px;max-width:900px}
+.hero h1{font-family:'Press Start 2P',monospace;font-size:clamp(24px,5vw,52px);line-height:1.4;margin-bottom:24px;animation:fadeInUp 1s ease .2s both;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.85),0 2px 8px rgba(0,0,0,.7)}
+.hero h1 .highlight{background:linear-gradient(135deg,var(--mc-green-light),var(--mc-diamond));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6))}
+.hero-title-img{display:block;width:100%;max-width:1100px;height:auto;max-height:300px;object-fit:contain;margin:0 auto 24px;animation:fadeInUp 1s ease 0.2s both;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.85)) drop-shadow(0 2px 8px rgba(0,0,0,0.7))}
+.hero-description{font-size:clamp(15px,2vw,19px);color:#f0f0f5;max-width:650px;margin:0 auto 48px;line-height:1.8;animation:fadeInUp 1s ease .4s both;text-shadow:0 2px 12px rgba(0,0,0,.9),0 1px 4px rgba(0,0,0,.75)}
+.hero-stats{display:flex;justify-content:center;gap:48px;margin-top:24px;animation:fadeInUp 1s ease .6s both}
+.hero-stat{text-align:center}
+.hero-stat-number{font-family:'Press Start 2P',monospace;font-size:24px;color:var(--mc-green-light);display:block;text-shadow:0 2px 14px rgba(0,0,0,.85)}
+.hero-stat-label{font-size:13px;color:#e8e8f0;margin-top:8px;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+.catalog{max-width:1400px;margin:0 auto;padding:80px 24px 120px}
+.section-header{text-align:center;margin-bottom:48px}
+.section-header h2{font-family:'Press Start 2P',monospace;font-size:clamp(18px,3vw,30px);margin-bottom:16px}
+.section-header p{color:var(--text-secondary);font-size:16px;max-width:600px;margin:0 auto}
+.filters-panel{background:var(--bg-card);border:1px solid var(--border-color);border-radius:22px;padding:26px;margin-bottom:40px;box-shadow:var(--shadow-card);scroll-margin-top:100px}
+.search-bar-row{display:flex;gap:14px;margin-bottom:24px}
+.search-wrapper{flex:1;position:relative}
+.search-icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--text-muted);pointer-events:none;z-index:2}
+.search-input{width:100%;padding:15px 48px 15px 50px;border-radius:14px;border:1px solid var(--border-color);background:var(--bg-input);color:var(--text-primary);font-size:15px;font-family:'Inter',sans-serif;transition:var(--transition);outline:none}
+.search-input::placeholder{color:var(--text-muted)}
+.search-input:focus{border-color:var(--mc-green);box-shadow:0 0 0 3px rgba(126,200,80,.15)}
+.search-clear-btn{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:26px;height:26px;border:none;background:var(--bg-secondary);color:var(--text-muted);border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:12px;font-weight:700;line-height:1;padding:0;transition:var(--transition);z-index:3}
+.search-clear-btn.visible{display:flex}
+.search-clear-btn:hover{background:var(--mc-redstone);color:white;transform:translateY(-50%) rotate(90deg)}
+.search-suggestions{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.4);max-height:340px;overflow-y:auto;z-index:100;display:none;padding:6px}
+.search-suggestions.visible{display:block}
+.suggestion-header{padding:8px 12px 4px;font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.suggestion-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;cursor:pointer;transition:background .2s ease}
+.suggestion-item:hover,.suggestion-item.highlighted{background:rgba(126,200,80,.1)}
+.suggestion-img{width:40px;height:40px;border-radius:8px;object-fit:cover;flex-shrink:0;background:var(--bg-secondary)}
+.suggestion-content{flex:1;min-width:0}
+.suggestion-name{font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.suggestion-name mark{background:rgba(126,200,80,.35);color:var(--mc-green-light);padding:0 2px;border-radius:3px}
+.suggestion-cats{display:flex;gap:4px;flex-wrap:wrap}
+.suggestion-cat{font-size:10px;padding:2px 6px;border-radius:4px;font-weight:600;color:white}
+.suggestion-cat.aventure{background:#FF6B35}.suggestion-cat.decoration{background:#E85A9C}.suggestion-cat.creatures{background:#4CD964}.suggestion-cat.biomes{background:#17B8DD}.suggestion-cat.utilitaire{background:#FCB53B;color:#1a1a2e}.suggestion-cat.nourriture{background:#E74C3C}.suggestion-cat.bibliotheque{background:#9B7BE8}
+.suggestion-arrow{color:var(--text-muted);font-size:14px;flex-shrink:0}
+.suggestion-empty{padding:20px;text-align:center;color:var(--text-muted);font-size:13px}
+.suggestion-empty strong{color:var(--text-primary)}
+.filter-select{padding:15px 44px 15px 18px;border-radius:14px;border:1px solid var(--border-color);background:var(--bg-input);color:var(--text-primary);font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:var(--transition);outline:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237f7f9f' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;min-width:200px}
+.filter-select:focus{border-color:var(--mc-green);box-shadow:0 0 0 3px rgba(126,200,80,.15)}
+.filter-select option{background:var(--bg-input);color:var(--text-primary);font-weight:600;padding:10px}
+.categories-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.category-card{background:var(--bg-cat-card);border:1.5px solid var(--border-color);border-radius:14px;padding:12px 10px;cursor:pointer;transition:var(--transition);position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:150px;user-select:none}
+.category-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 60%,var(--cat-color,transparent) 200%);opacity:.08;transition:opacity .3s}
+.category-card:hover{transform:translateY(-3px);border-color:var(--cat-color,var(--mc-green));box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.category-card:hover::before{opacity:.15}
+.category-card.active{border-color:var(--cat-color,var(--mc-green));box-shadow:0 0 0 2px var(--cat-color,var(--mc-green)),0 8px 24px rgba(0,0,0,.35)}
+.category-card.active::before{opacity:.22}
+.category-icon{font-size:26px;margin-bottom:6px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.25));line-height:1}
+.category-name{font-size:13px;font-weight:800;margin-bottom:4px}
+.category-desc{font-size:10.5px;color:var(--text-secondary);line-height:1.35;flex-grow:1;margin-bottom:8px}
+.category-count{display:inline-flex;align-items:center;justify-content:center;min-width:32px;padding:3px 9px;border-radius:16px;background:var(--cat-color,var(--mc-green));color:white;font-size:11px;font-weight:700;align-self:flex-start;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.cat-decoration{--cat-color:#E85A9C}.cat-creatures{--cat-color:#4CD964}.cat-biomes{--cat-color:#17B8DD}.cat-utilitaire{--cat-color:#FCB53B}.cat-nourriture{--cat-color:#E74C3C}.cat-aventure{--cat-color:#FF6B35}.cat-bibliotheque{--cat-color:#9B7BE8}
+.results-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;gap:16px;flex-wrap:wrap}
+.results-count{font-size:15px;color:var(--text-primary);font-weight:600}
+.results-count strong{color:var(--mc-green-light);font-weight:800}
+.results-controls{display:flex;align-items:center;gap:12px}
+.sort-select-wrapper{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;background:var(--bg-card);border:1px solid var(--border-color);font-size:13px;color:var(--text-primary);font-weight:600}
+.sort-select{appearance:none;background:var(--bg-card);border:none;color:var(--text-primary);font-weight:700;font-family:'Inter',sans-serif;font-size:13px;cursor:pointer;padding-right:20px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a0a0b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right center;outline:none}
+.sort-select option{background:var(--bg-card);color:var(--text-primary);font-weight:600;padding:10px}
+.view-toggle{display:flex;background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:4px;gap:2px}
+.view-btn{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--text-muted);cursor:pointer;border-radius:9px;transition:var(--transition)}
+.view-btn:hover{color:var(--text-primary)}
+.view-btn.active{background:linear-gradient(135deg,var(--mc-green),var(--mc-green-light));color:white;box-shadow:0 2px 8px rgba(93,140,62,.4)}
+.view-btn svg{width:18px;height:18px}
+.tab-bar{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.tab-btn{padding:10px 20px;border-radius:12px;border:1px solid var(--border-color);background:var(--bg-card);color:var(--text-primary);font-weight:700;font-size:14px;cursor:pointer;transition:var(--transition);font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:8px}
+.tab-btn:hover{border-color:var(--mc-green);color:var(--mc-green-light)}
+.tab-btn.active{background:linear-gradient(135deg,var(--mc-green),var(--mc-green-light));color:white;border-color:transparent;box-shadow:0 4px 15px rgba(93,140,62,.35)}
+.tab-btn .count{background:rgba(255,255,255,.2);padding:2px 8px;border-radius:8px;font-size:11px}
+.tab-btn.active .count{background:rgba(255,255,255,.3)}
+
+.mods-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.mods-grid.list-view{grid-template-columns:1fr}
+.mod-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:18px;overflow:hidden;transition:var(--transition);box-shadow:var(--shadow-card);position:relative;animation:cardAppear .6s ease both;display:flex;flex-direction:column}
+.list-view .mod-card{flex-direction:row}
+.list-view .mod-card-image-wrapper{width:320px;height:auto;min-height:200px;flex-shrink:0}
+.list-view .mod-card-body{flex:1}
+@keyframes cardAppear{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.mod-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card-hover);border-color:var(--border-hover)}
+.list-view .mod-card:hover{transform:translateY(-3px)}
+.mod-card-image-wrapper{overflow:hidden;position:relative;height:200px}
+.mod-card-image{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;background:var(--bg-secondary)}
+.mod-card:hover .mod-card-image{transform:scale(1.05)}
+.mod-card-badges{position:absolute;top:12px;left:12px;display:flex;gap:6px;flex-wrap:wrap;z-index:2;max-width:calc(100% - 60px)}
+.mod-badge{padding:5px 12px;border-radius:8px;font-size:11.5px;font-weight:700;color:white;backdrop-filter:blur(8px);box-shadow:0 2px 8px rgba(0,0,0,.3);white-space:nowrap}
+.mod-badge.aventure{background:rgba(255,107,53,.95)}.mod-badge.decoration{background:rgba(232,90,156,.95)}.mod-badge.creatures{background:rgba(76,217,100,.95)}.mod-badge.biomes{background:rgba(23,184,221,.95)}.mod-badge.utilitaire{background:rgba(252,181,59,.95);color:#1a1a2e}.mod-badge.nourriture{background:rgba(231,76,60,.95)}.mod-badge.bibliotheque{background:rgba(155,123,232,.95)}
+.fav-btn{position:absolute;top:12px;right:12px;width:34px;height:34px;border:none;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:var(--transition);padding:0;line-height:0}
+.fav-btn:hover{background:rgba(252,219,5,.9);transform:scale(1.1)}
+.fav-btn.active{background:rgba(252,219,5,.95);color:#1a1a2e}
+.fav-btn svg{width:16px;height:16px;display:block;stroke:currentColor;fill:none;stroke-width:2;stroke-linejoin:round;transition:fill .2s ease}
+.fav-btn.active svg{fill:#1a1a2e;stroke:#1a1a2e}
+.mod-card-body{padding:20px}
+.mod-card-title{font-size:18px;font-weight:800;margin-bottom:10px}
+.mod-card-description{font-size:14px;color:var(--text-secondary);line-height:1.6;margin-bottom:18px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:44px}
+.mod-card-stats{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.stat-item{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text-secondary)}
+.stat-item svg{width:14px;height:14px;opacity:.9}
+.version-chip{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:8px;background:var(--bg-secondary);color:var(--text-primary);font-size:12px;font-weight:700;border:1px solid var(--border-color)}
+.version-chip svg{width:12px;height:12px}
+.mod-card-actions{display:flex;gap:10px}
+.btn-download{flex:1;padding:11px 14px;border-radius:10px;background:linear-gradient(135deg,#f16436,#e04e2e);color:white;font-weight:700;font-size:13px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;transition:var(--transition);font-family:'Inter',sans-serif}
+.btn-download:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(241,100,54,.4)}
+.btn-details{padding:11px 14px;border-radius:10px;background:var(--bg-secondary);color:var(--text-primary);font-weight:600;font-size:13px;border:1px solid var(--border-color);cursor:pointer;transition:var(--transition);font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px}
+.btn-details:hover{border-color:var(--mc-green);color:var(--mc-green-light)}
+.no-results{text-align:center;padding:80px 24px;grid-column:1/-1}
+.no-results-icon{font-size:64px;margin-bottom:16px;opacity:.5}
+.no-results h3{font-size:20px;margin-bottom:8px}
+.no-results p{color:var(--text-muted)}
+.pagination{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:50px}
+.page-btn{min-width:40px;height:40px;padding:0 12px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid var(--border-color);background:var(--bg-card);color:var(--text-secondary);font-family:'Inter',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:var(--transition)}
+.page-btn:hover:not(:disabled):not(.active){border-color:var(--mc-green);color:var(--mc-green-light)}
+.page-btn.active{background:linear-gradient(135deg,var(--mc-green),var(--mc-green-light));color:white;border-color:transparent;box-shadow:0 4px 12px rgba(93,140,62,.4)}
+.page-btn:disabled{opacity:.4;cursor:not-allowed}
+.page-dots{padding:0 6px;color:var(--text-muted)}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:all .3s}
+.modal-overlay.active{opacity:1;visibility:visible}
+.modal{background:var(--bg-card);border:1px solid var(--border-color);border-radius:24px;width:100%;max-width:750px;max-height:90vh;overflow-y:auto;transform:scale(.9) translateY(20px);transition:transform .3s;box-shadow:0 25px 80px rgba(0,0,0,.5);position:relative}
+.modal-overlay.active .modal{transform:scale(1) translateY(0)}
+.modal-image-wrapper{width:100%;height:300px;overflow:hidden;border-radius:24px 24px 0 0}
+.modal-image{width:100%;height:100%;object-fit:cover;display:block}
+.modal-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);border:none;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition);z-index:10;padding:0;line-height:0}
+.modal-close:hover{background:rgba(255,26,26,.7);transform:rotate(90deg)}
+.modal-close svg{width:16px;height:16px;display:block;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round}
+.modal-body{padding:32px}
+.modal-title{font-family:'Press Start 2P',monospace;font-size:18px;margin-bottom:10px;line-height:1.4}
+.modal-categories{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.modal-description{color:var(--text-secondary);font-size:15px;line-height:1.8;margin-bottom:24px}
+.modal-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.modal-info-item{background:var(--bg-secondary);border-radius:12px;padding:16px;border:1px solid var(--border-color)}
+.modal-info-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:6px}
+.modal-info-value{font-weight:700;font-size:15px;transition:color .3s ease}
+.modal-info-value.updating{color:var(--mc-green-light);animation:sizeFlash .5s ease}
+@keyframes sizeFlash{0%{transform:scale(1)}50%{transform:scale(1.08);color:var(--mc-green-light)}100%{transform:scale(1)}}
+.modal-loaders{display:flex;flex-wrap:wrap;gap:8px}
+.loader-tag{padding:4px 10px;border-radius:6px;font-size:12px;font-weight:600;background:var(--bg-card);border:1px solid var(--border-color)}
+.loader-tag.forge{color:#e04e2e;border-color:rgba(224,78,46,.3);background:rgba(224,78,46,.08)}.loader-tag.fabric{color:#b8a45c;border-color:rgba(184,164,92,.3);background:rgba(184,164,92,.08)}.loader-tag.neoforge{color:#f58442;border-color:rgba(245,132,66,.3);background:rgba(245,132,66,.08)}.loader-tag.quilt{color:#c691e2;border-color:rgba(198,145,226,.3);background:rgba(198,145,226,.08)}
+.modal-deps{display:flex;flex-wrap:wrap;gap:8px}
+.dep-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px;background:rgba(155,123,232,.12);border:1px solid rgba(155,123,232,.35);color:#c8b3f4;font-size:12.5px;font-weight:700;cursor:pointer;transition:var(--transition);font-family:'Inter',sans-serif}
+.dep-chip:hover{background:rgba(155,123,232,.25);border-color:#9B7BE8;color:#e5d6ff;transform:translateY(-1px);box-shadow:0 4px 12px rgba(155,123,232,.3)}
+.dep-chip::before{content:'📚';font-size:12px}
+.dep-none{color:var(--text-muted);font-size:13px;font-style:italic}
+.version-dropdown-wrapper{position:relative}
+.version-dropdown-btn{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;background:var(--bg-card);border:1px solid var(--border-color);cursor:pointer;font-weight:700;font-size:14px;color:var(--text-primary);width:100%;transition:var(--transition)}
+.version-dropdown-btn:hover{border-color:var(--mc-green)}
+.version-dropdown-btn .arrow{margin-left:auto;font-size:10px;transition:transform .3s}
+.version-dropdown-btn.open .arrow{transform:rotate(180deg)}
+.version-dropdown-list{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:6px;max-height:220px;overflow-y:auto;z-index:10;box-shadow:0 8px 30px rgba(0,0,0,.3);display:none}
+.version-dropdown-list.open{display:block}
+.version-item{padding:8px 12px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;color:var(--text-secondary);transition:var(--transition);display:flex;justify-content:space-between;align-items:center;gap:6px}
+.version-item:hover{background:rgba(126,200,80,.1);color:var(--mc-green-light)}
+.version-item.current{background:rgba(126,200,80,.15);color:var(--mc-green-light)}
+.version-item .ver-latest{font-size:10px;padding:2px 6px;border-radius:4px;background:var(--mc-green);color:white;font-weight:700}
+.version-item .ver-size{font-size:11px;color:var(--text-muted);font-weight:600}
+.version-item:hover .ver-size,.version-item.current .ver-size{color:var(--mc-green-light);opacity:.85}
+.playlist-add-section{margin-top:20px;padding-top:20px;border-top:1px solid var(--border-color)}
+.playlist-add-title{font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.playlist-chips{display:flex;flex-wrap:wrap;gap:8px}
+.playlist-chip{padding:6px 14px;border-radius:10px;background:var(--bg-secondary);border:1px solid var(--border-color);color:var(--text-primary);font-size:13px;font-weight:600;cursor:pointer;transition:var(--transition);display:flex;align-items:center;gap:6px}
+.playlist-chip:hover{border-color:var(--mc-green);color:var(--mc-green-light)}
+.playlist-chip.in-playlist{border-color:var(--mc-green);background:rgba(126,200,80,.1);color:var(--mc-green-light)}
+.playlist-chip .check{display:none}
+.playlist-chip.in-playlist .check{display:inline}
+.playlist-chip.in-playlist .plus{display:none}
+.btn-new-playlist{padding:6px 14px;border-radius:10px;background:none;border:1px dashed var(--border-color);color:var(--text-muted);font-size:13px;font-weight:600;cursor:pointer;transition:var(--transition)}
+.btn-new-playlist:hover{border-color:var(--mc-green);color:var(--mc-green-light)}
+
+.collections-panel{display:none}
+.collections-panel.active{display:block}
+.collections-header-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.collection-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:16px;padding:20px;margin-bottom:16px;transition:var(--transition)}
+.collection-card:hover{box-shadow:var(--shadow-card-hover)}
+.collection-card.shared{border-left:4px solid var(--mc-purple)}
+.collection-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px;flex-wrap:wrap}
+.collection-name-wrapper{display:flex;align-items:center;gap:10px;flex:1;min-width:200px}
+.collection-name-input{background:none;border:none;color:var(--text-primary);font-size:18px;font-weight:800;font-family:'Inter',sans-serif;outline:none;flex:1;min-width:0;padding:4px 0;border-bottom:2px solid transparent;transition:var(--transition)}
+.collection-name-input:focus{border-bottom-color:var(--mc-green)}
+.collection-name-input:disabled{color:var(--text-primary);border-bottom-color:transparent;opacity:1}
+.shared-badge{padding:4px 10px;border-radius:8px;background:rgba(169,70,232,.15);border:1px solid rgba(169,70,232,.4);color:#c99cf0;font-size:11px;font-weight:700;display:inline-flex;align-items:center;gap:4px}
+.collection-actions{display:flex;gap:8px}
+.collection-action-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--border-color);background:var(--bg-secondary);color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:var(--transition)}
+.collection-action-btn:hover{border-color:var(--mc-green);color:var(--mc-green-light)}
+.collection-action-btn.delete-btn:hover{border-color:var(--mc-redstone);color:var(--mc-redstone)}
+.empty-collection{color:var(--text-muted);font-size:13px;font-style:italic}
+.btn-create-collection{padding:12px 24px;border-radius:12px;background:linear-gradient(135deg,var(--mc-green),var(--mc-green-light));color:white;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:var(--transition);font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:8px}
+.btn-create-collection:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(93,140,62,.4)}
+.btn-import-collection{padding:12px 24px;border-radius:12px;background:linear-gradient(135deg,var(--mc-purple),#c65bff);color:white;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:var(--transition);font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:8px}
+.btn-import-collection:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(169,70,232,.4)}
+.collection-summary{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px;padding:14px 16px;background:var(--bg-secondary);border-radius:12px;border:1px solid var(--border-color)}
+.collection-summary-item{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text-secondary)}
+.collection-summary-item strong{color:var(--text-primary);font-weight:800}
+.collection-summary-item svg{width:14px;height:14px;opacity:.8}
+.collection-alert{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;padding:12px 16px;border-radius:12px;font-size:13px;font-weight:600;border-left:4px solid}
+.collection-alert.error{background:rgba(255,26,26,.08);border-color:var(--mc-redstone);color:#ff7070}
+.collection-alert.warning{background:rgba(252,181,59,.1);border-color:var(--mc-gold);color:#f0c060}
+.collection-alert-title{font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.collection-alert-list{list-style:none;padding-left:0;margin:0;font-size:12.5px;line-height:1.7;font-weight:500}
+.collection-alert-list li{padding-left:16px;position:relative}
+.collection-alert-list li::before{content:'•';position:absolute;left:4px}
+.collection-alert-list .dep-link{color:inherit;text-decoration:underline;cursor:pointer;font-weight:700}
+.collection-alert-list .dep-link:hover{opacity:.8}
+.mod-card.incompatible {
+    border: 2px solid var(--mc-redstone) !important;
+    box-shadow: 0 0 0 3px rgba(255,26,26,.2), 0 4px 20px rgba(255,26,26,.25) !important;
+    position: relative;
+}
+
+/* On positionne le badge par rapport à l'image (parent du badge) */
+.mod-card.incompatible .mod-card-image-wrapper {
+    position: relative;
+}
+.incompat-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--mc-redstone);
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 8px 14px;
+    border-radius: 8px;
+    z-index: 3;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.5), 0 0 0 2px rgba(255,255,255,.15);
+    text-align: center;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+}
+.modal-actions{display:flex;gap:12px}
+.modal-actions .btn-download{flex:1;padding:14px;font-size:15px}
+.login-required{text-align:center;padding:60px 24px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:20px}
+.login-required-icon{font-size:64px;margin-bottom:16px}
+.login-required h3{font-size:22px;margin-bottom:10px}
+.login-required p{color:var(--text-secondary);font-size:15px;margin-bottom:24px;max-width:400px;margin-left:auto;margin-right:auto}
+.login-required-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.prompt-input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--border-color);background:var(--bg-input);color:var(--text-primary);font-size:15px;font-family:'Inter',sans-serif;outline:none;margin-bottom:12px;transition:var(--transition)}
+.prompt-input:focus{border-color:var(--mc-green);box-shadow:0 0 0 3px rgba(126,200,80,.15)}
+.prompt-hint{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.5}
+.prompt-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.btn-secondary{padding:10px 20px;border-radius:10px;background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border-color);cursor:pointer;font-weight:700;font-size:13px;font-family:'Inter',sans-serif;transition:var(--transition)}
+.btn-secondary:hover{border-color:var(--mc-redstone);color:var(--mc-redstone)}
+.btn-primary{padding:10px 20px;border-radius:10px;background:linear-gradient(135deg,var(--mc-green),var(--mc-green-light));color:white;border:none;cursor:pointer;font-weight:700;font-size:13px;font-family:'Inter',sans-serif;transition:var(--transition)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(93,140,62,.4)}
+.form-error{color:var(--mc-redstone);font-size:13px;font-weight:600;margin-bottom:12px;display:none}
+.form-error.visible{display:block}
+.form-info-banner{background:rgba(74,237,217,.08);border:1px solid rgba(74,237,217,.3);color:var(--mc-diamond);padding:10px 14px;border-radius:10px;font-size:12.5px;font-weight:600;margin-bottom:16px;line-height:1.5}
+.toast{position:fixed;top:90px;right:30px;padding:14px 22px;border-radius:12px;background:var(--bg-card);border:1px solid var(--border-color);border-left:4px solid var(--mc-green);color:var(--text-primary);font-weight:700;font-size:14px;z-index:3000;box-shadow:0 12px 40px rgba(0,0,0,.4);transform:translateX(400px);opacity:0;transition:all .35s cubic-bezier(.4,0,.2,1);max-width:350px}
+.toast.visible{transform:translateX(0);opacity:1}
+.toast.error{border-left-color:var(--mc-redstone)}
+.toast.warning{border-left-color:var(--mc-gold)}
+.toast.info{border-left-color:var(--mc-diamond)}
+.friends-list{display:flex;flex-direction:column;gap:6px;max-height:200px;overflow-y:auto;margin-bottom:12px}
+.friend-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;background:var(--bg-secondary);border:1px solid var(--border-color);cursor:pointer;transition:var(--transition)}
+.friend-item:hover{border-color:var(--mc-green);background:rgba(126,200,80,.06)}
+.friend-item .avatar-circle{width:32px;height:32px;font-size:13px}
+.friend-item .name{font-weight:700;font-size:14px;flex:1}
+.collection-picker-list{display:flex;flex-direction:column;gap:8px;max-height:300px;overflow-y:auto;margin-bottom:12px}
+.collection-picker-item{display:flex;align-items:center;gap:12px;padding:14px;border-radius:12px;background:var(--bg-secondary);border:2px solid var(--border-color);cursor:pointer;transition:var(--transition)}
+.collection-picker-item:hover{border-color:var(--mc-green);background:rgba(126,200,80,.06)}
+.collection-picker-item.selected{border-color:var(--mc-green);background:rgba(126,200,80,.1)}
+.collection-picker-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--mc-green),var(--mc-diamond));display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.collection-picker-info{flex:1;min-width:0}
+.collection-picker-name{font-size:15px;font-weight:800;color:var(--text-primary);margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.collection-picker-meta{font-size:12px;color:var(--text-muted)}
+.collection-picker-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--border-color);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--transition)}
+.collection-picker-item.selected .collection-picker-check{border-color:var(--mc-green);background:var(--mc-green);color:white}
+.collection-picker-item.selected .collection-picker-check::after{content:'✓';font-weight:800;font-size:14px}
+
+.footer{background:var(--bg-secondary);border-top:1px solid var(--border-color);padding:48px 24px;text-align:center}
+.footer-content{max-width:1400px;margin:0 auto}
+.footer-logo{font-family:'Press Start 2P',monospace;font-size:14px;margin-bottom:12px}
+.footer-logo span{color:var(--mc-green-light)}
+.footer p{color:var(--text-muted);font-size:13px;line-height:1.8}
+.footer a{color:var(--mc-green-light);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+.back-to-top{position:fixed;bottom:30px;right:30px;width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--mc-green),var(--mc-green-light));color:white;border:none;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:999;opacity:0;visibility:hidden;transform:translateY(10px);transition:var(--transition);box-shadow:0 4px 20px rgba(93,140,62,.4)}
+.back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.back-to-top:hover{transform:translateY(-3px)}
+@media(max-width:1400px){.categories-grid{grid-template-columns:repeat(7,1fr)}}
+@media(max-width:1200px){.mods-grid{grid-template-columns:repeat(3,1fr)}.categories-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:900px){.mods-grid{grid-template-columns:repeat(2,1fr)}.list-view .mod-card{flex-direction:column}.list-view .mod-card-image-wrapper{width:100%}.categories-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:860px){.nav-controls .nav-link{display:none}.user-badge{display:none}.bell-btn{display:none}.mobile-menu-btn{display:flex}}
+@media(max-width:768px){.hero-stats{gap:24px}.hero-stat-number{font-size:18px}.search-bar-row{flex-direction:column}.filter-select{min-width:100%}.categories-grid{grid-template-columns:repeat(2,1fr)}.modal-info-grid{grid-template-columns:1fr}.modal-image-wrapper{height:200px}.results-bar{flex-direction:column;align-items:flex-start}.hero-title-img{max-height:200px}.bell-dropdown{width:320px}}
+@media(max-width:520px){.mods-grid{grid-template-columns:1fr}.categories-grid{grid-template-columns:1fr}.header-inner{padding:0 16px;height:60px}.logo-text{font-size:12px}.catalog{padding:60px 16px 80px}.filters-panel{padding:20px}.mod-card-actions{flex-direction:column}.hero-stats{flex-direction:column;gap:16px}.hero-title-img{max-height:140px}}
+.fade-in-section{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s}
+.fade-in-section.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<header class="header" id="header">
+    <div class="header-inner">
+        <a class="logo" onclick="showHome()">
+            <div class="logo-icon"><img src="./images/logo/logo.png" alt="MineMods" onerror="this.onerror=null;this.parentElement.innerHTML='⛏️';this.parentElement.style.fontSize='22px';this.parentElement.style.background='linear-gradient(135deg,#5D8C3E,#7EC850)';"></div>
+            <div class="logo-text">Mine<span>Mods</span></div>
+        </a>
+        <div class="nav-controls">
+            <button class="nav-link" onclick="showHome()">Accueil</button>
+            <button class="nav-link" onclick="showCatalog()">Catalogue</button>
+            <div style="position:relative">
+                <button class="bell-btn" id="bellBtn" title="Notifications">
+                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    <span class="bell-badge" id="bellBadge">0</span>
+                </button>
+                <div class="bell-dropdown" id="bellDropdown">
+                    <div class="bell-header">
+                        <h3>🔔 Notifications</h3>
+                        <button class="clear-all" id="clearAllNotifs">Tout effacer</button>
+                    </div>
+                    <div class="bell-list" id="bellList"></div>
+                </div>
+            </div>
+            <div style="position:relative">
+                <button class="user-badge" id="userBadge">
+                    <span class="avatar-circle" id="userAvatar">?</span>
+                    <span id="userPseudo">Se connecter</span>
+                </button>
+                <div class="user-dropdown" id="userDropdown"></div>
+            </div>
+            <a class="nav-link nav-cta" href="https://www.curseforge.com/minecraft" target="_blank" rel="noopener">
+                <img src="./images/curseforge/curseforge.png" alt="" class="cf-icon" onerror="this.style.display='none'">
+                CurseForge
+            </a>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="nav-link" onclick="showHome();closeMobileMenu()">🏠 Accueil</button>
+        <button class="nav-link" onclick="showCatalog();closeMobileMenu()">📦 Catalogue</button>
+        <button class="nav-link" onclick="toggleBellDropdown(true);closeMobileMenu()">🔔 Notifications</button>
+        <button class="nav-link" onclick="toggleUserDropdown(true);closeMobileMenu()">👤 Compte</button>
+        <a class="nav-link nav-cta" href="https://www.curseforge.com/minecraft" target="_blank" rel="noopener">
+            <img src="./images/curseforge/curseforge.png" alt="" class="cf-icon" onerror="this.style.display='none'">
+            CurseForge
+        </a>
+    </div>
+</header>
+
+<section class="hero" id="heroSection">
+    <div class="hero-bg"><div class="hero-bg-image"></div><div class="hero-veil"></div><div class="hero-overlay"></div></div>
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-content">
+        <img src="./images/title/title.png" alt="Explorez les meilleurs Mods Minecraft" class="hero-title-img" onerror="this.onerror=null;this.outerHTML='<h1>Explorez les meilleurs <span class=\'highlight\'>Mods Minecraft</span></h1>'">
+        <p class="hero-description">Découvrez notre sélection de mods incontournables pour transformer votre expérience Minecraft.</p>
+        <div class="hero-stats">
+            <div class="hero-stat"><span class="hero-stat-number" id="statMods">0</span><div class="hero-stat-label">Mods référencés</div></div>
+            <div class="hero-stat"><span class="hero-stat-number" id="statCategories">0</span><div class="hero-stat-label">Catégories</div></div>
+            <div class="hero-stat"><span class="hero-stat-number" id="statVersions">0</span><div class="hero-stat-label">Versions MC</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="catalog" id="catalogSection">
+    <div class="section-header fade-in-section">
+        <h2>📦 Catalogue des Mods</h2>
+        <p>Parcourez notre collection de mods triés par catégorie.</p>
+    </div>
+    <div class="filters-panel fade-in-section" id="filtersPanel">
+        <div class="search-bar-row">
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="Rechercher un mod…" autocomplete="off">
+                <button class="search-clear-btn" id="searchClearBtn" title="Effacer">✕</button>
+                <div class="search-suggestions" id="searchSuggestions"></div>
+            </div>
+            <select class="filter-select" id="versionFilter"><option value="all">Toutes les versions</option></select>
+        </div>
+        <div class="categories-grid" id="categoriesGrid"></div>
+    </div>
+    <div class="tab-bar fade-in-section" id="tabBar">
+        <button class="tab-btn active" data-tab="browse">📦 Catalogue</button>
+        <button class="tab-btn" data-tab="favorites" id="tabFavorites">⭐ Favoris <span class="count" id="favCount">0</span></button>
+        <button class="tab-btn" data-tab="collections" id="tabCollections">📁 Collections <span class="count" id="colCount">0</span></button>
+    </div>
+    <div id="browsePanel">
+        <div class="results-bar fade-in-section">
+            <span class="results-count" id="resultsCount">Affichage de <strong>0</strong> mods</span>
+            <div class="results-controls">
+                <div class="sort-select-wrapper"><span>Trier par :</span><select class="sort-select" id="sortSelect"><option value="recent">Plus récents</option><option value="name-asc">Nom (A→Z)</option><option value="name-desc">Nom (Z→A)</option><option value="size">Poids (Mo)</option></select></div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
+                    <button class="view-btn" data-view="list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></button>
+                </div>
+            </div>
+        </div>
+        <div class="mods-grid" id="modsGrid"></div>
+        <div class="pagination" id="pagination"></div>
+    </div>
+    <div id="favoritesPanel" style="display:none"></div>
+    <div class="collections-panel" id="collectionsPanel"></div>
+</section>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+        <button class="modal-close" id="modalClose"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg></button>
+        <div class="modal-image-wrapper"><img class="modal-image" id="modalImage" src="" alt=""></div>
+        <div class="modal-body">
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-categories" id="modalCategories"></div>
+            <p class="modal-description" id="modalDescription"></p>
+            <div class="modal-info-grid">
+                <div class="modal-info-item">
+                    <div class="modal-info-label">Version Minecraft</div>
+                    <div class="version-dropdown-wrapper">
+                        <button class="version-dropdown-btn" id="versionDropdownBtn" onclick="toggleVersionDropdown()"><span id="versionDropdownLabel">—</span><span class="arrow">▼</span></button>
+                        <div class="version-dropdown-list" id="versionDropdownList"></div>
+                    </div>
+                </div>
+                <div class="modal-info-item"><div class="modal-info-label">Poids du mod</div><div class="modal-info-value" id="modalSize"></div></div>
+                <div class="modal-info-item" style="grid-column:1/-1"><div class="modal-info-label">Loaders compatibles</div><div class="modal-loaders" id="modalLoaders"></div></div>
+                <div class="modal-info-item" style="grid-column:1/-1"><div class="modal-info-label">Dépendances (Librairies requises)</div><div class="modal-deps" id="modalDeps"></div></div>
+            </div>
+            <div class="playlist-add-section">
+                <div class="playlist-add-title">Ajouter à une collection</div>
+                <div class="playlist-chips" id="playlistChips"></div>
+            </div>
+            <div class="modal-actions" style="margin-top:20px">
+                <a class="btn-download" id="modalDownload" href="#" target="_blank" rel="noopener">📥 Télécharger sur CurseForge</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="promptOverlay">
+    <div class="modal" style="max-width:520px" id="promptModal">
+        <button class="modal-close" onclick="closePromptModal()"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg></button>
+        <div class="modal-body">
+            <h2 class="modal-title" id="promptTitle" style="font-family:'Inter',sans-serif;font-size:20px">Titre</h2>
+            <p class="prompt-hint" id="promptHint"></p>
+            <div id="promptExtraContent"></div>
+            <div class="form-error" id="promptError"></div>
+            <div id="promptInputsContainer"></div>
+            <div class="prompt-actions" id="promptActions"></div>
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+<footer class="footer"><div class="footer-content"><div class="footer-logo">Mine<span>Mods</span></div><p>Site non affilié à Mojang Studios ni à Microsoft.<br>Liens vers <a href="https://www.curseforge.com/minecraft" target="_blank" rel="noopener">CurseForge</a>.</p></div></footer>
+<button class="back-to-top" id="backToTop">↑</button>
+
+<script>
+const IMAGE_BASE_PATH='./images/mods/';
+const ITEMS_PER_PAGE=8;
+const LS_ACCOUNTS='minemods-accounts';
+const LS_CURRENT_USER='minemods-current-user';
+const MAX_SUGGESTIONS=6;
+
+const CATEGORIES=[
+    {id:'aventure',name:'Aventure',icon:'⚔️',desc:'Donjons, quêtes et exploration.',order:1},
+    {id:'decoration',name:'Décoration',icon:'🌸',desc:'Blocs déco, mobilier et esthétique.',order:2},
+    {id:'creatures',name:'Créatures',icon:'🦖',desc:'Nouvelles créatures et animaux.',order:3},
+    {id:'biomes',name:'Biomes',icon:'🌍',desc:'Biomes, structures et paysages.',order:4},
+    {id:'utilitaire',name:'Utilitaire',icon:'⛏️',desc:'Qualité de vie et optimisations.',order:5},
+    {id:'nourriture',name:'Nourriture',icon:'🍰',desc:'Aliments, recettes et cultures.',order:6},
+    {id:'bibliotheque',name:'Bibliothèque',icon:'📚',desc:'API et librairies requises par d\'autres mods.',order:7}
+];
+
+// Base des mods triée par catégorie puis alphabétique (dans le code source)
+const MODS_DATABASE=[
+    // ═══ AVENTURE ═══
+    {id:64,name:"Apotheosis",categories:["aventure","utilitaire"],description:"Refonte du système d'enchantement et de loot avec affixes et gemmes.",fullDescription:"Apotheosis révolutionne les enchantements, potions, spawners et loot.",image:"apotheosis.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:5.1,sizePerVersion:{"1.20.1":5.1,"1.19.2":4.7,"1.18.2":4.3,"1.16.5":3.8},dependencies:["Placebo"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/apotheosis"},
+    {id:10,name:"Ars Nouveau",categories:["aventure","creatures"],description:"Créez vos propres sorts personnalisés et apprivoisez des familiers uniques.",fullDescription:"Ars Nouveau propose un système entièrement personnalisable.",image:"ars-nouveau.png",versions:["1.20.1","1.19.2"],loaders:["Forge","NeoForge"],sizeMo:13.5,sizePerVersion:{"1.20.1":13.5,"1.19.2":12.4},dependencies:["GeckoLib","Patchouli"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/ars-nouveau"},
+    {id:62,name:"Better Combat",categories:["aventure","utilitaire"],description:"Refonte du système de combat avec animations et combos réalistes.",fullDescription:"Better Combat révolutionne le combat.",image:"better-combat.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:3.2,sizePerVersion:{"1.20.1":3.2,"1.19.2":3.0,"1.18.2":2.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/better-combat-by-daedelus"},
+    {id:4,name:"Blood Magic",categories:["aventure"],description:"Aventure sombre utilisant le sang comme source de pouvoir.",fullDescription:"Blood Magic explore le côté sombre.",image:"blood-magic.png",versions:["1.20.1","1.18.2","1.16.5","1.12.2"],loaders:["Forge"],sizeMo:15.7,sizePerVersion:{"1.20.1":15.7,"1.18.2":14.2,"1.16.5":12.8,"1.12.2":11.1},dependencies:["Patchouli"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/blood-magic"},
+    {id:2,name:"Electroblob's Wizardry",categories:["aventure"],description:"RPG avec sorts découvrables, baguettes et robes de mage.",fullDescription:"Electroblob's Wizardry offre une expérience RPG avec plus de 170 sorts découvrables.",image:"electroblobs-wizardry.png",versions:["1.12.2"],loaders:["Forge"],sizeMo:14.5,sizePerVersion:{"1.12.2":14.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/electroblobs-wizardry"},
+    {id:63,name:"Epic Fight",categories:["aventure","utilitaire"],description:"Système de combat souls-like avec parades, esquives et combos avancés.",fullDescription:"Epic Fight transforme Minecraft en action-RPG.",image:"epic-fight.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:12.7,sizePerVersion:{"1.20.1":12.7,"1.19.2":11.8,"1.18.2":10.9,"1.16.5":9.7},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/epic-fight-mod"},
+    {id:5,name:"EvilCraft",categories:["aventure"],description:"Un mod de magie sombre avec autels de sang, envouteurs et rituels démoniaques.",fullDescription:"EvilCraft est un mod de magie sombre.",image:"evilcraft.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge"],sizeMo:8.4,sizePerVersion:{"1.20.1":8.4,"1.19.2":7.8,"1.18.2":7.2,"1.16.5":6.5,"1.12.2":5.6},dependencies:["Cyclops Core"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/evilcraft"},
+    {id:19,name:"Legacy Hals Exploration Mod",categories:["aventure","biomes"],description:"Ajoute une nouvelle dimension mystérieuse à explorer avec biomes et créatures uniques.",fullDescription:"Legacy Hals Exploration Mod ajoute une toute nouvelle dimension.",image:"hem.png",versions:["1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge"],sizeMo:1.8,sizePerVersion:{"1.19.2":1.8,"1.18.2":1.7,"1.16.5":1.5,"1.12.2":1.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/legacy-hals-exploration-mod"},
+    {id:65,name:"Origins",categories:["aventure","utilitaire"],description:"Choisissez une origine avec pouvoirs et faiblesses uniques dès le début.",fullDescription:"Origins permet de choisir une race de personnage.",image:"origins.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Fabric","Quilt"],sizeMo:4.6,sizePerVersion:{"1.20.1":4.6,"1.19.2":4.3,"1.18.2":4.0,"1.16.5":3.5},dependencies:["Fabric API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/origins"},
+    {id:3,name:"The Aether",categories:["aventure","biomes"],description:"Dimension céleste avec donjons, boss et créatures uniques.",fullDescription:"The Aether ajoute une dimension céleste.",image:"the-aether.png",versions:["1.20.1","1.19.4"],loaders:["Forge","NeoForge"],sizeMo:17.8,sizePerVersion:{"1.20.1":17.8,"1.19.4":16.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/aether"},
+    {id:1,name:"Twilight Forest",categories:["aventure","biomes","creatures"],description:"Un monde parallèle rempli de donjons, de boss et de forêts mystérieuses.",fullDescription:"The Twilight Forest est un mod d'aventure incontournable.",image:"twilight-forest.png",versions:["1.20.1","1.19.4","1.18.2","1.16.5","1.12.2"],loaders:["Forge","NeoForge"],sizeMo:14.2,sizePerVersion:{"1.20.1":14.2,"1.19.4":13.5,"1.18.2":12.8,"1.16.5":10.9,"1.12.2":8.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest"},
+
+    // ═══ DÉCORATION ═══
+    {id:8,name:"Chisel & Bits",categories:["decoration","utilitaire"],description:"Sculptez chaque bloc pour des créations d'une précision inégalée.",fullDescription:"Chisel & Bits permet de modifier chaque bloc au niveau du 1/16ème.",image:"chisel-and-bits.png",versions:["1.20.1","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:5.3,sizePerVersion:{"1.20.1":5.3,"1.18.2":4.8,"1.16.5":4.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/chisels-bits"},
+    {id:78,name:"Macaw's Doors",categories:["decoration"],description:"Une variété de portes stylées dans tous les matériaux vanilla et modés.",fullDescription:"Macaw's Doors offre plus de 20 styles de portes.",image:"mcw-doors.png",versions:["1.21","1.20.1","1.19.4","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:3.8,sizePerVersion:{"1.21":4.2,"1.20.1":3.8,"1.19.4":3.5,"1.18.2":3.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/macaws-doors"},
+    {id:6,name:"Macaw's Furniture",categories:["decoration"],description:"Des dizaines de meubles réalistes pour décorer vos constructions Minecraft.",fullDescription:"Macaw's Furniture ajoute une vaste collection de meubles réalistes.",image:"macaws-furniture.png",versions:["1.21","1.20.1","1.19.4","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:6.4,sizePerVersion:{"1.21":6.9,"1.20.1":6.4,"1.19.4":5.8,"1.18.2":5.2},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/macaws-furniture"},
+    {id:77,name:"Macaw's Roofs",categories:["decoration"],description:"Ajoute des toits inclinés et angles décoratifs pour tous les blocs.",fullDescription:"Macaw's Roofs ajoute des toits inclinés.",image:"mcw-roofs.png",versions:["1.21","1.20.1","1.19.4","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:4.7,sizePerVersion:{"1.21":5.1,"1.20.1":4.7,"1.19.4":4.3,"1.18.2":3.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/macaws-roofs"},
+    {id:7,name:"Supplementaries",categories:["decoration","utilitaire"],description:"Blocs décoratifs et fonctionnels qui complètent le vanilla.",fullDescription:"Supplementaries ajoute des éléments qui auraient pu exister dans le vanilla.",image:"supplementaries.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:8.7,sizePerVersion:{"1.20.1":8.7,"1.19.2":7.9,"1.18.2":7.2},dependencies:["Moonlight Lib"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/supplementaries"},
+
+    // ═══ CRÉATURES ═══
+    {id:18,name:"Alex's Caves",categories:["creatures","biomes","aventure"],description:"6 biomes de grottes uniques avec créatures et loots exclusifs.",fullDescription:"Alex's Caves ajoute 6 nouveaux biomes de grottes.",image:"alexs-caves.png",versions:["1.20.1","1.19.4","1.18.2"],loaders:["Forge","NeoForge"],sizeMo:31.2,sizePerVersion:{"1.20.1":31.2,"1.19.4":29.4,"1.18.2":27.1},dependencies:["Citadel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/alexs-caves"},
+    {id:9,name:"Alex's Mobs",categories:["creatures"],description:"Plus de 80 créatures réalistes et fantastiques avec des comportements uniques.",fullDescription:"Alex's Mobs enrichit la faune de Minecraft avec plus de 80 créatures.",image:"alexs-mobs.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:22.6,sizePerVersion:{"1.20.1":22.6,"1.19.2":20.4,"1.18.2":18.9,"1.16.5":16.2},dependencies:["Citadel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/alexs-mobs"},
+    {id:66,name:"Aquaculture 2",categories:["creatures","aventure"],description:"Ajoute plus de 30 poissons, des cannes améliorées et un système de pêche complet.",fullDescription:"Aquaculture 2 étend la pêche vanilla.",image:"aquaculture.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:5.8,sizePerVersion:{"1.20.1":5.8,"1.19.2":5.4,"1.18.2":5.0,"1.16.5":4.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/aquaculture"},
+    {id:13,name:"Better Animals Plus",categories:["creatures"],description:"Ajoute une trentaine de nouveaux animaux réalistes à travers les biomes.",fullDescription:"Better Animals Plus ajoute une trentaine d'animaux.",image:"better-animals-plus.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:11.4,sizePerVersion:{"1.20.1":11.4,"1.19.2":10.6,"1.18.2":9.8,"1.16.5":8.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/betteranimalsplus"},
+    {id:14,name:"Better Animations Collection",categories:["creatures","utilitaire"],description:"Remplace les animations vanilla des mobs pour les rendre plus fluides et réalistes.",fullDescription:"Better Animations Collection modifie les animations vanilla des mobs.",image:"better-animations.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:1.3,sizePerVersion:{"1.20.1":1.3,"1.19.2":1.2,"1.18.2":1.1,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/better-animations-collection"},
+    {id:15,name:"Exotic Birds",categories:["creatures"],description:"Ajoute plus de 40 espèces d'oiseaux exotiques à travers le monde.",fullDescription:"Exotic Birds ajoute plus de 40 espèces d'oiseaux.",image:"exotic-birds.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:8.7,sizePerVersion:{"1.20.1":8.7,"1.19.2":8.1,"1.18.2":7.5,"1.16.5":6.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/exotic-birds"},
+    {id:11,name:"Ice and Fire",categories:["creatures","aventure"],description:"Dragons, hippogiffes et créatures mythologiques épiques.",fullDescription:"Ice and Fire ajoute des créatures mythologiques.",image:"ice-and-fire.png",versions:["1.19.2","1.16.5","1.12.2"],loaders:["Forge"],sizeMo:36.4,sizePerVersion:{"1.19.2":36.4,"1.16.5":34.1,"1.12.2":29.8},dependencies:["Citadel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/ice-and-fire-dragons"},
+    {id:16,name:"More Villagers",categories:["creatures","utilitaire"],description:"Ajoute des villageois spécialisés avec de nouveaux métiers et échanges.",fullDescription:"More Villagers enrichit les villages.",image:"morevillagers.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:2.4,sizePerVersion:{"1.20.1":2.4,"1.19.2":2.2,"1.18.2":2.0},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/more-villagers-fabric"},
+    {id:67,name:"Mowzie's Mobs",categories:["creatures","aventure"],description:"Ajoute des boss et créatures uniques inspirés de mythologies du monde.",fullDescription:"Mowzie's Mobs ajoute une poignée de créatures.",image:"mowzies-mobs.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:14.9,sizePerVersion:{"1.20.1":14.9,"1.19.2":13.8,"1.18.2":12.7,"1.16.5":11.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/mowzies-mobs"},
+    {id:12,name:"Naturalist",categories:["creatures","biomes"],description:"Animaux réalistes et adorables qui enrichissent l'écosystème.",fullDescription:"Naturalist ajoute des animaux réalistes.",image:"naturalist.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric"],sizeMo:9.1,sizePerVersion:{"1.20.1":9.1,"1.19.2":8.5},dependencies:["GeckoLib"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/naturalist"},
+    {id:21,name:"Pandora's Creatures",categories:["creatures","aventure"],description:"Ajoute une variété de nouvelles créatures uniques et hostiles à travers l'Overworld.",fullDescription:"Pandora's Creatures enrichit l'Overworld.",image:"pandoras-creatures.png",versions:["1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:6.8,sizePerVersion:{"1.19.2":6.8,"1.18.2":6.3,"1.16.5":5.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/pandoras-creatures"},
+    {id:17,name:"Untamed Wilds",categories:["creatures","biomes"],description:"Créatures sauvages, prédateurs et espèces menacées du monde réel.",fullDescription:"Untamed Wilds ajoute une multitude de créatures sauvages.",image:"untamed-wilds.png",versions:["1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:12.6,sizePerVersion:{"1.19.2":12.6,"1.18.2":11.8,"1.16.5":10.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/untamedwilds"},
+    {id:20,name:"Xenoclus 2",categories:["aventure","creatures"],description:"Ajoute un boss légendaire extraterrestre avec un donjon dédié.",fullDescription:"Xenoclus 2 est un mod boss.",image:"xenoclus.png",versions:["1.19.2","1.18.2"],loaders:["Forge"],sizeMo:4.3,sizePerVersion:{"1.19.2":4.3,"1.18.2":4.0},dependencies:["GeckoLib"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/xenoclus-2"},
+
+    // ═══ BIOMES ═══
+    {id:25,name:"Better Nether",categories:["biomes"],description:"Refonte complète du Nether avec de nouveaux biomes exotiques.",fullDescription:"Better Nether transforme radicalement le Nether.",image:"better-nether.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Fabric","Quilt"],sizeMo:8.9,sizePerVersion:{"1.20.1":8.9,"1.19.2":8.3,"1.18.2":7.7,"1.16.5":6.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/betternether"},
+    {id:26,name:"Better Village",categories:["biomes","decoration"],description:"Améliore drastiquement les villages avec de nouvelles structures et bâtiments.",fullDescription:"Better Village transforme les villages vanilla.",image:"better-village.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:3.7,sizePerVersion:{"1.20.1":3.7,"1.19.2":3.4,"1.18.2":3.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/better-village-forge"},
+    {id:22,name:"Biomes O' Plenty",categories:["biomes","decoration"],description:"Plus de 50 nouveaux biomes spectaculaires pour une exploration infinie.",fullDescription:"Biomes O' Plenty transforme la génération du monde.",image:"biomes-o-plenty.png",versions:["1.20.1","1.19.4","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:11.3,sizePerVersion:{"1.20.1":11.3,"1.19.4":10.5,"1.18.2":9.7,"1.16.5":8.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty"},
+    {id:29,name:"Dark Caverns",categories:["biomes","aventure"],description:"Rend les grottes plus sombres, dangereuses et immersives.",fullDescription:"Dark Caverns modifie les grottes.",image:"dark-caverns.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:0.5,sizePerVersion:{"1.20.1":0.5,"1.19.2":0.5,"1.18.2":0.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/dark-caverns"},
+    {id:24,name:"Oh The Biomes You'll Go",categories:["biomes","decoration"],description:"80+ biomes magnifiques dans l'Overworld, le Nether et l'End.",fullDescription:"Oh The Biomes You'll Go ajoute plus de 80 biomes.",image:"oh-the-biomes.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:27.6,sizePerVersion:{"1.20.1":27.6,"1.19.2":25.2,"1.18.2":23.4},dependencies:["Cristel Lib"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go"},
+    {id:70,name:"Repurposed Structures",categories:["biomes","aventure"],description:"Réutilise les structures vanilla dans de nouveaux biomes avec variations.",fullDescription:"Repurposed Structures ajoute plus de 60 variantes.",image:"repurposed-structures.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:4.1,sizePerVersion:{"1.20.1":4.1,"1.19.2":3.8,"1.18.2":3.5,"1.16.5":3.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/repurposed-structures"},
+    {id:23,name:"Terralith",categories:["biomes"],description:"Refonte complète de la génération du monde avec des biomes époustouflants.",fullDescription:"Terralith transforme radicalement la génération du terrain.",image:"terralith.png",versions:["1.21","1.20.4","1.20.1","1.19.4"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:2.9,sizePerVersion:{"1.21":3.2,"1.20.4":3.0,"1.20.1":2.9,"1.19.4":2.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/terralith"},
+    {id:27,name:"The Undergarden",categories:["biomes","aventure","creatures"],description:"Une nouvelle dimension souterraine sombre et mystérieuse.",fullDescription:"The Undergarden ajoute une nouvelle dimension.",image:"the-undergarden.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:16.3,sizePerVersion:{"1.20.1":16.3,"1.19.2":15.1,"1.18.2":14.0,"1.16.5":12.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/the-undergarden"},
+    {id:28,name:"Towns and Towers",categories:["biomes","aventure"],description:"Ajoute villes, tours, camps et navires perdus à travers le monde.",fullDescription:"Towns and Towers ajoute de nombreuses structures.",image:"towns-and-towers.png",versions:["1.21","1.20.4","1.20.1","1.19.4"],loaders:["Forge","Fabric","NeoForge"],sizeMo:5.8,sizePerVersion:{"1.21":6.4,"1.20.4":6.0,"1.20.1":5.8,"1.19.4":5.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/towns-and-towers"},
+    {id:61,name:"When Dungeons Arise",categories:["aventure","biomes"],description:"Ajoute plus de 40 donjons et structures colossaux répartis dans le monde.",fullDescription:"When Dungeons Arise ajoute plus de 40 structures monumentales.",image:"dungeons-arise.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:8.4,sizePerVersion:{"1.20.1":8.4,"1.19.2":7.8,"1.18.2":7.2,"1.16.5":6.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/when-dungeons-arise"},
+    {id:71,name:"William Wythers' Overhauled Overworld",categories:["biomes"],description:"Refonte complète de l'Overworld avec des dizaines de nouveaux biomes.",fullDescription:"William Wythers' Overhauled Overworld réimagine l'Overworld vanilla.",image:"wwoo.png",versions:["1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:9.2,sizePerVersion:{"1.19.2":9.2,"1.18.2":8.5,"1.16.5":7.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/william-wythers-overhauled-overworld"},
+    {id:68,name:"YUNG's Better Dungeons",categories:["biomes","aventure"],description:"Refonte complète des donjons vanilla avec structures massives et loot amélioré.",fullDescription:"YUNG's Better Dungeons remplace les donjons vanilla.",image:"yungs-dungeons.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:3.4,sizePerVersion:{"1.20.1":3.4,"1.19.2":3.1,"1.18.2":2.9,"1.16.5":2.5},dependencies:["YUNG's API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/yungs-better-dungeons"},
+    {id:69,name:"YUNG's Better Strongholds",categories:["biomes","aventure"],description:"Refonte totale des Strongholds vanilla, transformés en immenses forteresses.",fullDescription:"YUNG's Better Strongholds transforme les Strongholds.",image:"yungs-strongholds.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:2.6,sizePerVersion:{"1.20.1":2.6,"1.19.2":2.4,"1.18.2":2.2,"1.16.5":1.9},dependencies:["YUNG's API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/yungs-better-strongholds"},
+
+    // ═══ UTILITAIRE ═══
+    {id:33,name:"Applied Energistics 2",categories:["utilitaire"],description:"Un système de stockage numérique et d'automatisation avancé.",fullDescription:"Applied Energistics 2 révolutionne le stockage.",image:"applied-energistics-2.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:18.7,sizePerVersion:{"1.20.1":18.7,"1.19.2":17.1,"1.18.2":15.9,"1.16.5":14.0},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2"},
+    {id:73,name:"AppleSkin",categories:["utilitaire"],description:"Affiche la nourriture, saturation et effet potentiel des aliments dans le HUD.",fullDescription:"AppleSkin est un mod QoL essentiel.",image:"appleskin.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.5,sizePerVersion:{"1.21":0.6,"1.20.4":0.5,"1.20.1":0.5,"1.19.2":0.5,"1.18.2":0.4,"1.16.5":0.4,"1.12.2":0.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/appleskin"},
+    {id:44,name:"AstikorCarts",categories:["utilitaire","decoration"],description:"Ajoute des chariots tirés par des chevaux pour transporter items et animaux.",fullDescription:"AstikorCarts ajoute plusieurs types de chariots tirables.",image:"astikorcarts.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:1.2,sizePerVersion:{"1.20.1":1.2,"1.19.2":1.1,"1.18.2":1.0,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/astikorcarts"},
+    {id:32,name:"Botania",categories:["decoration","utilitaire"],description:"Un mod basé sur la nature avec des fleurs magiques et de superbes blocs décoratifs.",fullDescription:"Botania est un mod inspiré de la magie florale.",image:"botania.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:9.8,sizePerVersion:{"1.20.1":9.8,"1.19.2":9.1,"1.18.2":8.6,"1.16.5":7.4},dependencies:["Patchouli"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/botania"},
+    {id:40,name:"Corail Tombstone",categories:["utilitaire","aventure"],description:"Une tombe apparaît à votre mort avec tout votre équipement conservé en sécurité.",fullDescription:"Corail Tombstone crée automatiquement une tombe.",image:"tombstone.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","NeoForge"],sizeMo:4.6,sizePerVersion:{"1.20.1":4.6,"1.19.2":4.2,"1.18.2":3.9,"1.16.5":3.5,"1.12.2":3.0},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/corail-tombstone"},
+    {id:31,name:"Create",categories:["utilitaire","decoration"],description:"Construisez des machines et systèmes mécaniques avec une esthétique magnifique.",fullDescription:"Create est une révolution.",image:"create.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:29.4,sizePerVersion:{"1.20.1":29.4,"1.19.2":26.8,"1.18.2":23.5},dependencies:["Flywheel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/create"},
+    {id:45,name:"Essential",categories:["utilitaire"],description:"Mod social avec skins cape, chat vocal, invitations et coop instantanée.",fullDescription:"Essential est un mod social populaire.",image:"essential.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:9.6,sizePerVersion:{"1.21":10.4,"1.20.4":9.8,"1.20.1":9.6,"1.19.2":8.9,"1.18.2":8.3,"1.16.5":7.5,"1.12.2":6.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/essential-mod"},
+    {id:35,name:"Immersive Engineering",categories:["utilitaire","decoration"],description:"Machines industrielles avec une esthétique steampunk magnifique.",fullDescription:"Immersive Engineering se distingue par son approche réaliste.",image:"immersive-engineering.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:34.2,sizePerVersion:{"1.20.1":34.2,"1.19.2":31.7,"1.18.2":29.5,"1.16.5":26.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/immersive-engineering"},
+    {id:74,name:"Inventory Sorter",categories:["utilitaire"],description:"Trie automatiquement votre inventaire et vos coffres d'un clic.",fullDescription:"Inventory Sorter permet de trier automatiquement.",image:"inventory-sorter.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:0.3,sizePerVersion:{"1.20.1":0.3,"1.19.2":0.3,"1.18.2":0.3,"1.16.5":0.2},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/inventory-sorter"},
+    {id:72,name:"Iron Chests",categories:["utilitaire"],description:"Ajoute des coffres améliorés en cuivre, fer, or, diamant, obsidienne et crystal.",fullDescription:"Iron Chests ajoute 6 nouveaux types de coffres.",image:"iron-chests.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.6,sizePerVersion:{"1.20.1":1.6,"1.19.2":1.5,"1.18.2":1.4,"1.16.5":1.2},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/iron-chests"},
+    {id:76,name:"Iron Furnaces",categories:["utilitaire"],description:"Ajoute des fours améliorés (cuivre → néthérite) plus rapides et efficaces.",fullDescription:"Iron Furnaces ajoute une série de fours améliorés.",image:"iron-furnaces.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:2.1,sizePerVersion:{"1.20.1":2.1,"1.19.2":1.9,"1.18.2":1.8,"1.16.5":1.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/iron-furnaces"},
+    {id:75,name:"Jade",categories:["utilitaire"],description:"Affiche des informations sur les blocs et entités visés (santé, propriétaire, etc.).",fullDescription:"Jade affiche en temps réel des informations.",image:"jade.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.2,sizePerVersion:{"1.21":1.4,"1.20.4":1.3,"1.20.1":1.2,"1.19.2":1.1,"1.18.2":1.0,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/jade"},
+    {id:30,name:"JEI",categories:["utilitaire"],description:"L'outil indispensable pour consulter toutes les recettes de craft.",fullDescription:"Just Enough Items est LE mod utilitaire incontournable.",image:"jei.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.6,sizePerVersion:{"1.21":1.8,"1.20.4":1.7,"1.20.1":1.6,"1.19.2":1.5,"1.18.2":1.4,"1.16.5":1.3,"1.12.2":1.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/jei"},
+    {id:38,name:"JourneyMap",categories:["utilitaire"],description:"Minimap en temps réel avec carte du monde complète et waypoints.",fullDescription:"JourneyMap est une minimap et carte du monde complète.",image:"journeymap.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:5.3,sizePerVersion:{"1.21":5.9,"1.20.4":5.5,"1.20.1":5.3,"1.19.2":4.9,"1.18.2":4.6,"1.16.5":4.1,"1.12.2":3.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/journeymap"},
+    {id:41,name:"JustHammers",categories:["utilitaire"],description:"Ajoute des marteaux qui minent plusieurs blocs à la fois (3x3, 5x5, 7x7).",fullDescription:"JustHammers ajoute des marteaux.",image:"justhammers.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric"],sizeMo:0.7,sizePerVersion:{"1.20.1":0.7,"1.19.2":0.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/justhammers"},
+    {id:34,name:"Mekanism",categories:["utilitaire"],description:"Machines avancées, réacteur à fusion et jetpacks.",fullDescription:"Mekanism propose des machines de traitement de minerais.",image:"mekanism.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:32.1,sizePerVersion:{"1.20.1":32.1,"1.19.2":29.5,"1.18.2":27.2,"1.16.5":24.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/mekanism"},
+    {id:43,name:"Small Ships",categories:["utilitaire","aventure","decoration"],description:"Ajoute plusieurs types de navires jouables (cog, brigg, galleon...).",fullDescription:"Small Ships ajoute différents types de navires historiques.",image:"smallships.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:6.7,sizePerVersion:{"1.20.1":6.7,"1.19.2":6.2,"1.18.2":5.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/small-ships"},
+    {id:39,name:"Sophisticated Backpacks",categories:["utilitaire"],description:"Sacs à dos évolutifs avec upgrades, filtres et automatisation.",fullDescription:"Sophisticated Backpacks ajoute des sacs à dos hautement personnalisables.",image:"sophisticated-backpacks.png",versions:["1.21","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:4.2,sizePerVersion:{"1.21":4.6,"1.20.1":4.2,"1.19.2":3.9,"1.18.2":3.6,"1.16.5":3.2},dependencies:["Sophisticated Core"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/sophisticated-backpacks"},
+    {id:42,name:"Tough As Nails",categories:["utilitaire"],description:"Ajoute la faim, la soif et la température corporelle pour un survival réaliste.",fullDescription:"Tough As Nails ajoute des mécaniques de survie avancées.",image:"tough-as-nails.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:2.9,sizePerVersion:{"1.20.1":2.9,"1.19.2":2.7,"1.18.2":2.5,"1.16.5":2.2},dependencies:["GlitchCore"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/tough-as-nails"},
+    {id:36,name:"Waystones",categories:["utilitaire","aventure"],description:"Pierres de téléportation pour voyager rapidement entre vos bases.",fullDescription:"Waystones ajoute des pierres de téléportation.",image:"waystones.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:2.4,sizePerVersion:{"1.21":2.7,"1.20.4":2.5,"1.20.1":2.4,"1.19.2":2.2,"1.18.2":2.0},dependencies:["Balm"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/waystones"},
+    {id:37,name:"Xaero's Minimap",categories:["utilitaire"],description:"Minimap complète avec waypoints, radar de mobs et carte.",fullDescription:"Xaero's Minimap affiche une carte en temps réel.",image:"xaeros-minimap.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:1.1,sizePerVersion:{"1.21":1.3,"1.20.4":1.2,"1.20.1":1.1,"1.19.2":1.0,"1.18.2":0.9,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/xaeros-minimap"},
+
+    // ═══ NOURRITURE ═══
+    {id:46,name:"Farmer's Delight",categories:["nourriture","utilitaire"],description:"Étend le système de cuisine avec de nouvelles cultures et repas.",fullDescription:"Farmer's Delight enrichit le système alimentaire.",image:"farmers-delight.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:6.2,sizePerVersion:{"1.20.1":6.2,"1.19.2":5.7,"1.18.2":5.3,"1.16.5":4.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/farmers-delight"},
+    {id:79,name:"Let's Do: Bakery",categories:["nourriture","decoration"],description:"Créez votre boulangerie avec fours, viennoiseries et pains artisanaux.",fullDescription:"Let's Do: Bakery vous permet de créer une boulangerie complète.",image:"bakery.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:9.3,sizePerVersion:{"1.20.1":9.3,"1.19.2":8.6},dependencies:["Let's Do API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/lets-do-bakery"},
+    {id:48,name:"Let's Do: Vinery",categories:["nourriture","decoration"],description:"Cultivez la vigne, produisez du vin et gérez votre propre vignoble.",fullDescription:"Let's Do: Vinery est un mod agricole splendide.",image:"vinery.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:14.8,sizePerVersion:{"1.20.1":14.8,"1.19.2":13.7},dependencies:["Let's Do API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/vinery"},
+    {id:47,name:"Pam's HarvestCraft 2",categories:["nourriture"],description:"Centaines de nouvelles cultures, arbres fruitiers et recettes.",fullDescription:"Pam's HarvestCraft 2 est la référence des mods alimentaires.",image:"pams-harvestcraft.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:24.3,sizePerVersion:{"1.20.1":24.3,"1.19.2":22.1,"1.18.2":20.6,"1.16.5":17.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/pams-harvestcraft-2-food-core"},
+
+    // ═══ BIBLIOTHÈQUE ═══
+    {id:49,name:"Architectury API",categories:["bibliotheque"],description:"API multi-loader qui permet aux mods d'être compatibles Forge et Fabric.",fullDescription:"Architectury API est une bibliothèque essentielle.",image:"architectury.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:1.4,sizePerVersion:{"1.21":1.5,"1.20.4":1.4,"1.20.1":1.4,"1.19.2":1.3,"1.18.2":1.2,"1.16.5":1.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/architectury-api"},
+    {id:51,name:"Citadel",categories:["bibliotheque"],description:"Bibliothèque avancée pour l'IA, les rendus 3D et les particules des mods de créatures.",fullDescription:"Citadel est une bibliothèque puissante.",image:"citadel.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:1.9,sizePerVersion:{"1.20.1":1.9,"1.19.2":1.8,"1.18.2":1.7,"1.16.5":1.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/citadel"},
+    {id:57,name:"Cristel Lib",categories:["bibliotheque"],description:"Bibliothèque utilisée par certains mods de biomes et de structures.",fullDescription:"Cristel Lib fournit des outils communs.",image:"cristellib.png",versions:["1.21","1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.6,sizePerVersion:{"1.21":0.7,"1.20.1":0.6,"1.19.2":0.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/cristel-lib"},
+    {id:52,name:"Cyclops Core",categories:["bibliotheque"],description:"Bibliothèque commune pour tous les mods de kroeser.",fullDescription:"Cyclops Core est la bibliothèque partagée.",image:"cyclopscore.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","NeoForge"],sizeMo:2.6,sizePerVersion:{"1.20.1":2.6,"1.19.2":2.4,"1.18.2":2.2,"1.16.5":2.0,"1.12.2":1.7},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/cyclops-core"},
+    {id:58,name:"Fabric API",categories:["bibliotheque"],description:"L'API essentielle pour tous les mods Fabric — quasi-obligatoire.",fullDescription:"Fabric API est la bibliothèque de base indispensable.",image:"fabric-api.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Fabric","Quilt"],sizeMo:2.1,sizePerVersion:{"1.21":2.4,"1.20.4":2.2,"1.20.1":2.1,"1.19.2":1.9,"1.18.2":1.7,"1.16.5":1.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/fabric-api"},
+    {id:50,name:"GeckoLib",categories:["bibliotheque"],description:"Bibliothèque d'animations puissante pour créer des mobs et blocs animés complexes.",fullDescription:"GeckoLib est une bibliothèque d'animations.",image:"geckolib.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:2.8,sizePerVersion:{"1.21":3.1,"1.20.4":2.9,"1.20.1":2.8,"1.19.2":2.6,"1.18.2":2.4,"1.16.5":2.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/geckolib"},
+    {id:59,name:"GlitchCore",categories:["bibliotheque"],description:"Bibliothèque partagée par tous les mods de Glitchfiend.",fullDescription:"GlitchCore est la bibliothèque commune développée par Glitchfiend.",image:"glitchcore.png",versions:["1.21","1.20.4","1.20.1"],loaders:["Forge","NeoForge"],sizeMo:0.9,sizePerVersion:{"1.21":1.0,"1.20.4":0.9,"1.20.1":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/glitchcore"},
+    {id:60,name:"Let's Do API",categories:["bibliotheque"],description:"API commune pour la série de mods « Let's Do ».",fullDescription:"Let's Do API est la bibliothèque de base pour tous les mods de la série Let's Do.",image:"letsdo-api.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.8,sizePerVersion:{"1.20.1":0.8,"1.19.2":0.7},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/do-api"},
+    {id:54,name:"LibraryFerret",categories:["bibliotheque"],description:"Bibliothèque légère fournissant des utilitaires communs à plusieurs mods.",fullDescription:"LibraryFerret est une petite bibliothèque utilitaire.",image:"libraryferret.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","NeoForge"],sizeMo:0.4,sizePerVersion:{"1.20.1":0.4,"1.19.2":0.4,"1.18.2":0.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/library-ferret-forge"},
+    {id:53,name:"Patchouli",categories:["bibliotheque"],description:"Bibliothèque de création de guides et livres in-game utilisée par de nombreux mods.",fullDescription:"Patchouli permet aux modders de créer facilement des livres-guides interactifs.",image:"patchouli.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:1.2,sizePerVersion:{"1.20.1":1.2,"1.19.2":1.1,"1.18.2":1.0,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/patchouli"},
+    {id:81,name:"Placebo",categories:["bibliotheque"],description:"Bibliothèque essentielle développée par Shadows_of_Fire, requise par Apotheosis.",fullDescription:"Placebo est une bibliothèque de base utilisée par plusieurs mods de Shadows_of_Fire, notamment Apotheosis, Gateways to Eternity et FastFurnace.",image:"placebo.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:0.9,sizePerVersion:{"1.20.1":0.9,"1.19.2":0.8,"1.18.2":0.7,"1.16.5":0.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/placebo"},
+    {id:55,name:"PuzzlesLib",categories:["bibliotheque"],description:"Bibliothèque commune pour les mods de Fuzs.",fullDescription:"Puzzles Lib est une bibliothèque essentielle développée par Fuzs.",image:"puzzleslib.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.7,sizePerVersion:{"1.21":1.9,"1.20.4":1.8,"1.20.1":1.7,"1.19.2":1.6,"1.18.2":1.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/puzzles-lib"},
+    {id:56,name:"Sophisticated Core",categories:["bibliotheque"],description:"Bibliothèque de base pour les mods Sophisticated.",fullDescription:"Sophisticated Core est la bibliothèque partagée par tous les mods Sophisticated.",image:"sophisticated-core.png",versions:["1.21","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:2.3,sizePerVersion:{"1.21":2.5,"1.20.1":2.3,"1.19.2":2.1,"1.18.2":2.0,"1.16.5":1.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/sophisticated-core"},
+    {id:80,name:"YUNG's API",categories:["bibliotheque"],description:"API commune requise par tous les mods de structures de YUNG.",fullDescription:"YUNG's API est la bibliothèque commune à tous les mods de structures développés par YUNGNICKYOUNG.",image:"yungs-api.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.7,sizePerVersion:{"1.20.1":0.7,"1.19.2":0.6,"1.18.2":0.6,"1.16.5":0.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/yungs-api"}
+];
+
+function versionToNum(v){const p=v.split('.').map(Number);return (p[0]||0)*10000+(p[1]||0)*100+(p[2]||0)}
+function latestVersion(m){return m.versions[0]}
+function latestVersionNum(m){return versionToNum(m.versions[0])}
+function getSizeForVersion(m,v){if(m.sizePerVersion&&m.sizePerVersion[v]!==undefined)return m.sizePerVersion[v];return m.sizeMo}
+function getCatOrder(catId){const c=CATEGORIES.find(x=>x.id===catId);return c?c.order:99}
+
+const APOSTROPHES_REGEX=/[''ʼ`´'"„"‛‹›«»]/;
+function isApostrophe(c){return APOSTROPHES_REGEX.test(c)}
+
+function normalizeStr(s){
+    if(!s)return'';
+    return s.toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+        .replace(/[''ʼ`´'"„"‛‹›«»]/g,'')
+        .replace(/[^a-z0-9]/g,' ')
+        .replace(/\s+/g,' ')
+        .trim();
+}
+
+function findModByName(name){
+    const target=normalizeStr(name);
+    return MODS_DATABASE.find(m=>normalizeStr(m.name)===target);
+}
+
+let currentUser=null;
+let selectedCategories=new Set();
+let currentVersion='all';
+let searchQuery='';
+let currentSort='recent';
+let currentView='grid';
+let currentPage=1;
+let currentTab='browse';
+let currentModalModId=null;
+let suggestionsList=[];
+let highlightedSuggestionIndex=-1;
+let strictSearchModName=null;
+let favorites=[];
+let collections=[];
+let notifications=[];
+
+function getAccounts(){return JSON.parse(localStorage.getItem(LS_ACCOUNTS)||'{}')}
+function saveAccounts(a){localStorage.setItem(LS_ACCOUNTS,JSON.stringify(a))}
+function simpleHash(s){let hash=0;for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);hash=((hash<<5)-hash)+c;hash|=0}return String(hash)}
+
+function loadSession(){
+    const saved=localStorage.getItem(LS_CURRENT_USER);
+    if(saved){
+        const accounts=getAccounts();
+        const user=accounts[saved.toLowerCase()];
+        if(user){
+            currentUser={pseudo:user.pseudo,passwordHash:user.passwordHash};
+            favorites=user.favorites||[];
+            collections=user.collections||[];
+            notifications=user.notifications||[];
+        }
+    }
+}
+
+function persistUserData(){
+    if(!currentUser)return;
+    const accounts=getAccounts();
+    const key=currentUser.pseudo.toLowerCase();
+    if(!accounts[key])return;
+    accounts[key].favorites=favorites;
+    accounts[key].collections=collections;
+    accounts[key].notifications=notifications;
+    saveAccounts(accounts);
+}
+
+function saveFavorites(){persistUserData()}
+function saveCollections(){persistUserData()}
+function saveNotifications(){persistUserData()}
+
+const modsGrid=document.getElementById('modsGrid');const searchInput=document.getElementById('searchInput');const searchClearBtn=document.getElementById('searchClearBtn');const searchSuggestions=document.getElementById('searchSuggestions');const versionFilter=document.getElementById('versionFilter');const categoriesGrid=document.getElementById('categoriesGrid');const resultsCount=document.getElementById('resultsCount');const modalOverlay=document.getElementById('modalOverlay');const themeToggle=document.getElementById('themeToggle');const header=document.getElementById('header');const backToTop=document.getElementById('backToTop');const catalogSection=document.getElementById('catalogSection');const filtersPanel=document.getElementById('filtersPanel');const sortSelect=document.getElementById('sortSelect');const pagination=document.getElementById('pagination');const heroParticles=document.getElementById('heroParticles');const mobileMenuBtn=document.getElementById('mobileMenuBtn');const mobileMenu=document.getElementById('mobileMenu');const userBadge=document.getElementById('userBadge');const userAvatar=document.getElementById('userAvatar');const userPseudoEl=document.getElementById('userPseudo');const userDropdown=document.getElementById('userDropdown');const favoritesPanel=document.getElementById('favoritesPanel');const collectionsPanel=document.getElementById('collectionsPanel');const bellBtn=document.getElementById('bellBtn');const bellBadge=document.getElementById('bellBadge');const bellDropdown=document.getElementById('bellDropdown');const bellList=document.getElementById('bellList');
+
+const STAR_OUTLINE='<svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>';
+
+function createParticles(){const c=['#7EC850','#4AEDD9','#FCDB05','#A946E8','#FF8B3D','#FFF'];for(let i=0;i<45;i++){const p=document.createElement('div');p.className='particle';const s=2+Math.random()*5;p.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;background:${c[Math.floor(Math.random()*c.length)]};color:${c[Math.floor(Math.random()*c.length)]};animation-duration:${12+Math.random()*18}s;animation-delay:-${Math.random()*20}s;--d:${(Math.random()-.5)*200}px;--po:${.4+Math.random()*.5}`;heroParticles.appendChild(p)}for(let i=0;i<20;i++){const s=document.createElement('div');s.className='sparkle';const sz=2+Math.random()*3;s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-duration:${2+Math.random()*4}s;animation-delay:-${Math.random()*6}s`;heroParticles.appendChild(s)}}
+
+function getModImageUrl(m){return IMAGE_BASE_PATH+m.image}
+function getImageFallback(){return"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 340'%3E%3Crect fill='%231a1a2e' width='600' height='340'/%3E%3Crect fill='%235D8C3E' x='220' y='100' width='160' height='100' rx='12'/%3E%3Ctext fill='white' font-family='monospace' font-size='48' x='300' y='165' text-anchor='middle'%3E⛏️%3C/text%3E%3C/svg%3E"}
+function formatSize(mo){return mo<10?mo.toFixed(1)+' Mo':Math.round(mo)+' Mo'}
+function getCategoryLabel(id){const c=CATEGORIES.find(x=>x.id===id);return c?c.name:id}
+function escapeHtml(str){return String(str).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+// ═══ SURBRILLANCE INTELLIGENTE ═══
+// Règles :
+// - L'apostrophe est surlignée dès qu'elle est présente entre deux caractères du match
+//   (que la requête contienne ou non l'apostrophe elle-même)
+// - Elle est aussi surlignée si la requête se termine juste avant elle ET que
+//   la requête contient l'apostrophe (ex: "let's")
+// - Elle N'EST PAS surlignée si elle est au tout début ou juste après la fin du match
+//   sans être encadrée par des caractères matchés
+function highlightMatch(text, query){
+    if(!query || !text) return escapeHtml(text);
+
+    const normQuery = normalizeStr(query);
+    if(!normQuery) return escapeHtml(text);
+
+    // Construction du mapping char par char
+    const mapping = [];  // mapping[i] = position dans normText, ou -1
+    let normText = '';
+    let lastWasSpace = false;
+
+    for(let i = 0; i < text.length; i++){
+        const c = text[i].toLowerCase();
+        const decomposed = c.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+
+        if(isApostrophe(c)){
+            mapping.push(-1); // apostrophe ignorée dans le texte normalisé
+        } else if(/[a-z0-9]/i.test(decomposed) && decomposed.length === 1){
+            mapping.push(normText.length);
+            normText += decomposed.toLowerCase();
+            lastWasSpace = false;
+        } else {
+            if(!lastWasSpace && normText.length > 0){
+                mapping.push(normText.length);
+                normText += ' ';
+                lastWasSpace = true;
+            } else {
+                mapping.push(-1);
+            }
+        }
+    }
+    normText = normText.trim();
+
+    const matchStart = normText.indexOf(normQuery);
+    if(matchStart === -1) return escapeHtml(text);
+    const matchEnd = matchStart + normQuery.length;
+
+    // Trouve les positions originales correspondant à des chars normalisés du match
+    let origStart = -1, origEnd = -1;
+    for(let i = 0; i < mapping.length; i++){
+        if(mapping[i] === -1) continue;
+        if(mapping[i] >= matchStart && mapping[i] < matchEnd){
+            if(origStart === -1) origStart = i;
+            origEnd = i + 1;
+        }
+    }
+
+    if(origStart === -1) return escapeHtml(text);
+
+    // ═══ EXTENSION : inclure les apostrophes situées ENTRE deux caractères matchés ═══
+    // On étend origEnd pour englober les apostrophes suivies d'un caractère matché.
+    // Exemple : sur "Let's", si la requête est "let" → origStart=0, origEnd=3 ("Let")
+    //          Si la requête est "let'" ou "let's" → on doit aussi inclure l'apostrophe.
+    //
+    // Règle : on regarde la position juste après origEnd. Si c'est une apostrophe suivie
+    // d'un caractère qui fait partie du match, on l'étend. Si la requête contient elle-même
+    // une apostrophe à la fin de son match, on étend jusqu'à celle-ci.
+
+    // Vérifie si la requête (normalisée) contient une apostrophe originale
+    const queryHasApostrophe = /['']/.test(query);
+
+    // Cas 1 : si la requête contient une apostrophe, on étend origEnd pour inclure
+    // l'apostrophe qui suit immédiatement le dernier caractère matché
+    if(queryHasApostrophe && origEnd < text.length && isApostrophe(text[origEnd])){
+        origEnd++;
+    }
+
+    // Construction du HTML segment par segment
+    let result = escapeHtml(text.substring(0, origStart));
+    let segStart = origStart;
+
+    for(let k = origStart; k < origEnd; k++){
+        if(isApostrophe(text[k])){
+            // Décider si cette apostrophe doit être surlignée
+            let shouldHighlight = false;
+
+            // Cas A : la requête contient une apostrophe → on surligne toujours
+            if(queryHasApostrophe){
+                shouldHighlight = true;
+            }
+            // Cas B : la requête ne contient pas d'apostrophe → on surligne uniquement
+            // si le caractère SUIVANT est aussi matché (apostrophe entre 2 chars du match)
+            else if(k + 1 < mapping.length && mapping[k+1] !== -1
+                    && mapping[k+1] >= matchStart && mapping[k+1] < matchEnd){
+                shouldHighlight = true;
+            }
+
+            if(!shouldHighlight){
+                // Fermer le segment surligné actuel et laisser l'apostrophe en clair
+                if(k > segStart){
+                    result += '<mark>' + escapeHtml(text.substring(segStart, k)) + '</mark>';
+                }
+                result += escapeHtml(text[k]);
+                segStart = k + 1;
+            }
+            // Sinon, on continue le segment surligné
+        }
+    }
+
+    // Fermer le dernier segment surligné s'il reste du contenu
+    if(segStart < origEnd){
+        result += '<mark>' + escapeHtml(text.substring(segStart, origEnd)) + '</mark>';
+    }
+
+    result += escapeHtml(text.substring(origEnd));
+    return result;
+}
+
+function populateVersionFilter(){
+    const allVersions=[...new Set(MODS_DATABASE.flatMap(m=>m.versions))];
+    allVersions.sort((a,b)=>versionToNum(b)-versionToNum(a));
+    versionFilter.innerHTML='<option value="all">Toutes les versions</option>'+allVersions.map(v=>`<option value="${v}">${v}</option>`).join('');
+}
+
+function getFilteredMods(){
+    let list=MODS_DATABASE.filter(m=>{
+        if(strictSearchModName){return normalizeStr(m.name)===normalizeStr(strictSearchModName)}
+        const matchCat=selectedCategories.size===0||[...selectedCategories].every(c=>m.categories.includes(c));
+        const matchVer=currentVersion==='all'||m.versions.includes(currentVersion);
+        const q=normalizeStr(searchQuery);
+        const matchSearch=q===''||normalizeStr(m.name).includes(q)||normalizeStr(m.description).includes(q)||m.categories.some(c=>c.includes(q));
+        return matchCat&&matchVer&&matchSearch;
+    });
+    switch(currentSort){
+        case'name-asc':list.sort((a,b)=>a.name.localeCompare(b.name));break;
+        case'name-desc':list.sort((a,b)=>b.name.localeCompare(a.name));break;
+        case'size':list.sort((a,b)=>b.sizeMo-a.sizeMo);break;
+        case'recent':
+        default:
+            list.sort((a,b)=>latestVersionNum(b)-latestVersionNum(a));break;
+    }
+    return list;
+}
+
+function switchTab(tab){
+    currentTab=tab;
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+    document.getElementById('browsePanel').style.display=tab==='browse'?'':'none';
+    favoritesPanel.style.display=tab==='favorites'?'':'none';
+    collectionsPanel.style.display=tab==='collections'?'':'none';
+    collectionsPanel.classList.toggle('active',tab==='collections');
+    if(tab==='favorites')renderFavorites();
+    if(tab==='collections')renderCollections();
+}
+document.getElementById('tabBar').addEventListener('click',e=>{const b=e.target.closest('.tab-btn');if(b)switchTab(b.dataset.tab)});
+
+function renderCategories(){
+    const counts={};
+    CATEGORIES.forEach(c=>{counts[c.id]=MODS_DATABASE.filter(m=>{const cats=new Set(selectedCategories);cats.add(c.id);return[...cats].every(cat=>m.categories.includes(cat))}).length});
+    categoriesGrid.innerHTML=CATEGORIES.map(c=>`<div class="category-card cat-${c.id} ${selectedCategories.has(c.id)?'active':''}" data-category="${c.id}"><div class="category-icon">${c.icon}</div><div class="category-name">${c.name}</div><div class="category-desc">${c.desc}</div><div class="category-count">${counts[c.id]}</div></div>`).join('');
+    categoriesGrid.querySelectorAll('.category-card').forEach(card=>{card.addEventListener('click',()=>{const id=card.dataset.category;selectedCategories.has(id)?selectedCategories.delete(id):selectedCategories.add(id);strictSearchModName=null;currentPage=1;renderCategories();renderMods()})});
+}
+
+function modCardHTML(mod,i,showRemoveFromCol,colId,incompatible,readOnly){
+    const isFav=favorites.includes(mod.id);
+    return`<div class="mod-card ${incompatible?'incompatible':''}" style="animation-delay:${(i||0)*0.04}s">
+    <div class="mod-card-image-wrapper">
+        ${incompatible?`<div class="incompat-badge">⚠️ Version incompatible</div>`:''}
+            <img class="mod-card-image" src="${getModImageUrl(mod)}" alt="${escapeHtml(mod.name)}" loading="lazy" onerror="this.onerror=null;this.src='${getImageFallback()}'">
+            <div class="mod-card-badges">${mod.categories.map(c=>`<span class="mod-badge ${c}">${getCategoryLabel(c)}</span>`).join('')}</div>
+            ${!readOnly?`<button class="fav-btn ${isFav?'active':''}" title="Favoris" onclick="toggleFavorite(${mod.id},this,event)">${STAR_OUTLINE}</button>`:''}
+        </div>
+        <div class="mod-card-body">
+            <h3 class="mod-card-title">${escapeHtml(mod.name)}</h3>
+            <p class="mod-card-description">${escapeHtml(mod.description)}</p>
+            <div class="mod-card-stats">
+                <span class="stat-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>${formatSize(mod.sizeMo)}</span>
+                <span class="version-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${latestVersion(mod)}</span>
+            </div>
+            <div class="mod-card-actions">
+                <a class="btn-download" href="${mod.curseforgeUrl}" target="_blank" rel="noopener">📥 CurseForge</a>
+                <button class="btn-details" onclick="openModal(${mod.id})">📋 Voir</button>
+                ${showRemoveFromCol&&!readOnly?`<button class="btn-details" onclick="removeFromCollection(${colId},${mod.id})" title="Retirer" style="color:var(--mc-redstone);border-color:rgba(255,26,26,.3)">✕</button>`:''}
+            </div>
+        </div>
+    </div>`;
+}
+
+function renderMods(){
+    const filtered=getFilteredMods();
+    const totalPages=Math.max(1,Math.ceil(filtered.length/ITEMS_PER_PAGE));
+    if(currentPage>totalPages)currentPage=totalPages;
+    resultsCount.innerHTML=`Affichage de <strong>${filtered.length}</strong> mod${filtered.length!==1?'s':''}`;
+    modsGrid.className='mods-grid'+(currentView==='list'?' list-view':'');
+    if(filtered.length===0){modsGrid.innerHTML=`<div class="no-results"><div class="no-results-icon">🔍</div><h3>Aucun mod trouvé</h3><p>Essayez de modifier vos filtres.</p></div>`;pagination.innerHTML='';return}
+    const start=(currentPage-1)*ITEMS_PER_PAGE;
+    modsGrid.innerHTML=filtered.slice(start,start+ITEMS_PER_PAGE).map((m,i)=>modCardHTML(m,i)).join('');
+    renderPagination(totalPages);
+}
+
+function renderPagination(tp){if(tp<=1){pagination.innerHTML='';return}let h=`<button class="page-btn" ${currentPage===1?'disabled':''} onclick="goToPage(${currentPage-1})">‹</button>`;const pp=[];pp.push(1);if(currentPage>3)pp.push('...');for(let i=Math.max(2,currentPage-1);i<=Math.min(tp-1,currentPage+1);i++)pp.push(i);if(currentPage<tp-2)pp.push('...');if(tp>1)pp.push(tp);const s=new Set();pp.forEach(p=>{if(p==='...')h+=`<span class="page-dots">…</span>`;else if(!s.has(p)){s.add(p);h+=`<button class="page-btn ${currentPage===p?'active':''}" onclick="goToPage(${p})">${p}</button>`}});h+=`<button class="page-btn" ${currentPage===tp?'disabled':''} onclick="goToPage(${currentPage+1})">›</button>`;pagination.innerHTML=h}
+function goToPage(n){currentPage=n;renderMods();catalogSection.scrollIntoView({behavior:'smooth',block:'start'})}
+
+function requireAuth(action){if(!currentUser){showToast('info','🔐 Connectez-vous pour '+action);openAuthModal('login');return false}return true}
+
+function toggleFavorite(modId,btn,event){
+    event&&event.stopPropagation();
+    if(!requireAuth('gérer vos favoris'))return;
+    const idx=favorites.indexOf(modId);
+    if(idx>=0)favorites.splice(idx,1);else favorites.push(modId);
+    saveFavorites();
+    if(btn){btn.classList.toggle('active',favorites.includes(modId));btn.innerHTML=STAR_OUTLINE}
+    updateTabCounts();
+    if(currentTab==='favorites')renderFavorites();
+}
+
+function renderFavorites(){
+    if(!currentUser){favoritesPanel.innerHTML=`<div class="login-required"><div class="login-required-icon">🔐</div><h3>Connectez-vous pour voir vos favoris</h3><p>Créez un compte gratuit pour sauvegarder vos mods favoris.</p><div class="login-required-btns"><button class="btn-primary" onclick="openAuthModal('login')">Se connecter</button><button class="btn-secondary" onclick="openAuthModal('register')">Créer un compte</button></div></div>`;return}
+    const mods=MODS_DATABASE.filter(m=>favorites.includes(m.id));
+    if(mods.length===0){favoritesPanel.innerHTML=`<div class="no-results"><div class="no-results-icon">⭐</div><h3>Aucun favoris</h3><p>Cliquez sur l'étoile d'un mod pour l'ajouter.</p></div>`;return}
+    favoritesPanel.innerHTML=`<div class="mods-grid ${currentView==='list'?'list-view':''}">${mods.map((m,i)=>modCardHTML(m,i)).join('')}</div>`;
+}
+
+function createCollection(){
+    if(!requireAuth('créer une collection'))return;
+    const col={id:Date.now(),name:'Nouvelle collection',modIds:[],owner:currentUser.pseudo,imported:false,sharedFrom:null};
+    collections.push(col);saveCollections();updateTabCounts();renderCollections();
+}
+function deleteCollection(colId){collections=collections.filter(c=>c.id!==colId);saveCollections();updateTabCounts();renderCollections()}
+function renameCollection(colId,newName){const col=collections.find(c=>c.id===colId);if(col){col.name=newName;saveCollections()}}
+function removeFromCollection(colId,modId){const col=collections.find(c=>c.id===colId);if(col){col.modIds=col.modIds.filter(id=>id!==modId);saveCollections();renderCollections();if(currentModalModId)refreshPlaylistChips(currentModalModId)}}
+function toggleModInCollection(colId,modId){if(!requireAuth('modifier une collection'))return;const col=collections.find(c=>c.id===colId);if(!col)return;const idx=col.modIds.indexOf(modId);if(idx>=0)col.modIds.splice(idx,1);else col.modIds.push(modId);saveCollections();refreshPlaylistChips(modId);updateTabCounts()}
+
+function analyzeCollection(col){
+    const mods=col.modIds.map(id=>MODS_DATABASE.find(m=>m.id===id)).filter(Boolean);
+    const totalSize=mods.reduce((sum,m)=>sum+getSizeForVersion(m,latestVersion(m)),0);
+    let commonVersions=null;
+    mods.forEach(m=>{const set=new Set(m.versions);if(commonVersions===null)commonVersions=set;else commonVersions=new Set([...commonVersions].filter(v=>set.has(v)))});
+    const hasCommonVersion=commonVersions&&commonVersions.size>0;
+    let incompatibleModIds=[];let bestVersion=null;
+    if(!hasCommonVersion&&mods.length>=2){
+        const versionCounts={};
+        mods.forEach(m=>{m.versions.forEach(v=>{versionCounts[v]=(versionCounts[v]||0)+1})});
+        let maxCount=0;
+        Object.entries(versionCounts).forEach(([v,count])=>{if(count>maxCount||(count===maxCount&&bestVersion&&versionToNum(v)>versionToNum(bestVersion))){maxCount=count;bestVersion=v}});
+        incompatibleModIds=mods.filter(m=>!m.versions.includes(bestVersion)).map(m=>m.id);
+    }
+    const modNames=new Set(mods.map(m=>normalizeStr(m.name)));
+    const missingDeps=new Set();
+    mods.forEach(m=>{(m.dependencies||[]).forEach(dep=>{if(!modNames.has(normalizeStr(dep)))missingDeps.add(dep)})});
+    return{totalSize,modCount:mods.length,hasCommonVersion,commonVersions:commonVersions?[...commonVersions].sort((a,b)=>versionToNum(b)-versionToNum(a)):[],bestVersion,incompatibleModIds,missingDeps:[...missingDeps]};
+}
+
+function searchDependencyFromCollection(depName){
+    const found=findModByName(depName);
+    if(found){strictSearchModName=found.name;searchInput.value=found.name;searchQuery=found.name;searchClearBtn.classList.add('visible');searchSuggestions.classList.remove('visible');selectedCategories.clear();currentVersion='all';versionFilter.value='all';switchTab('browse');currentPage=1;renderCategories();renderMods();setTimeout(()=>{filtersPanel.scrollIntoView({behavior:'smooth',block:'start'})},100)}
+    else{showToast('warning',`⚠️ "${depName}" n'est pas dans le catalogue`)}
+}
+
+function renderCollections(){
+    if(!currentUser){collectionsPanel.innerHTML=`<div class="login-required"><div class="login-required-icon">🔐</div><h3>Connectez-vous pour vos collections</h3><p>Créez un compte gratuit pour créer et partager vos collections.</p><div class="login-required-btns"><button class="btn-primary" onclick="openAuthModal('login')">Se connecter</button><button class="btn-secondary" onclick="openAuthModal('register')">Créer un compte</button></div></div>`;return}
+    let html=`<div class="collections-header-actions"><button class="btn-create-collection" onclick="createCollection()">➕ Créer une collection</button><button class="btn-import-collection" onclick="openImportCollectionPrompt()">📥 Importer une collection</button></div>`;
+    if(collections.length===0){html+=`<div class="no-results"><div class="no-results-icon">📁</div><h3>Aucune collection</h3><p>Créez une collection ou importez-en une.</p></div>`;collectionsPanel.innerHTML=html;return}
+    html+=collections.map(col=>{
+        const mods=col.modIds.map(id=>MODS_DATABASE.find(m=>m.id===id)).filter(Boolean);
+        const analysis=analyzeCollection(col);
+        const isImported=col.imported;
+        let summaryHtml='';
+        if(mods.length>0){summaryHtml=`<div class="collection-summary"><span class="collection-summary-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Poids total : <strong>${formatSize(analysis.totalSize)}</strong></span><span class="collection-summary-item">📦 <strong>${analysis.modCount}</strong> mod${analysis.modCount>1?'s':''}</span>${analysis.hasCommonVersion?`<span class="collection-summary-item">✓ Versions compatibles : <strong>${analysis.commonVersions.slice(0,3).join(', ')}${analysis.commonVersions.length>3?'...':''}</strong></span>`:''}</div>`}
+        let alertHtml='';
+        if(mods.length>=2&&!analysis.hasCommonVersion){const incompatMods=mods.filter(m=>analysis.incompatibleModIds.includes(m.id));alertHtml+=`<div class="collection-alert error"><div class="collection-alert-title">⚠️ Erreur : versions incompatibles</div><div>Les mods surlignés ne sont pas disponibles pour la version <strong>${analysis.bestVersion}</strong>.</div><ul class="collection-alert-list">${incompatMods.map(m=>`<li><strong>${escapeHtml(m.name)}</strong> — versions : ${m.versions.join(', ')}</li>`).join('')}</ul></div>`}
+        if(analysis.missingDeps.length>0){alertHtml+=`<div class="collection-alert warning"><div class="collection-alert-title">📚 Dépendances requises manquantes</div><ul class="collection-alert-list">${analysis.missingDeps.map(dep=>{const inCatalog=findModByName(dep);return`<li>${inCatalog?`<span class="dep-link" onclick="searchDependencyFromCollection('${escapeHtml(dep).replace(/'/g,"\\'")}')">${escapeHtml(dep)}</span>`:`<strong>${escapeHtml(dep)}</strong>`}${!inCatalog?' (non présent dans le catalogue)':''}</li>`}).join('')}</ul></div>`}
+        let actionsHtml=isImported?`<button class="collection-action-btn delete-btn" onclick="deleteCollection(${col.id})" title="Retirer">🗑️</button>`:`<button class="collection-action-btn" onclick="shareCollection(${col.id})" title="Partager">📤</button><button class="collection-action-btn delete-btn" onclick="deleteCollection(${col.id})" title="Supprimer">🗑️</button>`;
+        return`<div class="collection-card ${isImported?'shared':''}"><div class="collection-header"><div class="collection-name-wrapper"><input class="collection-name-input" value="${escapeHtml(col.name)}" onchange="renameCollection(${col.id},this.value)" spellcheck="false" ${isImported?'disabled':''}>${isImported?`<span class="shared-badge">📥 Reçue de ${escapeHtml(col.sharedFrom||'?')}</span>`:''}</div><div class="collection-actions">${actionsHtml}</div></div>${summaryHtml}${alertHtml}${mods.length===0?'<div class="empty-collection">Aucun mod dans cette collection.</div>':''}<div class="mods-grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">${mods.map((m,i)=>modCardHTML(m,i,true,col.id,analysis.incompatibleModIds.includes(m.id),isImported)).join('')}</div></div>`;
+    }).join('');
+    collectionsPanel.innerHTML=html;
+}
+
+function updateTabCounts(){document.getElementById('favCount').textContent=favorites.length;document.getElementById('colCount').textContent=collections.length}
+
+function computeSuggestions(query){
+    const q=normalizeStr(query);
+    if(!q)return[];
+    const starts=[],contains=[];
+    MODS_DATABASE.forEach(m=>{const n=normalizeStr(m.name);if(n.startsWith(q))starts.push(m);else if(n.includes(q))contains.push(m)});
+    return[...starts,...contains].slice(0,MAX_SUGGESTIONS);
+}
+
+function renderSuggestions(query){
+    suggestionsList=computeSuggestions(query);
+    highlightedSuggestionIndex=-1;
+    if(!query.trim()){searchSuggestions.classList.remove('visible');return}
+    if(suggestionsList.length===0){searchSuggestions.innerHTML=`<div class="suggestion-empty">Aucun mod ne correspond à <strong>« ${escapeHtml(query)} »</strong></div>`;searchSuggestions.classList.add('visible');return}
+    searchSuggestions.innerHTML=`<div class="suggestion-header">${suggestionsList.length} résultat${suggestionsList.length>1?'s':''} trouvé${suggestionsList.length>1?'s':''}</div>${suggestionsList.map((m,i)=>`<div class="suggestion-item" data-index="${i}" onclick="selectSuggestion(${m.id})"><img class="suggestion-img" src="${getModImageUrl(m)}" alt="" onerror="this.onerror=null;this.src='${getImageFallback()}'"><div class="suggestion-content"><div class="suggestion-name">${highlightMatch(m.name,query)}</div><div class="suggestion-cats">${m.categories.slice(0,3).map(c=>`<span class="suggestion-cat ${c}">${getCategoryLabel(c)}</span>`).join('')}</div></div><span class="suggestion-arrow">→</span></div>`).join('')}`;
+    searchSuggestions.classList.add('visible');
+}
+
+function selectSuggestion(modId){
+    const mod=MODS_DATABASE.find(m=>m.id===modId);if(!mod)return;
+    searchInput.value=mod.name;searchQuery=mod.name;strictSearchModName=mod.name;
+    searchClearBtn.classList.add('visible');searchSuggestions.classList.remove('visible');
+    currentPage=1;renderMods();
+    setTimeout(()=>{filtersPanel.scrollIntoView({behavior:'smooth',block:'start'})},100);
+}
+
+function updateSuggestionHighlight(){const items=searchSuggestions.querySelectorAll('.suggestion-item');items.forEach((el,i)=>{el.classList.toggle('highlighted',i===highlightedSuggestionIndex)});if(highlightedSuggestionIndex>=0&&items[highlightedSuggestionIndex]){items[highlightedSuggestionIndex].scrollIntoView({block:'nearest'})}}
+
+function searchDependency(depName){
+    closeModal();
+    const found=findModByName(depName);
+    if(found){strictSearchModName=found.name;searchInput.value=found.name;searchQuery=found.name}
+    else{strictSearchModName=null;searchInput.value=depName;searchQuery=depName}
+    searchClearBtn.classList.add('visible');searchSuggestions.classList.remove('visible');
+    selectedCategories.clear();currentVersion='all';versionFilter.value='all';
+    switchTab('browse');currentPage=1;renderCategories();renderMods();
+    setTimeout(()=>{filtersPanel.scrollIntoView({behavior:'smooth',block:'start'})},100);
+}
+
+function openModal(modId){
+    currentModalModId=modId;
+    const mod=MODS_DATABASE.find(m=>m.id===modId);if(!mod)return;
+    const img=document.getElementById('modalImage');img.src=getModImageUrl(mod);img.alt=mod.name;img.onerror=function(){this.onerror=null;this.src=getImageFallback()};
+    document.getElementById('modalTitle').textContent=mod.name;
+    document.getElementById('modalCategories').innerHTML=mod.categories.map(c=>`<span class="mod-badge ${c}">${getCategoryLabel(c)}</span>`).join('');
+    document.getElementById('modalDescription').textContent=mod.fullDescription;
+    const initialVersion=mod.versions[0];
+    document.getElementById('modalSize').textContent=formatSize(getSizeForVersion(mod,initialVersion));
+    document.getElementById('modalDownload').href=mod.curseforgeUrl;
+    document.getElementById('modalLoaders').innerHTML=mod.loaders.map(l=>`<span class="loader-tag ${l.toLowerCase().replace(/\s+/g,'')}">${l}</span>`).join('');
+    const depsEl=document.getElementById('modalDeps');
+    if(!mod.dependencies||mod.dependencies.length===0){depsEl.innerHTML='<span class="dep-none">Aucune dépendance requise ✓</span>'}
+    else{depsEl.innerHTML=mod.dependencies.map(dep=>{const safeName=dep.replace(/'/g,"\\'").replace(/"/g,'&quot;');return`<button class="dep-chip" onclick="searchDependency('${safeName}')" title="Rechercher ${dep}">${dep}</button>`}).join('')}
+    const btn=document.getElementById('versionDropdownBtn');const list=document.getElementById('versionDropdownList');
+    document.getElementById('versionDropdownLabel').textContent=initialVersion+' (dernière)';
+    btn.classList.remove('open');list.classList.remove('open');
+    list.innerHTML=mod.versions.map((v,i)=>{const size=getSizeForVersion(mod,v);return`<div class="version-item ${i===0?'current':''}" onclick="selectVersion(this,'${v}',${i===0},${modId})"><span>${v}${i===0?' <span class="ver-latest">Dernière</span>':''}</span><span class="ver-size">${formatSize(size)}</span></div>`}).join('');
+    refreshPlaylistChips(modId);
+    modalOverlay.classList.add('active');document.body.style.overflow='hidden';
+}
+
+function refreshPlaylistChips(modId){
+    const container=document.getElementById('playlistChips');
+    if(!currentUser){container.innerHTML=`<div style="font-size:13px;color:var(--text-muted);font-style:italic">🔐 Connectez-vous pour ajouter à une collection</div>`;return}
+    const editableCols=collections.filter(c=>!c.imported);
+    let html=editableCols.map(col=>{const inCol=col.modIds.includes(modId);return`<button class="playlist-chip ${inCol?'in-playlist':''}" onclick="toggleModInCollection(${col.id},${modId})"><span class="plus">+</span><span class="check">✓</span>${escapeHtml(col.name)}</button>`}).join('');
+    html+=`<button class="btn-new-playlist" onclick="createCollection();refreshPlaylistChips(${modId});updateTabCounts()">+ Nouvelle</button>`;
+    container.innerHTML=html;
+}
+
+function toggleVersionDropdown(){const btn=document.getElementById('versionDropdownBtn');const list=document.getElementById('versionDropdownList');btn.classList.toggle('open');list.classList.toggle('open')}
+function selectVersion(el,ver,isLatest,modId){document.getElementById('versionDropdownLabel').textContent=ver+(isLatest?' (dernière)':'');document.querySelectorAll('.version-item').forEach(v=>v.classList.remove('current'));el.classList.add('current');document.getElementById('versionDropdownBtn').classList.remove('open');document.getElementById('versionDropdownList').classList.remove('open');const mod=MODS_DATABASE.find(m=>m.id===modId);if(mod){const sizeEl=document.getElementById('modalSize');sizeEl.textContent=formatSize(getSizeForVersion(mod,ver));sizeEl.classList.remove('updating');void sizeEl.offsetWidth;sizeEl.classList.add('updating');setTimeout(()=>sizeEl.classList.remove('updating'),500)}}
+
+function closeModal(){modalOverlay.classList.remove('active');document.body.style.overflow='';currentModalModId=null}
+document.getElementById('modalClose').addEventListener('click',closeModal);
+modalOverlay.addEventListener('click',e=>{if(e.target===modalOverlay)closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeMobileMenu();searchSuggestions.classList.remove('visible');closePromptModal();closeUserDropdown();closeBellDropdown()}});
+
+searchInput.addEventListener('input',e=>{searchQuery=e.target.value;strictSearchModName=null;currentPage=1;searchClearBtn.classList.toggle('visible',searchQuery.length>0);renderSuggestions(searchQuery);renderMods()});
+searchInput.addEventListener('focus',()=>{if(searchQuery.length>0&&!strictSearchModName)renderSuggestions(searchQuery)});
+searchInput.addEventListener('keydown',(e)=>{const isVisible=searchSuggestions.classList.contains('visible');if(!isVisible||suggestionsList.length===0)return;if(e.key==='ArrowDown'){e.preventDefault();highlightedSuggestionIndex=Math.min(highlightedSuggestionIndex+1,suggestionsList.length-1);updateSuggestionHighlight()}else if(e.key==='ArrowUp'){e.preventDefault();highlightedSuggestionIndex=Math.max(highlightedSuggestionIndex-1,-1);updateSuggestionHighlight()}else if(e.key==='Enter'&&highlightedSuggestionIndex>=0){e.preventDefault();selectSuggestion(suggestionsList[highlightedSuggestionIndex].id)}else if(e.key==='Escape'){searchSuggestions.classList.remove('visible')}});
+document.addEventListener('click',(e)=>{if(!searchInput.contains(e.target)&&!searchSuggestions.contains(e.target))searchSuggestions.classList.remove('visible')});
+searchClearBtn.addEventListener('click',()=>{searchInput.value='';searchQuery='';strictSearchModName=null;currentPage=1;searchClearBtn.classList.remove('visible');searchSuggestions.classList.remove('visible');searchInput.focus();renderMods()});
+versionFilter.addEventListener('change',e=>{currentVersion=e.target.value;currentPage=1;renderMods()});
+sortSelect.addEventListener('change',e=>{currentSort=e.target.value;currentPage=1;renderMods()});
+document.querySelectorAll('.view-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.view-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');currentView=b.dataset.view;renderMods();if(currentTab==='favorites')renderFavorites()})});
+function closeMobileMenu(){mobileMenu.classList.remove('open')}
+mobileMenuBtn.addEventListener('click',e=>{e.stopPropagation();mobileMenu.classList.toggle('open')});
+document.addEventListener('click',e=>{if(!mobileMenu.contains(e.target)&&!mobileMenuBtn.contains(e.target))closeMobileMenu();if(!userBadge.contains(e.target)&&!userDropdown.contains(e.target))closeUserDropdown();if(!bellBtn.contains(e.target)&&!bellDropdown.contains(e.target))closeBellDropdown()});
+function setTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('minemods-theme',t);themeToggle.textContent=t==='dark'?'☀️':'🌙'}
+themeToggle.addEventListener('click',()=>{setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')});
+setTheme(localStorage.getItem('minemods-theme')||'dark');
+function showHome(){window.scrollTo({top:0,behavior:'smooth'})}
+function showCatalog(){setTimeout(()=>{catalogSection.scrollIntoView({behavior:'smooth'})},100)}
+let ticking=false;
+window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{const sy=window.scrollY;header.classList.toggle('scrolled',sy>50);backToTop.classList.toggle('visible',sy>500);document.querySelectorAll('.fade-in-section').forEach(s=>{if(s.getBoundingClientRect().top<window.innerHeight*.85)s.classList.add('visible')});ticking=false});ticking=true}});
+backToTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+function animateCounter(el,target,d=2000){const st=performance.now();function u(t){const p=Math.min((t-st)/d,1);el.textContent=Math.floor((1-Math.pow(1-p,3))*target);if(p<1)requestAnimationFrame(u)}requestAnimationFrame(u)}
+
+let toastTimer=null;
+function showToast(type,msg){const t=document.getElementById('toast');t.className='toast '+type;t.textContent=msg;requestAnimationFrame(()=>t.classList.add('visible'));clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('visible'),4000)}
+
+const promptOverlay=document.getElementById('promptOverlay');
+function openPromptModal(config){document.getElementById('promptTitle').textContent=config.title;document.getElementById('promptHint').innerHTML=config.hint||'';document.getElementById('promptExtraContent').innerHTML=config.extraContent||'';document.getElementById('promptError').classList.remove('visible');document.getElementById('promptInputsContainer').innerHTML=config.inputsHtml||'';document.getElementById('promptActions').innerHTML=config.actionsHtml||'';promptOverlay.classList.add('active');document.body.style.overflow='hidden';if(config.onOpen)setTimeout(config.onOpen,100)}
+function closePromptModal(){promptOverlay.classList.remove('active');document.body.style.overflow=''}
+promptOverlay.addEventListener('click',e=>{if(e.target===promptOverlay)closePromptModal()});
+function showPromptError(msg){const el=document.getElementById('promptError');el.textContent=msg;el.classList.add('visible')}
+
+function openAuthModal(mode){
+    closeUserDropdown();
+    const isRegister=mode==='register';
+    openPromptModal({
+        title:isRegister?'📝 Créer un compte':'🔐 Se connecter',
+        hint:isRegister?'Créez un compte pour sauvegarder vos favoris et partager vos collections avec vos amis.':'Connectez-vous pour retrouver vos favoris et collections.',
+        extraContent:`<div class="form-info-banner">💡 <strong>Info :</strong> Les comptes sont stockés dans ce navigateur. Pour un vrai système multi-appareils, un backend Firebase peut être ajouté.</div>`,
+        inputsHtml:`<input type="text" class="prompt-input" id="authPseudo" placeholder="Pseudo (2-20 caractères)" autocomplete="off"><input type="password" class="prompt-input" id="authPassword" placeholder="Mot de passe (min. 4 caractères)" autocomplete="${isRegister?'new-password':'current-password'}">${isRegister?'<input type="password" class="prompt-input" id="authPasswordConfirm" placeholder="Confirmez le mot de passe" autocomplete="new-password">':''}`,
+        actionsHtml:`<button class="btn-secondary" onclick="openAuthModal('${isRegister?'login':'register'}')">${isRegister?'← Se connecter':'Créer un compte →'}</button><button class="btn-primary" onclick="submitAuth('${mode}')">${isRegister?'S\'inscrire':'Se connecter'}</button>`,
+        onOpen:()=>{const el=document.getElementById('authPseudo');if(el)el.focus()}
+    });
+    setTimeout(()=>{['authPseudo','authPassword','authPasswordConfirm'].forEach(id=>{const el=document.getElementById(id);if(el){el.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();submitAuth(mode)}})}})},150);
+}
+
+function submitAuth(mode){
+    const pseudo=document.getElementById('authPseudo').value.trim();
+    const pwd=document.getElementById('authPassword').value;
+    if(!pseudo){showPromptError('Le pseudo est requis');return}
+    if(pseudo.length<2||pseudo.length>20){showPromptError('Le pseudo doit contenir entre 2 et 20 caractères');return}
+    if(!/^[a-zA-Z0-9_\-]+$/.test(pseudo)){showPromptError('Le pseudo ne peut contenir que des lettres, chiffres, _ et -');return}
+    if(!pwd||pwd.length<4){showPromptError('Le mot de passe doit contenir au moins 4 caractères');return}
+    const accounts=getAccounts();
+    const key=pseudo.toLowerCase();
+    if(mode==='register'){
+        const pwdConfirm=document.getElementById('authPasswordConfirm').value;
+        if(pwd!==pwdConfirm){showPromptError('Les mots de passe ne correspondent pas');return}
+        if(accounts[key]){showPromptError('Ce pseudo est déjà utilisé');return}
+        accounts[key]={pseudo,passwordHash:simpleHash(pwd),favorites:[],collections:[],notifications:[]};
+        saveAccounts(accounts);
+        currentUser={pseudo,passwordHash:accounts[key].passwordHash};
+        localStorage.setItem(LS_CURRENT_USER,pseudo);
+        favorites=[];collections=[];notifications=[];
+        showToast('info',`🎉 Bienvenue ${pseudo} !`);
+    } else {
+        const acc=accounts[key];
+        if(!acc){showPromptError('Ce compte n\'existe pas');return}
+        if(acc.passwordHash!==simpleHash(pwd)){showPromptError('Mot de passe incorrect');return}
+        currentUser={pseudo:acc.pseudo,passwordHash:acc.passwordHash};
+        localStorage.setItem(LS_CURRENT_USER,acc.pseudo);
+        favorites=acc.favorites||[];collections=acc.collections||[];notifications=acc.notifications||[];
+        showToast('info',`👋 Rebonjour ${acc.pseudo} !`);
+    }
+    updateUserBadge();updateTabCounts();updateBellBadge();
+    if(currentTab==='favorites')renderFavorites();
+    if(currentTab==='collections')renderCollections();
+    renderMods();closePromptModal();
+}
+
+function logout(){if(!currentUser)return;currentUser=null;localStorage.removeItem(LS_CURRENT_USER);favorites=[];collections=[];notifications=[];updateUserBadge();updateTabCounts();updateBellBadge();if(currentTab==='favorites')renderFavorites();if(currentTab==='collections')renderCollections();renderMods();closeUserDropdown();showToast('info','👋 Vous êtes déconnecté')}
+function deleteAccount(){if(!currentUser)return;if(!confirm(`Supprimer le compte "${currentUser.pseudo}" ?\nToutes vos données seront perdues.`))return;const accounts=getAccounts();delete accounts[currentUser.pseudo.toLowerCase()];saveAccounts(accounts);logout();showToast('error','🗑️ Compte supprimé')}
+
+function toggleUserDropdown(force){if(force===false){userDropdown.classList.remove('open');return}if(!currentUser){openAuthModal('login');return}userDropdown.classList.toggle('open');if(userDropdown.classList.contains('open'))renderUserDropdown()}
+function closeUserDropdown(){userDropdown.classList.remove('open')}
+userBadge.addEventListener('click',e=>{e.stopPropagation();toggleUserDropdown()});
+function renderUserDropdown(){if(!currentUser){userDropdown.innerHTML=`<div class="user-dropdown-header">Compte</div><button class="user-dropdown-item" onclick="openAuthModal('login')">🔐 Se connecter</button><button class="user-dropdown-item" onclick="openAuthModal('register')">📝 Créer un compte</button>`;return}userDropdown.innerHTML=`<div class="user-dropdown-header">Connecté en tant que</div><div style="padding:0 14px 8px;font-size:14px;font-weight:800;color:var(--text-primary)">${escapeHtml(currentUser.pseudo)}</div><div class="user-dropdown-divider"></div><button class="user-dropdown-item" onclick="closeUserDropdown();switchTab('favorites')">⭐ Mes favoris (${favorites.length})</button><button class="user-dropdown-item" onclick="closeUserDropdown();switchTab('collections')">📁 Mes collections (${collections.length})</button><div class="user-dropdown-divider"></div><button class="user-dropdown-item" onclick="logout()">🚪 Déconnexion</button><button class="user-dropdown-item danger" onclick="deleteAccount()">🗑️ Supprimer le compte</button>`}
+function updateUserBadge(){if(currentUser){userPseudoEl.textContent=currentUser.pseudo;userAvatar.textContent=currentUser.pseudo.charAt(0).toUpperCase();userBadge.classList.add('logged-in')}else{userPseudoEl.textContent='Se connecter';userAvatar.textContent='?';userBadge.classList.remove('logged-in')}}
+
+function createNotification(targetPseudo,notif){
+    const accounts=getAccounts();
+    const key=targetPseudo.toLowerCase();
+    if(!accounts[key])return false;
+    if(!accounts[key].notifications)accounts[key].notifications=[];
+    accounts[key].notifications.unshift({id:Date.now()+Math.floor(Math.random()*10000),read:false,timestamp:Date.now(),...notif});
+    saveAccounts(accounts);
+    return true;
+}
+
+function updateBellBadge(){
+    if(!currentUser){bellBadge.classList.remove('visible');bellBtn.classList.remove('has-notif');return}
+    const unread=notifications.filter(n=>!n.read).length;
+    if(unread>0){
+        if(unread>9){bellBadge.textContent='9+';bellBadge.classList.add('wide')}
+        else{bellBadge.textContent=String(unread);bellBadge.classList.remove('wide')}
+        bellBadge.classList.add('visible');
+        bellBtn.classList.add('has-notif');
+    } else {
+        bellBadge.classList.remove('visible');
+        bellBtn.classList.remove('has-notif');
+    }
+}
+
+function toggleBellDropdown(force){if(force===false){bellDropdown.classList.remove('open');return}if(!currentUser){openAuthModal('login');return}bellDropdown.classList.toggle('open');if(bellDropdown.classList.contains('open')){renderBellList();notifications.forEach(n=>n.read=true);saveNotifications();updateBellBadge()}}
+function closeBellDropdown(){bellDropdown.classList.remove('open')}
+bellBtn.addEventListener('click',e=>{e.stopPropagation();toggleBellDropdown()});
+document.getElementById('clearAllNotifs').addEventListener('click',()=>{if(!confirm('Effacer toutes les notifications ?'))return;notifications=[];saveNotifications();updateBellBadge();renderBellList()});
+function formatRelativeTime(ts){const diff=Date.now()-ts;const s=Math.floor(diff/1000);if(s<60)return 'à l\'instant';const m=Math.floor(s/60);if(m<60)return `il y a ${m} min`;const h=Math.floor(m/60);if(h<24)return `il y a ${h}h`;const d=Math.floor(h/24);return `il y a ${d}j`}
+
+function renderBellList(){
+    if(notifications.length===0){bellList.innerHTML=`<div class="bell-empty"><div class="bell-empty-icon">🔔</div>Aucune notification</div>`;return}
+    bellList.innerHTML=notifications.map(n=>{
+        let title='',desc='',actions='';
+        if(n.type==='share-offer'){
+            title=`📤 ${escapeHtml(n.from)} veut partager une collection`;
+            desc=`<strong>« ${escapeHtml(n.data.name)} »</strong> — ${n.data.modIds.length} mod${n.data.modIds.length>1?'s':''}`;
+            actions=`<button class="notif-btn accept" onclick="acceptShareOffer(${n.id})">✓ Accepter</button><button class="notif-btn reject" onclick="rejectShareOffer(${n.id})">✕ Refuser</button>`;
+        } else if(n.type==='import-request'){
+            title=`📥 ${escapeHtml(n.from)} demande votre collection`;
+            desc=`<strong>« ${escapeHtml(n.data.collectionName)} »</strong>`;
+            actions=`<button class="notif-btn accept" onclick="acceptImportRequest(${n.id})">✓ Autoriser</button><button class="notif-btn reject" onclick="rejectImportRequest(${n.id})">✕ Refuser</button>`;
+        } else if(n.type==='accepted'){
+            title=`✅ Demande acceptée`;
+            desc=`${escapeHtml(n.from)} a accepté votre demande pour <strong>« ${escapeHtml(n.data.collectionName)} »</strong>.`;
+            actions=`<button class="notif-btn dismiss" onclick="dismissNotif(${n.id})">Fermer</button>`;
+        } else if(n.type==='rejected'){
+            title=`❌ Demande refusée`;
+            desc=`${escapeHtml(n.from)} a refusé votre demande.`;
+            actions=`<button class="notif-btn dismiss" onclick="dismissNotif(${n.id})">Fermer</button>`;
+        }
+        return`<div class="notif-item ${!n.read?'unread':''}"><div class="notif-title">${title}</div><div class="notif-desc">${desc}</div><div class="notif-time">${formatRelativeTime(n.timestamp)}</div><div class="notif-actions">${actions}</div></div>`;
+    }).join('');
+}
+
+function dismissNotif(notifId){notifications=notifications.filter(n=>n.id!==notifId);saveNotifications();updateBellBadge();renderBellList()}
+
+// ═══ PARTAGE (renommé) ═══
+function shareCollection(colId){
+    if(!currentUser){showToast('error','Connectez-vous d\'abord');return}
+    const col=collections.find(c=>c.id===colId);if(!col)return;
+    const accounts=getAccounts();
+    const otherUsers=Object.values(accounts).filter(a=>a.pseudo.toLowerCase()!==currentUser.pseudo.toLowerCase());
+    let friendsHtml='';
+    if(otherUsers.length>0){friendsHtml=`<div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:8px">Utilisateurs inscrits</div><div class="friends-list">${otherUsers.map(a=>`<div class="friend-item" onclick="document.getElementById('shareRecipient').value='${escapeHtml(a.pseudo).replace(/'/g,"\\'")}'"><span class="avatar-circle">${escapeHtml(a.pseudo.charAt(0).toUpperCase())}</span><span class="name">${escapeHtml(a.pseudo)}</span></div>`).join('')}</div>`}
+    openPromptModal({
+        title:`📤 Partager « ${col.name} »`,
+        hint:`Le destinataire recevra une <strong>notification</strong> et pourra <strong>accepter ou refuser</strong> votre partage.`,
+        extraContent:friendsHtml,
+        inputsHtml:`<input type="text" class="prompt-input" id="shareRecipient" placeholder="Pseudo destinataire" autocomplete="off">`,
+        actionsHtml:`<button class="btn-secondary" onclick="closePromptModal()">Annuler</button><button class="btn-primary" onclick="doShareCollection(${colId})">Partager</button>`,
+        onOpen:()=>{const el=document.getElementById('shareRecipient');if(el)el.focus()}
+    });
+}
+
+function doShareCollection(colId){
+    const val=document.getElementById('shareRecipient').value.trim();
+    if(!val){showPromptError('Entrez un pseudo');return}
+    if(val.toLowerCase()===currentUser.pseudo.toLowerCase()){showPromptError('Vous ne pouvez pas vous envoyer à vous-même');return}
+    const accounts=getAccounts();
+    const targetKey=val.toLowerCase();
+    if(!accounts[targetKey]){showPromptError(`⚠️ L'utilisateur "${val}" n'a pas de compte`);return}
+    const col=collections.find(c=>c.id===colId);
+    if(!col){showPromptError('Collection introuvable');return}
+    createNotification(accounts[targetKey].pseudo,{type:'share-offer',from:currentUser.pseudo,data:{name:col.name,modIds:[...col.modIds],originalId:col.id}});
+    showToast('info',`✅ Partage envoyé à ${accounts[targetKey].pseudo}`);
+    closePromptModal();
+}
+
+function acceptShareOffer(notifId){
+    const notif=notifications.find(n=>n.id===notifId);if(!notif)return;
+    const newCol={id:Date.now()+Math.floor(Math.random()*10000),name:notif.data.name,modIds:[...notif.data.modIds],owner:currentUser.pseudo,imported:true,sharedFrom:notif.from};
+    collections.push(newCol);saveCollections();updateTabCounts();
+    createNotification(notif.from,{type:'accepted',from:currentUser.pseudo,data:{collectionName:notif.data.name}});
+    notifications=notifications.filter(n=>n.id!==notifId);saveNotifications();updateBellBadge();renderBellList();
+    if(currentTab==='collections')renderCollections();
+    showToast('info',`✅ Collection « ${notif.data.name} » ajoutée`);
+}
+
+function rejectShareOffer(notifId){
+    const notif=notifications.find(n=>n.id===notifId);if(!notif)return;
+    createNotification(notif.from,{type:'rejected',from:currentUser.pseudo,data:{collectionName:notif.data.name}});
+    notifications=notifications.filter(n=>n.id!==notifId);saveNotifications();updateBellBadge();renderBellList();
+    showToast('info',`Partage refusé`);
+}
+
+// ═══ IMPORT ═══
+function openImportCollectionPrompt(){
+    if(!currentUser){openAuthModal('login');return}
+    const accounts=getAccounts();
+    const otherUsers=Object.values(accounts).filter(a=>a.pseudo.toLowerCase()!==currentUser.pseudo.toLowerCase());
+    let friendsHtml='';
+    if(otherUsers.length>0){friendsHtml=`<div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:8px">Utilisateurs inscrits</div><div class="friends-list">${otherUsers.map(a=>`<div class="friend-item" onclick="document.getElementById('importFrom').value='${escapeHtml(a.pseudo).replace(/'/g,"\\'")}'"><span class="avatar-circle">${escapeHtml(a.pseudo.charAt(0).toUpperCase())}</span><span class="name">${escapeHtml(a.pseudo)}</span></div>`).join('')}</div>`}
+    openPromptModal({
+        title:`📥 Importer une collection`,
+        hint:`Étape 1 sur 2 : entrez le pseudo de la personne dont vous voulez importer une collection.`,
+        extraContent:friendsHtml,
+        inputsHtml:`<input type="text" class="prompt-input" id="importFrom" placeholder="Pseudo" autocomplete="off">`,
+        actionsHtml:`<button class="btn-secondary" onclick="closePromptModal()">Annuler</button><button class="btn-primary" onclick="chooseCollectionToImport()">Suivant →</button>`,
+        onOpen:()=>{const el=document.getElementById('importFrom');if(el)el.focus()}
+    });
+}
+
+function chooseCollectionToImport(){
+    const val=document.getElementById('importFrom').value.trim();
+    if(!val){showPromptError('Entrez un pseudo');return}
+    const accounts=getAccounts();
+    const targetKey=val.toLowerCase();
+    if(!accounts[targetKey]){showPromptError(`⚠️ L'utilisateur "${val}" n'a pas de compte`);return}
+    if(targetKey===currentUser.pseudo.toLowerCase()){showPromptError('Impossible d\'importer vos propres collections');return}
+    const friendCols=(accounts[targetKey].collections||[]).filter(c=>!c.imported);
+    if(friendCols.length===0){showPromptError(`${accounts[targetKey].pseudo} n'a créé aucune collection`);return}
+    const friendPseudo=accounts[targetKey].pseudo;
+    let pickerHtml=`<div class="collection-picker-list">${friendCols.map((c,i)=>`<div class="collection-picker-item" data-idx="${i}" data-colid="${c.id}" onclick="selectPickerItem(this)"><div class="collection-picker-icon">📁</div><div class="collection-picker-info"><div class="collection-picker-name">${escapeHtml(c.name)}</div><div class="collection-picker-meta">${c.modIds.length} mod${c.modIds.length>1?'s':''}</div></div><div class="collection-picker-check"></div></div>`).join('')}</div>`;
+    openPromptModal({
+        title:`📥 Choisir une collection`,
+        hint:`Étape 2 sur 2 : choisissez la collection à demander à <strong>${escapeHtml(friendPseudo)}</strong>. Il devra ensuite l'autoriser.`,
+        extraContent:pickerHtml,
+        inputsHtml:``,
+        actionsHtml:`<button class="btn-secondary" onclick="openImportCollectionPrompt()">← Retour</button><button class="btn-primary" onclick="doRequestImport('${escapeHtml(friendPseudo).replace(/'/g,"\\'")}')">Envoyer la demande</button>`
+    });
+}
+
+let selectedPickerColId=null;
+function selectPickerItem(el){document.querySelectorAll('.collection-picker-item').forEach(i=>i.classList.remove('selected'));el.classList.add('selected');selectedPickerColId=parseInt(el.dataset.colid)}
+
+function doRequestImport(friendPseudo){
+    if(!selectedPickerColId){showPromptError('Choisissez une collection');return}
+    const accounts=getAccounts();
+    const targetKey=friendPseudo.toLowerCase();
+    const friendAcc=accounts[targetKey];if(!friendAcc){showPromptError('Utilisateur introuvable');return}
+    const col=(friendAcc.collections||[]).find(c=>c.id===selectedPickerColId);
+    if(!col){showPromptError('Collection introuvable');return}
+    createNotification(friendPseudo,{type:'import-request',from:currentUser.pseudo,data:{collectionId:col.id,collectionName:col.name}});
+    showToast('info',`✅ Demande envoyée à ${friendPseudo}`);
+    selectedPickerColId=null;
+    closePromptModal();
+}
+
+function acceptImportRequest(notifId){
+    const notif=notifications.find(n=>n.id===notifId);if(!notif)return;
+    const col=collections.find(c=>c.id===notif.data.collectionId&&!c.imported);
+    if(!col){
+        showToast('error','⚠️ Vous n\'avez plus cette collection');
+        notifications=notifications.filter(n=>n.id!==notifId);
+        saveNotifications();updateBellBadge();renderBellList();
+        return;
+    }
+    const accounts=getAccounts();
+    const targetKey=notif.from.toLowerCase();
+    if(!accounts[targetKey]){showToast('error','Utilisateur destinataire introuvable');return}
+    if(!accounts[targetKey].collections)accounts[targetKey].collections=[];
+
+    const shared={
+        id:Date.now()+Math.floor(Math.random()*10000),
+        name:col.name,
+        modIds:[...col.modIds],
+        owner:accounts[targetKey].pseudo,
+        imported:true,
+        sharedFrom:currentUser.pseudo
+    };
+
+    // Retire les anciennes versions et ajoute la nouvelle
+    accounts[targetKey].collections=accounts[targetKey].collections.filter(c=>!(c.imported&&c.sharedFrom===currentUser.pseudo&&c.name===col.name));
+    accounts[targetKey].collections.push(shared);
+
+    // Notification "acceptée" pour le demandeur AVEC les données de la collection
+    if(!accounts[targetKey].notifications)accounts[targetKey].notifications=[];
+    accounts[targetKey].notifications.unshift({
+        id:Date.now()+Math.floor(Math.random()*10000)+1,
+        read:false,
+        timestamp:Date.now(),
+        type:'accepted',
+        from:currentUser.pseudo,
+        data:{collectionName:col.name}
+    });
+
+    saveAccounts(accounts);
+
+    // Retirer la notif de demande côté récepteur
+    notifications=notifications.filter(n=>n.id!==notifId);
+    saveNotifications();updateBellBadge();renderBellList();
+
+    showToast('info',`✅ ${notif.from} a reçu votre collection`);
+}
+
+function rejectImportRequest(notifId){
+    const notif=notifications.find(n=>n.id===notifId);if(!notif)return;
+    createNotification(notif.from,{type:'rejected',from:currentUser.pseudo,data:{collectionName:notif.data.collectionName}});
+    notifications=notifications.filter(n=>n.id!==notifId);saveNotifications();updateBellBadge();renderBellList();
+    showToast('info','Demande refusée');
+}
+
+function init(){
+    createParticles();
+    populateVersionFilter();
+    loadSession();
+    updateUserBadge();
+    updateBellBadge();
+    renderCategories();
+    renderMods();
+    updateTabCounts();
+    const cats=CATEGORIES.length;
+    const vers=[...new Set(MODS_DATABASE.flatMap(m=>m.versions))].length;
+    setTimeout(()=>{animateCounter(document.getElementById('statMods'),MODS_DATABASE.length);animateCounter(document.getElementById('statCategories'),cats);animateCounter(document.getElementById('statVersions'),vers)},500);
+    document.querySelectorAll('.fade-in-section').forEach(s=>{if(s.getBoundingClientRect().top<window.innerHeight)s.classList.add('visible')});
+
+    // Poll pour les notifs ET les nouvelles collections importées
+    setInterval(()=>{
+        if(!currentUser)return;
+        const accounts=getAccounts();
+        const acc=accounts[currentUser.pseudo.toLowerCase()];
+        if(!acc)return;
+
+        // ═══ 1. Synchronisation des notifications ═══
+        const remoteNotifs=acc.notifications||[];
+        const currentIds=new Set(notifications.map(n=>n.id));
+        const newNotifs=remoteNotifs.filter(n=>!currentIds.has(n.id));
+        if(newNotifs.length>0){
+            notifications=[...newNotifs,...notifications];
+            updateBellBadge();
+            if(bellDropdown.classList.contains('open'))renderBellList();
+            const nonRead=newNotifs.filter(n=>!n.read);
+            if(nonRead.length>0){
+                showToast('info',`🔔 ${nonRead.length} nouvelle${nonRead.length>1?'s':''} notification${nonRead.length>1?'s':''}`);
+            }
+        }
+        const remoteIds=new Set(remoteNotifs.map(n=>n.id));
+        notifications=notifications.filter(n=>remoteIds.has(n.id));
+
+        // ═══ 2. Synchronisation des collections importées (NOUVEAU) ═══
+        // Détecte les collections qui ont été ajoutées dans le compte du côté du recepteur
+        // (via acceptShareOffer ou acceptImportRequest depuis une autre session/onglet)
+        const remoteCols=acc.collections||[];
+        const localColIds=new Set(collections.map(c=>c.id));
+        const newImportedCols=remoteCols.filter(c=>!localColIds.has(c.id));
+        if(newImportedCols.length>0){
+            collections.push(...newImportedCols);
+            updateTabCounts();
+            if(currentTab==='collections')renderCollections();
+            const importedCount=newImportedCols.filter(c=>c.imported).length;
+            if(importedCount>0){
+                showToast('info',`📥 ${importedCount} nouvelle${importedCount>1?'s':''} collection${importedCount>1?'s':''} reçue${importedCount>1?'s':''}`);
+            }
+        }
+
+        // Synchronisation inverse : détecte les collections supprimées ailleurs
+        const remoteColIds=new Set(remoteCols.map(c=>c.id));
+        const beforeCount=collections.length;
+        collections=collections.filter(c=>remoteColIds.has(c.id));
+        if(collections.length!==beforeCount){
+            updateTabCounts();
+            if(currentTab==='collections')renderCollections();
+        }
+    },2500);
+}
+document.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>
