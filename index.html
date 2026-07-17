@@ -63,7 +63,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .user-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:10px;background:var(--bg-input);border:1px solid var(--border-color);color:var(--text-primary);font-size:13px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:var(--transition);position:relative}
 .user-badge:hover{border-color:var(--mc-green);color:var(--mc-green-light)}
 .user-badge.logged-in{border-color:rgba(126,200,80,.4);background:rgba(126,200,80,.06)}
-.user-badge .avatar-circle{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--mc-green),var(--mc-diamond));color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px}
+.user-badge .avatar-circle{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--mc-green),var(--mc-diamond));color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;overflow:hidden;flex-shrink:0}
+.user-badge .avatar-circle img{width:100%;height:100%;object-fit:cover;display:block}
 .user-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.4);min-width:220px;padding:6px;display:none;z-index:1001}
 .user-dropdown.open{display:block}
 .user-dropdown-item{padding:10px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;color:var(--text-primary);display:flex;align-items:center;gap:10px;transition:background .2s ease;text-align:left;border:none;background:none;width:100%;font-family:'Inter',sans-serif}
@@ -101,6 +102,20 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .hero-stat-number{font-family:'Press Start 2P',monospace;font-size:24px;color:var(--mc-green-light);display:block;text-shadow:0 2px 14px rgba(0,0,0,.85)}
 .hero-stat-label{font-size:13px;color:#e8e8f0;margin-top:8px;text-shadow:0 2px 10px rgba(0,0,0,.8)}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══ SECTION SUGGESTIONS ═══ */
+.suggestions-section{max-width:1400px;margin:0 auto;padding:80px 24px 0}
+.suggestions-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;flex-wrap:wrap;gap:16px}
+.suggestions-title{display:flex;align-items:center;gap:12px}
+.suggestions-title h2{font-family:'Press Start 2P',monospace;font-size:clamp(16px,2.5vw,24px);line-height:1.4}
+.suggestions-subtitle{color:var(--text-secondary);font-size:14px;margin-top:8px}
+.refresh-btn{padding:10px 18px;border-radius:12px;background:linear-gradient(135deg,var(--mc-diamond),var(--mc-green-light));color:#0a0a0f;font-weight:800;font-size:13px;border:none;cursor:pointer;transition:var(--transition);font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:8px}
+.refresh-btn:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(74,237,217,.4)}
+.refresh-btn svg{width:16px;height:16px}
+.refresh-btn.spinning svg{animation:spin 1s linear infinite}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.suggestions-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;animation:fadeInUp .6s ease}
+
 .catalog{max-width:1400px;margin:0 auto;padding:80px 24px 120px}
 .section-header{text-align:center;margin-bottom:48px}
 .section-header h2{font-family:'Press Start 2P',monospace;font-size:clamp(18px,3vw,30px);margin-bottom:16px}
@@ -313,16 +328,22 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .form-error{color:var(--mc-redstone);font-size:13px;font-weight:600;margin-bottom:12px;display:none}
 .form-error.visible{display:block}
 .form-info-banner{background:rgba(74,237,217,.08);border:1px solid rgba(74,237,217,.3);color:var(--mc-diamond);padding:10px 14px;border-radius:10px;font-size:12.5px;font-weight:600;margin-bottom:16px;line-height:1.5}
+.form-success{background:rgba(126,200,80,.1);border:1px solid rgba(126,200,80,.4);color:var(--mc-green-light);padding:12px 16px;border-radius:10px;font-size:13px;font-weight:600;margin-bottom:16px;line-height:1.5}
+.forgot-link{color:var(--mc-diamond);font-size:12px;font-weight:600;cursor:pointer;text-decoration:underline;background:none;border:none;font-family:'Inter',sans-serif;padding:0;margin-top:-4px;margin-bottom:14px;display:block}
+.forgot-link:hover{opacity:.8}
 .toast{position:fixed;top:90px;right:30px;padding:14px 22px;border-radius:12px;background:var(--bg-card);border:1px solid var(--border-color);border-left:4px solid var(--mc-green);color:var(--text-primary);font-weight:700;font-size:14px;z-index:3000;box-shadow:0 12px 40px rgba(0,0,0,.4);transform:translateX(400px);opacity:0;transition:all .35s cubic-bezier(.4,0,.2,1);max-width:350px}
 .toast.visible{transform:translateX(0);opacity:1}
 .toast.error{border-left-color:var(--mc-redstone)}
 .toast.warning{border-left-color:var(--mc-gold)}
 .toast.info{border-left-color:var(--mc-diamond)}
-.friends-list{display:flex;flex-direction:column;gap:6px;max-height:200px;overflow-y:auto;margin-bottom:12px}
-.friend-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;background:var(--bg-secondary);border:1px solid var(--border-color);cursor:pointer;transition:var(--transition)}
+.friends-list{display:flex;flex-direction:column;gap:6px;max-height:300px;overflow-y:auto;margin-bottom:12px}
+.friend-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:var(--bg-secondary);border:1px solid var(--border-color);cursor:pointer;transition:var(--transition)}
 .friend-item:hover{border-color:var(--mc-green);background:rgba(126,200,80,.06)}
-.friend-item .avatar-circle{width:32px;height:32px;font-size:13px}
-.friend-item .name{font-weight:700;font-size:14px;flex:1}
+.friend-item .avatar-circle{width:36px;height:36px;font-size:14px;border-radius:50%;background:linear-gradient(135deg,var(--mc-green),var(--mc-diamond));color:white;display:flex;align-items:center;justify-content:center;font-weight:800;overflow:hidden;flex-shrink:0}
+.friend-item .avatar-circle img{width:100%;height:100%;object-fit:cover}
+.friend-item .name{font-weight:700;font-size:14px;flex:1;color:var(--text-primary)}
+.friend-item .name mark{background:rgba(126,200,80,.35);color:var(--mc-green-light);padding:0 2px;border-radius:3px}
+.friend-item .subtitle{font-size:11px;color:var(--text-muted);margin-top:2px}
 .collection-picker-list{display:flex;flex-direction:column;gap:8px;max-height:300px;overflow-y:auto;margin-bottom:12px}
 .collection-picker-item{display:flex;align-items:center;gap:12px;padding:14px;border-radius:12px;background:var(--bg-secondary);border:2px solid var(--border-color);cursor:pointer;transition:var(--transition)}
 .collection-picker-item:hover{border-color:var(--mc-green);background:rgba(126,200,80,.06)}
@@ -334,6 +355,46 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .collection-picker-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--border-color);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--transition)}
 .collection-picker-item.selected .collection-picker-check{border-color:var(--mc-green);background:var(--mc-green);color:white}
 .collection-picker-item.selected .collection-picker-check::after{content:'✓';font-weight:800;font-size:14px}
+
+/* ═══ FRIENDS PANEL ═══ */
+.friends-panel{display:none}
+.friends-panel.active{display:block}
+.friends-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.btn-add-friend{padding:12px 24px;border-radius:12px;background:linear-gradient(135deg,var(--mc-diamond),#3ec4b8);color:#0a0a0f;font-weight:800;font-size:14px;border:none;cursor:pointer;transition:var(--transition);font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:8px}
+.btn-add-friend:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(74,237,217,.4)}
+.friends-section{margin-bottom:32px}
+.friends-section-title{font-size:14px;font-weight:800;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.friends-section-title .count{background:var(--bg-card);color:var(--mc-green-light);padding:2px 10px;border-radius:10px;font-size:12px;margin-left:8px}
+.friends-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.friend-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:16px;display:flex;align-items:center;gap:14px;transition:var(--transition)}
+.friend-card:hover{border-color:var(--mc-green);box-shadow:0 4px 20px rgba(93,140,62,.15)}
+.friend-card.pending{border-left:4px solid var(--mc-gold)}
+.friend-card .avatar-circle{width:48px;height:48px;font-size:18px;border-radius:50%;background:linear-gradient(135deg,var(--mc-green),var(--mc-diamond));color:white;display:flex;align-items:center;justify-content:center;font-weight:800;overflow:hidden;flex-shrink:0}
+.friend-card .avatar-circle img{width:100%;height:100%;object-fit:cover}
+.friend-card-info{flex:1;min-width:0}
+.friend-card-name{font-size:15px;font-weight:800;color:var(--text-primary);margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.friend-card-meta{font-size:11px;color:var(--text-muted)}
+.friend-card-actions{display:flex;gap:6px;flex-shrink:0}
+.friend-card-btn{width:32px;height:32px;border-radius:8px;border:1px solid var(--border-color);background:var(--bg-secondary);color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:var(--transition)}
+.friend-card-btn:hover{transform:scale(1.1)}
+.friend-card-btn.accept-btn{background:linear-gradient(135deg,var(--mc-green),var(--mc-green-light));color:white;border-color:transparent}
+.friend-card-btn.accept-btn:hover{box-shadow:0 4px 12px rgba(93,140,62,.4)}
+.friend-card-btn.reject-btn:hover{border-color:var(--mc-redstone);color:var(--mc-redstone)}
+.friend-card-btn.remove-btn:hover{border-color:var(--mc-redstone);color:var(--mc-redstone)}
+
+/* ═══ AVATAR UPLOAD ═══ */
+.avatar-upload-wrapper{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:20px}
+.avatar-preview{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--mc-green),var(--mc-diamond));color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;overflow:hidden;position:relative;cursor:pointer;transition:var(--transition);border:3px solid var(--border-color)}
+.avatar-preview:hover{transform:scale(1.05);border-color:var(--mc-green)}
+.avatar-preview img{width:100%;height:100%;object-fit:cover;display:block}
+.avatar-preview .overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);color:white;font-size:12px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
+.avatar-preview:hover .overlay{opacity:1}
+.avatar-file-input{display:none}
+.avatar-actions{display:flex;gap:8px}
+.avatar-btn{padding:8px 16px;border-radius:10px;font-size:12px;font-weight:700;border:1px solid var(--border-color);background:var(--bg-secondary);color:var(--text-primary);cursor:pointer;transition:var(--transition);font-family:'Inter',sans-serif}
+.avatar-btn:hover{border-color:var(--mc-green);color:var(--mc-green-light)}
+.avatar-btn.danger:hover{border-color:var(--mc-redstone);color:var(--mc-redstone)}
+
 .footer{background:var(--bg-secondary);border-top:1px solid var(--border-color);padding:48px 24px;text-align:center}
 .footer-content{max-width:1400px;margin:0 auto}
 .footer-logo{font-family:'Press Start 2P',monospace;font-size:14px;margin-bottom:12px}
@@ -345,23 +406,22 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
 .back-to-top:hover{transform:translateY(-3px)}
 @media(max-width:1400px){.categories-grid{grid-template-columns:repeat(7,1fr)}}
-@media(max-width:1200px){.mods-grid{grid-template-columns:repeat(3,1fr)}.categories-grid{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:900px){.mods-grid{grid-template-columns:repeat(2,1fr)}.list-view .mod-card{flex-direction:column}.list-view .mod-card-image-wrapper{width:100%}.categories-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:1200px){.mods-grid,.suggestions-grid{grid-template-columns:repeat(3,1fr)}.categories-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:900px){.mods-grid,.suggestions-grid{grid-template-columns:repeat(2,1fr)}.list-view .mod-card{flex-direction:column}.list-view .mod-card-image-wrapper{width:100%}.categories-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:860px){.nav-controls .nav-link{display:none}.user-badge{display:none}.bell-btn{display:none}.mobile-menu-btn{display:flex}}
 @media(max-width:768px){.hero-stats{gap:24px}.hero-stat-number{font-size:18px}.search-bar-row{flex-direction:column}.filter-select{min-width:100%}.categories-grid{grid-template-columns:repeat(2,1fr)}.modal-info-grid{grid-template-columns:1fr}.modal-image-wrapper{height:200px}.results-bar{flex-direction:column;align-items:flex-start}.hero-title-img{max-height:200px}.bell-dropdown{width:320px}}
-@media(max-width:520px){.mods-grid{grid-template-columns:1fr}.categories-grid{grid-template-columns:1fr}.header-inner{padding:0 16px;height:60px}.logo-text{font-size:12px}.catalog{padding:60px 16px 80px}.filters-panel{padding:20px}.mod-card-actions{flex-direction:column}.hero-stats{flex-direction:column;gap:16px}.hero-title-img{max-height:140px}}
+@media(max-width:520px){.mods-grid,.suggestions-grid{grid-template-columns:1fr}.categories-grid{grid-template-columns:1fr}.header-inner{padding:0 16px;height:60px}.logo-text{font-size:12px}.catalog,.suggestions-section{padding:60px 16px 40px}.filters-panel{padding:20px}.mod-card-actions{flex-direction:column}.hero-stats{flex-direction:column;gap:16px}.hero-title-img{max-height:140px}}
 .fade-in-section{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s}
 .fade-in-section.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
 
-<!-- ═══ FIREBASE SDK ═══ -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import {
     getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
-    signOut, onAuthStateChanged, deleteUser
+    signOut, onAuthStateChanged, deleteUser, sendPasswordResetEmail, updatePassword
   } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
   import {
     getFirestore, doc, setDoc, getDoc, updateDoc, deleteDoc,
@@ -385,7 +445,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
   window.firebaseDb = db;
   window.firebaseFn = {
     createUserWithEmailAndPassword, signInWithEmailAndPassword,
-    signOut, onAuthStateChanged, deleteUser,
+    signOut, onAuthStateChanged, deleteUser, sendPasswordResetEmail, updatePassword,
     doc, setDoc, getDoc, updateDoc, deleteDoc,
     collection, query, where, getDocs, onSnapshot, arrayUnion, arrayRemove
   };
@@ -456,6 +516,22 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
     </div>
 </section>
 
+<section class="suggestions-section fade-in-section">
+    <div class="suggestions-header">
+        <div class="suggestions-title">
+            <div>
+                <h2>✨ Suggestions du moment</h2>
+                <div class="suggestions-subtitle">4 mods mis en avant, actualisés toutes les heures</div>
+            </div>
+        </div>
+        <button class="refresh-btn" id="refreshSuggestionsBtn" title="Rafraîchir">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            Rafraîchir
+        </button>
+    </div>
+    <div class="suggestions-grid" id="suggestionsGrid"></div>
+</section>
+
 <section class="catalog" id="catalogSection">
     <div class="section-header fade-in-section">
         <h2>📦 Catalogue des Mods</h2>
@@ -477,6 +553,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
         <button class="tab-btn active" data-tab="browse">📦 Catalogue</button>
         <button class="tab-btn" data-tab="favorites" id="tabFavorites">⭐ Favoris <span class="count" id="favCount">0</span></button>
         <button class="tab-btn" data-tab="collections" id="tabCollections">📁 Collections <span class="count" id="colCount">0</span></button>
+        <button class="tab-btn" data-tab="friends" id="tabFriends">👥 Amis <span class="count" id="friendsCount">0</span></button>
     </div>
     <div id="browsePanel">
         <div class="results-bar fade-in-section">
@@ -494,6 +571,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
     </div>
     <div id="favoritesPanel" style="display:none"></div>
     <div class="collections-panel" id="collectionsPanel"></div>
+    <div class="friends-panel" id="friendsPanel"></div>
 </section>
 
 <div class="modal-overlay" id="modalOverlay">
@@ -549,7 +627,11 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 const IMAGE_BASE_PATH='./images/mods/';
 const ITEMS_PER_PAGE=8;
 const LS_CURRENT_USER='minemods-current-user';
+const LS_SUGGESTIONS='minemods-suggestions';
+const LS_SUGGESTIONS_TIME='minemods-suggestions-time';
 const MAX_SUGGESTIONS=6;
+const SUGGESTIONS_COUNT=4;
+const SUGGESTIONS_REFRESH_MS=3600000; // 1 heure
 
 const CATEGORIES=[
     {id:'aventure',name:'Aventure',icon:'⚔️',desc:'Donjons, quêtes et exploration.',order:1},
@@ -562,87 +644,104 @@ const CATEGORIES=[
 ];
 
 const MODS_DATABASE=[
-    {id:64,name:"Apotheosis",categories:["aventure","utilitaire"],description:"Refonte du système d'enchantement et de loot avec affixes et gemmes.",fullDescription:"Apotheosis révolutionne les enchantements, potions, spawners et loot.",image:"apotheosis.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:5.1,sizePerVersion:{"1.20.1":5.1,"1.19.2":4.7,"1.18.2":4.3,"1.16.5":3.8},dependencies:["Placebo"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/apotheosis"},
-    {id:10,name:"Ars Nouveau",categories:["aventure","creatures"],description:"Créez vos propres sorts personnalisés et apprivoisez des familiers uniques.",fullDescription:"Ars Nouveau propose un système entièrement personnalisable.",image:"ars-nouveau.png",versions:["1.20.1","1.19.2"],loaders:["Forge","NeoForge"],sizeMo:13.5,sizePerVersion:{"1.20.1":13.5,"1.19.2":12.4},dependencies:["GeckoLib","Patchouli"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/ars-nouveau"},
-    {id:62,name:"Better Combat",categories:["aventure","utilitaire"],description:"Refonte du système de combat avec animations et combos réalistes.",fullDescription:"Better Combat révolutionne le combat.",image:"better-combat.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:3.2,sizePerVersion:{"1.20.1":3.2,"1.19.2":3.0,"1.18.2":2.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/better-combat-by-daedelus"},
-    {id:4,name:"Blood Magic",categories:["aventure"],description:"Aventure sombre utilisant le sang comme source de pouvoir.",fullDescription:"Blood Magic explore le côté sombre.",image:"blood-magic.png",versions:["1.20.1","1.18.2","1.16.5","1.12.2"],loaders:["Forge"],sizeMo:15.7,sizePerVersion:{"1.20.1":15.7,"1.18.2":14.2,"1.16.5":12.8,"1.12.2":11.1},dependencies:["Patchouli"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/blood-magic"},
-    {id:2,name:"Electroblob's Wizardry",categories:["aventure"],description:"RPG avec sorts découvrables, baguettes et robes de mage.",fullDescription:"Electroblob's Wizardry offre une expérience RPG avec plus de 170 sorts découvrables.",image:"electroblobs-wizardry.png",versions:["1.12.2"],loaders:["Forge"],sizeMo:14.5,sizePerVersion:{"1.12.2":14.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/electroblobs-wizardry"},
-    {id:63,name:"Epic Fight",categories:["aventure","utilitaire"],description:"Système de combat souls-like avec parades, esquives et combos avancés.",fullDescription:"Epic Fight transforme Minecraft en action-RPG.",image:"epic-fight.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:12.7,sizePerVersion:{"1.20.1":12.7,"1.19.2":11.8,"1.18.2":10.9,"1.16.5":9.7},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/epic-fight-mod"},
-    {id:5,name:"EvilCraft",categories:["aventure"],description:"Un mod de magie sombre avec autels de sang, envouteurs et rituels démoniaques.",fullDescription:"EvilCraft est un mod de magie sombre.",image:"evilcraft.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge"],sizeMo:8.4,sizePerVersion:{"1.20.1":8.4,"1.19.2":7.8,"1.18.2":7.2,"1.16.5":6.5,"1.12.2":5.6},dependencies:["Cyclops Core"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/evilcraft"},
-    {id:19,name:"Legacy Hals Exploration Mod",categories:["aventure","biomes"],description:"Ajoute une nouvelle dimension mystérieuse à explorer avec biomes et créatures uniques.",fullDescription:"Legacy Hals Exploration Mod ajoute une toute nouvelle dimension.",image:"hem.png",versions:["1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge"],sizeMo:1.8,sizePerVersion:{"1.19.2":1.8,"1.18.2":1.7,"1.16.5":1.5,"1.12.2":1.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/legacy-hals-exploration-mod"},
-    {id:65,name:"Origins",categories:["aventure","utilitaire"],description:"Choisissez une origine avec pouvoirs et faiblesses uniques dès le début.",fullDescription:"Origins permet de choisir une race de personnage.",image:"origins.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Fabric","Quilt"],sizeMo:4.6,sizePerVersion:{"1.20.1":4.6,"1.19.2":4.3,"1.18.2":4.0,"1.16.5":3.5},dependencies:["Fabric API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/origins"},
-    {id:3,name:"The Aether",categories:["aventure","biomes"],description:"Dimension céleste avec donjons, boss et créatures uniques.",fullDescription:"The Aether ajoute une dimension céleste.",image:"the-aether.png",versions:["1.20.1","1.19.4"],loaders:["Forge","NeoForge"],sizeMo:17.8,sizePerVersion:{"1.20.1":17.8,"1.19.4":16.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/aether"},
-    {id:1,name:"Twilight Forest",categories:["aventure","biomes","creatures"],description:"Un monde parallèle rempli de donjons, de boss et de forêts mystérieuses.",fullDescription:"The Twilight Forest est un mod d'aventure incontournable.",image:"twilight-forest.png",versions:["1.20.1","1.19.4","1.18.2","1.16.5","1.12.2"],loaders:["Forge","NeoForge"],sizeMo:14.2,sizePerVersion:{"1.20.1":14.2,"1.19.4":13.5,"1.18.2":12.8,"1.16.5":10.9,"1.12.2":8.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest"},
-    {id:8,name:"Chisel & Bits",categories:["decoration","utilitaire"],description:"Sculptez chaque bloc pour des créations d'une précision inégalée.",fullDescription:"Chisel & Bits permet de modifier chaque bloc au niveau du 1/16ème.",image:"chisel-and-bits.png",versions:["1.20.1","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:5.3,sizePerVersion:{"1.20.1":5.3,"1.18.2":4.8,"1.16.5":4.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/chisels-bits"},
-    {id:78,name:"Macaw's Doors",categories:["decoration"],description:"Une variété de portes stylées dans tous les matériaux vanilla et modés.",fullDescription:"Macaw's Doors offre plus de 20 styles de portes.",image:"mcw-doors.png",versions:["1.21","1.20.1","1.19.4","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:3.8,sizePerVersion:{"1.21":4.2,"1.20.1":3.8,"1.19.4":3.5,"1.18.2":3.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/macaws-doors"},
-    {id:6,name:"Macaw's Furniture",categories:["decoration"],description:"Des dizaines de meubles réalistes pour décorer vos constructions Minecraft.",fullDescription:"Macaw's Furniture ajoute une vaste collection de meubles réalistes.",image:"macaws-furniture.png",versions:["1.21","1.20.1","1.19.4","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:6.4,sizePerVersion:{"1.21":6.9,"1.20.1":6.4,"1.19.4":5.8,"1.18.2":5.2},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/macaws-furniture"},
-    {id:77,name:"Macaw's Roofs",categories:["decoration"],description:"Ajoute des toits inclinés et angles décoratifs pour tous les blocs.",fullDescription:"Macaw's Roofs ajoute des toits inclinés.",image:"mcw-roofs.png",versions:["1.21","1.20.1","1.19.4","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:4.7,sizePerVersion:{"1.21":5.1,"1.20.1":4.7,"1.19.4":4.3,"1.18.2":3.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/macaws-roofs"},
-    {id:7,name:"Supplementaries",categories:["decoration","utilitaire"],description:"Blocs décoratifs et fonctionnels qui complètent le vanilla.",fullDescription:"Supplementaries ajoute des éléments qui auraient pu exister dans le vanilla.",image:"supplementaries.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:8.7,sizePerVersion:{"1.20.1":8.7,"1.19.2":7.9,"1.18.2":7.2},dependencies:["Moonlight Lib"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/supplementaries"},
-    {id:18,name:"Alex's Caves",categories:["creatures","biomes","aventure"],description:"6 biomes de grottes uniques avec créatures et loots exclusifs.",fullDescription:"Alex's Caves ajoute 6 nouveaux biomes de grottes.",image:"alexs-caves.png",versions:["1.20.1","1.19.4","1.18.2"],loaders:["Forge","NeoForge"],sizeMo:31.2,sizePerVersion:{"1.20.1":31.2,"1.19.4":29.4,"1.18.2":27.1},dependencies:["Citadel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/alexs-caves"},
-    {id:9,name:"Alex's Mobs",categories:["creatures"],description:"Plus de 80 créatures réalistes et fantastiques avec des comportements uniques.",fullDescription:"Alex's Mobs enrichit la faune de Minecraft avec plus de 80 créatures.",image:"alexs-mobs.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:22.6,sizePerVersion:{"1.20.1":22.6,"1.19.2":20.4,"1.18.2":18.9,"1.16.5":16.2},dependencies:["Citadel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/alexs-mobs"},
-    {id:66,name:"Aquaculture 2",categories:["creatures","aventure"],description:"Ajoute plus de 30 poissons, des cannes améliorées et un système de pêche complet.",fullDescription:"Aquaculture 2 étend la pêche vanilla.",image:"aquaculture.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:5.8,sizePerVersion:{"1.20.1":5.8,"1.19.2":5.4,"1.18.2":5.0,"1.16.5":4.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/aquaculture"},
-    {id:13,name:"Better Animals Plus",categories:["creatures"],description:"Ajoute une trentaine de nouveaux animaux réalistes à travers les biomes.",fullDescription:"Better Animals Plus ajoute une trentaine d'animaux.",image:"better-animals-plus.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:11.4,sizePerVersion:{"1.20.1":11.4,"1.19.2":10.6,"1.18.2":9.8,"1.16.5":8.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/betteranimalsplus"},
-    {id:14,name:"Better Animations Collection",categories:["creatures","utilitaire"],description:"Remplace les animations vanilla des mobs pour les rendre plus fluides et réalistes.",fullDescription:"Better Animations Collection modifie les animations vanilla des mobs.",image:"better-animations.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:1.3,sizePerVersion:{"1.20.1":1.3,"1.19.2":1.2,"1.18.2":1.1,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/better-animations-collection"},
-    {id:15,name:"Exotic Birds",categories:["creatures"],description:"Ajoute plus de 40 espèces d'oiseaux exotiques à travers le monde.",fullDescription:"Exotic Birds ajoute plus de 40 espèces d'oiseaux.",image:"exotic-birds.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:8.7,sizePerVersion:{"1.20.1":8.7,"1.19.2":8.1,"1.18.2":7.5,"1.16.5":6.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/exotic-birds"},
-    {id:11,name:"Ice and Fire",categories:["creatures","aventure"],description:"Dragons, hippogiffes et créatures mythologiques épiques.",fullDescription:"Ice and Fire ajoute des créatures mythologiques.",image:"ice-and-fire.png",versions:["1.19.2","1.16.5","1.12.2"],loaders:["Forge"],sizeMo:36.4,sizePerVersion:{"1.19.2":36.4,"1.16.5":34.1,"1.12.2":29.8},dependencies:["Citadel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/ice-and-fire-dragons"},
-    {id:16,name:"More Villagers",categories:["creatures","utilitaire"],description:"Ajoute des villageois spécialisés avec de nouveaux métiers et échanges.",fullDescription:"More Villagers enrichit les villages.",image:"morevillagers.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:2.4,sizePerVersion:{"1.20.1":2.4,"1.19.2":2.2,"1.18.2":2.0},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/more-villagers-fabric"},
-    {id:67,name:"Mowzie's Mobs",categories:["creatures","aventure"],description:"Ajoute des boss et créatures uniques inspirés de mythologies du monde.",fullDescription:"Mowzie's Mobs ajoute une poignée de créatures.",image:"mowzies-mobs.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:14.9,sizePerVersion:{"1.20.1":14.9,"1.19.2":13.8,"1.18.2":12.7,"1.16.5":11.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/mowzies-mobs"},
-    {id:12,name:"Naturalist",categories:["creatures","biomes"],description:"Animaux réalistes et adorables qui enrichissent l'écosystème.",fullDescription:"Naturalist ajoute des animaux réalistes.",image:"naturalist.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric"],sizeMo:9.1,sizePerVersion:{"1.20.1":9.1,"1.19.2":8.5},dependencies:["GeckoLib"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/naturalist"},
-    {id:21,name:"Pandora's Creatures",categories:["creatures","aventure"],description:"Ajoute une variété de nouvelles créatures uniques et hostiles à travers l'Overworld.",fullDescription:"Pandora's Creatures enrichit l'Overworld.",image:"pandoras-creatures.png",versions:["1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:6.8,sizePerVersion:{"1.19.2":6.8,"1.18.2":6.3,"1.16.5":5.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/pandoras-creatures"},
-    {id:17,name:"Untamed Wilds",categories:["creatures","biomes"],description:"Créatures sauvages, prédateurs et espèces menacées du monde réel.",fullDescription:"Untamed Wilds ajoute une multitude de créatures sauvages.",image:"untamed-wilds.png",versions:["1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:12.6,sizePerVersion:{"1.19.2":12.6,"1.18.2":11.8,"1.16.5":10.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/untamedwilds"},
-    {id:20,name:"Xenoclus 2",categories:["aventure","creatures"],description:"Ajoute un boss légendaire extraterrestre avec un donjon dédié.",fullDescription:"Xenoclus 2 est un mod boss.",image:"xenoclus.png",versions:["1.19.2","1.18.2"],loaders:["Forge"],sizeMo:4.3,sizePerVersion:{"1.19.2":4.3,"1.18.2":4.0},dependencies:["GeckoLib"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/xenoclus-2"},
-    {id:25,name:"Better Nether",categories:["biomes"],description:"Refonte complète du Nether avec de nouveaux biomes exotiques.",fullDescription:"Better Nether transforme radicalement le Nether.",image:"better-nether.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Fabric","Quilt"],sizeMo:8.9,sizePerVersion:{"1.20.1":8.9,"1.19.2":8.3,"1.18.2":7.7,"1.16.5":6.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/betternether"},
-    {id:26,name:"Better Village",categories:["biomes","decoration"],description:"Améliore drastiquement les villages avec de nouvelles structures et bâtiments.",fullDescription:"Better Village transforme les villages vanilla.",image:"better-village.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:3.7,sizePerVersion:{"1.20.1":3.7,"1.19.2":3.4,"1.18.2":3.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/better-village-forge"},
-    {id:22,name:"Biomes O' Plenty",categories:["biomes","decoration"],description:"Plus de 50 nouveaux biomes spectaculaires pour une exploration infinie.",fullDescription:"Biomes O' Plenty transforme la génération du monde.",image:"biomes-o-plenty.png",versions:["1.20.1","1.19.4","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:11.3,sizePerVersion:{"1.20.1":11.3,"1.19.4":10.5,"1.18.2":9.7,"1.16.5":8.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty"},
-    {id:29,name:"Dark Caverns",categories:["biomes","aventure"],description:"Rend les grottes plus sombres, dangereuses et immersives.",fullDescription:"Dark Caverns modifie les grottes.",image:"dark-caverns.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:0.5,sizePerVersion:{"1.20.1":0.5,"1.19.2":0.5,"1.18.2":0.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/dark-caverns"},
-    {id:24,name:"Oh The Biomes You'll Go",categories:["biomes","decoration"],description:"80+ biomes magnifiques dans l'Overworld, le Nether et l'End.",fullDescription:"Oh The Biomes You'll Go ajoute plus de 80 biomes.",image:"oh-the-biomes.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:27.6,sizePerVersion:{"1.20.1":27.6,"1.19.2":25.2,"1.18.2":23.4},dependencies:["Cristel Lib"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go"},
-    {id:70,name:"Repurposed Structures",categories:["biomes","aventure"],description:"Réutilise les structures vanilla dans de nouveaux biomes avec variations.",fullDescription:"Repurposed Structures ajoute plus de 60 variantes.",image:"repurposed-structures.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:4.1,sizePerVersion:{"1.20.1":4.1,"1.19.2":3.8,"1.18.2":3.5,"1.16.5":3.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/repurposed-structures"},
-    {id:23,name:"Terralith",categories:["biomes"],description:"Refonte complète de la génération du monde avec des biomes époustouflants.",fullDescription:"Terralith transforme radicalement la génération du terrain.",image:"terralith.png",versions:["1.21","1.20.4","1.20.1","1.19.4"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:2.9,sizePerVersion:{"1.21":3.2,"1.20.4":3.0,"1.20.1":2.9,"1.19.4":2.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/terralith"},
-    {id:27,name:"The Undergarden",categories:["biomes","aventure","creatures"],description:"Une nouvelle dimension souterraine sombre et mystérieuse.",fullDescription:"The Undergarden ajoute une nouvelle dimension.",image:"the-undergarden.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:16.3,sizePerVersion:{"1.20.1":16.3,"1.19.2":15.1,"1.18.2":14.0,"1.16.5":12.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/the-undergarden"},
-    {id:28,name:"Towns and Towers",categories:["biomes","aventure"],description:"Ajoute villes, tours, camps et navires perdus à travers le monde.",fullDescription:"Towns and Towers ajoute de nombreuses structures.",image:"towns-and-towers.png",versions:["1.21","1.20.4","1.20.1","1.19.4"],loaders:["Forge","Fabric","NeoForge"],sizeMo:5.8,sizePerVersion:{"1.21":6.4,"1.20.4":6.0,"1.20.1":5.8,"1.19.4":5.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/towns-and-towers"},
-    {id:61,name:"When Dungeons Arise",categories:["aventure","biomes"],description:"Ajoute plus de 40 donjons et structures colossaux répartis dans le monde.",fullDescription:"When Dungeons Arise ajoute plus de 40 structures monumentales.",image:"dungeons-arise.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:8.4,sizePerVersion:{"1.20.1":8.4,"1.19.2":7.8,"1.18.2":7.2,"1.16.5":6.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/when-dungeons-arise"},
-    {id:71,name:"William Wythers' Overhauled Overworld",categories:["biomes"],description:"Refonte complète de l'Overworld avec des dizaines de nouveaux biomes.",fullDescription:"William Wythers' Overhauled Overworld réimagine l'Overworld vanilla.",image:"wwoo.png",versions:["1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:9.2,sizePerVersion:{"1.19.2":9.2,"1.18.2":8.5,"1.16.5":7.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/william-wythers-overhauled-overworld"},
-    {id:68,name:"YUNG's Better Dungeons",categories:["biomes","aventure"],description:"Refonte complète des donjons vanilla avec structures massives et loot amélioré.",fullDescription:"YUNG's Better Dungeons remplace les donjons vanilla.",image:"yungs-dungeons.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:3.4,sizePerVersion:{"1.20.1":3.4,"1.19.2":3.1,"1.18.2":2.9,"1.16.5":2.5},dependencies:["YUNG's API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/yungs-better-dungeons"},
-    {id:69,name:"YUNG's Better Strongholds",categories:["biomes","aventure"],description:"Refonte totale des Strongholds vanilla, transformés en immenses forteresses.",fullDescription:"YUNG's Better Strongholds transforme les Strongholds.",image:"yungs-strongholds.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:2.6,sizePerVersion:{"1.20.1":2.6,"1.19.2":2.4,"1.18.2":2.2,"1.16.5":1.9},dependencies:["YUNG's API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/yungs-better-strongholds"},
-    {id:33,name:"Applied Energistics 2",categories:["utilitaire"],description:"Un système de stockage numérique et d'automatisation avancé.",fullDescription:"Applied Energistics 2 révolutionne le stockage.",image:"applied-energistics-2.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:18.7,sizePerVersion:{"1.20.1":18.7,"1.19.2":17.1,"1.18.2":15.9,"1.16.5":14.0},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2"},
-    {id:73,name:"AppleSkin",categories:["utilitaire"],description:"Affiche la nourriture, saturation et effet potentiel des aliments dans le HUD.",fullDescription:"AppleSkin est un mod QoL essentiel.",image:"appleskin.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.5,sizePerVersion:{"1.21":0.6,"1.20.4":0.5,"1.20.1":0.5,"1.19.2":0.5,"1.18.2":0.4,"1.16.5":0.4,"1.12.2":0.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/appleskin"},
-    {id:44,name:"AstikorCarts",categories:["utilitaire","decoration"],description:"Ajoute des chariots tirés par des chevaux pour transporter items et animaux.",fullDescription:"AstikorCarts ajoute plusieurs types de chariots tirables.",image:"astikorcarts.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:1.2,sizePerVersion:{"1.20.1":1.2,"1.19.2":1.1,"1.18.2":1.0,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/astikorcarts"},
-    {id:32,name:"Botania",categories:["decoration","utilitaire"],description:"Un mod basé sur la nature avec des fleurs magiques et de superbes blocs décoratifs.",fullDescription:"Botania est un mod inspiré de la magie florale.",image:"botania.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:9.8,sizePerVersion:{"1.20.1":9.8,"1.19.2":9.1,"1.18.2":8.6,"1.16.5":7.4},dependencies:["Patchouli"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/botania"},
-    {id:40,name:"Corail Tombstone",categories:["utilitaire","aventure"],description:"Une tombe apparaît à votre mort avec tout votre équipement conservé en sécurité.",fullDescription:"Corail Tombstone crée automatiquement une tombe.",image:"tombstone.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","NeoForge"],sizeMo:4.6,sizePerVersion:{"1.20.1":4.6,"1.19.2":4.2,"1.18.2":3.9,"1.16.5":3.5,"1.12.2":3.0},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/corail-tombstone"},
-    {id:31,name:"Create",categories:["utilitaire","decoration"],description:"Construisez des machines et systèmes mécaniques avec une esthétique magnifique.",fullDescription:"Create est une révolution.",image:"create.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:29.4,sizePerVersion:{"1.20.1":29.4,"1.19.2":26.8,"1.18.2":23.5},dependencies:["Flywheel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/create"},
-    {id:45,name:"Essential",categories:["utilitaire"],description:"Mod social avec skins cape, chat vocal, invitations et coop instantanée.",fullDescription:"Essential est un mod social populaire.",image:"essential.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:9.6,sizePerVersion:{"1.21":10.4,"1.20.4":9.8,"1.20.1":9.6,"1.19.2":8.9,"1.18.2":8.3,"1.16.5":7.5,"1.12.2":6.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/essential-mod"},
-    {id:35,name:"Immersive Engineering",categories:["utilitaire","decoration"],description:"Machines industrielles avec une esthétique steampunk magnifique.",fullDescription:"Immersive Engineering se distingue par son approche réaliste.",image:"immersive-engineering.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:34.2,sizePerVersion:{"1.20.1":34.2,"1.19.2":31.7,"1.18.2":29.5,"1.16.5":26.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/immersive-engineering"},
-    {id:74,name:"Inventory Sorter",categories:["utilitaire"],description:"Trie automatiquement votre inventaire et vos coffres d'un clic.",fullDescription:"Inventory Sorter permet de trier automatiquement.",image:"inventory-sorter.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:0.3,sizePerVersion:{"1.20.1":0.3,"1.19.2":0.3,"1.18.2":0.3,"1.16.5":0.2},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/inventory-sorter"},
-    {id:72,name:"Iron Chests",categories:["utilitaire"],description:"Ajoute des coffres améliorés en cuivre, fer, or, diamant, obsidienne et crystal.",fullDescription:"Iron Chests ajoute 6 nouveaux types de coffres.",image:"iron-chests.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.6,sizePerVersion:{"1.20.1":1.6,"1.19.2":1.5,"1.18.2":1.4,"1.16.5":1.2},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/iron-chests"},
-    {id:76,name:"Iron Furnaces",categories:["utilitaire"],description:"Ajoute des fours améliorés (cuivre → néthérite) plus rapides et efficaces.",fullDescription:"Iron Furnaces ajoute une série de fours améliorés.",image:"iron-furnaces.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:2.1,sizePerVersion:{"1.20.1":2.1,"1.19.2":1.9,"1.18.2":1.8,"1.16.5":1.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/iron-furnaces"},
-    {id:75,name:"Jade",categories:["utilitaire"],description:"Affiche des informations sur les blocs et entités visés (santé, propriétaire, etc.).",fullDescription:"Jade affiche en temps réel des informations.",image:"jade.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.2,sizePerVersion:{"1.21":1.4,"1.20.4":1.3,"1.20.1":1.2,"1.19.2":1.1,"1.18.2":1.0,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/jade"},
-    {id:30,name:"JEI",categories:["utilitaire"],description:"L'outil indispensable pour consulter toutes les recettes de craft.",fullDescription:"Just Enough Items est LE mod utilitaire incontournable.",image:"jei.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.6,sizePerVersion:{"1.21":1.8,"1.20.4":1.7,"1.20.1":1.6,"1.19.2":1.5,"1.18.2":1.4,"1.16.5":1.3,"1.12.2":1.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/jei"},
-    {id:38,name:"JourneyMap",categories:["utilitaire"],description:"Minimap en temps réel avec carte du monde complète et waypoints.",fullDescription:"JourneyMap est une minimap et carte du monde complète.",image:"journeymap.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:5.3,sizePerVersion:{"1.21":5.9,"1.20.4":5.5,"1.20.1":5.3,"1.19.2":4.9,"1.18.2":4.6,"1.16.5":4.1,"1.12.2":3.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/journeymap"},
-    {id:41,name:"JustHammers",categories:["utilitaire"],description:"Ajoute des marteaux qui minent plusieurs blocs à la fois (3x3, 5x5, 7x7).",fullDescription:"JustHammers ajoute des marteaux.",image:"justhammers.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric"],sizeMo:0.7,sizePerVersion:{"1.20.1":0.7,"1.19.2":0.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/justhammers"},
-    {id:34,name:"Mekanism",categories:["utilitaire"],description:"Machines avancées, réacteur à fusion et jetpacks.",fullDescription:"Mekanism propose des machines de traitement de minerais.",image:"mekanism.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:32.1,sizePerVersion:{"1.20.1":32.1,"1.19.2":29.5,"1.18.2":27.2,"1.16.5":24.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/mekanism"},
-    {id:43,name:"Small Ships",categories:["utilitaire","aventure","decoration"],description:"Ajoute plusieurs types de navires jouables (cog, brigg, galleon...).",fullDescription:"Small Ships ajoute différents types de navires historiques.",image:"smallships.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:6.7,sizePerVersion:{"1.20.1":6.7,"1.19.2":6.2,"1.18.2":5.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/small-ships"},
-    {id:39,name:"Sophisticated Backpacks",categories:["utilitaire"],description:"Sacs à dos évolutifs avec upgrades, filtres et automatisation.",fullDescription:"Sophisticated Backpacks ajoute des sacs à dos hautement personnalisables.",image:"sophisticated-backpacks.png",versions:["1.21","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:4.2,sizePerVersion:{"1.21":4.6,"1.20.1":4.2,"1.19.2":3.9,"1.18.2":3.6,"1.16.5":3.2},dependencies:["Sophisticated Core"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/sophisticated-backpacks"},
-    {id:42,name:"Tough As Nails",categories:["utilitaire"],description:"Ajoute la faim, la soif et la température corporelle pour un survival réaliste.",fullDescription:"Tough As Nails ajoute des mécaniques de survie avancées.",image:"tough-as-nails.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:2.9,sizePerVersion:{"1.20.1":2.9,"1.19.2":2.7,"1.18.2":2.5,"1.16.5":2.2},dependencies:["GlitchCore"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/tough-as-nails"},
-    {id:36,name:"Waystones",categories:["utilitaire","aventure"],description:"Pierres de téléportation pour voyager rapidement entre vos bases.",fullDescription:"Waystones ajoute des pierres de téléportation.",image:"waystones.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:2.4,sizePerVersion:{"1.21":2.7,"1.20.4":2.5,"1.20.1":2.4,"1.19.2":2.2,"1.18.2":2.0},dependencies:["Balm"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/waystones"},
-    {id:37,name:"Xaero's Minimap",categories:["utilitaire"],description:"Minimap complète avec waypoints, radar de mobs et carte.",fullDescription:"Xaero's Minimap affiche une carte en temps réel.",image:"xaeros-minimap.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:1.1,sizePerVersion:{"1.21":1.3,"1.20.4":1.2,"1.20.1":1.1,"1.19.2":1.0,"1.18.2":0.9,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/xaeros-minimap"},
-    {id:46,name:"Farmer's Delight",categories:["nourriture","utilitaire"],description:"Étend le système de cuisine avec de nouvelles cultures et repas.",fullDescription:"Farmer's Delight enrichit le système alimentaire.",image:"farmers-delight.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:6.2,sizePerVersion:{"1.20.1":6.2,"1.19.2":5.7,"1.18.2":5.3,"1.16.5":4.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/farmers-delight"},
-    {id:79,name:"Let's Do: Bakery",categories:["nourriture","decoration"],description:"Créez votre boulangerie avec fours, viennoiseries et pains artisanaux.",fullDescription:"Let's Do: Bakery vous permet de créer une boulangerie complète.",image:"bakery.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:9.3,sizePerVersion:{"1.20.1":9.3,"1.19.2":8.6},dependencies:["Let's Do API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/lets-do-bakery"},
-    {id:48,name:"Let's Do: Vinery",categories:["nourriture","decoration"],description:"Cultivez la vigne, produisez du vin et gérez votre propre vignoble.",fullDescription:"Let's Do: Vinery est un mod agricole splendide.",image:"vinery.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:14.8,sizePerVersion:{"1.20.1":14.8,"1.19.2":13.7},dependencies:["Let's Do API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/vinery"},
-    {id:47,name:"Pam's HarvestCraft 2",categories:["nourriture"],description:"Centaines de nouvelles cultures, arbres fruitiers et recettes.",fullDescription:"Pam's HarvestCraft 2 est la référence des mods alimentaires.",image:"pams-harvestcraft.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:24.3,sizePerVersion:{"1.20.1":24.3,"1.19.2":22.1,"1.18.2":20.6,"1.16.5":17.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/pams-harvestcraft-2-food-core"},
-    {id:49,name:"Architectury API",categories:["bibliotheque"],description:"API multi-loader qui permet aux mods d'être compatibles Forge et Fabric.",fullDescription:"Architectury API est une bibliothèque essentielle.",image:"architectury.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:1.4,sizePerVersion:{"1.21":1.5,"1.20.4":1.4,"1.20.1":1.4,"1.19.2":1.3,"1.18.2":1.2,"1.16.5":1.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/architectury-api"},
-    {id:51,name:"Citadel",categories:["bibliotheque"],description:"Bibliothèque avancée pour l'IA, les rendus 3D et les particules des mods de créatures.",fullDescription:"Citadel est une bibliothèque puissante.",image:"citadel.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:1.9,sizePerVersion:{"1.20.1":1.9,"1.19.2":1.8,"1.18.2":1.7,"1.16.5":1.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/citadel"},
-    {id:57,name:"Cristel Lib",categories:["bibliotheque"],description:"Bibliothèque utilisée par certains mods de biomes et de structures.",fullDescription:"Cristel Lib fournit des outils communs.",image:"cristellib.png",versions:["1.21","1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.6,sizePerVersion:{"1.21":0.7,"1.20.1":0.6,"1.19.2":0.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/cristel-lib"},
-    {id:52,name:"Cyclops Core",categories:["bibliotheque"],description:"Bibliothèque commune pour tous les mods de kroeser.",fullDescription:"Cyclops Core est la bibliothèque partagée.",image:"cyclopscore.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","NeoForge"],sizeMo:2.6,sizePerVersion:{"1.20.1":2.6,"1.19.2":2.4,"1.18.2":2.2,"1.16.5":2.0,"1.12.2":1.7},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/cyclops-core"},
-    {id:58,name:"Fabric API",categories:["bibliotheque"],description:"L'API essentielle pour tous les mods Fabric — quasi-obligatoire.",fullDescription:"Fabric API est la bibliothèque de base indispensable.",image:"fabric-api.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Fabric","Quilt"],sizeMo:2.1,sizePerVersion:{"1.21":2.4,"1.20.4":2.2,"1.20.1":2.1,"1.19.2":1.9,"1.18.2":1.7,"1.16.5":1.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/fabric-api"},
-    {id:50,name:"GeckoLib",categories:["bibliotheque"],description:"Bibliothèque d'animations puissante pour créer des mobs et blocs animés complexes.",fullDescription:"GeckoLib est une bibliothèque d'animations.",image:"geckolib.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:2.8,sizePerVersion:{"1.21":3.1,"1.20.4":2.9,"1.20.1":2.8,"1.19.2":2.6,"1.18.2":2.4,"1.16.5":2.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/geckolib"},
-    {id:59,name:"GlitchCore",categories:["bibliotheque"],description:"Bibliothèque partagée par tous les mods de Glitchfiend.",fullDescription:"GlitchCore est la bibliothèque commune développée par Glitchfiend.",image:"glitchcore.png",versions:["1.21","1.20.4","1.20.1"],loaders:["Forge","NeoForge"],sizeMo:0.9,sizePerVersion:{"1.21":1.0,"1.20.4":0.9,"1.20.1":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/glitchcore"},
-    {id:60,name:"Let's Do API",categories:["bibliotheque"],description:"API commune pour la série de mods « Let's Do ».",fullDescription:"Let's Do API est la bibliothèque de base pour tous les mods de la série Let's Do.",image:"letsdo-api.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.8,sizePerVersion:{"1.20.1":0.8,"1.19.2":0.7},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/do-api"},
-    {id:54,name:"LibraryFerret",categories:["bibliotheque"],description:"Bibliothèque légère fournissant des utilitaires communs à plusieurs mods.",fullDescription:"LibraryFerret est une petite bibliothèque utilitaire.",image:"libraryferret.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","NeoForge"],sizeMo:0.4,sizePerVersion:{"1.20.1":0.4,"1.19.2":0.4,"1.18.2":0.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/library-ferret-forge"},
-    {id:53,name:"Patchouli",categories:["bibliotheque"],description:"Bibliothèque de création de guides et livres in-game utilisée par de nombreux mods.",fullDescription:"Patchouli permet aux modders de créer facilement des livres-guides interactifs.",image:"patchouli.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:1.2,sizePerVersion:{"1.20.1":1.2,"1.19.2":1.1,"1.18.2":1.0,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/patchouli"},
-    {id:81,name:"Placebo",categories:["bibliotheque"],description:"Bibliothèque essentielle développée par Shadows_of_Fire, requise par Apotheosis.",fullDescription:"Placebo est une bibliothèque de base utilisée par plusieurs mods de Shadows_of_Fire, notamment Apotheosis.",image:"placebo.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:0.9,sizePerVersion:{"1.20.1":0.9,"1.19.2":0.8,"1.18.2":0.7,"1.16.5":0.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/placebo"},
-    {id:55,name:"PuzzlesLib",categories:["bibliotheque"],description:"Bibliothèque commune pour les mods de Fuzs.",fullDescription:"Puzzles Lib est une bibliothèque essentielle développée par Fuzs.",image:"puzzleslib.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.7,sizePerVersion:{"1.21":1.9,"1.20.4":1.8,"1.20.1":1.7,"1.19.2":1.6,"1.18.2":1.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/puzzles-lib"},
-    {id:56,name:"Sophisticated Core",categories:["bibliotheque"],description:"Bibliothèque de base pour les mods Sophisticated.",fullDescription:"Sophisticated Core est la bibliothèque partagée par tous les mods Sophisticated.",image:"sophisticated-core.png",versions:["1.21","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:2.3,sizePerVersion:{"1.21":2.5,"1.20.1":2.3,"1.19.2":2.1,"1.18.2":2.0,"1.16.5":1.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/sophisticated-core"},
-    {id:80,name:"YUNG's API",categories:["bibliotheque"],description:"API commune requise par tous les mods de structures de YUNG.",fullDescription:"YUNG's API est la bibliothèque commune à tous les mods de structures développés par YUNGNICKYOUNG.",image:"yungs-api.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.7,sizePerVersion:{"1.20.1":0.7,"1.19.2":0.6,"1.18.2":0.6,"1.16.5":0.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/yungs-api"}
+    // ═══ AVENTURE ═══
+    {id:64,name:"Apotheosis",categories:["aventure","utilitaire"],description:"Refonte du système d'enchantement et de loot avec affixes et gemmes.",fullDescription:"Apotheosis révolutionne les enchantements, potions, spawners et loot vanilla. Ajoute des affixes légendaires, des gemmes à sertir et des systèmes d'améliorations d'armures et d'armes. Rend chaque loot excitant et enrichit considérablement la progression endgame.",image:"apotheosis.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:5.1,sizePerVersion:{"1.20.1":5.1,"1.19.2":4.7,"1.18.2":4.3,"1.16.5":3.8},dependencies:["Placebo"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/apotheosis"},
+    {id:10,name:"Ars Nouveau",categories:["aventure","creatures"],description:"Créez vos propres sorts personnalisés et apprivoisez des familiers uniques.",fullDescription:"Ars Nouveau propose un système de magie entièrement personnalisable où vous combinez des glyphes pour créer des sorts uniques. Apprivoisez des familiers magiques, invoquez des créatures, cultivez des plantes mystiques et construisez une tour de mage. Un des mods magiques les plus créatifs disponibles.",image:"ars-nouveau.png",versions:["1.20.1","1.19.2"],loaders:["Forge","NeoForge"],sizeMo:13.5,sizePerVersion:{"1.20.1":13.5,"1.19.2":12.4},dependencies:["GeckoLib","Patchouli"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/ars-nouveau"},
+    {id:62,name:"Better Combat",categories:["aventure","utilitaire"],description:"Refonte du système de combat avec animations et combos réalistes.",fullDescription:"Better Combat révolutionne le combat de Minecraft en ajoutant des animations d'attaque uniques pour chaque type d'arme. Les épées balayent, les haches fracassent, les lances transpercent. Système de combos, dual-wielding et attaques directionnelles pour un gameplay dynamique et immersif.",image:"better-combat.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:3.2,sizePerVersion:{"1.20.1":3.2,"1.19.2":3.0,"1.18.2":2.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/better-combat-by-daedelus"},
+    {id:4,name:"Blood Magic",categories:["aventure"],description:"Aventure sombre utilisant le sang comme source de pouvoir.",fullDescription:"Blood Magic explore le côté sombre de la magie en transformant votre santé en ressource magique. Construisez des autels sanglants, invoquez des démons et forgez des armes maudites. Progressez à travers plusieurs niveaux d'autel et débloquez des rituels puissants. Réservé aux joueurs qui aiment risquer leur santé pour la puissance.",image:"blood-magic.png",versions:["1.20.1","1.18.2","1.16.5","1.12.2"],loaders:["Forge"],sizeMo:15.7,sizePerVersion:{"1.20.1":15.7,"1.18.2":14.2,"1.16.5":12.8,"1.12.2":11.1},dependencies:["Patchouli"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/blood-magic"},
+    {id:2,name:"Electroblob's Wizardry",categories:["aventure"],description:"RPG avec sorts découvrables, baguettes et robes de mage.",fullDescription:"Electroblob's Wizardry offre une expérience RPG magique complète avec plus de 170 sorts découvrables. Trouvez des baguettes légendaires dans les donjons, portez des robes de mage pour renforcer vos pouvoirs et affrontez des sorciers ennemis. Le système de progression par découverte encourage l'exploration constante.",image:"electroblobs-wizardry.png",versions:["1.12.2"],loaders:["Forge"],sizeMo:14.5,sizePerVersion:{"1.12.2":14.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/electroblobs-wizardry"},
+    {id:63,name:"Epic Fight",categories:["aventure","utilitaire"],description:"Système de combat souls-like avec parades, esquives et combos avancés.",fullDescription:"Epic Fight transforme Minecraft en véritable action-RPG avec un système de combat souls-like. Parez les attaques ennemies, esquivez avec des roulades, enchaînez des combos aériens et changez de style de combat. Compatible avec les armes vanilla et modées, avec animations détaillées pour chaque type d'arme.",image:"epic-fight.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:12.7,sizePerVersion:{"1.20.1":12.7,"1.19.2":11.8,"1.18.2":10.9,"1.16.5":9.7},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/epic-fight-mod"},
+    {id:5,name:"EvilCraft",categories:["aventure"],description:"Un mod de magie sombre avec autels de sang, envouteurs et rituels démoniaques.",fullDescription:"EvilCraft est un mod de magie sombre qui vous permet de manipuler des forces maléfiques. Créez des broyeurs de sang, des envouteurs et des artefacts corrompus. Invoquez des monstres démoniaques, torturez vos ennemis avec des poupées vaudou et construisez une base occulte. Une exploration profonde du côté obscur de Minecraft.",image:"evilcraft.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge"],sizeMo:8.4,sizePerVersion:{"1.20.1":8.4,"1.19.2":7.8,"1.18.2":7.2,"1.16.5":6.5,"1.12.2":5.6},dependencies:["Cyclops Core"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/evilcraft"},
+    {id:19,name:"Legacy Hals Exploration Mod",categories:["aventure","biomes"],description:"Ajoute une nouvelle dimension mystérieuse à explorer avec biomes et créatures uniques.",fullDescription:"Legacy Hals Exploration Mod (HEM) ajoute une toute nouvelle dimension parallèle riche en mystères. Explorez des biomes uniques, découvrez des créatures inédites et affrontez des boss légendaires. Le mod met l'accent sur l'exploration et l'aventure avec des structures cachées à découvrir partout dans le monde.",image:"hem.png",versions:["1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge"],sizeMo:1.8,sizePerVersion:{"1.19.2":1.8,"1.18.2":1.7,"1.16.5":1.5,"1.12.2":1.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/legacy-hals-exploration-mod"},
+    {id:65,name:"Origins",categories:["aventure","utilitaire"],description:"Choisissez une origine avec pouvoirs et faiblesses uniques dès le début.",fullDescription:"Origins vous permet de choisir une race de personnage au début de votre aventure, chacune avec ses propres pouvoirs et faiblesses. Volez avec les Avians, respirez sous l'eau avec les Merlings, brûlez au soleil comme les Enderians. Chaque origine offre une expérience de jeu radicalement différente et rejouable.",image:"origins.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Fabric","Quilt"],sizeMo:4.6,sizePerVersion:{"1.20.1":4.6,"1.19.2":4.3,"1.18.2":4.0,"1.16.5":3.5},dependencies:["Fabric API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/origins"},
+    {id:3,name:"The Aether",categories:["aventure","biomes"],description:"Dimension céleste avec donjons, boss et créatures uniques.",fullDescription:"The Aether ajoute une dimension céleste opposée au Nether, remplie d'îles flottantes verdoyantes. Explorez trois grands donjons uniques, chacun avec son boss légendaire. Apprivoisez des Moas volants, découvrez des matériaux rares comme le Gravitite et vivez une expérience d'aventure enchanteresse dans les cieux.",image:"the-aether.png",versions:["1.20.1","1.19.4"],loaders:["Forge","NeoForge"],sizeMo:17.8,sizePerVersion:{"1.20.1":17.8,"1.19.4":16.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/aether"},
+    {id:1,name:"Twilight Forest",categories:["aventure","biomes","creatures"],description:"Un monde parallèle rempli de donjons, de boss et de forêts mystérieuses.",fullDescription:"The Twilight Forest est un mod d'aventure culte qui ajoute une dimension entière remplie de mystères. Explorez des forêts denses baignées d'une lumière crépusculaire, affrontez des boss épiques comme le Naga et le Lich, découvrez des donjons enchantés et progressez à travers une aventure structurée avec des étapes clairement définies.",image:"twilight-forest.png",versions:["1.20.1","1.19.4","1.18.2","1.16.5","1.12.2"],loaders:["Forge","NeoForge"],sizeMo:14.2,sizePerVersion:{"1.20.1":14.2,"1.19.4":13.5,"1.18.2":12.8,"1.16.5":10.9,"1.12.2":8.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest"},
+
+    // ═══ DÉCORATION ═══
+    {id:8,name:"Chisel & Bits",categories:["decoration","utilitaire"],description:"Sculptez chaque bloc pour des créations d'une précision inégalée.",fullDescription:"Chisel & Bits vous permet de modifier chaque bloc au niveau du 1/16ème pour créer des œuvres architecturales impossibles autrement. Sculptez, peignez et copiez des motifs complexes. Utilisé par les meilleurs constructeurs pour créer des détails architecturaux fins, des statues et des designs uniques.",image:"chisel-and-bits.png",versions:["1.20.1","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:5.3,sizePerVersion:{"1.20.1":5.3,"1.18.2":4.8,"1.16.5":4.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/chisels-bits"},
+    {id:78,name:"Macaw's Doors",categories:["decoration"],description:"Une variété de portes stylées dans tous les matériaux vanilla et modés.",fullDescription:"Macaw's Doors offre plus de 20 styles de portes différents dans tous les matériaux vanilla et modés. Portes coulissantes, portes de garage, portes ornées, portes vitrées et bien plus. Idéal pour donner du caractère à vos constructions et créer des maisons uniques avec des entrées originales et thématiques.",image:"mcw-doors.png",versions:["1.21","1.20.1","1.19.4","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:3.8,sizePerVersion:{"1.21":4.2,"1.20.1":3.8,"1.19.4":3.5,"1.18.2":3.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/macaws-doors"},
+    {id:6,name:"Macaw's Furniture",categories:["decoration"],description:"Des dizaines de meubles réalistes pour décorer vos constructions Minecraft.",fullDescription:"Macaw's Furniture ajoute une vaste collection de meubles réalistes pour transformer vos maisons Minecraft. Tables, chaises, canapés, lits, lampes, cuisines équipées et bien plus, tous disponibles dans tous les types de bois vanilla. Devenu un incontournable pour tous les joueurs souhaitant meubler leurs constructions.",image:"macaws-furniture.png",versions:["1.21","1.20.1","1.19.4","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:6.4,sizePerVersion:{"1.21":6.9,"1.20.1":6.4,"1.19.4":5.8,"1.18.2":5.2},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/macaws-furniture"},
+    {id:77,name:"Macaw's Roofs",categories:["decoration"],description:"Ajoute des toits inclinés et angles décoratifs pour tous les blocs.",fullDescription:"Macaw's Roofs résout enfin le problème des toits plats dans Minecraft en ajoutant des tuiles inclinées, des angles et des raccords parfaits. Compatible avec tous les matériaux vanilla, ce mod permet de créer des constructions avec des toits triangulaires réalistes, des lucarnes et des façades architecturales complexes.",image:"mcw-roofs.png",versions:["1.21","1.20.1","1.19.4","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:4.7,sizePerVersion:{"1.21":5.1,"1.20.1":4.7,"1.19.4":4.3,"1.18.2":3.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/macaws-roofs"},
+    {id:7,name:"Supplementaries",categories:["decoration","utilitaire"],description:"Blocs décoratifs et fonctionnels qui complètent le vanilla.",fullDescription:"Supplementaries ajoute plus de 100 blocs décoratifs et fonctionnels qui auraient pu exister dans le vanilla. Enseignes tournantes, panneaux directionnels, jarres, cages à oiseaux, catapultes, drapeaux et bien plus. Chaque bloc est soigneusement conçu pour s'intégrer parfaitement au style vanilla de Minecraft.",image:"supplementaries.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:8.7,sizePerVersion:{"1.20.1":8.7,"1.19.2":7.9,"1.18.2":7.2},dependencies:["Moonlight Lib"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/supplementaries"},
+
+    // ═══ CRÉATURES ═══
+    {id:18,name:"Alex's Caves",categories:["creatures","biomes","aventure"],description:"6 biomes de grottes uniques avec créatures et loots exclusifs.",fullDescription:"Alex's Caves ajoute 6 nouveaux biomes de grottes complètement uniques avec leurs propres écosystèmes. Explorez des grottes magnétiques défiant la gravité, des cavernes primordiales préhistoriques, des grottes toxiques radioactives et bien plus. Chaque biome possède ses propres créatures, blocs et loots exclusifs à découvrir.",image:"alexs-caves.png",versions:["1.20.1","1.19.4","1.18.2"],loaders:["Forge","NeoForge"],sizeMo:31.2,sizePerVersion:{"1.20.1":31.2,"1.19.4":29.4,"1.18.2":27.1},dependencies:["Citadel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/alexs-caves"},
+    {id:9,name:"Alex's Mobs",categories:["creatures"],description:"Plus de 80 créatures réalistes et fantastiques avec des comportements uniques.",fullDescription:"Alex's Mobs enrichit la faune de Minecraft avec plus de 80 créatures réalistes et fantastiques. Des grizzlis dans les forêts aux crocodiles dans les marais, chaque mob a un comportement unique et des interactions naturelles avec son environnement. Certaines créatures peuvent être apprivoisées et offrent des mécaniques de gameplay inédites.",image:"alexs-mobs.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:22.6,sizePerVersion:{"1.20.1":22.6,"1.19.2":20.4,"1.18.2":18.9,"1.16.5":16.2},dependencies:["Citadel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/alexs-mobs"},
+    {id:66,name:"Aquaculture 2",categories:["creatures","aventure"],description:"Ajoute plus de 30 poissons, des cannes améliorées et un système de pêche complet.",fullDescription:"Aquaculture 2 étend considérablement la pêche vanilla avec plus de 30 espèces de poissons uniques répartis dans les différents biomes aquatiques. Ajoute des cannes à pêche améliorées, des appâts, des systèmes de talents et de nouveaux items rares à découvrir. La pêche devient enfin une activité gratifiante et immersive.",image:"aquaculture.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:5.8,sizePerVersion:{"1.20.1":5.8,"1.19.2":5.4,"1.18.2":5.0,"1.16.5":4.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/aquaculture"},
+    {id:13,name:"Better Animals Plus",categories:["creatures"],description:"Ajoute une trentaine de nouveaux animaux réalistes à travers les biomes.",fullDescription:"Better Animals Plus ajoute une trentaine d'animaux réalistes qui peuplent les biomes de manière naturelle. Renards, ours, cerfs, coyotes, tigres, phoques et bien d'autres viennent enrichir la faune vanilla. Chaque animal a des comportements réalistes, des interactions écologiques et enrichit considérablement l'immersion dans le monde.",image:"better-animals-plus.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:11.4,sizePerVersion:{"1.20.1":11.4,"1.19.2":10.6,"1.18.2":9.8,"1.16.5":8.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/betteranimalsplus"},
+    {id:14,name:"Better Animations Collection",categories:["creatures","utilitaire"],description:"Remplace les animations vanilla des mobs pour les rendre plus fluides et réalistes.",fullDescription:"Better Animations Collection remplace les animations rigides des mobs vanilla par des mouvements fluides et réalistes. Les vaches se balancent en marchant, les cochons trottinent, les poulets battent des ailes. Un mod léger qui améliore drastiquement l'immersion visuelle sans impacter les performances de votre jeu.",image:"better-animations.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:1.3,sizePerVersion:{"1.20.1":1.3,"1.19.2":1.2,"1.18.2":1.1,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/better-animations-collection"},
+    {id:15,name:"Exotic Birds",categories:["creatures"],description:"Ajoute plus de 40 espèces d'oiseaux exotiques à travers le monde.",fullDescription:"Exotic Birds peuple les cieux et les biomes de Minecraft avec plus de 40 espèces d'oiseaux du monde entier. Perroquets colorés, aigles majestueux, pingouins mignons, autruches, hiboux nocturnes et bien d'autres. Chaque espèce spawn dans son biome naturel et certains oiseaux peuvent être apprivoisés comme compagnons.",image:"exotic-birds.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:8.7,sizePerVersion:{"1.20.1":8.7,"1.19.2":8.1,"1.18.2":7.5,"1.16.5":6.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/exotic-birds"},
+    {id:11,name:"Ice and Fire",categories:["creatures","aventure"],description:"Dragons, hippogriffes et créatures mythologiques épiques.",fullDescription:"Ice and Fire ajoute des créatures mythologiques épiques avec un système de dragons complet et détaillé. Élevez et chevauchez des dragons de feu, de glace ou de foudre. Affrontez des cyclopes, des hippogriffes, des sirènes et bien d'autres créatures légendaires. Un des mods de créatures les plus ambitieux jamais créés pour Minecraft.",image:"ice-and-fire.png",versions:["1.19.2","1.16.5","1.12.2"],loaders:["Forge"],sizeMo:36.4,sizePerVersion:{"1.19.2":36.4,"1.16.5":34.1,"1.12.2":29.8},dependencies:["Citadel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/ice-and-fire-dragons"},
+    {id:16,name:"More Villagers",categories:["creatures","utilitaire"],description:"Ajoute des villageois spécialisés avec de nouveaux métiers et échanges.",fullDescription:"More Villagers enrichit considérablement les villages en ajoutant plus de 12 nouveaux métiers de villageois. Trouvez un chasseur, un pêcheur, un mineur, un ingénieur ou un archéologue. Chaque nouveau métier apporte ses propres échanges uniques, offrant l'accès à des items rares et améliorant l'économie de vos villages.",image:"morevillagers.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:2.4,sizePerVersion:{"1.20.1":2.4,"1.19.2":2.2,"1.18.2":2.0},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/more-villagers-fabric"},
+    {id:67,name:"Mowzie's Mobs",categories:["creatures","aventure"],description:"Ajoute des boss et créatures uniques inspirés de mythologies du monde.",fullDescription:"Mowzie's Mobs ajoute une poignée de créatures épiques inspirées de mythologies du monde entier. Chaque mob et boss possède des animations spectaculaires, des combats élaborés et des drops uniques. Affrontez le Barako roi soleil, le Ferrous Wroughtnaut ou l'énorme Frostmaw dans des combats mémorables et cinématographiques.",image:"mowzies-mobs.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:14.9,sizePerVersion:{"1.20.1":14.9,"1.19.2":13.8,"1.18.2":12.7,"1.16.5":11.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/mowzies-mobs"},
+    {id:12,name:"Naturalist",categories:["creatures","biomes"],description:"Animaux réalistes et adorables qui enrichissent l'écosystème.",fullDescription:"Naturalist ajoute une trentaine d'animaux réalistes et adorables qui viennent enrichir les écosystèmes de Minecraft. Serpents, lucioles, papillons, oiseaux chanteurs, cerfs et petits mammifères peuplent les biomes de manière crédible. Un mod parfait pour ceux qui recherchent une immersion naturaliste et un monde vivant.",image:"naturalist.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric"],sizeMo:9.1,sizePerVersion:{"1.20.1":9.1,"1.19.2":8.5},dependencies:["GeckoLib"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/naturalist"},
+    {id:21,name:"Pandora's Creatures",categories:["creatures","aventure"],description:"Ajoute une variété de nouvelles créatures uniques et hostiles à travers l'Overworld.",fullDescription:"Pandora's Creatures enrichit l'Overworld avec une multitude de nouvelles créatures uniques et souvent hostiles. Découvrez le Hellhound cracheur de feu, l'Arachnon araignée géante, le Wraith fantomatique et bien d'autres monstres terrifiants. Rend l'exploration nocturne bien plus dangereuse et excitante.",image:"pandoras-creatures.png",versions:["1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:6.8,sizePerVersion:{"1.19.2":6.8,"1.18.2":6.3,"1.16.5":5.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/pandoras-creatures"},
+    {id:17,name:"Untamed Wilds",categories:["creatures","biomes"],description:"Créatures sauvages, prédateurs et espèces menacées du monde réel.",fullDescription:"Untamed Wilds ajoute une multitude de créatures sauvages du monde réel, incluant des espèces menacées et disparues. Explorez les biomes pour trouver des tigres, des léopards, des rhinocéros, des tortues géantes et bien d'autres. Chaque animal a des variantes régionales et des comportements réalistes qui enrichissent l'exploration.",image:"untamed-wilds.png",versions:["1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:12.6,sizePerVersion:{"1.19.2":12.6,"1.18.2":11.8,"1.16.5":10.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/untamedwilds"},
+    {id:20,name:"Xenoclus 2",categories:["aventure","creatures"],description:"Ajoute un boss légendaire extraterrestre avec un donjon dédié.",fullDescription:"Xenoclus 2 est un mod boss qui ajoute une créature extraterrestre légendaire cachée dans un donjon dédié. Ce boss endgame propose un combat épique en plusieurs phases avec des attaques uniques et des mécaniques originales. Récompense des équipements légendaires et des trophées exclusifs pour les joueurs les plus courageux.",image:"xenoclus.png",versions:["1.19.2","1.18.2"],loaders:["Forge"],sizeMo:4.3,sizePerVersion:{"1.19.2":4.3,"1.18.2":4.0},dependencies:["GeckoLib"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/xenoclus-2"},
+
+    // ═══ BIOMES ═══
+    {id:25,name:"Better Nether",categories:["biomes"],description:"Refonte complète du Nether avec de nouveaux biomes exotiques.",fullDescription:"Better Nether transforme radicalement le Nether en ajoutant plus de 20 nouveaux biomes exotiques. Découvrez des jungles infernales luxuriantes, des marais de lave bouillonnants, des cavernes de cristal et bien d'autres. Chaque biome apporte ses propres blocs, plantes et matériaux uniques pour enrichir l'exploration du monde infernal.",image:"better-nether.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Fabric","Quilt"],sizeMo:8.9,sizePerVersion:{"1.20.1":8.9,"1.19.2":8.3,"1.18.2":7.7,"1.16.5":6.8},dependencies:["Fabric API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/betternether"},
+    {id:26,name:"Better Village",categories:["biomes","decoration"],description:"Améliore drastiquement les villages avec de nouvelles structures et bâtiments.",fullDescription:"Better Village transforme les villages vanilla en communautés vivantes et détaillées. Ajoute des dizaines de nouvelles structures : forges impressionnantes, moulins fonctionnels, tavernes accueillantes, marchés animés et bien plus. Chaque village devient unique et intéressant à explorer, avec des surprises architecturales à chaque coin de rue.",image:"better-village.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:3.7,sizePerVersion:{"1.20.1":3.7,"1.19.2":3.4,"1.18.2":3.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/better-village-forge"},
+    {id:22,name:"Biomes O' Plenty",categories:["biomes","decoration"],description:"Plus de 50 nouveaux biomes spectaculaires pour une exploration infinie.",fullDescription:"Biomes O' Plenty est le mod de biomes le plus emblématique de Minecraft. Il transforme la génération du monde en ajoutant plus de 50 biomes uniques : forêts de cerisiers, marécages mystiques, prairies fleuries, canyons rouges, terres célestes et bien plus. Chaque biome possède sa végétation, ses créatures et son ambiance propre.",image:"biomes-o-plenty.png",versions:["1.20.1","1.19.4","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:11.3,sizePerVersion:{"1.20.1":11.3,"1.19.4":10.5,"1.18.2":9.7,"1.16.5":8.3},dependencies:["GlitchCore"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty"},
+    {id:29,name:"Dark Caverns",categories:["biomes","aventure"],description:"Rend les grottes plus sombres, dangereuses et immersives.",fullDescription:"Dark Caverns modifie l'éclairage des grottes pour les rendre véritablement sombres et effrayantes. Les torches deviennent indispensables et l'exploration souterraine gagne en tension et en immersion. Compatible avec les shaders et les mods de caves, ce mod transforme radicalement l'expérience de spéléologie dans Minecraft.",image:"dark-caverns.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:0.5,sizePerVersion:{"1.20.1":0.5,"1.19.2":0.5,"1.18.2":0.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/dark-caverns"},
+    {id:24,name:"Oh The Biomes You'll Go",categories:["biomes","decoration"],description:"80+ biomes magnifiques dans l'Overworld, le Nether et l'End.",fullDescription:"Oh The Biomes You'll Go (BYG) ajoute plus de 80 biomes magnifiques répartis dans l'Overworld, le Nether et l'End. Explorez des forêts vibrantes de couleurs, des toundras arctiques, des jungles préhistoriques et des paysages surréalistes. Un des mods de biomes les plus visuellement impressionnants disponibles pour Minecraft.",image:"oh-the-biomes.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:27.6,sizePerVersion:{"1.20.1":27.6,"1.19.2":25.2,"1.18.2":23.4},dependencies:["Cristel Lib","Architectury API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go"},
+    {id:70,name:"Repurposed Structures",categories:["biomes","aventure"],description:"Réutilise les structures vanilla dans de nouveaux biomes avec variations.",fullDescription:"Repurposed Structures ajoute plus de 60 nouvelles variantes des structures vanilla adaptées à différents biomes. Trouvez des villages dans les jungles, des pyramides dans la toundra, des avant-postes dans les forêts sombres. Chaque variante est thématique et cohérente avec son environnement, enrichissant l'exploration à travers tous les biomes.",image:"repurposed-structures.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:4.1,sizePerVersion:{"1.20.1":4.1,"1.19.2":3.8,"1.18.2":3.5,"1.16.5":3.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/repurposed-structures"},
+    {id:23,name:"Terralith",categories:["biomes"],description:"Refonte complète de la génération du monde avec des biomes époustouflants.",fullDescription:"Terralith transforme radicalement la génération du terrain sans ajouter aucun nouveau bloc. Découvrez des montagnes gigantesques, des canyons profonds, des cratères mystérieux et plus de 85 biomes uniques. Un mod technique impressionnant qui utilise uniquement les blocs vanilla pour créer des paysages absolument époustouflants.",image:"terralith.png",versions:["1.21","1.20.4","1.20.1","1.19.4"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:2.9,sizePerVersion:{"1.21":3.2,"1.20.4":3.0,"1.20.1":2.9,"1.19.4":2.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/terralith"},
+    {id:27,name:"The Undergarden",categories:["biomes","aventure","creatures"],description:"Une nouvelle dimension souterraine sombre et mystérieuse.",fullDescription:"The Undergarden ajoute une toute nouvelle dimension souterraine sombre et étouffante à explorer. Accessible via un portail spécial, cette dimension regorge de créatures uniques, de biomes mystérieux et de matériaux exclusifs comme l'Utherium. Idéal pour les joueurs cherchant une nouvelle expérience d'exploration après avoir tout vu du Nether.",image:"the-undergarden.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:16.3,sizePerVersion:{"1.20.1":16.3,"1.19.2":15.1,"1.18.2":14.0,"1.16.5":12.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/the-undergarden"},
+    {id:28,name:"Towns and Towers",categories:["biomes","aventure"],description:"Ajoute villes, tours, camps et navires perdus à travers le monde.",fullDescription:"Towns and Towers ajoute des dizaines de nouvelles structures spectaculaires à travers le monde : villes fortifiées, tours mystérieuses, camps d'aventuriers, navires perdus et postes commerciaux. Chaque structure est richement décorée, offre des loots intéressants et raconte une histoire à travers son architecture et son placement.",image:"towns-and-towers.png",versions:["1.21","1.20.4","1.20.1","1.19.4"],loaders:["Forge","Fabric","NeoForge"],sizeMo:5.8,sizePerVersion:{"1.21":6.4,"1.20.4":6.0,"1.20.1":5.8,"1.19.4":5.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/towns-and-towers"},
+    {id:61,name:"When Dungeons Arise",categories:["aventure","biomes"],description:"Ajoute plus de 40 donjons et structures colossaux répartis dans le monde.",fullDescription:"When Dungeons Arise ajoute plus de 40 donjons et structures monumentales dans le monde de Minecraft. Explorez des châteaux imposants, des ruines antiques, des temples oubliés et des bastions abandonnés. Chaque structure regorge de mobs, de pièges et de trésors précieux, offrant une expérience d'exploration digne des meilleurs RPG.",image:"dungeons-arise.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:8.4,sizePerVersion:{"1.20.1":8.4,"1.19.2":7.8,"1.18.2":7.2,"1.16.5":6.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/when-dungeons-arise"},
+    {id:71,name:"William Wythers' Overhauled Overworld",categories:["biomes"],description:"Refonte complète de l'Overworld avec des dizaines de nouveaux biomes.",fullDescription:"William Wythers' Overhauled Overworld (WWOO) réimagine complètement l'Overworld vanilla avec des dizaines de nouveaux biomes créatifs. Découvrez des vergers en fleurs, des marécages luminescents, des toundras multicolores et des forêts fantastiques. Chaque biome possède sa végétation propre, ses structures et une ambiance unique et immersive.",image:"wwoo.png",versions:["1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:9.2,sizePerVersion:{"1.19.2":9.2,"1.18.2":8.5,"1.16.5":7.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/william-wythers-overhauled-overworld"},
+    {id:68,name:"YUNG's Better Dungeons",categories:["biomes","aventure"],description:"Refonte complète des donjons vanilla avec structures massives et loot amélioré.",fullDescription:"YUNG's Better Dungeons remplace les donjons vanilla ternes par des structures colossales et complexes. Multi-étages, salles secrètes, pièges élaborés et mini-boss vous attendent dans chaque donjon. Le loot est considérablement amélioré, rendant enfin l'exploration des donjons excitante et gratifiante comme elle devrait l'être.",image:"yungs-dungeons.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:3.4,sizePerVersion:{"1.20.1":3.4,"1.19.2":3.1,"1.18.2":2.9,"1.16.5":2.5},dependencies:["YUNG's API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/yungs-better-dungeons"},
+    {id:69,name:"YUNG's Better Strongholds",categories:["biomes","aventure"],description:"Refonte totale des Strongholds vanilla, transformés en immenses forteresses.",fullDescription:"YUNG's Better Strongholds transforme les Strongholds vanilla en véritables forteresses souterraines impressionnantes. Bibliothèques monumentales, cellules de prison, temples cachés et salles au trésor vous attendent. L'exploration devient une aventure épique, tout en préservant l'objectif final de trouver le portail vers l'End.",image:"yungs-strongholds.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:2.6,sizePerVersion:{"1.20.1":2.6,"1.19.2":2.4,"1.18.2":2.2,"1.16.5":1.9},dependencies:["YUNG's API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/yungs-better-strongholds"},
+
+    // ═══ UTILITAIRE ═══
+    {id:33,name:"Applied Energistics 2",categories:["utilitaire"],description:"Un système de stockage numérique et d'automatisation avancé.",fullDescription:"Applied Energistics 2 révolutionne le stockage dans Minecraft en offrant un réseau de stockage numérique ultra-efficace. Stockez des millions d'items dans des disques compacts, automatisez le crafting complexe, et créez des systèmes logistiques dignes des plus grandes usines. Le mod technique par excellence pour l'endgame.",image:"applied-energistics-2.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:18.7,sizePerVersion:{"1.20.1":18.7,"1.19.2":17.1,"1.18.2":15.9,"1.16.5":14.0},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2"},
+    {id:73,name:"AppleSkin",categories:["utilitaire"],description:"Affiche la nourriture, saturation et effet potentiel des aliments dans le HUD.",fullDescription:"AppleSkin est un mod QoL essentiel qui améliore le HUD de nourriture vanilla. Voyez combien de points de faim et de saturation chaque aliment restaure avant de le consommer. Affiche également les valeurs actuelles de saturation, aidant à optimiser votre alimentation et éviter le gaspillage précieux.",image:"appleskin.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.5,sizePerVersion:{"1.21":0.6,"1.20.4":0.5,"1.20.1":0.5,"1.19.2":0.5,"1.18.2":0.4,"1.16.5":0.4,"1.12.2":0.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/appleskin"},
+    {id:44,name:"AstikorCarts",categories:["utilitaire","decoration"],description:"Ajoute des chariots tirés par des chevaux pour transporter items et animaux.",fullDescription:"AstikorCarts ajoute plusieurs types de chariots que vous pouvez atteler à vos chevaux pour transporter items, animaux ou labourer les champs. Idéal pour les grandes fermes, les voyages longue distance et les mods médiévaux. Ajoute une dimension logistique et immersive rappelant les jeux type Farming Simulator médiéval.",image:"astikorcarts.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:1.2,sizePerVersion:{"1.20.1":1.2,"1.19.2":1.1,"1.18.2":1.0,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/astikorcarts"},
+    {id:32,name:"Botania",categories:["decoration","utilitaire"],description:"Un mod basé sur la nature avec des fleurs magiques et de superbes blocs décoratifs.",fullDescription:"Botania est un mod inspiré de la magie florale qui transforme la nature en source de puissance. Cultivez des fleurs mystiques qui génèrent du Mana, créez des artefacts enchantés et automatisez des processus complexes uniquement avec la magie naturelle. Un des mods les plus créatifs et originaux jamais créés.",image:"botania.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:9.8,sizePerVersion:{"1.20.1":9.8,"1.19.2":9.1,"1.18.2":8.6,"1.16.5":7.4},dependencies:["Patchouli","Curios API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/botania"},
+    {id:40,name:"Corail Tombstone",categories:["utilitaire","aventure"],description:"Une tombe apparaît à votre mort avec tout votre équipement conservé en sécurité.",fullDescription:"Corail Tombstone résout le pire cauchemar des joueurs Minecraft : perdre son inventaire en mourant. Une tombe apparaît automatiquement à votre position de mort, conservant tout votre équipement en sécurité. Ajoute également un système d'enchantements liés à la mort et à la résurrection pour enrichir l'expérience.",image:"tombstone.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","NeoForge"],sizeMo:4.6,sizePerVersion:{"1.20.1":4.6,"1.19.2":4.2,"1.18.2":3.9,"1.16.5":3.5,"1.12.2":3.0},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/corail-tombstone"},
+    {id:31,name:"Create",categories:["utilitaire","decoration"],description:"Construisez des machines et systèmes mécaniques avec une esthétique magnifique.",fullDescription:"Create est une révolution dans les mods d'automatisation avec ses systèmes mécaniques visuellement impressionnants. Construisez des engrenages, des convoyeurs, des trains et des usines complètes avec des animations élégantes. Chaque mécanisme fonctionne de manière réaliste et rend l'automatisation aussi belle qu'efficace.",image:"create.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:29.4,sizePerVersion:{"1.20.1":29.4,"1.19.2":26.8,"1.18.2":23.5},dependencies:["Flywheel"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/create"},
+    {id:45,name:"Essential",categories:["utilitaire"],description:"Mod social avec skins cape, chat vocal, invitations et coop instantanée.",fullDescription:"Essential est un mod social populaire qui transforme Minecraft en expérience communautaire. Ajoute un menu principal amélioré, des capes cosmétiques exclusives, un système d'amis intégré, du chat vocal et surtout la possibilité d'inviter vos amis à rejoindre votre monde solo en un clic sans configuration serveur.",image:"essential.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:9.6,sizePerVersion:{"1.21":10.4,"1.20.4":9.8,"1.20.1":9.6,"1.19.2":8.9,"1.18.2":8.3,"1.16.5":7.5,"1.12.2":6.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/essential-mod"},
+    {id:35,name:"Immersive Engineering",categories:["utilitaire","decoration"],description:"Machines industrielles avec une esthétique steampunk magnifique.",fullDescription:"Immersive Engineering se distingue par son approche réaliste et esthétique de la technologie steampunk. Construisez des multi-blocs impressionnants comme des concasseurs, raffineries et centrales électriques. Les câbles électriques visibles et les structures monumentales donnent à vos usines un aspect industriel authentique et magnifique.",image:"immersive-engineering.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:34.2,sizePerVersion:{"1.20.1":34.2,"1.19.2":31.7,"1.18.2":29.5,"1.16.5":26.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/immersive-engineering"},
+    {id:74,name:"Inventory Sorter",categories:["utilitaire"],description:"Trie automatiquement votre inventaire et vos coffres d'un clic.",fullDescription:"Inventory Sorter permet de trier automatiquement n'importe quel inventaire ou coffre d'un simple clic droit ou avec un raccourci clavier configurable. Fini les inventaires en désordre et le rangement manuel fastidieux. Un petit mod utilitaire qui fait gagner énormément de temps et améliore drastiquement le confort de jeu.",image:"inventory-sorter.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:0.3,sizePerVersion:{"1.20.1":0.3,"1.19.2":0.3,"1.18.2":0.3,"1.16.5":0.2},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/inventory-sorter"},
+    {id:72,name:"Iron Chests",categories:["utilitaire"],description:"Ajoute des coffres améliorés en cuivre, fer, or, diamant, obsidienne et crystal.",fullDescription:"Iron Chests ajoute 6 nouveaux types de coffres avec des capacités croissantes : cuivre, fer, or, diamant, obsidienne et crystal. Les coffres en crystal permettent même de voir le contenu à travers les parois. Une solution simple mais essentielle pour tous les joueurs qui accumulent trop d'items dans leurs bases.",image:"iron-chests.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.6,sizePerVersion:{"1.20.1":1.6,"1.19.2":1.5,"1.18.2":1.4,"1.16.5":1.2},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/iron-chests"},
+    {id:76,name:"Iron Furnaces",categories:["utilitaire"],description:"Ajoute des fours améliorés (cuivre → néthérite) plus rapides et efficaces.",fullDescription:"Iron Furnaces ajoute une série de fours améliorés utilisant différents matériaux, du cuivre à la néthérite. Chaque niveau offre une vitesse de cuisson supérieure, une meilleure efficacité énergétique et parfois même une expérience accrue. Indispensable pour tous les joueurs qui veulent accélérer leur progression.",image:"iron-furnaces.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:2.1,sizePerVersion:{"1.20.1":2.1,"1.19.2":1.9,"1.18.2":1.8,"1.16.5":1.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/iron-furnaces"},
+    {id:75,name:"Jade",categories:["utilitaire"],description:"Affiche des informations sur les blocs et entités visés (santé, propriétaire, etc.).",fullDescription:"Jade est le successeur moderne de WAILA et affiche en temps réel des informations utiles sur les blocs et entités que vous regardez. Nom, santé, niveau de croissance, propriétaire, contenu et bien plus s'affichent en overlay. Un outil devenu essentiel pour tous les joueurs modés qui veulent identifier rapidement ce qu'ils voient.",image:"jade.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.2,sizePerVersion:{"1.21":1.4,"1.20.4":1.3,"1.20.1":1.2,"1.19.2":1.1,"1.18.2":1.0,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/jade"},
+    {id:30,name:"JEI",categories:["utilitaire"],description:"L'outil indispensable pour consulter toutes les recettes de craft.",fullDescription:"Just Enough Items (JEI) est LE mod utilitaire incontournable pour Minecraft modé. Consultez instantanément la recette de craft de n'importe quel item, y compris ceux des autres mods. Cherchez par nom, par matériau ou par utilisation. Compatible avec la quasi-totalité des mods, JEI est présent dans 99% des modpacks.",image:"jei.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.6,sizePerVersion:{"1.21":1.8,"1.20.4":1.7,"1.20.1":1.6,"1.19.2":1.5,"1.18.2":1.4,"1.16.5":1.3,"1.12.2":1.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/jei"},
+    {id:38,name:"JourneyMap",categories:["utilitaire"],description:"Minimap en temps réel avec carte du monde complète et waypoints.",fullDescription:"JourneyMap est une minimap et carte du monde complète avec une multitude de fonctionnalités. Affichage en temps réel, waypoints personnalisables, radar des mobs, historique de mort, mode plein écran et interface web. Un outil de cartographie professionnel qui rivalise avec Xaero's Minimap et offre une expérience différente.",image:"journeymap.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:5.3,sizePerVersion:{"1.21":5.9,"1.20.4":5.5,"1.20.1":5.3,"1.19.2":4.9,"1.18.2":4.6,"1.16.5":4.1,"1.12.2":3.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/journeymap"},
+    {id:41,name:"JustHammers",categories:["utilitaire"],description:"Ajoute des marteaux qui minent plusieurs blocs à la fois (3x3, 5x5, 7x7).",fullDescription:"JustHammers ajoute une série de marteaux qui minent plusieurs blocs à la fois, des tailles 3x3 à 7x7. Idéal pour creuser des tunnels rapidement, dégager des zones ou construire des grandes structures. Compatible avec les enchantements standard comme Fortune et Efficacité, ces outils font gagner un temps considérable.",image:"justhammers.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric"],sizeMo:0.7,sizePerVersion:{"1.20.1":0.7,"1.19.2":0.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/justhammers"},
+    {id:34,name:"Mekanism",categories:["utilitaire"],description:"Machines avancées, réacteur à fusion et jetpacks.",fullDescription:"Mekanism propose un système complet de machines de traitement de minerais avec jusqu'à 5x le rendement vanilla. Construisez des réacteurs à fission et fusion, portez des combinaisons énergétiques high-tech, volez avec des jetpacks et automatisez tout avec des logistiques avancées. Un des mods techniques les plus complets disponibles.",image:"mekanism.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:32.1,sizePerVersion:{"1.20.1":32.1,"1.19.2":29.5,"1.18.2":27.2,"1.16.5":24.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/mekanism"},
+    {id:43,name:"Small Ships",categories:["utilitaire","aventure","decoration"],description:"Ajoute plusieurs types de navires jouables (cog, brigg, galleon...).",fullDescription:"Small Ships ajoute différents types de navires historiques jouables : cog, drakkar, brigg, galleon et bien d'autres. Naviguez sur les océans, transportez marchandises et passagers, ou explorez des îles lointaines. Chaque navire a ses propres caractéristiques de vitesse, capacité et manœuvrabilité pour des aventures maritimes épiques.",image:"smallships.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:6.7,sizePerVersion:{"1.20.1":6.7,"1.19.2":6.2,"1.18.2":5.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/small-ships"},
+    {id:39,name:"Sophisticated Backpacks",categories:["utilitaire"],description:"Sacs à dos évolutifs avec upgrades, filtres et automatisation.",fullDescription:"Sophisticated Backpacks ajoute des sacs à dos hautement personnalisables avec un système d'upgrades poussé. Filtres avancés, tri automatique, ramassage magnétique, pompage de fluides et bien plus. Chaque sac à dos peut être customisé selon vos besoins spécifiques et devient un véritable coffre portable puissant.",image:"sophisticated-backpacks.png",versions:["1.21","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:4.2,sizePerVersion:{"1.21":4.6,"1.20.1":4.2,"1.19.2":3.9,"1.18.2":3.6,"1.16.5":3.2},dependencies:["Sophisticated Core"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/sophisticated-backpacks"},
+    {id:42,name:"Tough As Nails",categories:["utilitaire"],description:"Ajoute la faim, la soif et la température corporelle pour un survival réaliste.",fullDescription:"Tough As Nails ajoute des mécaniques de survie avancées pour rendre Minecraft plus challengeant. Gérez votre soif avec de l'eau propre, régulez votre température corporelle avec des vêtements adaptés aux biomes et affrontez des saisons dynamiques. Parfait pour les joueurs cherchant une expérience de survie hardcore réaliste.",image:"tough-as-nails.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:2.9,sizePerVersion:{"1.20.1":2.9,"1.19.2":2.7,"1.18.2":2.5,"1.16.5":2.2},dependencies:["GlitchCore"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/tough-as-nails"},
+    {id:36,name:"Waystones",categories:["utilitaire","aventure"],description:"Pierres de téléportation pour voyager rapidement entre vos bases.",fullDescription:"Waystones ajoute des pierres de téléportation que vous placez à travers votre monde pour voyager rapidement entre vos bases et zones importantes. Configurables et rencontrées naturellement dans les villages, elles remplacent efficacement les longues chevauchées ou les commandes /tp. Un incontournable pour l'exploration lointaine.",image:"waystones.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:2.4,sizePerVersion:{"1.21":2.7,"1.20.4":2.5,"1.20.1":2.4,"1.19.2":2.2,"1.18.2":2.0},dependencies:["Balm"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/waystones"},
+    {id:37,name:"Xaero's Minimap",categories:["utilitaire"],description:"Minimap complète avec waypoints, radar de mobs et carte.",fullDescription:"Xaero's Minimap est une minimap ultra-personnalisable qui affiche votre environnement en temps réel. Créez des waypoints, activez le radar de mobs colorés, affichez les coordonnées, la direction et bien plus. Compatible avec Xaero's World Map pour une expérience de cartographie complète et fluide. Un des mods de minimap les plus populaires.",image:"xaeros-minimap.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:1.1,sizePerVersion:{"1.21":1.3,"1.20.4":1.2,"1.20.1":1.1,"1.19.2":1.0,"1.18.2":0.9,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/xaeros-minimap"},
+
+    // ═══ NOURRITURE ═══
+    {id:46,name:"Farmer's Delight",categories:["nourriture","utilitaire"],description:"Étend le système de cuisine avec de nouvelles cultures et repas.",fullDescription:"Farmer's Delight enrichit considérablement le système alimentaire de Minecraft avec de nouvelles cultures, ustensiles de cuisine et recettes gourmandes. Cultivez des tomates, riz, oignons et cuisinez de véritables plats élaborés avec buffs spéciaux. Le mod culinaire de référence, apprécié pour son intégration parfaite au style vanilla.",image:"farmers-delight.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:6.2,sizePerVersion:{"1.20.1":6.2,"1.19.2":5.7,"1.18.2":5.3,"1.16.5":4.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/farmers-delight"},
+    {id:79,name:"Let's Do: Bakery",categories:["nourriture","decoration"],description:"Créez votre boulangerie avec fours, viennoiseries et pains artisanaux.",fullDescription:"Let's Do: Bakery vous permet de créer une boulangerie complète et fonctionnelle dans Minecraft. Fabriquez des pains artisanaux, viennoiseries, gâteaux et pâtisseries variées. Chaque recette utilise des ingrédients réalistes et le processus de préparation est immersif. Combine parfaitement avec Let's Do: Vinery pour un village médiéval authentique.",image:"bakery.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:9.3,sizePerVersion:{"1.20.1":9.3,"1.19.2":8.6},dependencies:["Let's Do API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/lets-do-bakery"},
+    {id:48,name:"Let's Do: Vinery",categories:["nourriture","decoration"],description:"Cultivez la vigne, produisez du vin et gérez votre propre vignoble.",fullDescription:"Let's Do: Vinery est un mod agricole splendide qui vous permet de gérer votre propre vignoble. Plantez et cultivez différents cépages, récoltez les raisins, pressez-les et vieillissez votre vin dans des tonneaux. Ambiance italienne authentique avec des blocs décoratifs magnifiques pour créer une exploitation viticole complète.",image:"vinery.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:14.8,sizePerVersion:{"1.20.1":14.8,"1.19.2":13.7},dependencies:["Let's Do API"],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/vinery"},
+    {id:47,name:"Pam's HarvestCraft 2",categories:["nourriture"],description:"Centaines de nouvelles cultures, arbres fruitiers et recettes.",fullDescription:"Pam's HarvestCraft 2 est le mod alimentaire de référence avec des centaines de nouvelles cultures, fruits, légumes et recettes. Plus de 1000 items alimentaires ajoutés au jeu, transformant complètement l'expérience culinaire de Minecraft. Divisé en modules pour choisir uniquement les fonctionnalités qui vous intéressent.",image:"pams-harvestcraft.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:24.3,sizePerVersion:{"1.20.1":24.3,"1.19.2":22.1,"1.18.2":20.6,"1.16.5":17.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/pams-harvestcraft-2-food-core"},
+
+    // ═══ BIBLIOTHÈQUE ═══
+    {id:49,name:"Architectury API",categories:["bibliotheque"],description:"API multi-loader qui permet aux mods d'être compatibles Forge et Fabric.",fullDescription:"Architectury API est une bibliothèque essentielle qui permet aux mods d'être compatibles simultanément avec Forge, Fabric, NeoForge et Quilt.",image:"architectury.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:1.4,sizePerVersion:{"1.21":1.5,"1.20.4":1.4,"1.20.1":1.4,"1.19.2":1.3,"1.18.2":1.2,"1.16.5":1.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/architectury-api"},
+    {id:82,name:"Balm",categories:["bibliotheque"],description:"Bibliothèque de compatibilité pour les mods de BlayTheNinth (Waystones, etc.).",fullDescription:"Balm est une bibliothèque de compatibilité utilisée par les mods de BlayTheNinth comme Waystones.",image:"balm.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.0,sizePerVersion:{"1.21":1.1,"1.20.4":1.0,"1.20.1":1.0,"1.19.2":0.9,"1.18.2":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/balm"},
+    {id:51,name:"Citadel",categories:["bibliotheque"],description:"Bibliothèque avancée pour l'IA, les rendus 3D et les particules des mods de créatures.",fullDescription:"Citadel est une bibliothèque puissante fournissant des systèmes avancés d'IA, de rendus 3D et de particules pour les mods de créatures comme Alex's Mobs et Alex's Caves.",image:"citadel.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:1.9,sizePerVersion:{"1.20.1":1.9,"1.19.2":1.8,"1.18.2":1.7,"1.16.5":1.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/citadel"},
+    {id:57,name:"Cristel Lib",categories:["bibliotheque"],description:"Bibliothèque utilisée par certains mods de biomes et de structures.",fullDescription:"Cristel Lib fournit des outils communs pour les mods de biomes et structures, notamment Oh The Biomes You'll Go.",image:"cristellib.png",versions:["1.21","1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.6,sizePerVersion:{"1.21":0.7,"1.20.1":0.6,"1.19.2":0.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/cristel-lib"},
+    {id:83,name:"Curios API",categories:["bibliotheque"],description:"Bibliothèque d'emplacements d'accessoires (colliers, anneaux, capes...).",fullDescription:"Curios API ajoute un système d'emplacements d'accessoires (colliers, anneaux, capes, etc.) utilisé par de nombreux mods comme Botania, Apotheosis et Ars Nouveau.",image:"curios.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:1.5,sizePerVersion:{"1.20.1":1.5,"1.19.2":1.4,"1.18.2":1.3,"1.16.5":1.2},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/curios"},
+    {id:52,name:"Cyclops Core",categories:["bibliotheque"],description:"Bibliothèque commune pour tous les mods de kroeser.",fullDescription:"Cyclops Core est la bibliothèque partagée par tous les mods du développeur kroeser, incluant EvilCraft, Integrated Dynamics et bien d'autres.",image:"cyclopscore.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5","1.12.2"],loaders:["Forge","NeoForge"],sizeMo:2.6,sizePerVersion:{"1.20.1":2.6,"1.19.2":2.4,"1.18.2":2.2,"1.16.5":2.0,"1.12.2":1.7},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/cyclops-core"},
+    {id:58,name:"Fabric API",categories:["bibliotheque"],description:"L'API essentielle pour tous les mods Fabric — quasi-obligatoire.",fullDescription:"Fabric API est la bibliothèque de base indispensable à quasiment tous les mods développés pour Fabric.",image:"fabric-api.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Fabric","Quilt"],sizeMo:2.1,sizePerVersion:{"1.21":2.4,"1.20.4":2.2,"1.20.1":2.1,"1.19.2":1.9,"1.18.2":1.7,"1.16.5":1.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/fabric-api"},
+    {id:84,name:"Flywheel",categories:["bibliotheque"],description:"Bibliothèque de rendu optimisé requise par Create pour les animations complexes.",fullDescription:"Flywheel est une bibliothèque de rendu ultra-optimisé utilisée par Create pour gérer efficacement les milliers d'entités mécaniques animées sans impacter les performances.",image:"flywheel.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:1.3,sizePerVersion:{"1.20.1":1.3,"1.19.2":1.2,"1.18.2":1.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/flywheel"},
+    {id:50,name:"GeckoLib",categories:["bibliotheque"],description:"Bibliothèque d'animations puissante pour créer des mobs et blocs animés complexes.",fullDescription:"GeckoLib est une bibliothèque d'animations puissante utilisée par de nombreux mods de créatures comme Ars Nouveau, Naturalist et Xenoclus pour créer des animations 3D complexes.",image:"geckolib.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge","Quilt"],sizeMo:2.8,sizePerVersion:{"1.21":3.1,"1.20.4":2.9,"1.20.1":2.8,"1.19.2":2.6,"1.18.2":2.4,"1.16.5":2.1},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/geckolib"},
+    {id:59,name:"GlitchCore",categories:["bibliotheque"],description:"Bibliothèque partagée par tous les mods de Glitchfiend (BOP, TAN...).",fullDescription:"GlitchCore est la bibliothèque commune développée par Glitchfiend, requise par leurs mods populaires comme Biomes O' Plenty et Tough As Nails.",image:"glitchcore.png",versions:["1.21","1.20.4","1.20.1"],loaders:["Forge","NeoForge"],sizeMo:0.9,sizePerVersion:{"1.21":1.0,"1.20.4":0.9,"1.20.1":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/glitchcore"},
+    {id:60,name:"Let's Do API",categories:["bibliotheque"],description:"API commune pour la série de mods « Let's Do ».",fullDescription:"Let's Do API est la bibliothèque de base pour tous les mods de la série Let's Do, incluant Vinery, Bakery, Meadow et Farm & Charm.",image:"letsdo-api.png",versions:["1.20.1","1.19.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.8,sizePerVersion:{"1.20.1":0.8,"1.19.2":0.7},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/do-api"},
+    {id:54,name:"LibraryFerret",categories:["bibliotheque"],description:"Bibliothèque légère fournissant des utilitaires communs à plusieurs mods.",fullDescription:"LibraryFerret est une petite bibliothèque utilitaire fournissant des fonctions communes à plusieurs mods indépendants.",image:"libraryferret.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","NeoForge"],sizeMo:0.4,sizePerVersion:{"1.20.1":0.4,"1.19.2":0.4,"1.18.2":0.3},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/library-ferret-forge"},
+    {id:85,name:"Moonlight Lib",categories:["bibliotheque"],description:"Bibliothèque utilisée par les mods de MehVahdJukaar (Supplementaries, etc.).",fullDescription:"Moonlight Lib est la bibliothèque partagée par les mods du développeur MehVahdJukaar, notamment Supplementaries, Amendments et Every Compat.",image:"moonlight.png",versions:["1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric"],sizeMo:1.7,sizePerVersion:{"1.20.1":1.7,"1.19.2":1.5,"1.18.2":1.4},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/moonlight-lib"},
+    {id:53,name:"Patchouli",categories:["bibliotheque"],description:"Bibliothèque de création de guides et livres in-game utilisée par de nombreux mods.",fullDescription:"Patchouli permet aux modders de créer facilement des livres-guides interactifs dans le jeu, utilisée par Botania, Blood Magic, Ars Nouveau et bien d'autres.",image:"patchouli.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric"],sizeMo:1.2,sizePerVersion:{"1.20.1":1.2,"1.19.2":1.1,"1.18.2":1.0,"1.16.5":0.9},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/patchouli"},
+    {id:81,name:"Placebo",categories:["bibliotheque"],description:"Bibliothèque essentielle développée par Shadows_of_Fire, requise par Apotheosis.",fullDescription:"Placebo est une bibliothèque de base utilisée par plusieurs mods de Shadows_of_Fire, notamment Apotheosis et FastLeafDecay.",image:"placebo.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge"],sizeMo:0.9,sizePerVersion:{"1.20.1":0.9,"1.19.2":0.8,"1.18.2":0.7,"1.16.5":0.6},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/placebo"},
+    {id:55,name:"PuzzlesLib",categories:["bibliotheque"],description:"Bibliothèque commune pour les mods de Fuzs.",fullDescription:"Puzzles Lib est une bibliothèque essentielle développée par Fuzs, requise par de nombreux mods QoL populaires.",image:"puzzleslib.png",versions:["1.21","1.20.4","1.20.1","1.19.2","1.18.2"],loaders:["Forge","Fabric","NeoForge"],sizeMo:1.7,sizePerVersion:{"1.21":1.9,"1.20.4":1.8,"1.20.1":1.7,"1.19.2":1.6,"1.18.2":1.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/puzzles-lib"},
+    {id:56,name:"Sophisticated Core",categories:["bibliotheque"],description:"Bibliothèque de base pour les mods Sophisticated.",fullDescription:"Sophisticated Core est la bibliothèque partagée par tous les mods Sophisticated (Backpacks, Storage).",image:"sophisticated-core.png",versions:["1.21","1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","NeoForge"],sizeMo:2.3,sizePerVersion:{"1.21":2.5,"1.20.1":2.3,"1.19.2":2.1,"1.18.2":2.0,"1.16.5":1.8},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/sophisticated-core"},
+    {id:80,name:"YUNG's API",categories:["bibliotheque"],description:"API commune requise par tous les mods de structures de YUNG.",fullDescription:"YUNG's API est la bibliothèque commune à tous les mods de structures développés par YUNGNICKYOUNG (Better Dungeons, Better Strongholds, Better Mineshafts, etc.).",image:"yungs-api.png",versions:["1.20.1","1.19.2","1.18.2","1.16.5"],loaders:["Forge","Fabric","NeoForge"],sizeMo:0.7,sizePerVersion:{"1.20.1":0.7,"1.19.2":0.6,"1.18.2":0.6,"1.16.5":0.5},dependencies:[],curseforgeUrl:"https://www.curseforge.com/minecraft/mc-mods/yungs-api"}
 ];
 
 function versionToNum(v){const p=v.split('.').map(Number);return (p[0]||0)*10000+(p[1]||0)*100+(p[2]||0)}
@@ -682,12 +781,22 @@ async function fbGetUser(pseudo){
     }catch(e){console.error('fbGetUser:',e);return null}
 }
 
+async function fbGetAllPseudos(){
+    const {collection,getDocs}=window.firebaseFn;
+    try{
+        const snap=await getDocs(collection(window.firebaseDb,'pseudos'));
+        const result=[];
+        snap.forEach(doc=>result.push(doc.data()));
+        return result;
+    }catch(e){console.error('fbGetAllPseudos:',e);return[]}
+}
+
 async function fbSaveCurrentUserData(){
     if(!currentUser||!currentUser.uid)return;
     const {doc,updateDoc}=window.firebaseFn;
     try{
         await updateDoc(doc(window.firebaseDb,'users',currentUser.uid),{
-            favorites,collections,notifications
+            favorites,collections,notifications,friends,pendingFriends,avatar:currentUser.avatar||null
         });
     }catch(e){console.error('Erreur sauvegarde:',e)}
 }
@@ -695,6 +804,7 @@ async function fbSaveCurrentUserData(){
 function saveFavorites(){fbSaveCurrentUserData()}
 function saveCollections(){fbSaveCurrentUserData()}
 function saveNotifications(){fbSaveCurrentUserData()}
+function saveFriends(){fbSaveCurrentUserData()}
 
 let currentUser=null;
 let selectedCategories=new Set();
@@ -711,10 +821,15 @@ let strictSearchModName=null;
 let favorites=[];
 let collections=[];
 let notifications=[];
+let friends=[]; // [{pseudo,uid,avatar,since}]
+let pendingFriends=[]; // [{pseudo,uid,avatar,direction:'sent'|'received',since}]
 let realtimeUnsubscribe=null;
 let selectedPickerColId=null;
+let selectedFriendPseudo=null;
+let currentSuggestions=[];
+let pendingAvatar=null;
 
-const modsGrid=document.getElementById('modsGrid');const searchInput=document.getElementById('searchInput');const searchClearBtn=document.getElementById('searchClearBtn');const searchSuggestions=document.getElementById('searchSuggestions');const versionFilter=document.getElementById('versionFilter');const categoriesGrid=document.getElementById('categoriesGrid');const resultsCount=document.getElementById('resultsCount');const modalOverlay=document.getElementById('modalOverlay');const themeToggle=document.getElementById('themeToggle');const header=document.getElementById('header');const backToTop=document.getElementById('backToTop');const catalogSection=document.getElementById('catalogSection');const filtersPanel=document.getElementById('filtersPanel');const sortSelect=document.getElementById('sortSelect');const pagination=document.getElementById('pagination');const heroParticles=document.getElementById('heroParticles');const mobileMenuBtn=document.getElementById('mobileMenuBtn');const mobileMenu=document.getElementById('mobileMenu');const userBadge=document.getElementById('userBadge');const userAvatar=document.getElementById('userAvatar');const userPseudoEl=document.getElementById('userPseudo');const userDropdown=document.getElementById('userDropdown');const favoritesPanel=document.getElementById('favoritesPanel');const collectionsPanel=document.getElementById('collectionsPanel');const bellBtn=document.getElementById('bellBtn');const bellBadge=document.getElementById('bellBadge');const bellDropdown=document.getElementById('bellDropdown');const bellList=document.getElementById('bellList');
+const modsGrid=document.getElementById('modsGrid');const searchInput=document.getElementById('searchInput');const searchClearBtn=document.getElementById('searchClearBtn');const searchSuggestions=document.getElementById('searchSuggestions');const versionFilter=document.getElementById('versionFilter');const categoriesGrid=document.getElementById('categoriesGrid');const resultsCount=document.getElementById('resultsCount');const modalOverlay=document.getElementById('modalOverlay');const themeToggle=document.getElementById('themeToggle');const header=document.getElementById('header');const backToTop=document.getElementById('backToTop');const catalogSection=document.getElementById('catalogSection');const filtersPanel=document.getElementById('filtersPanel');const sortSelect=document.getElementById('sortSelect');const pagination=document.getElementById('pagination');const heroParticles=document.getElementById('heroParticles');const mobileMenuBtn=document.getElementById('mobileMenuBtn');const mobileMenu=document.getElementById('mobileMenu');const userBadge=document.getElementById('userBadge');const userAvatar=document.getElementById('userAvatar');const userPseudoEl=document.getElementById('userPseudo');const userDropdown=document.getElementById('userDropdown');const favoritesPanel=document.getElementById('favoritesPanel');const collectionsPanel=document.getElementById('collectionsPanel');const friendsPanel=document.getElementById('friendsPanel');const bellBtn=document.getElementById('bellBtn');const bellBadge=document.getElementById('bellBadge');const bellDropdown=document.getElementById('bellDropdown');const bellList=document.getElementById('bellList');const suggestionsGrid=document.getElementById('suggestionsGrid');const refreshSuggestionsBtn=document.getElementById('refreshSuggestionsBtn');
 
 const STAR_OUTLINE='<svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>';
 
@@ -736,21 +851,9 @@ function highlightMatch(text, query){
     for(let i = 0; i < text.length; i++){
         const c = text[i].toLowerCase();
         const decomposed = c.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-        if(isApostrophe(c)){
-            mapping.push(-1);
-        } else if(/[a-z0-9]/i.test(decomposed) && decomposed.length === 1){
-            mapping.push(normText.length);
-            normText += decomposed.toLowerCase();
-            lastWasSpace = false;
-        } else {
-            if(!lastWasSpace && normText.length > 0){
-                mapping.push(normText.length);
-                normText += ' ';
-                lastWasSpace = true;
-            } else {
-                mapping.push(-1);
-            }
-        }
+        if(isApostrophe(c)){mapping.push(-1)}
+        else if(/[a-z0-9]/i.test(decomposed) && decomposed.length === 1){mapping.push(normText.length);normText += decomposed.toLowerCase();lastWasSpace = false}
+        else{if(!lastWasSpace && normText.length > 0){mapping.push(normText.length);normText += ' ';lastWasSpace = true}else{mapping.push(-1)}}
     }
     normText = normText.trim();
     const matchStart = normText.indexOf(normQuery);
@@ -766,18 +869,14 @@ function highlightMatch(text, query){
     }
     if(origStart === -1) return escapeHtml(text);
     const queryHasApostrophe = /['']/.test(query);
-    if(queryHasApostrophe && origEnd < text.length && isApostrophe(text[origEnd])){
-        origEnd++;
-    }
+    if(queryHasApostrophe && origEnd < text.length && isApostrophe(text[origEnd])){origEnd++}
     let result = escapeHtml(text.substring(0, origStart));
     let segStart = origStart;
     for(let k = origStart; k < origEnd; k++){
         if(isApostrophe(text[k])){
             let shouldHighlight = false;
             if(queryHasApostrophe){shouldHighlight = true}
-            else if(k + 1 < mapping.length && mapping[k+1] !== -1 && mapping[k+1] >= matchStart && mapping[k+1] < matchEnd){
-                shouldHighlight = true;
-            }
+            else if(k + 1 < mapping.length && mapping[k+1] !== -1 && mapping[k+1] >= matchStart && mapping[k+1] < matchEnd){shouldHighlight = true}
             if(!shouldHighlight){
                 if(k > segStart){result += '<mark>' + escapeHtml(text.substring(segStart, k)) + '</mark>'}
                 result += escapeHtml(text[k]);
@@ -821,8 +920,11 @@ function switchTab(tab){
     favoritesPanel.style.display=tab==='favorites'?'':'none';
     collectionsPanel.style.display=tab==='collections'?'':'none';
     collectionsPanel.classList.toggle('active',tab==='collections');
+    friendsPanel.style.display=tab==='friends'?'':'none';
+    friendsPanel.classList.toggle('active',tab==='friends');
     if(tab==='favorites')renderFavorites();
     if(tab==='collections')renderCollections();
+    if(tab==='friends')renderFriends();
 }
 document.getElementById('tabBar').addEventListener('click',e=>{const b=e.target.closest('.tab-btn');if(b)switchTab(b.dataset.tab)});
 
@@ -893,6 +995,7 @@ function renderFavorites(){
     favoritesPanel.innerHTML=`<div class="mods-grid ${currentView==='list'?'list-view':''}">${mods.map((m,i)=>modCardHTML(m,i)).join('')}</div>`;
 }
 
+// ═══ COLLECTIONS ═══
 function createCollection(){
     if(!requireAuth('créer une collection'))return;
     const col={id:Date.now(),name:'Nouvelle collection',modIds:[],owner:currentUser.pseudo,imported:false,sharedFrom:null};
@@ -931,8 +1034,8 @@ function searchDependencyFromCollection(depName){
 
 function renderCollections(){
     if(!currentUser){collectionsPanel.innerHTML=`<div class="login-required"><div class="login-required-icon">🔐</div><h3>Connectez-vous pour vos collections</h3><p>Créez un compte gratuit pour créer et partager vos collections.</p><div class="login-required-btns"><button class="btn-primary" onclick="openAuthModal('login')">Se connecter</button><button class="btn-secondary" onclick="openAuthModal('register')">Créer un compte</button></div></div>`;return}
-    let html=`<div class="collections-header-actions"><button class="btn-create-collection" onclick="createCollection()">➕ Créer une collection</button><button class="btn-import-collection" onclick="openImportCollectionPrompt()">📥 Importer une collection</button></div>`;
-    if(collections.length===0){html+=`<div class="no-results"><div class="no-results-icon">📁</div><h3>Aucune collection</h3><p>Créez une collection ou importez-en une.</p></div>`;collectionsPanel.innerHTML=html;return}
+    let html=`<div class="collections-header-actions"><button class="btn-create-collection" onclick="createCollection()">➕ Créer une collection</button><button class="btn-import-collection" onclick="openImportCollectionPrompt()">📥 Importer d'un ami</button></div>`;
+    if(collections.length===0){html+=`<div class="no-results"><div class="no-results-icon">📁</div><h3>Aucune collection</h3><p>Créez une collection ou importez-en une d'un ami.</p></div>`;collectionsPanel.innerHTML=html;return}
     html+=collections.map(col=>{
         const mods=col.modIds.map(id=>MODS_DATABASE.find(m=>m.id===id)).filter(Boolean);
         const analysis=analyzeCollection(col);
@@ -942,469 +1045,4 @@ function renderCollections(){
         let alertHtml='';
         if(mods.length>=2&&!analysis.hasCommonVersion){const incompatMods=mods.filter(m=>analysis.incompatibleModIds.includes(m.id));alertHtml+=`<div class="collection-alert error"><div class="collection-alert-title">⚠️ Erreur : versions incompatibles</div><div>Les mods surlignés ne sont pas disponibles pour la version <strong>${analysis.bestVersion}</strong>.</div><ul class="collection-alert-list">${incompatMods.map(m=>`<li><strong>${escapeHtml(m.name)}</strong> — versions : ${m.versions.join(', ')}</li>`).join('')}</ul></div>`}
         if(analysis.missingDeps.length>0){alertHtml+=`<div class="collection-alert warning"><div class="collection-alert-title">📚 Dépendances requises manquantes</div><ul class="collection-alert-list">${analysis.missingDeps.map(dep=>{const inCatalog=findModByName(dep);return`<li>${inCatalog?`<span class="dep-link" onclick="searchDependencyFromCollection('${escapeHtml(dep).replace(/'/g,"\\'")}')">${escapeHtml(dep)}</span>`:`<strong>${escapeHtml(dep)}</strong>`}${!inCatalog?' (non présent dans le catalogue)':''}</li>`}).join('')}</ul></div>`}
-        let actionsHtml=isImported?`<button class="collection-action-btn delete-btn" onclick="deleteCollection(${col.id})" title="Retirer">🗑️</button>`:`<button class="collection-action-btn" onclick="shareCollection(${col.id})" title="Partager">📤</button><button class="collection-action-btn delete-btn" onclick="deleteCollection(${col.id})" title="Supprimer">🗑️</button>`;
-        return`<div class="collection-card ${isImported?'shared':''}"><div class="collection-header"><div class="collection-name-wrapper"><input class="collection-name-input" value="${escapeHtml(col.name)}" onchange="renameCollection(${col.id},this.value)" spellcheck="false" ${isImported?'disabled':''}>${isImported?`<span class="shared-badge">📥 Reçue de ${escapeHtml(col.sharedFrom||'?')}</span>`:''}</div><div class="collection-actions">${actionsHtml}</div></div>${summaryHtml}${alertHtml}${mods.length===0?'<div class="empty-collection">Aucun mod dans cette collection.</div>':''}<div class="mods-grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">${mods.map((m,i)=>modCardHTML(m,i,true,col.id,analysis.incompatibleModIds.includes(m.id),isImported)).join('')}</div></div>`;
-    }).join('');
-    collectionsPanel.innerHTML=html;
-}
-
-function updateTabCounts(){document.getElementById('favCount').textContent=favorites.length;document.getElementById('colCount').textContent=collections.length}
-
-function computeSuggestions(query){
-    const q=normalizeStr(query);
-    if(!q)return[];
-    const starts=[],contains=[];
-    MODS_DATABASE.forEach(m=>{const n=normalizeStr(m.name);if(n.startsWith(q))starts.push(m);else if(n.includes(q))contains.push(m)});
-    return[...starts,...contains].slice(0,MAX_SUGGESTIONS);
-}
-
-function renderSuggestions(query){
-    suggestionsList=computeSuggestions(query);
-    highlightedSuggestionIndex=-1;
-    if(!query.trim()){searchSuggestions.classList.remove('visible');return}
-    if(suggestionsList.length===0){searchSuggestions.innerHTML=`<div class="suggestion-empty">Aucun mod ne correspond à <strong>« ${escapeHtml(query)} »</strong></div>`;searchSuggestions.classList.add('visible');return}
-    searchSuggestions.innerHTML=`<div class="suggestion-header">${suggestionsList.length} résultat${suggestionsList.length>1?'s':''} trouvé${suggestionsList.length>1?'s':''}</div>${suggestionsList.map((m,i)=>`<div class="suggestion-item" data-index="${i}" onclick="selectSuggestion(${m.id})"><img class="suggestion-img" src="${getModImageUrl(m)}" alt="" onerror="this.onerror=null;this.src='${getImageFallback()}'"><div class="suggestion-content"><div class="suggestion-name">${highlightMatch(m.name,query)}</div><div class="suggestion-cats">${m.categories.slice(0,3).map(c=>`<span class="suggestion-cat ${c}">${getCategoryLabel(c)}</span>`).join('')}</div></div><span class="suggestion-arrow">→</span></div>`).join('')}`;
-    searchSuggestions.classList.add('visible');
-}
-
-function selectSuggestion(modId){
-    const mod=MODS_DATABASE.find(m=>m.id===modId);if(!mod)return;
-    searchInput.value=mod.name;searchQuery=mod.name;strictSearchModName=mod.name;
-    searchClearBtn.classList.add('visible');searchSuggestions.classList.remove('visible');
-    currentPage=1;renderMods();
-    setTimeout(()=>{filtersPanel.scrollIntoView({behavior:'smooth',block:'start'})},100);
-}
-
-function updateSuggestionHighlight(){const items=searchSuggestions.querySelectorAll('.suggestion-item');items.forEach((el,i)=>{el.classList.toggle('highlighted',i===highlightedSuggestionIndex)});if(highlightedSuggestionIndex>=0&&items[highlightedSuggestionIndex]){items[highlightedSuggestionIndex].scrollIntoView({block:'nearest'})}}
-
-function searchDependency(depName){
-    closeModal();
-    const found=findModByName(depName);
-    if(found){strictSearchModName=found.name;searchInput.value=found.name;searchQuery=found.name}
-    else{strictSearchModName=null;searchInput.value=depName;searchQuery=depName}
-    searchClearBtn.classList.add('visible');searchSuggestions.classList.remove('visible');
-    selectedCategories.clear();currentVersion='all';versionFilter.value='all';
-    switchTab('browse');currentPage=1;renderCategories();renderMods();
-    setTimeout(()=>{filtersPanel.scrollIntoView({behavior:'smooth',block:'start'})},100);
-}
-
-function openModal(modId){
-    currentModalModId=modId;
-    const mod=MODS_DATABASE.find(m=>m.id===modId);if(!mod)return;
-    const img=document.getElementById('modalImage');img.src=getModImageUrl(mod);img.alt=mod.name;img.onerror=function(){this.onerror=null;this.src=getImageFallback()};
-    document.getElementById('modalTitle').textContent=mod.name;
-    document.getElementById('modalCategories').innerHTML=mod.categories.map(c=>`<span class="mod-badge ${c}">${getCategoryLabel(c)}</span>`).join('');
-    document.getElementById('modalDescription').textContent=mod.fullDescription;
-    const initialVersion=mod.versions[0];
-    document.getElementById('modalSize').textContent=formatSize(getSizeForVersion(mod,initialVersion));
-    document.getElementById('modalDownload').href=mod.curseforgeUrl;
-    document.getElementById('modalLoaders').innerHTML=mod.loaders.map(l=>`<span class="loader-tag ${l.toLowerCase().replace(/\s+/g,'')}">${l}</span>`).join('');
-    const depsEl=document.getElementById('modalDeps');
-    if(!mod.dependencies||mod.dependencies.length===0){depsEl.innerHTML='<span class="dep-none">Aucune dépendance requise ✓</span>'}
-    else{depsEl.innerHTML=mod.dependencies.map(dep=>{const safeName=dep.replace(/'/g,"\\'").replace(/"/g,'&quot;');return`<button class="dep-chip" onclick="searchDependency('${safeName}')" title="Rechercher ${dep}">${dep}</button>`}).join('')}
-    const btn=document.getElementById('versionDropdownBtn');const list=document.getElementById('versionDropdownList');
-    document.getElementById('versionDropdownLabel').textContent=initialVersion+' (dernière)';
-    btn.classList.remove('open');list.classList.remove('open');
-    list.innerHTML=mod.versions.map((v,i)=>{const size=getSizeForVersion(mod,v);return`<div class="version-item ${i===0?'current':''}" onclick="selectVersion(this,'${v}',${i===0},${modId})"><span>${v}${i===0?' <span class="ver-latest">Dernière</span>':''}</span><span class="ver-size">${formatSize(size)}</span></div>`}).join('');
-    refreshPlaylistChips(modId);
-    modalOverlay.classList.add('active');document.body.style.overflow='hidden';
-}
-
-function refreshPlaylistChips(modId){
-    const container=document.getElementById('playlistChips');
-    if(!currentUser){container.innerHTML=`<div style="font-size:13px;color:var(--text-muted);font-style:italic">🔐 Connectez-vous pour ajouter à une collection</div>`;return}
-    const editableCols=collections.filter(c=>!c.imported);
-    let html=editableCols.map(col=>{const inCol=col.modIds.includes(modId);return`<button class="playlist-chip ${inCol?'in-playlist':''}" onclick="toggleModInCollection(${col.id},${modId})"><span class="plus">+</span><span class="check">✓</span>${escapeHtml(col.name)}</button>`}).join('');
-    html+=`<button class="btn-new-playlist" onclick="createCollection();refreshPlaylistChips(${modId});updateTabCounts()">+ Nouvelle</button>`;
-    container.innerHTML=html;
-}
-
-function toggleVersionDropdown(){const btn=document.getElementById('versionDropdownBtn');const list=document.getElementById('versionDropdownList');btn.classList.toggle('open');list.classList.toggle('open')}
-function selectVersion(el,ver,isLatest,modId){document.getElementById('versionDropdownLabel').textContent=ver+(isLatest?' (dernière)':'');document.querySelectorAll('.version-item').forEach(v=>v.classList.remove('current'));el.classList.add('current');document.getElementById('versionDropdownBtn').classList.remove('open');document.getElementById('versionDropdownList').classList.remove('open');const mod=MODS_DATABASE.find(m=>m.id===modId);if(mod){const sizeEl=document.getElementById('modalSize');sizeEl.textContent=formatSize(getSizeForVersion(mod,ver));sizeEl.classList.remove('updating');void sizeEl.offsetWidth;sizeEl.classList.add('updating');setTimeout(()=>sizeEl.classList.remove('updating'),500)}}
-
-function closeModal(){modalOverlay.classList.remove('active');document.body.style.overflow='';currentModalModId=null}
-document.getElementById('modalClose').addEventListener('click',closeModal);
-modalOverlay.addEventListener('click',e=>{if(e.target===modalOverlay)closeModal()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeMobileMenu();searchSuggestions.classList.remove('visible');closePromptModal();closeUserDropdown();closeBellDropdown()}});
-
-searchInput.addEventListener('input',e=>{searchQuery=e.target.value;strictSearchModName=null;currentPage=1;searchClearBtn.classList.toggle('visible',searchQuery.length>0);renderSuggestions(searchQuery);renderMods()});
-searchInput.addEventListener('focus',()=>{if(searchQuery.length>0&&!strictSearchModName)renderSuggestions(searchQuery)});
-searchInput.addEventListener('keydown',(e)=>{const isVisible=searchSuggestions.classList.contains('visible');if(!isVisible||suggestionsList.length===0)return;if(e.key==='ArrowDown'){e.preventDefault();highlightedSuggestionIndex=Math.min(highlightedSuggestionIndex+1,suggestionsList.length-1);updateSuggestionHighlight()}else if(e.key==='ArrowUp'){e.preventDefault();highlightedSuggestionIndex=Math.max(highlightedSuggestionIndex-1,-1);updateSuggestionHighlight()}else if(e.key==='Enter'&&highlightedSuggestionIndex>=0){e.preventDefault();selectSuggestion(suggestionsList[highlightedSuggestionIndex].id)}else if(e.key==='Escape'){searchSuggestions.classList.remove('visible')}});
-document.addEventListener('click',(e)=>{if(!searchInput.contains(e.target)&&!searchSuggestions.contains(e.target))searchSuggestions.classList.remove('visible')});
-searchClearBtn.addEventListener('click',()=>{searchInput.value='';searchQuery='';strictSearchModName=null;currentPage=1;searchClearBtn.classList.remove('visible');searchSuggestions.classList.remove('visible');searchInput.focus();renderMods()});
-versionFilter.addEventListener('change',e=>{currentVersion=e.target.value;currentPage=1;renderMods()});
-sortSelect.addEventListener('change',e=>{currentSort=e.target.value;currentPage=1;renderMods()});
-document.querySelectorAll('.view-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.view-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');currentView=b.dataset.view;renderMods();if(currentTab==='favorites')renderFavorites()})});
-function closeMobileMenu(){mobileMenu.classList.remove('open')}
-mobileMenuBtn.addEventListener('click',e=>{e.stopPropagation();mobileMenu.classList.toggle('open')});
-document.addEventListener('click',e=>{if(!mobileMenu.contains(e.target)&&!mobileMenuBtn.contains(e.target))closeMobileMenu();if(!userBadge.contains(e.target)&&!userDropdown.contains(e.target))closeUserDropdown();if(!bellBtn.contains(e.target)&&!bellDropdown.contains(e.target))closeBellDropdown()});
-function setTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('minemods-theme',t);themeToggle.textContent=t==='dark'?'☀️':'🌙'}
-themeToggle.addEventListener('click',()=>{setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')});
-setTheme(localStorage.getItem('minemods-theme')||'dark');
-function showHome(){window.scrollTo({top:0,behavior:'smooth'})}
-function showCatalog(){setTimeout(()=>{catalogSection.scrollIntoView({behavior:'smooth'})},100)}
-let ticking=false;
-window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{const sy=window.scrollY;header.classList.toggle('scrolled',sy>50);backToTop.classList.toggle('visible',sy>500);document.querySelectorAll('.fade-in-section').forEach(s=>{if(s.getBoundingClientRect().top<window.innerHeight*.85)s.classList.add('visible')});ticking=false});ticking=true}});
-backToTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
-function animateCounter(el,target,d=2000){const st=performance.now();function u(t){const p=Math.min((t-st)/d,1);el.textContent=Math.floor((1-Math.pow(1-p,3))*target);if(p<1)requestAnimationFrame(u)}requestAnimationFrame(u)}
-
-let toastTimer=null;
-function showToast(type,msg){const t=document.getElementById('toast');t.className='toast '+type;t.textContent=msg;requestAnimationFrame(()=>t.classList.add('visible'));clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('visible'),4000)}
-
-const promptOverlay=document.getElementById('promptOverlay');
-function openPromptModal(config){document.getElementById('promptTitle').textContent=config.title;document.getElementById('promptHint').innerHTML=config.hint||'';document.getElementById('promptExtraContent').innerHTML=config.extraContent||'';document.getElementById('promptError').classList.remove('visible');document.getElementById('promptInputsContainer').innerHTML=config.inputsHtml||'';document.getElementById('promptActions').innerHTML=config.actionsHtml||'';promptOverlay.classList.add('active');document.body.style.overflow='hidden';if(config.onOpen)setTimeout(config.onOpen,100)}
-function closePromptModal(){promptOverlay.classList.remove('active');document.body.style.overflow=''}
-promptOverlay.addEventListener('click',e=>{if(e.target===promptOverlay)closePromptModal()});
-function showPromptError(msg){const el=document.getElementById('promptError');el.textContent=msg;el.classList.add('visible')}
-
-function openAuthModal(mode){
-    closeUserDropdown();
-    const isRegister=mode==='register';
-    openPromptModal({
-        title:isRegister?'📝 Créer un compte':'🔐 Se connecter',
-        hint:isRegister?'Créez un compte pour sauvegarder vos favoris et partager vos collections avec vos amis, même depuis un autre appareil.':'Connectez-vous pour retrouver vos favoris et collections.',
-        extraContent:`<div class="form-info-banner">☁️ <strong>Powered by Firebase :</strong> vos données sont synchronisées en ligne et accessibles depuis n'importe quel appareil.</div>`,
-        inputsHtml:`<input type="text" class="prompt-input" id="authPseudo" placeholder="Pseudo (2-20 caractères)" autocomplete="off"><input type="password" class="prompt-input" id="authPassword" placeholder="Mot de passe (min. 6 caractères)" autocomplete="${isRegister?'new-password':'current-password'}">${isRegister?'<input type="password" class="prompt-input" id="authPasswordConfirm" placeholder="Confirmez le mot de passe" autocomplete="new-password">':''}`,
-        actionsHtml:`<button class="btn-secondary" onclick="openAuthModal('${isRegister?'login':'register'}')">${isRegister?'← Se connecter':'Créer un compte →'}</button><button class="btn-primary" id="authSubmitBtn" onclick="submitAuth('${mode}')">${isRegister?'S\'inscrire':'Se connecter'}</button>`,
-        onOpen:()=>{const el=document.getElementById('authPseudo');if(el)el.focus()}
-    });
-    setTimeout(()=>{['authPseudo','authPassword','authPasswordConfirm'].forEach(id=>{const el=document.getElementById(id);if(el){el.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();submitAuth(mode)}})}})},150);
-}
-
-async function submitAuth(mode){
-    const pseudo=document.getElementById('authPseudo').value.trim();
-    const pwd=document.getElementById('authPassword').value;
-    if(!pseudo){showPromptError('Le pseudo est requis');return}
-    if(pseudo.length<2||pseudo.length>20){showPromptError('Le pseudo doit contenir entre 2 et 20 caractères');return}
-    if(!/^[a-zA-Z0-9_\-]+$/.test(pseudo)){showPromptError('Le pseudo ne peut contenir que des lettres, chiffres, _ et -');return}
-    if(!pwd||pwd.length<6){showPromptError('Le mot de passe doit contenir au moins 6 caractères');return}
-
-    const email=pseudo.toLowerCase()+'@minemods.local';
-    const {createUserWithEmailAndPassword,signInWithEmailAndPassword,doc,setDoc,getDoc}=window.firebaseFn;
-    const btn=document.getElementById('authSubmitBtn');
-    if(btn){btn.disabled=true;btn.textContent='Chargement...'}
-
-    try{
-        if(mode==='register'){
-            const pwdConfirm=document.getElementById('authPasswordConfirm').value;
-            if(pwd!==pwdConfirm){showPromptError('Les mots de passe ne correspondent pas');if(btn){btn.disabled=false;btn.textContent='S\'inscrire'}return}
-            const existing=await getDoc(doc(window.firebaseDb,'pseudos',pseudo.toLowerCase()));
-            if(existing.exists()){showPromptError('Ce pseudo est déjà utilisé');if(btn){btn.disabled=false;btn.textContent='S\'inscrire'}return}
-            const cred=await createUserWithEmailAndPassword(window.firebaseAuth,email,pwd);
-            const uid=cred.user.uid;
-            await setDoc(doc(window.firebaseDb,'users',uid),{pseudo,favorites:[],collections:[],notifications:[]});
-            await setDoc(doc(window.firebaseDb,'pseudos',pseudo.toLowerCase()),{uid,pseudo});
-            currentUser={uid,pseudo};
-            localStorage.setItem(LS_CURRENT_USER,pseudo);
-            favorites=[];collections=[];notifications=[];
-            showToast('info',`🎉 Bienvenue ${pseudo} !`);
-        } else {
-            const cred=await signInWithEmailAndPassword(window.firebaseAuth,email,pwd);
-            const uid=cred.user.uid;
-            const userDoc=await getDoc(doc(window.firebaseDb,'users',uid));
-            if(!userDoc.exists()){showPromptError('Compte introuvable');if(btn){btn.disabled=false;btn.textContent='Se connecter'}return}
-            const data=userDoc.data();
-            currentUser={uid,pseudo:data.pseudo};
-            localStorage.setItem(LS_CURRENT_USER,data.pseudo);
-            favorites=data.favorites||[];collections=data.collections||[];notifications=data.notifications||[];
-            showToast('info',`👋 Rebonjour ${data.pseudo} !`);
-        }
-        updateUserBadge();updateTabCounts();updateBellBadge();
-        if(currentTab==='favorites')renderFavorites();
-        if(currentTab==='collections')renderCollections();
-        renderMods();closePromptModal();
-        setupRealtimeSync();
-    }catch(e){
-        console.error(e);
-        let msg='Erreur inconnue';
-        if(e.code==='auth/email-already-in-use')msg='Ce pseudo est déjà utilisé';
-        else if(e.code==='auth/wrong-password'||e.code==='auth/invalid-credential')msg='Mot de passe incorrect';
-        else if(e.code==='auth/user-not-found')msg='Ce compte n\'existe pas';
-        else if(e.code==='auth/weak-password')msg='Le mot de passe est trop faible (min. 6 caractères)';
-        else if(e.code==='auth/network-request-failed')msg='Erreur réseau, vérifiez votre connexion';
-        else if(e.code==='auth/too-many-requests')msg='Trop de tentatives, réessayez plus tard';
-        else msg=e.message;
-        showPromptError(msg);
-        if(btn){btn.disabled=false;btn.textContent=mode==='register'?'S\'inscrire':'Se connecter'}
-    }
-}
-
-async function logout(){
-    if(!currentUser)return;
-    const {signOut}=window.firebaseFn;
-    try{await signOut(window.firebaseAuth)}catch(e){console.error(e)}
-    if(realtimeUnsubscribe){realtimeUnsubscribe();realtimeUnsubscribe=null}
-    currentUser=null;
-    localStorage.removeItem(LS_CURRENT_USER);
-    favorites=[];collections=[];notifications=[];
-    updateUserBadge();updateTabCounts();updateBellBadge();
-    if(currentTab==='favorites')renderFavorites();
-    if(currentTab==='collections')renderCollections();
-    renderMods();closeUserDropdown();
-    showToast('info','👋 Vous êtes déconnecté');
-}
-
-async function deleteAccount(){
-    if(!currentUser)return;
-    if(!confirm(`Supprimer le compte "${currentUser.pseudo}" ?\nToutes vos données seront perdues définitivement.`))return;
-    const {deleteDoc,doc,deleteUser}=window.firebaseFn;
-    try{
-        await deleteDoc(doc(window.firebaseDb,'users',currentUser.uid));
-        await deleteDoc(doc(window.firebaseDb,'pseudos',currentUser.pseudo.toLowerCase()));
-        await deleteUser(window.firebaseAuth.currentUser);
-        logout();
-        showToast('error','🗑️ Compte supprimé');
-    }catch(e){
-        console.error(e);
-        showToast('error','Erreur. Déconnectez-vous et reconnectez-vous puis réessayez.');
-    }
-}
-
-function toggleUserDropdown(force){if(force===false){userDropdown.classList.remove('open');return}if(!currentUser){openAuthModal('login');return}userDropdown.classList.toggle('open');if(userDropdown.classList.contains('open'))renderUserDropdown()}
-function closeUserDropdown(){userDropdown.classList.remove('open')}
-userBadge.addEventListener('click',e=>{e.stopPropagation();toggleUserDropdown()});
-function renderUserDropdown(){if(!currentUser){userDropdown.innerHTML=`<div class="user-dropdown-header">Compte</div><button class="user-dropdown-item" onclick="openAuthModal('login')">🔐 Se connecter</button><button class="user-dropdown-item" onclick="openAuthModal('register')">📝 Créer un compte</button>`;return}userDropdown.innerHTML=`<div class="user-dropdown-header">Connecté en tant que</div><div style="padding:0 14px 8px;font-size:14px;font-weight:800;color:var(--text-primary)">${escapeHtml(currentUser.pseudo)}</div><div class="user-dropdown-divider"></div><button class="user-dropdown-item" onclick="closeUserDropdown();switchTab('favorites')">⭐ Mes favoris (${favorites.length})</button><button class="user-dropdown-item" onclick="closeUserDropdown();switchTab('collections')">📁 Mes collections (${collections.length})</button><div class="user-dropdown-divider"></div><button class="user-dropdown-item" onclick="logout()">🚪 Déconnexion</button><button class="user-dropdown-item danger" onclick="deleteAccount()">🗑️ Supprimer le compte</button>`}
-function updateUserBadge(){if(currentUser){userPseudoEl.textContent=currentUser.pseudo;userAvatar.textContent=currentUser.pseudo.charAt(0).toUpperCase();userBadge.classList.add('logged-in')}else{userPseudoEl.textContent='Se connecter';userAvatar.textContent='?';userBadge.classList.remove('logged-in')}}
-
-async function createNotification(targetPseudo,notif){
-    const {doc,updateDoc,arrayUnion}=window.firebaseFn;
-    const user=await fbGetUser(targetPseudo);
-    if(!user)return false;
-    const newNotif={id:Date.now()+Math.floor(Math.random()*10000),read:false,timestamp:Date.now(),...notif};
-    try{
-        await updateDoc(doc(window.firebaseDb,'users',user.uid),{notifications:arrayUnion(newNotif)});
-        return true;
-    }catch(e){console.error(e);return false}
-}
-
-function updateBellBadge(){
-    if(!currentUser){bellBadge.classList.remove('visible');bellBtn.classList.remove('has-notif');return}
-    const unread=notifications.filter(n=>!n.read).length;
-    if(unread>0){
-        if(unread>9){bellBadge.textContent='9+';bellBadge.classList.add('wide')}
-        else{bellBadge.textContent=String(unread);bellBadge.classList.remove('wide')}
-        bellBadge.classList.add('visible');bellBtn.classList.add('has-notif');
-    } else {bellBadge.classList.remove('visible');bellBtn.classList.remove('has-notif')}
-}
-
-function toggleBellDropdown(force){if(force===false){bellDropdown.classList.remove('open');return}if(!currentUser){openAuthModal('login');return}bellDropdown.classList.toggle('open');if(bellDropdown.classList.contains('open')){renderBellList();notifications.forEach(n=>n.read=true);saveNotifications();updateBellBadge()}}
-function closeBellDropdown(){bellDropdown.classList.remove('open')}
-bellBtn.addEventListener('click',e=>{e.stopPropagation();toggleBellDropdown()});
-document.getElementById('clearAllNotifs').addEventListener('click',async ()=>{if(!confirm('Effacer toutes les notifications ?'))return;notifications=[];await fbSaveCurrentUserData();updateBellBadge();renderBellList()});
-function formatRelativeTime(ts){const diff=Date.now()-ts;const s=Math.floor(diff/1000);if(s<60)return 'à l\'instant';const m=Math.floor(s/60);if(m<60)return `il y a ${m} min`;const h=Math.floor(m/60);if(h<24)return `il y a ${h}h`;const d=Math.floor(h/24);return `il y a ${d}j`}
-
-function renderBellList(){
-    if(notifications.length===0){bellList.innerHTML=`<div class="bell-empty"><div class="bell-empty-icon">🔔</div>Aucune notification</div>`;return}
-    bellList.innerHTML=notifications.map(n=>{
-        let title='',desc='',actions='';
-        if(n.type==='share-offer'){
-            title=`📤 ${escapeHtml(n.from)} veut partager une collection`;
-            desc=`<strong>« ${escapeHtml(n.data.name)} »</strong> — ${n.data.modIds.length} mod${n.data.modIds.length>1?'s':''}`;
-            actions=`<button class="notif-btn accept" onclick="acceptShareOffer(${n.id})">✓ Accepter</button><button class="notif-btn reject" onclick="rejectShareOffer(${n.id})">✕ Refuser</button>`;
-        } else if(n.type==='import-request'){
-            title=`📥 ${escapeHtml(n.from)} demande votre collection`;
-            desc=`<strong>« ${escapeHtml(n.data.collectionName)} »</strong>`;
-            actions=`<button class="notif-btn accept" onclick="acceptImportRequest(${n.id})">✓ Autoriser</button><button class="notif-btn reject" onclick="rejectImportRequest(${n.id})">✕ Refuser</button>`;
-        } else if(n.type==='accepted'){
-            title=`✅ Demande acceptée`;
-            desc=`${escapeHtml(n.from)} a accepté votre demande pour <strong>« ${escapeHtml(n.data.collectionName)} »</strong>.`;
-            actions=`<button class="notif-btn dismiss" onclick="dismissNotif(${n.id})">Fermer</button>`;
-        } else if(n.type==='rejected'){
-            title=`❌ Demande refusée`;
-            desc=`${escapeHtml(n.from)} a refusé votre demande.`;
-            actions=`<button class="notif-btn dismiss" onclick="dismissNotif(${n.id})">Fermer</button>`;
-        }
-        return`<div class="notif-item ${!n.read?'unread':''}"><div class="notif-title">${title}</div><div class="notif-desc">${desc}</div><div class="notif-time">${formatRelativeTime(n.timestamp)}</div><div class="notif-actions">${actions}</div></div>`;
-    }).join('');
-}
-
-async function dismissNotif(notifId){notifications=notifications.filter(n=>n.id!==notifId);await fbSaveCurrentUserData();updateBellBadge();renderBellList()}
-
-async function shareCollection(colId){
-    if(!currentUser){showToast('error','Connectez-vous d\'abord');return}
-    const col=collections.find(c=>c.id===colId);if(!col)return;
-    openPromptModal({
-        title:`📤 Partager « ${col.name} »`,
-        hint:`Le destinataire recevra une <strong>notification</strong> et pourra <strong>accepter ou refuser</strong> votre partage.`,
-        extraContent:'',
-        inputsHtml:`<input type="text" class="prompt-input" id="shareRecipient" placeholder="Pseudo destinataire" autocomplete="off">`,
-        actionsHtml:`<button class="btn-secondary" onclick="closePromptModal()">Annuler</button><button class="btn-primary" onclick="doShareCollection(${colId})">Partager</button>`,
-        onOpen:()=>{const el=document.getElementById('shareRecipient');if(el)el.focus()}
-    });
-}
-
-async function doShareCollection(colId){
-    const val=document.getElementById('shareRecipient').value.trim();
-    if(!val){showPromptError('Entrez un pseudo');return}
-    if(val.toLowerCase()===currentUser.pseudo.toLowerCase()){showPromptError('Vous ne pouvez pas vous envoyer à vous-même');return}
-    const target=await fbGetUser(val);
-    if(!target){showPromptError(`⚠️ L'utilisateur "${val}" n'existe pas`);return}
-    const col=collections.find(c=>c.id===colId);
-    if(!col){showPromptError('Collection introuvable');return}
-    const ok=await createNotification(target.pseudo,{type:'share-offer',from:currentUser.pseudo,data:{name:col.name,modIds:[...col.modIds],originalId:col.id}});
-    if(ok){showToast('info',`✅ Partage envoyé à ${target.pseudo}`);closePromptModal()}
-    else{showPromptError('Erreur lors de l\'envoi')}
-}
-
-async function acceptShareOffer(notifId){
-    const notif=notifications.find(n=>n.id===notifId);if(!notif)return;
-    const newCol={id:Date.now()+Math.floor(Math.random()*10000),name:notif.data.name,modIds:[...notif.data.modIds],owner:currentUser.pseudo,imported:true,sharedFrom:notif.from};
-    collections.push(newCol);
-    notifications=notifications.filter(n=>n.id!==notifId);
-    await fbSaveCurrentUserData();
-    await createNotification(notif.from,{type:'accepted',from:currentUser.pseudo,data:{collectionName:notif.data.name}});
-    updateTabCounts();updateBellBadge();renderBellList();
-    if(currentTab==='collections')renderCollections();
-    showToast('info',`✅ Collection « ${notif.data.name} » ajoutée`);
-}
-
-async function rejectShareOffer(notifId){
-    const notif=notifications.find(n=>n.id===notifId);if(!notif)return;
-    notifications=notifications.filter(n=>n.id!==notifId);
-    await fbSaveCurrentUserData();
-    await createNotification(notif.from,{type:'rejected',from:currentUser.pseudo,data:{collectionName:notif.data.name}});
-    updateBellBadge();renderBellList();
-    showToast('info',`Partage refusé`);
-}
-
-function openImportCollectionPrompt(){
-    if(!currentUser){openAuthModal('login');return}
-    openPromptModal({
-        title:`📥 Importer une collection`,
-        hint:`Étape 1 sur 2 : entrez le pseudo de la personne dont vous voulez importer une collection.`,
-        extraContent:'',
-        inputsHtml:`<input type="text" class="prompt-input" id="importFrom" placeholder="Pseudo" autocomplete="off">`,
-        actionsHtml:`<button class="btn-secondary" onclick="closePromptModal()">Annuler</button><button class="btn-primary" onclick="chooseCollectionToImport()">Suivant →</button>`,
-        onOpen:()=>{const el=document.getElementById('importFrom');if(el)el.focus()}
-    });
-}
-
-async function chooseCollectionToImport(){
-    const val=document.getElementById('importFrom').value.trim();
-    if(!val){showPromptError('Entrez un pseudo');return}
-    if(val.toLowerCase()===currentUser.pseudo.toLowerCase()){showPromptError('Impossible d\'importer vos propres collections');return}
-    const target=await fbGetUser(val);
-    if(!target){showPromptError(`⚠️ L'utilisateur "${val}" n'existe pas`);return}
-    const friendCols=(target.collections||[]).filter(c=>!c.imported);
-    if(friendCols.length===0){showPromptError(`${target.pseudo} n'a créé aucune collection`);return}
-    const friendPseudo=target.pseudo;
-    let pickerHtml=`<div class="collection-picker-list">${friendCols.map((c,i)=>`<div class="collection-picker-item" data-idx="${i}" data-colid="${c.id}" onclick="selectPickerItem(this)"><div class="collection-picker-icon">📁</div><div class="collection-picker-info"><div class="collection-picker-name">${escapeHtml(c.name)}</div><div class="collection-picker-meta">${c.modIds.length} mod${c.modIds.length>1?'s':''}</div></div><div class="collection-picker-check"></div></div>`).join('')}</div>`;
-    openPromptModal({
-        title:`📥 Choisir une collection`,
-        hint:`Étape 2 sur 2 : choisissez la collection à demander à <strong>${escapeHtml(friendPseudo)}</strong>. Il devra ensuite l'autoriser.`,
-        extraContent:pickerHtml,
-        inputsHtml:``,
-        actionsHtml:`<button class="btn-secondary" onclick="openImportCollectionPrompt()">← Retour</button><button class="btn-primary" onclick="doRequestImport('${escapeHtml(friendPseudo).replace(/'/g,"\\'")}')">Envoyer la demande</button>`
-    });
-}
-
-function selectPickerItem(el){document.querySelectorAll('.collection-picker-item').forEach(i=>i.classList.remove('selected'));el.classList.add('selected');selectedPickerColId=parseInt(el.dataset.colid)}
-
-async function doRequestImport(friendPseudo){
-    if(!selectedPickerColId){showPromptError('Choisissez une collection');return}
-    const target=await fbGetUser(friendPseudo);
-    if(!target){showPromptError('Utilisateur introuvable');return}
-    const col=(target.collections||[]).find(c=>c.id===selectedPickerColId);
-    if(!col){showPromptError('Collection introuvable');return}
-    const ok=await createNotification(friendPseudo,{type:'import-request',from:currentUser.pseudo,data:{collectionId:col.id,collectionName:col.name}});
-    if(ok){showToast('info',`✅ Demande envoyée à ${friendPseudo}`);selectedPickerColId=null;closePromptModal()}
-    else{showPromptError('Erreur lors de l\'envoi')}
-}
-
-async function acceptImportRequest(notifId){
-    const notif=notifications.find(n=>n.id===notifId);if(!notif)return;
-    const col=collections.find(c=>c.id===notif.data.collectionId&&!c.imported);
-    if(!col){
-        showToast('error','⚠️ Vous n\'avez plus cette collection');
-        notifications=notifications.filter(n=>n.id!==notifId);
-        await fbSaveCurrentUserData();updateBellBadge();renderBellList();
-        return;
-    }
-    const target=await fbGetUser(notif.from);
-    if(!target){showToast('error','Utilisateur destinataire introuvable');return}
-    const {doc,updateDoc,arrayUnion}=window.firebaseFn;
-    const shared={id:Date.now()+Math.floor(Math.random()*10000),name:col.name,modIds:[...col.modIds],owner:target.pseudo,imported:true,sharedFrom:currentUser.pseudo};
-    try{await updateDoc(doc(window.firebaseDb,'users',target.uid),{collections:arrayUnion(shared)})}
-    catch(e){console.error(e);showToast('error','Erreur');return}
-    await createNotification(notif.from,{type:'accepted',from:currentUser.pseudo,data:{collectionName:col.name}});
-    notifications=notifications.filter(n=>n.id!==notifId);
-    await fbSaveCurrentUserData();
-    updateBellBadge();renderBellList();
-    showToast('info',`✅ ${notif.from} a reçu votre collection`);
-}
-
-async function rejectImportRequest(notifId){
-    const notif=notifications.find(n=>n.id===notifId);if(!notif)return;
-    notifications=notifications.filter(n=>n.id!==notifId);
-    await fbSaveCurrentUserData();
-    await createNotification(notif.from,{type:'rejected',from:currentUser.pseudo,data:{collectionName:notif.data.collectionName}});
-    updateBellBadge();renderBellList();
-    showToast('info','Demande refusée');
-}
-
-function setupRealtimeSync(){
-    if(!currentUser||!currentUser.uid)return;
-    if(realtimeUnsubscribe){realtimeUnsubscribe();realtimeUnsubscribe=null}
-    const {doc,onSnapshot}=window.firebaseFn;
-    realtimeUnsubscribe=onSnapshot(doc(window.firebaseDb,'users',currentUser.uid),(snap)=>{
-        if(!snap.exists())return;
-        const data=snap.data();
-        const oldNotifIds=new Set(notifications.map(n=>n.id));
-        const oldColIds=new Set(collections.map(c=>c.id));
-        const newNotifs=(data.notifications||[]).filter(n=>!oldNotifIds.has(n.id));
-        const newCols=(data.collections||[]).filter(c=>!oldColIds.has(c.id));
-        favorites=data.favorites||[];
-        collections=data.collections||[];
-        notifications=data.notifications||[];
-        updateTabCounts();updateBellBadge();
-        if(bellDropdown.classList.contains('open'))renderBellList();
-        if(currentTab==='favorites')renderFavorites();
-        if(currentTab==='collections')renderCollections();
-        const nonRead=newNotifs.filter(n=>!n.read);
-        if(nonRead.length>0){showToast('info',`🔔 ${nonRead.length} nouvelle${nonRead.length>1?'s':''} notification${nonRead.length>1?'s':''}`)}
-        if(newCols.filter(c=>c.imported).length>0){showToast('info',`📥 Nouvelle collection reçue !`)}
-    });
-}
-
-function init(){
-    createParticles();
-    populateVersionFilter();
-    updateUserBadge();
-    updateBellBadge();
-    renderCategories();
-    renderMods();
-    updateTabCounts();
-    const cats=CATEGORIES.length;
-    const vers=[...new Set(MODS_DATABASE.flatMap(m=>m.versions))].length;
-    setTimeout(()=>{animateCounter(document.getElementById('statMods'),MODS_DATABASE.length);animateCounter(document.getElementById('statCategories'),cats);animateCounter(document.getElementById('statVersions'),vers)},500);
-    document.querySelectorAll('.fade-in-section').forEach(s=>{if(s.getBoundingClientRect().top<window.innerHeight)s.classList.add('visible')});
-}
-
-function initFirebaseAuth(){
-    const {onAuthStateChanged,doc,getDoc}=window.firebaseFn;
-    onAuthStateChanged(window.firebaseAuth,async (user)=>{
-        if(user){
-            try{
-                const userDoc=await getDoc(doc(window.firebaseDb,'users',user.uid));
-                if(userDoc.exists()){
-                    const data=userDoc.data();
-                    currentUser={uid:user.uid,pseudo:data.pseudo};
-                    favorites=data.favorites||[];
-                    collections=data.collections||[];
-                    notifications=data.notifications||[];
-                    updateUserBadge();updateTabCounts();updateBellBadge();
-                    if(currentTab==='favorites')renderFavorites();
-                    if(currentTab==='collections')renderCollections();
-                    setupRealtimeSync();
-                }
-            }catch(e){console.error('Erreur chargement user:',e)}
-        }
-    });
-}
-
-document.addEventListener('DOMContentLoaded',init);
-if(window.firebaseReady){initFirebaseAuth()}
-else{window.addEventListener('firebase-ready',initFirebaseAuth)}
-</script>
-</body>
-</html>
+        
