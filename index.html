@@ -111,7 +111,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
 /* ═══ CARROUSEL SUGGESTIONS ═══ */
-.suggestions-section{max-width:1400px;margin:0 auto;padding:80px 24px 0;position:relative}
+.suggestions-section{max-width:1400px;margin:0 auto;padding:40px 24px 40px;position:relative;scroll-margin-top:70px}
 .suggestions-header{position:relative;text-align:center;margin-bottom:32px}
 .suggestions-title h2{font-family:'Press Start 2P',monospace;font-size:clamp(16px,2.5vw,24px)}
 .refresh-btn-small{position:absolute;top:50%;right:0;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border-color);color:var(--text-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition);padding:0;box-shadow:0 4px 20px rgba(0,0,0,.3)}
@@ -160,9 +160,9 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 }
 
 /* ═══ RECOMMANDATIONS ═══ */
-.reco-section{max-width:1400px;margin:0 auto;padding:60px 24px 0;position:relative}
+.reco-section{max-width:1400px;margin:0 auto;padding:40px 24px 40px;position:relative;scroll-margin-top:70px}
 .reco-header{text-align:center;margin-bottom:28px}
-.reco-header h2{font-family:'Press Start 2P',monospace;font-size:clamp(14px,2vw,20px)}
+.reco-header h2{font-family:'Press Start 2P',monospace;font-size:clamp(16px,2.5vw,24px)}
 .reco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .reco-reason{font-size:11px;font-weight:700;padding:5px 12px;border-radius:8px;background:linear-gradient(135deg,var(--mc-purple),#c65bff);color:white;display:inline-block;margin-bottom:8px;box-shadow:0 2px 8px rgba(169,70,232,.35);letter-spacing:.3px}
 [data-theme="light"] .reco-reason{background:linear-gradient(135deg,#8b3ac9,#a946e8);color:white;box-shadow:0 2px 10px rgba(139,58,201,.4)}
@@ -170,9 +170,10 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 @media(max-width:900px){.reco-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.reco-grid{grid-template-columns:1fr}}
 
-.catalog{max-width:1400px;margin:0 auto;padding:80px 24px 120px}
+/* ═══ CATALOGUE ═══ */
+.catalog{max-width:1400px;margin:0 auto;padding:40px 24px 120px;scroll-margin-top:70px}
 .section-header{text-align:center;margin-bottom:48px}
-.section-header h2{font-family:'Press Start 2P',monospace;font-size:clamp(18px,3vw,30px);margin-bottom:16px}
+.section-header h2{font-family:'Press Start 2P',monospace;font-size:clamp(16px,2.5vw,24px);margin-bottom:16px}
 .section-header p{color:var(--text-secondary);font-size:16px;max-width:600px;margin:0 auto}
 .filters-panel{background:var(--bg-card);border:1px solid var(--border-color);border-radius:22px;padding:26px;margin-bottom:40px;box-shadow:var(--shadow-card);scroll-margin-top:100px;position:relative;z-index:5}
 .search-bar-row{display:flex;gap:14px;margin-bottom:24px}
@@ -204,8 +205,19 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .suggestion-spacer{width:30px;flex-shrink:0}
 .suggestion-expand-btn{flex-shrink:0;width:30px;height:30px;border-radius:8px;border:none;background:rgba(155,123,232,.14);color:var(--mc-purple);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
 .suggestion-expand-btn svg{width:15px;height:15px;transition:transform .25s}
-.suggestion-expand-btn:hover{background:rgba(155,123,232,.15);color:var(--mc-purple)}
+.suggestion-expand-btn:hover{background:rgba(155,123,232,.25);color:var(--mc-purple)}
 .suggestion-expand-btn.open svg{transform:rotate(180deg)}
+.suggestion-expand-btn.deps-btn{background:rgba(74,237,217,.14);color:var(--mc-diamond)}
+.suggestion-expand-btn.deps-btn:hover{background:rgba(74,237,217,.25);color:var(--mc-diamond)}
+.suggestion-deps{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;padding:0 12px;margin:0 0 2px}
+.suggestion-deps.open{max-height:160px;overflow-y:auto;padding:8px 12px 10px}
+.suggestion-deps-label{font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.suggestion-deps-list{display:flex;flex-wrap:wrap;gap:6px}
+.suggestion-deps-chip{font-size:12px;font-weight:600;padding:4px 10px;border-radius:8px;background:rgba(74,237,217,.12);color:var(--mc-diamond);cursor:pointer;transition:var(--transition)}
+.suggestion-deps-chip:hover{background:rgba(74,237,217,.25)}
+.suggestion-deps-chip.missing{background:rgba(255,26,26,.1);color:#ff7070;cursor:default}
+.suggestion-deps-chip.missing:hover{background:rgba(255,26,26,.1)}
+.suggestion-deps-empty{font-size:12px;color:var(--text-muted);font-style:italic}
 .suggestion-usedby{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;padding:0 12px;margin:0 0 2px}
 .suggestion-usedby.open{max-height:160px;overflow-y:auto;padding:8px 12px 10px}
 .suggestion-usedby-label{font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
@@ -291,15 +303,15 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .btn-resolve-deps{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:linear-gradient(135deg,var(--mc-purple),#c65bff);color:white;font-weight:700;font-size:12px;border:none;cursor:pointer;transition:var(--transition);font-family:'Inter',sans-serif;margin-top:8px}
 .btn-resolve-deps:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(169,70,232,.4)}
 
-.mod-card-title{font-size:18px;font-weight:800;margin-bottom:10px}
-.mod-card-description{font-size:14px;color:var(--text-secondary);line-height:1.6;margin-bottom:18px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:44px}
+.mod-card-title{font-size:18px;font-weight:800;margin-bottom:10px;line-height:1.3;min-height:47px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mod-card-description{font-size:14px;color:var(--text-secondary);line-height:1.6;margin-bottom:18px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:45px;height:45px}
 .mod-card-stats{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
 .stat-item{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text-secondary)}
 .stat-item svg{width:14px;height:14px;opacity:.9}
 .stat-item.popularity{color:var(--mc-gold)}
 .version-chip{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:8px;background:var(--bg-secondary);color:var(--text-primary);font-size:12px;font-weight:700;border:1px solid var(--border-color)}
 .version-chip svg{width:12px;height:12px}
-.mod-card-actions{display:flex;gap:10px}
+.mod-card-actions {display: flex;gap: 10px}
 .btn-download{flex:1;padding:11px 14px;border-radius:10px;background:linear-gradient(135deg,#f16436,#e04e2e);color:white;font-weight:700;font-size:13px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;transition:var(--transition);font-family:'Inter',sans-serif}
 .btn-download:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(241,100,54,.4)}
 .btn-details{padding:11px 14px;border-radius:10px;background:var(--bg-secondary);color:var(--text-primary);font-weight:600;font-size:13px;border:1px solid var(--border-color);cursor:pointer;transition:var(--transition);font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px}
@@ -480,6 +492,25 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .back-to-top{position:fixed;bottom:30px;right:30px;width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--mc-green),var(--mc-green-light));color:white;border:none;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:999;opacity:0;visibility:hidden;transform:translateY(10px);transition:var(--transition);box-shadow:0 4px 20px rgba(93,140,62,.4)}
 .back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
 .back-to-top:hover{transform:translateY(-3px)}
+.help-btn{position:fixed;bottom:30px;left:30px;width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#3d9e96,#4fb8ad);color:white;border:none;cursor:pointer;font-size:24px;font-weight:900;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;z-index:999;transition:var(--transition);box-shadow:0 4px 20px rgba(61,158,150,.35);line-height:1}
+.help-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 6px 25px rgba(61,158,150,.5)}
+.tip-section{background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:14px;padding:16px 18px;margin-bottom:14px;transition:var(--transition)}
+.tip-section:hover{border-color:var(--mc-diamond)}
+.tip-section-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;cursor:pointer;user-select:none}
+.tip-section-icon{font-size:22px;flex-shrink:0}
+.tip-section-title{font-size:15px;font-weight:800;color:var(--text-primary);flex:1}
+.tip-section-arrow{font-size:12px;color:var(--text-muted);transition:transform .3s}
+.tip-section.open .tip-section-arrow{transform:rotate(180deg)}
+.tip-section-content{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.tip-section.open .tip-section-content{max-height:800px}
+.tip-content-inner{padding-top:8px;font-size:13.5px;line-height:1.7;color:var(--text-secondary)}
+.tip-content-inner strong{color:var(--text-primary);font-weight:700}
+.tip-content-inner code{background:var(--bg-card);color:var(--mc-green-light);padding:2px 8px;border-radius:6px;font-family:'Consolas','Monaco',monospace;font-size:12.5px;font-weight:600;border:1px solid var(--border-color);white-space:nowrap}
+.tip-content-inner ol,.tip-content-inner ul{margin:10px 0 10px 20px;padding:0}
+.tip-content-inner li{margin-bottom:6px}
+.tip-content-inner .tip-note{margin-top:10px;padding:10px 14px;background:rgba(74,237,217,.08);border-left:3px solid var(--mc-diamond);border-radius:8px;font-size:12.5px}
+.tip-content-inner .tip-warning{margin-top:10px;padding:10px 14px;background:rgba(252,181,59,.1);border-left:3px solid var(--mc-gold);border-radius:8px;font-size:12.5px}
+.tip-content-inner kbd{background:var(--bg-card);color:var(--text-primary);padding:2px 8px;border-radius:5px;font-family:'Consolas','Monaco',monospace;font-size:11.5px;font-weight:700;border:1px solid var(--border-color);box-shadow:0 2px 0 var(--border-color);display:inline-block;margin:0 2px}
 @media(max-width:1200px){.mods-grid{grid-template-columns:repeat(3,1fr)}.categories-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:900px){.mods-grid{grid-template-columns:repeat(2,1fr)}.list-view .mod-card{flex-direction:column}.list-view .mod-card-image-wrapper{width:100%}.categories-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:860px){.nav-controls .nav-link{display:none}.user-badge{display:none}.icon-btn{display:none}.mobile-menu-btn{display:flex}}
@@ -596,6 +627,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
         <div class="nav-controls">
             <button class="nav-link" onclick="showHome()">Accueil</button>
             <button class="nav-link" onclick="scrollToSuggestions()">Suggestions</button>
+            <button class="nav-link" onclick="scrollToRecommendations()">Recommandations</button>
             <button class="nav-link" onclick="showCatalog()">Catalogue</button>
             <!-- NOTIFICATIONS -->
             <div style="position:relative">
@@ -673,6 +705,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
     </div>
     <div class="mobile-menu" id="mobileMenu">
         <button class="nav-link" onclick="showHome();closeMobileMenu()">Accueil</button>
+        <button class="nav-link" onclick="scrollToSuggestions();closeMobileMenu()">Suggestions</button>
+        <button class="nav-link" onclick="scrollToRecommendations();closeMobileMenu()">Recommandations</button>
         <button class="nav-link" onclick="showCatalog();closeMobileMenu()">Catalogue</button>
         <button class="nav-link" onclick="toggleBellDropdown();closeMobileMenu()">🔔 Notifications</button>
         <button class="nav-link" onclick="toggleFriendsDropdown();closeMobileMenu()">👥 Amis</button>
@@ -804,6 +838,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 <div id="toast" class="toast"></div>
 <footer class="footer"><div class="footer-content"><div class="footer-logo">Mine<span>Mods</span></div><p>Site non affilié à Mojang Studios ni à Microsoft.<br>Liens vers <a href="https://www.curseforge.com/minecraft" target="_blank" rel="noopener">CurseForge</a>.</p></div></footer>
 <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
+<button class="help-btn" id="helpBtn" onclick="openHelpModal()" aria-label="Astuces et aide" title="Astuces">?</button>
 
 <script>
 const IMAGE_BASE_PATH='./images/mods/';
@@ -1442,10 +1477,19 @@ function getModsUsingLibrary(libName){return MODS_DATABASE.filter(m=>m.dependenc
 
 function suggestionItemHTML(m,i,q){
     const isLib=m.categories.includes('bibliotheque');
+    const hasDeps=!isLib&&m.dependencies&&m.dependencies.length>0;
     const usedBy=isLib?getModsUsingLibrary(m.name):[];
-    const rightBtn=isLib
-        ?`<button class="suggestion-expand-btn" type="button" title="Voir les mods utilisant cette librairie" onclick="event.stopPropagation();toggleUsedBy(${m.id})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>`
-        :`<div class="suggestion-spacer"></div>`;
+
+    // Bouton à droite selon le type
+    let rightBtn='';
+    if(isLib){
+        rightBtn=`<button class="suggestion-expand-btn" type="button" title="Voir les mods utilisant cette librairie" onclick="event.stopPropagation();toggleUsedBy(${m.id})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>`;
+    }else if(hasDeps){
+        rightBtn=`<button class="suggestion-expand-btn deps-btn" type="button" title="Voir les librairies requises" onclick="event.stopPropagation();toggleDepsList(${m.id})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>`;
+    }else{
+        rightBtn=`<div class="suggestion-spacer"></div>`;
+    }
+
     const row=`<div class="suggestion-row">
         <div class="suggestion-item" data-index="${i}" onclick="selectSuggestion(${m.id})">
             <img class="suggestion-img" src="${getModImageUrl(m)}" alt="" onerror="this.onerror=null;this.src='${getImageFallback()}'">
@@ -1457,12 +1501,45 @@ function suggestionItemHTML(m,i,q){
         </div>
         ${rightBtn}
     </div>`;
-    const panel=isLib?`<div class="suggestion-usedby" id="usedby-${m.id}">${usedBy.length===0?`<div class="suggestion-usedby-empty">Aucun mod du catalogue ne dépend de cette librairie.</div>`:`<div class="suggestion-usedby-label">Utilisé par :</div><div class="suggestion-usedby-list">${usedBy.map(u=>`<span class="suggestion-usedby-chip" onclick="event.stopPropagation();selectSuggestion(${u.id})">${escapeHtml(u.name)}</span>`).join('')}</div>`}</div>`:'';
+
+    // Panneau déroulant pour les librairies (utilisé par)
+    let panel='';
+    if(isLib){
+        panel=`<div class="suggestion-usedby" id="usedby-${m.id}">${usedBy.length===0?`<div class="suggestion-usedby-empty">Aucun mod du catalogue ne dépend de cette librairie.</div>`:`<div class="suggestion-usedby-label">Utilisé par :</div><div class="suggestion-usedby-list">${usedBy.map(u=>`<span class="suggestion-usedby-chip" onclick="event.stopPropagation();selectSuggestion(${u.id})">${escapeHtml(u.name)}</span>`).join('')}</div>`}</div>`;
+    }else if(hasDeps){
+        // Panneau déroulant pour les mods normaux (librairies requises)
+        const depsHtml=m.dependencies.map(depName=>{
+            const depMod=findModByName(depName);
+            if(depMod){
+                return`<span class="suggestion-deps-chip" onclick="event.stopPropagation();selectSuggestion(${depMod.id})" title="Voir cette librairie">${escapeHtml(depName)}</span>`;
+            }else{
+                return`<span class="suggestion-deps-chip missing" title="Librairie absente du catalogue">${escapeHtml(depName)} ⚠️</span>`;
+            }
+        }).join('');
+        panel=`<div class="suggestion-deps" id="deps-${m.id}"><div class="suggestion-deps-label">Librairies requises :</div><div class="suggestion-deps-list">${depsHtml}</div></div>`;
+    }
+
     return row+panel;
 }
 
 function renderSearchSuggestions(q){suggestionsList=computeSuggestions(q);highlightedSuggestionIndex=-1;if(!q.trim()){searchSuggestions.classList.remove('visible');return}if(suggestionsList.length===0){searchSuggestions.innerHTML=`<div class="suggestion-empty">Aucun mod pour <strong>« ${escapeHtml(q)} »</strong></div>`;searchSuggestions.classList.add('visible');return}searchSuggestions.innerHTML=`<div class="suggestion-header">${suggestionsList.length} résultat${suggestionsList.length>1?'s':''}</div>${suggestionsList.map((m,i)=>suggestionItemHTML(m,i,q)).join('')}`;searchSuggestions.classList.add('visible')}
-function toggleUsedBy(id){const panel=document.getElementById(`usedby-${id}`);if(!panel)return;const btn=panel.previousElementSibling;const expandBtn=btn?btn.querySelector('.suggestion-expand-btn'):null;const open=panel.classList.toggle('open');if(expandBtn)expandBtn.classList.toggle('open',open)}
+function toggleUsedBy(id){
+    const panel=document.getElementById(`usedby-${id}`);
+    if(!panel)return;
+    const btn=panel.previousElementSibling;
+    const expandBtn=btn?btn.querySelector('.suggestion-expand-btn'):null;
+    const open=panel.classList.toggle('open');
+    if(expandBtn)expandBtn.classList.toggle('open',open);
+}
+
+function toggleDepsList(id){
+    const panel=document.getElementById(`deps-${id}`);
+    if(!panel)return;
+    const btn=panel.previousElementSibling;
+    const expandBtn=btn?btn.querySelector('.suggestion-expand-btn'):null;
+    const open=panel.classList.toggle('open');
+    if(expandBtn)expandBtn.classList.toggle('open',open);
+}
 function selectSuggestion(id){const m=MODS_DATABASE.find(x=>x.id===id);if(!m)return;searchInput.value=m.name;searchQuery=m.name;strictSearchModName=m.name;searchClearBtn.classList.add('visible');searchSuggestions.classList.remove('visible');currentPage=1;renderMods();setTimeout(()=>filtersPanel.scrollIntoView({behavior:'smooth',block:'start'}),100)}
 function updateSuggestionHighlight(){const items=searchSuggestions.querySelectorAll('.suggestion-item');items.forEach((el,i)=>el.classList.toggle('highlighted',i===highlightedSuggestionIndex));if(highlightedSuggestionIndex>=0&&items[highlightedSuggestionIndex])items[highlightedSuggestionIndex].scrollIntoView({block:'nearest'})}
 function searchDependency(d){closeModal();const f=findModByName(d);if(f){strictSearchModName=f.name;searchInput.value=f.name;searchQuery=f.name}else{strictSearchModName=null;searchInput.value=d;searchQuery=d}searchClearBtn.classList.add('visible');searchSuggestions.classList.remove('visible');selectedCategories.clear();currentVersion='all';versionFilter.value='all';currentLoader='all';loaderFilter.value='all';switchTab('browse');currentPage=1;renderCategories();renderMods();setTimeout(()=>filtersPanel.scrollIntoView({behavior:'smooth',block:'start'}),100)}
@@ -1512,12 +1589,201 @@ setTheme(localStorage.getItem('minemods-theme')||'dark');
 function showHome(){window.scrollTo({top:0,behavior:'smooth'})}
 function showCatalog(){setTimeout(()=>catalogSection.scrollIntoView({behavior:'smooth'}),100)}
 function scrollToSuggestions(){const el=document.querySelector('.suggestions-section');if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
+function scrollToRecommendations(){
+    const el=document.getElementById('recoSection');
+    if(el&&el.style.display!=='none'){
+        el.scrollIntoView({behavior:'smooth',block:'start'});
+    }else{
+        // Si la section est cachée (utilisateur non connecté ou aucune activité)
+        if(!currentUser){
+            showToast('info','🔐 Connectez-vous pour voir vos recommandations');
+            openAuthModal('login');
+        }else{
+            showToast('info','💡 Ajoutez des mods en favoris pour obtenir des recommandations');
+            scrollToSuggestions();
+        }
+    }
+}
 backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 function animateCounter(el,target,d=2000){const st=performance.now();function u(t){const p=Math.min((t-st)/d,1);el.textContent=Math.floor((1-Math.pow(1-p,3))*target);if(p<1)requestAnimationFrame(u)}requestAnimationFrame(u)}
 
 // ═══ TOAST ═══
 let toastTimer=null;
 function showToast(type,msg){const t=document.getElementById('toast');t.className='toast '+type;t.textContent=msg;requestAnimationFrame(()=>t.classList.add('visible'));clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('visible'),4000)}
+
+// ═══ HELP / TIPS MODAL ═══
+const TIPS_DATA=[
+    {
+        id:'install-mods',
+        icon:'📦',
+        title:'Comment installer un mod Minecraft',
+        content:`<p>Pour installer un mod téléchargé depuis <strong>CurseForge</strong> :</p>
+        <ol>
+            <li>Appuie sur <kbd>Windows</kbd> + <kbd>R</kbd> pour ouvrir la fenêtre "Exécuter"</li>
+            <li>Tape <code>%appdata%</code> et valide avec Entrée</li>
+            <li>Ouvre le dossier <code>.minecraft</code></li>
+            <li>Ouvre (ou crée) le dossier <code>mods</code></li>
+            <li>Glisse-dépose ton fichier <code>.jar</code> téléchargé dans ce dossier</li>
+            <li>Lance Minecraft avec le profil <strong>Forge</strong>, <strong>Fabric</strong> ou <strong>NeoForge</strong> correspondant</li>
+        </ol>
+        <div class="tip-warning">⚠️ Vérifie que la version du mod correspond exactement à ta version de Minecraft ET à ton loader (Forge ≠ Fabric).</div>`
+    },
+    {
+        id:'install-forge',
+        icon:'⚒️',
+        title:'Installer Forge',
+        content:`<p>Forge est le loader de mods le plus populaire :</p>
+        <ol>
+            <li>Va sur <strong>files.minecraftforge.net</strong></li>
+            <li>Choisis la version Minecraft souhaitée (ex : 1.20.1)</li>
+            <li>Télécharge le fichier <strong>Installer</strong> (recommandé)</li>
+            <li>Lance le fichier <code>.jar</code> téléchargé</li>
+            <li>Sélectionne <strong>Install client</strong> et valide</li>
+            <li>Lance Minecraft Launcher, un nouveau profil "Forge" apparaîtra</li>
+        </ol>
+        <div class="tip-note">💡 Java doit être installé sur ton PC. Sinon, télécharge-le sur <strong>java.com</strong>.</div>`
+    },
+    {
+        id:'install-fabric',
+        icon:'🧵',
+        title:'Installer Fabric',
+        content:`<p>Fabric est un loader plus léger, idéal pour les mods de performance :</p>
+        <ol>
+            <li>Va sur <strong>fabricmc.net/use</strong></li>
+            <li>Télécharge le <strong>Fabric Installer</strong></li>
+            <li>Lance le fichier téléchargé</li>
+            <li>Sélectionne ta version Minecraft et clique sur <strong>Install</strong></li>
+            <li>Un profil "Fabric" apparaîtra dans le launcher</li>
+        </ol>
+        <div class="tip-warning">⚠️ N'oublie pas d'installer <strong>Fabric API</strong> (mod requis par presque tous les mods Fabric) dans ton dossier <code>mods</code>.</div>`
+    },
+    {
+        id:'allocate-ram',
+        icon:'🧠',
+        title:'Allouer plus de RAM à Minecraft',
+        content:`<p>Si Minecraft crashe avec beaucoup de mods, augmente la RAM allouée :</p>
+        <ol>
+            <li>Ouvre le <strong>Minecraft Launcher</strong></li>
+            <li>Va dans l'onglet <strong>Installations</strong></li>
+            <li>Passe la souris sur ton profil modé et clique sur les <strong>3 points</strong> → <strong>Modifier</strong></li>
+            <li>Clique sur <strong>Plus d'options</strong></li>
+            <li>Dans <strong>Arguments JVM</strong>, remplace <code>-Xmx2G</code> par <code>-Xmx6G</code> (6 Go)</li>
+            <li>Enregistre et relance Minecraft</li>
+        </ol>
+        <div class="tip-note">💡 Recommandé : <strong>4-6 Go</strong> pour 50-100 mods, <strong>8 Go+</strong> pour de gros modpacks. Ne dépasse jamais la moitié de ta RAM totale.</div>`
+    },
+    {
+        id:'find-crash',
+        icon:'🔍',
+        title:'Trouver la cause d\'un crash',
+        content:`<p>Si Minecraft crashe, un rapport est généré automatiquement :</p>
+        <ol>
+            <li><kbd>Windows</kbd> + <kbd>R</kbd> → <code>%appdata%</code></li>
+            <li>Ouvre <code>.minecraft</code> → <code>crash-reports</code></li>
+            <li>Ouvre le fichier <code>.txt</code> le plus récent avec le Bloc-notes</li>
+            <li>Cherche la ligne commençant par <code>Caused by:</code></li>
+            <li>Le nom du mod fautif est généralement mentionné juste après</li>
+        </ol>
+        <div class="tip-note">💡 Tu peux aussi copier le contenu du rapport et le coller sur <strong>mclo.gs</strong> pour un affichage plus lisible et facile à partager.</div>`
+    },
+    {
+        id:'backup-world',
+        icon:'💾',
+        title:'Sauvegarder ses mondes',
+        content:`<p>Toujours sauvegarder avant d'ajouter de nouveaux mods :</p>
+        <ol>
+            <li><kbd>Windows</kbd> + <kbd>R</kbd> → <code>%appdata%</code></li>
+            <li>Ouvre <code>.minecraft</code> → <code>saves</code></li>
+            <li>Fais un <strong>clic droit</strong> sur ton monde → <strong>Copier</strong></li>
+            <li>Colle-le ailleurs (ex : bureau ou clé USB) et renomme-le (ex : "MonMonde_backup_2025")</li>
+        </ol>
+        <div class="tip-warning">⚠️ Certains mods modifient irréversiblement ton monde. Sans sauvegarde, tu peux tout perdre en cas d'incompatibilité !</div>`
+    },
+    {
+        id:'organize-mods',
+        icon:'🗂️',
+        title:'Organiser ses mods par version',
+        content:`<p>Pour jouer à plusieurs versions de Minecraft sans mélanger les mods :</p>
+        <ol>
+            <li>Utilise un launcher tiers comme <strong>Prism Launcher</strong> ou <strong>MultiMC</strong> (gratuits)</li>
+            <li>Chaque instance a son propre dossier <code>mods</code> isolé</li>
+            <li>Tu peux créer une instance "1.20.1 Aventure", une autre "1.19.2 Tech", etc.</li>
+        </ol>
+        <div class="tip-note">💡 Prism Launcher permet aussi d'importer directement des modpacks depuis CurseForge en un clic.</div>`
+    },
+    {
+        id:'check-compatibility',
+        icon:'🔗',
+        title:'Vérifier la compatibilité des mods',
+        content:`<p>Avant d'installer plusieurs mods ensemble :</p>
+        <ul>
+            <li>Vérifie que <strong>tous les mods</strong> supportent la même version de Minecraft (ex : 1.20.1)</li>
+            <li>Vérifie qu'ils utilisent le même <strong>loader</strong> (tous en Forge OU tous en Fabric)</li>
+            <li>Certains mods ont des <strong>dépendances</strong> (librairies requises) — pense à les télécharger aussi</li>
+            <li>Lis les commentaires CurseForge pour repérer les incompatibilités connues</li>
+        </ul>
+        <div class="tip-note">💡 Sur <strong>MineMods</strong>, l'onglet "Collections" détecte automatiquement les incompatibilités de version et les dépendances manquantes !</div>`
+    },
+    {
+        id:'optifine-alt',
+        icon:'⚡',
+        title:'Alternatives à OptiFine (performance)',
+        content:`<p>OptiFine est souvent incompatible avec les mods modernes. Voici des alternatives :</p>
+        <ul>
+            <li><strong>Sodium</strong> (Fabric) — Améliore drastiquement les FPS</li>
+            <li><strong>Lithium</strong> (Fabric) — Optimise les calculs du serveur</li>
+            <li><strong>Phosphor</strong> (Fabric) — Améliore les calculs de lumière</li>
+            <li><strong>Iris Shaders</strong> (Fabric) — Support des shaders (comme OptiFine)</li>
+            <li><strong>Embeddium</strong> (Forge) — Équivalent de Sodium pour Forge</li>
+        </ul>
+        <div class="tip-note">💡 Combo recommandé : <strong>Sodium + Lithium + Phosphor + Iris</strong> = performances excellentes + shaders.</div>`
+    },
+    {
+        id:'minemods-features',
+        icon:'⭐',
+        title:'Astuces MineMods',
+        content:`<p>Tire le meilleur parti de ce site :</p>
+        <ul>
+            <li>⭐ Ajoute des mods en <strong>Favoris</strong> pour les retrouver rapidement</li>
+            <li>📁 Crée des <strong>Collections</strong> thématiques (ex : "Modpack Aventure", "Tech Base")</li>
+            <li>💡 La section <strong>Recommandé pour vous</strong> se remplit selon tes favoris</li>
+            <li>👥 Ajoute des <strong>amis</strong> pour partager tes collections</li>
+            <li>🏆 Débloque des <strong>succès</strong> en explorant le site</li>
+            <li>🎵 Écoute la musique Minecraft pendant que tu navigues</li>
+            <li>🔍 Utilise la <strong>recherche</strong> avec suggestions instantanées</li>
+            <li>📚 Pour les librairies, clique sur la flèche pour voir quels mods l'utilisent</li>
+        </ul>`
+    }
+];
+
+function openHelpModal(){
+    const content=`<div style="padding-right:2px">
+        ${TIPS_DATA.map(tip=>`
+            <div class="tip-section" data-tip-id="${tip.id}">
+                <div class="tip-section-header" onclick="toggleTipSection('${tip.id}')">
+                    <span class="tip-section-icon">${tip.icon}</span>
+                    <span class="tip-section-title">${escapeHtml(tip.title)}</span>
+                    <span class="tip-section-arrow">▼</span>
+                </div>
+                <div class="tip-section-content">
+                    <div class="tip-content-inner">${tip.content}</div>
+                </div>
+            </div>
+        `).join('')}
+    </div>`;
+
+    openPromptModal({
+        title:'💡 Astuces & Aide',
+        hint:'Clique sur une astuce pour la déplier. Retrouve ici tout ce dont tu as besoin pour bien utiliser Minecraft modé.',
+        extraContent:content,
+        actionsHtml:`<button class="btn-primary" onclick="closePromptModal()">Fermer</button>`
+    });
+}
+
+function toggleTipSection(tipId){
+    const section=document.querySelector(`.tip-section[data-tip-id="${tipId}"]`);
+    if(section)section.classList.toggle('open');
+}
 
 // ═══ PROMPT MODAL ═══
 const promptOverlay=document.getElementById('promptOverlay');
