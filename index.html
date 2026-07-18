@@ -527,21 +527,21 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color
 .music-progress::-moz-range-progress{background:var(--mc-green-light);height:4px;border-radius:2px}
 
 /* ═══ BADGE TOAST (notification de succès débloqué) ═══ */
-.badge-toast{position:fixed;top:90px;right:30px;padding:16px 20px 16px 18px;border-radius:16px;background:linear-gradient(135deg,#fcdb05,#f5a623);border:2px solid #fff;color:#1a1a2e;font-weight:800;z-index:3001;box-shadow:0 12px 50px rgba(252,219,5,.6),0 0 0 4px rgba(252,219,5,.15),0 0 30px rgba(252,219,5,.4);opacity:0;transform:translateX(120%) scale(.8);transition:all .6s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:14px;pointer-events:none;min-width:280px;max-width:380px}
-.badge-toast.visible{opacity:1;transform:translateX(0) scale(1);animation:badgePulse 2s ease-in-out infinite alternate 0.6s}
+.badge-toast{position:fixed;top:90px;right:24px;padding:11px 16px 11px 14px;border-radius:12px;background:linear-gradient(135deg,#fcdb05,#f5a623);border:2px solid #fff;color:#1a1a2e;font-weight:800;z-index:3001;box-shadow:0 8px 32px rgba(252,219,5,.55),0 0 0 3px rgba(252,219,5,.12),0 0 20px rgba(252,219,5,.35);opacity:0;transform:translateX(120%) scale(.85);transition:all .5s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:10px;pointer-events:none;min-width:220px;max-width:300px}
+.badge-toast.visible{opacity:1;transform:translateX(0) scale(1);animation:badgePulse 2s ease-in-out infinite alternate 0.5s}
 @keyframes badgePulse{
-    0%{box-shadow:0 12px 50px rgba(252,219,5,.6),0 0 0 4px rgba(252,219,5,.15),0 0 30px rgba(252,219,5,.4)}
-    100%{box-shadow:0 12px 60px rgba(252,219,5,.85),0 0 0 8px rgba(252,219,5,.25),0 0 50px rgba(252,219,5,.6)}
+    0%{box-shadow:0 8px 32px rgba(252,219,5,.55),0 0 0 3px rgba(252,219,5,.12),0 0 20px rgba(252,219,5,.35)}
+    100%{box-shadow:0 10px 40px rgba(252,219,5,.75),0 0 0 6px rgba(252,219,5,.2),0 0 32px rgba(252,219,5,.5)}
 }
-.badge-toast .badge-toast-icon{font-size:36px;flex-shrink:0;animation:badgeSpin 1s ease-out;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}
+.badge-toast .badge-toast-icon{font-size:26px;flex-shrink:0;line-height:1;animation:badgeSpin .9s ease-out;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
 @keyframes badgeSpin{
     0%{transform:rotate(-180deg) scale(0)}
-    60%{transform:rotate(20deg) scale(1.3)}
+    60%{transform:rotate(15deg) scale(1.2)}
     100%{transform:rotate(0deg) scale(1)}
 }
-.badge-toast-content{display:flex;flex-direction:column;gap:2px;min-width:0}
-.badge-toast-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:800;opacity:.75}
-.badge-toast-name{font-size:15px;font-weight:900;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.badge-toast-content{display:flex;flex-direction:column;gap:1px;min-width:0}
+.badge-toast-label{font-size:9.5px;text-transform:uppercase;letter-spacing:1.2px;font-weight:800;opacity:.7}
+.badge-toast-name{font-size:13px;font-weight:900;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.25}
 </style>
 </head>
 <body>
@@ -827,16 +827,16 @@ const CATEGORIES=[
 // ═══ BADGES DEFINITIONS ═══
 const BADGE_DEFS=[
     // Exploration (mods visités)
-    {id:'explorer-1',name:'Explorateur débutant I',icon:'🔍',condition:s=>s.modsViewed>=1,desc:'1er mod consulté'},
-    {id:'explorer-2',name:'Explorateur débutant II',icon:'🔎',condition:s=>s.modsViewed>=20,desc:'20 mods consultés'},
-    {id:'explorer-3',name:'Explorateur débutant III',icon:'🧭',condition:s=>s.modsViewed>=40,desc:'40 mods consultés'},
-    {id:'explorer-4',name:'Explorateur avancé I',icon:'🗺️',condition:s=>s.modsViewed>=60,desc:'60 mods consultés'},
-    {id:'explorer-5',name:'Explorateur avancé II',icon:'🌟',condition:s=>s.modsViewed>=80,desc:'80 mods consultés'},
-    {id:'explorer-6',name:'Explorateur avancé III',icon:'⭐',condition:s=>s.modsViewed>=100,desc:'100 mods consultés'},
-    {id:'explorer-7',name:'Explorateur expert I',icon:'💎',condition:s=>s.modsViewed>=120,desc:'120 mods consultés'},
-    {id:'explorer-8',name:'Explorateur expert II',icon:'👑',condition:s=>s.modsViewed>=140,desc:'140 mods consultés'},
-    {id:'explorer-9',name:'Explorateur expert III',icon:'🏆',condition:s=>s.modsViewed>=160,desc:'160 mods consultés'},
-    // Collections
+    {id:'explorer-1',name:'Explorateur débutant I',icon:'🔍',condition:s=>s.modsViewed>=1,desc:'1ère fiche consultée'},
+    {id:'explorer-2',name:'Explorateur débutant II',icon:'🔎',condition:s=>s.modsViewed>=20,desc:'20 fiches consultées'},
+    {id:'explorer-3',name:'Explorateur débutant III',icon:'🧭',condition:s=>s.modsViewed>=40,desc:'40 fiches consultées'},
+    {id:'explorer-4',name:'Explorateur avancé I',icon:'🗺️',condition:s=>s.modsViewed>=60,desc:'60 fiches consultées'},
+    {id:'explorer-5',name:'Explorateur avancé II',icon:'🌟',condition:s=>s.modsViewed>=80,desc:'80 fiches consultées'},
+    {id:'explorer-6',name:'Explorateur avancé III',icon:'⭐',condition:s=>s.modsViewed>=100,desc:'100 fiches consultées'},
+    {id:'explorer-7',name:'Explorateur expert I',icon:'💎',condition:s=>s.modsViewed>=120,desc:'120 fiches consultées'},
+    {id:'explorer-8',name:'Explorateur expert II',icon:'👑',condition:s=>s.modsViewed>=140,desc:'140 fiches consultées'},
+    {id:'explorer-9',name:'Explorateur expert III',icon:'🏆',condition:s=>s.modsViewed>=160,desc:'160 fiches consultées'},
+// Collections
     {id:'collector-1',name:'Collectionneur débutant',icon:'📁',condition:s=>s.collectionsCreated>=1,desc:'1ère collection créée'},
     {id:'collector-2',name:'Collectionneur confirmé',icon:'📂',condition:s=>s.collectionsCreated>=5,desc:'5 collections créées'},
     {id:'collector-3',name:'Collectionneur expert',icon:'🗄️',condition:s=>s.collectionsCreated>=10,desc:'10 collections créées'},
@@ -1000,6 +1000,7 @@ async function fbSaveCurrentUserData(){
     const{doc,updateDoc}=window.firebaseFn;
     try{
         const tracksArr=(tracksListenedSet&&tracksListenedSet instanceof Set)?[...tracksListenedSet]:[];
+        const viewedArr=(modsViewedSet&&modsViewedSet instanceof Set)?[...modsViewedSet]:[];
         await updateDoc(doc(window.firebaseDb,'users',currentUser.uid),{
             favorites:favorites||[],
             collections:collections||[],
@@ -1008,6 +1009,7 @@ async function fbSaveCurrentUserData(){
             pendingFriends:pendingFriends||[],
             avatar:currentUser.avatar||null,
             viewHistory:viewHistory||[],
+            modsViewedSet:viewedArr,
             badgesUnlocked:badgesUnlocked||[],
             tracksListenedSet:tracksArr,
             totalCollectionsCreated:totalCollectionsCreated||0
@@ -1022,9 +1024,10 @@ function saveNotifications(){fbSaveCurrentUserData()}
 let currentUser=null;let selectedCategories=new Set();let currentVersion='all';let currentLoader='all';let searchQuery='';let currentSort='recent';let currentView='grid';let currentPage=1;let currentTab='browse';let currentModalModId=null;let suggestionsList=[];let highlightedSuggestionIndex=-1;let strictSearchModName=null;let favorites=[];let collections=[];let notifications=[];let friends=[];let pendingFriends=[];let realtimeUnsubscribe=null;let selectedPickerColId=null;
 
 // ═══ HISTORY & BADGES STATE ═══
-let viewHistory=[];           // [{modId, timestamp},...] max 50
+let viewHistory=[];           // [{modId, timestamp},...] mods téléchargés via CurseForge (pour l'historique)
+let modsViewedSet=new Set();  // Set des IDs de mods dont la fiche a été ouverte (pour badges Explorateur)
 let badgesUnlocked=[];        // ['explorer-1','collector-1',...]
-let tracksListenedSet=new Set(); // set of track file names listened
+let tracksListenedSet=new Set();
 let totalCollectionsCreated=0;
 let badgeToastTimer=null;
 
@@ -1058,17 +1061,27 @@ function populateLoaderFilter(){const l=[...new Set(MODS_DATABASE.flatMap(m=>m.l
 function getFilteredMods(){let list=MODS_DATABASE.filter(m=>{if(strictSearchModName)return normalizeStr(m.name)===normalizeStr(strictSearchModName);const mc=selectedCategories.size===0||[...selectedCategories].every(c=>m.categories.includes(c));const mv=currentVersion==='all'||m.versions.includes(currentVersion);const ml=currentLoader==='all'||m.loaders.includes(currentLoader);const q=normalizeStr(searchQuery);const ms=q===''||normalizeStr(m.name).includes(q)||normalizeStr(m.description).includes(q)||m.categories.some(c=>c.includes(q));return mc&&mv&&ml&&ms});switch(currentSort){case'name-asc':list.sort((a,b)=>a.name.localeCompare(b.name));break;case'name-desc':list.sort((a,b)=>b.name.localeCompare(a.name));break;case'size':list.sort((a,b)=>b.sizeMo-a.sizeMo);break;case'popular':list.sort((a,b)=>getModPopularity(b)-getModPopularity(a));break;default:list.sort((a,b)=>latestVersionNum(b)-latestVersionNum(a))}return list}
 
 // ═══ VIEW HISTORY ═══
+// Tracking pour le badge Explorateur (ouverture de fiche)
+function trackModView(modId){
+    if(!currentUser||!modId)return;
+    if(!modsViewedSet.has(modId)){
+        modsViewedSet.add(modId);
+        fbSaveCurrentUserData();
+        checkBadges();
+    }
+}
+
+// Tracking pour l'historique (clic CurseForge)
 function addToViewHistory(modId){
-    if(!currentUser)return;
+    if(!currentUser||!modId)return;
     viewHistory=viewHistory.filter(h=>h.modId!==modId);
     viewHistory.unshift({modId,timestamp:Date.now()});
     if(viewHistory.length>50)viewHistory=viewHistory.slice(0,50);
     fbSaveCurrentUserData();
-    checkBadges();
+    // Pas de checkBadges ici : le clic CurseForge ne débloque aucun succès
 }
 
 function trackCurseforgeClick(modId){
-    if(!currentUser||!modId)return;
     addToViewHistory(modId);
 }
 
@@ -1076,17 +1089,49 @@ function getViewHistoryUniqueCount(){
     return new Set(viewHistory.map(h=>h.modId)).size;
 }
 
+function getViewedModsCount(){
+    return modsViewedSet.size;
+}
+
 // ═══ BADGES / ACHIEVEMENTS ═══
 function getBadgeStats(){
     return{
-        modsViewed:getViewHistoryUniqueCount(),
+        modsViewed:getViewedModsCount(),
         collectionsCreated:totalCollectionsCreated,
         tracksListened:tracksListenedSet.size,
         allTracksListened:tracksListenedSet.size>=MUSIC_PLAYLIST.length
     };
 }
 
-function checkBadges(){
+// Synchronise le compteur avec les vraies données au chargement
+function syncCountersOnLoad(){
+    // Si l'utilisateur a des collections propriétaires mais totalCollectionsCreated=0, on corrige
+    const ownedCols=collections.filter(c=>!c.imported).length;
+    if(totalCollectionsCreated<ownedCols){
+        totalCollectionsCreated=ownedCols;
+    }
+}
+
+// Flag pour éviter les toasts massifs au chargement
+let badgesInitialized=false;
+
+function getBadgeStats(){
+    return{
+        modsViewed:getViewedModsCount(),
+        collectionsCreated:totalCollectionsCreated,
+        tracksListened:tracksListenedSet.size,
+        allTracksListened:tracksListenedSet.size>=MUSIC_PLAYLIST.length
+    };
+}
+
+function syncCountersOnLoad(){
+    const ownedCols=collections.filter(c=>!c.imported).length;
+    if(totalCollectionsCreated<ownedCols){
+        totalCollectionsCreated=ownedCols;
+    }
+}
+
+function checkBadges(silent){
     if(!currentUser)return;
     const stats=getBadgeStats();
     let newBadges=[];
@@ -1098,9 +1143,18 @@ function checkBadges(){
     });
     if(newBadges.length>0){
         fbSaveCurrentUserData();
-        // Afficher le toast pour le dernier badge débloqué
-        showBadgeToast(newBadges[newBadges.length-1]);
+        if(!silent&&badgesInitialized){
+            newBadges.forEach((badge,i)=>{
+                setTimeout(()=>showBadgeToast(badge),i*350);
+            });
+        }
     }
+}
+
+function initBadgesSystem(){
+    syncCountersOnLoad();
+    checkBadges(true);
+    badgesInitialized=true;
 }
 
 function showBadgeToast(badge){
@@ -1424,6 +1478,7 @@ function getModFavoritesCount(mod){
 
 function openModal(id){
     currentModalModId=id;
+    trackModView(id); // Track pour les badges Explorateur
     const m=MODS_DATABASE.find(x=>x.id===id);if(!m)return;
     const img=document.getElementById('modalImage');img.src=getModImageUrl(m);img.alt=m.name;img.onerror=function(){this.onerror=null;this.src=getImageFallback()};document.getElementById('modalTitle').textContent=m.name;document.getElementById('modalCategories').innerHTML=m.categories.map(c=>`<span class="mod-badge ${c}">${getCategoryLabel(c)}</span>`).join('');document.getElementById('modalDescription').textContent=m.fullDescription;const iv=m.versions[0];document.getElementById('modalSize').textContent=formatSize(getSizeForVersion(m,iv));
     const favCount=getModFavoritesCount(m);
@@ -1494,10 +1549,10 @@ async function submitAuth(mode){
             const pc=document.getElementById('authPasswordConfirm').value;if(pwd!==pc){showPromptError('Mots de passe différents');if(btn){btn.disabled=false;btn.textContent='S\'inscrire'}return}
             const ex=await getDoc(doc(window.firebaseDb,'pseudos',pseudo.toLowerCase()));if(ex.exists()){showPromptError('Pseudo déjà pris');if(btn){btn.disabled=false;btn.textContent='S\'inscrire'}return}
             const cred=await createUserWithEmailAndPassword(window.firebaseAuth,email,pwd);const uid=cred.user.uid;
-            await setDoc(doc(window.firebaseDb,'users',uid),{pseudo,email,favorites:[],collections:[],notifications:[],friends:[],pendingFriends:[],avatar:null,viewHistory:[],badgesUnlocked:[],tracksListenedSet:[],totalCollectionsCreated:0});
+            await setDoc(doc(window.firebaseDb,'users',uid),{pseudo,email,favorites:[],collections:[],notifications:[],friends:[],pendingFriends:[],avatar:null,viewHistory:[],modsViewedSet:[],badgesUnlocked:[],tracksListenedSet:[],totalCollectionsCreated:0});
             await setDoc(doc(window.firebaseDb,'pseudos',pseudo.toLowerCase()),{uid,pseudo,email});
             await setDoc(doc(window.firebaseDb,'emails',email.toLowerCase().replace(/[.#$/\[\]]/g,'_')),{uid,pseudo,email});
-            currentUser={uid,pseudo,email,avatar:null};localStorage.setItem(LS_CURRENT_USER,pseudo);favorites=[];collections=[];notifications=[];friends=[];pendingFriends=[];viewHistory=[];badgesUnlocked=[];tracksListenedSet=new Set();totalCollectionsCreated=0;
+            currentUser={uid,pseudo,email,avatar:null};localStorage.setItem(LS_CURRENT_USER,pseudo);favorites=[];collections=[];notifications=[];friends=[];pendingFriends=[];viewHistory=[];modsViewedSet=new Set();badgesUnlocked=[];tracksListenedSet=new Set();totalCollectionsCreated=0;
             showToast('info',`🎉 Bienvenue ${pseudo} !`);
     }else{
         const pd=await getDoc(doc(window.firebaseDb,'pseudos',pseudo.toLowerCase()));
@@ -1514,25 +1569,26 @@ async function submitAuth(mode){
         friends=d.friends||[];
         pendingFriends=d.pendingFriends||[];
         viewHistory=d.viewHistory||[];
+        modsViewedSet=new Set(Array.isArray(d.modsViewedSet)?d.modsViewedSet:[]);
         badgesUnlocked=d.badgesUnlocked||[];
         tracksListenedSet=new Set(Array.isArray(d.tracksListenedSet)?d.tracksListenedSet:[]);
         totalCollectionsCreated=d.totalCollectionsCreated||0;
 
         // Migration : sauvegarder les nouveaux champs si absents dans l'ancien compte
-    if(d.viewHistory===undefined||d.badgesUnlocked===undefined||d.tracksListenedSet===undefined||d.totalCollectionsCreated===undefined){
+    if(d.viewHistory===undefined||d.modsViewedSet===undefined||d.badgesUnlocked===undefined||d.tracksListenedSet===undefined||d.totalCollectionsCreated===undefined){
         try{
             await window.firebaseFn.updateDoc(doc(window.firebaseDb,'users',uid),{
                 viewHistory:viewHistory,
+                modsViewedSet:[...modsViewedSet],
                 badgesUnlocked:badgesUnlocked,
                 tracksListenedSet:[...tracksListenedSet],
                 totalCollectionsCreated:totalCollectionsCreated
             });
         }catch(err){console.error('Migration error:',err)}
     }
-
     showToast('info',`👋 Rebonjour ${d.pseudo} !`);
 }
-        updateUserBadge();updateTabCounts();updateBellBadge();updateFriendsBadge();if(currentTab==='favorites')renderFavorites();if(currentTab==='collections')renderCollections();renderMods();renderRecommendations();closePromptModal();setupRealtimeSync();
+        updateUserBadge();updateTabCounts();updateBellBadge();updateFriendsBadge();if(currentTab==='favorites')renderFavorites();if(currentTab==='collections')renderCollections();renderMods();renderRecommendations();closePromptModal();setupRealtimeSync();initBadgesSystem();
     }catch(e){
         console.error('Auth full error:',e);
         let msg='Erreur';
@@ -1556,7 +1612,21 @@ async function doForgotPassword(){
     try{await sendPasswordResetEmail(window.firebaseAuth,email);document.getElementById('promptError').classList.remove('visible');document.getElementById('promptExtraContent').innerHTML=`<div class="form-success">✅ Email envoyé à <strong>${escapeHtml(email)}</strong>. Vérifiez vos spams.</div>`}catch(e){if(e.code==='auth/user-not-found')showPromptError('Aucun compte');else showPromptError(e.message)}
 }
 
-async function logout(){if(!currentUser)return;try{await window.firebaseFn.signOut(window.firebaseAuth)}catch(e){}if(realtimeUnsubscribe){realtimeUnsubscribe();realtimeUnsubscribe=null}currentUser=null;localStorage.removeItem(LS_CURRENT_USER);favorites=[];collections=[];notifications=[];friends=[];pendingFriends=[];viewHistory=[];badgesUnlocked=[];tracksListenedSet=new Set();totalCollectionsCreated=0;updateUserBadge();updateTabCounts();updateBellBadge();updateFriendsBadge();if(currentTab==='favorites')renderFavorites();if(currentTab==='collections')renderCollections();renderMods();renderRecommendations();closeUserDropdown();showToast('info','👋 Déconnecté')}
+async function logout(){
+    if(!currentUser)return;
+    try{await window.firebaseFn.signOut(window.firebaseAuth)}catch(e){}
+    if(realtimeUnsubscribe){realtimeUnsubscribe();realtimeUnsubscribe=null}
+    currentUser=null;
+    localStorage.removeItem(LS_CURRENT_USER);
+    favorites=[]; collections=[]; notifications=[]; friends=[]; pendingFriends=[];
+    viewHistory=[]; modsViewedSet=new Set(); badgesUnlocked=[]; tracksListenedSet=new Set();
+    totalCollectionsCreated=0; badgesInitialized=false;
+    updateUserBadge(); updateTabCounts(); updateBellBadge(); updateFriendsBadge();
+    if(currentTab==='favorites')renderFavorites();
+    if(currentTab==='collections')renderCollections();
+    renderMods(); renderRecommendations(); closeUserDropdown();
+    showToast('info','👋 Déconnecté');
+}
 
 async function deleteAccount(){
     if(!currentUser)return;
@@ -1564,25 +1634,84 @@ async function deleteAccount(){
 }
 async function doDeleteAccount(){
     if(!currentUser)return;const{deleteDoc,doc,deleteUser}=window.firebaseFn;
-    try{await deleteUser(window.firebaseAuth.currentUser);await deleteDoc(doc(window.firebaseDb,'users',currentUser.uid));await deleteDoc(doc(window.firebaseDb,'pseudos',currentUser.pseudo.toLowerCase()));closePromptModal();if(realtimeUnsubscribe){realtimeUnsubscribe();realtimeUnsubscribe=null}currentUser=null;localStorage.removeItem(LS_CURRENT_USER);favorites=[];collections=[];notifications=[];friends=[];pendingFriends=[];viewHistory=[];badgesUnlocked=[];tracksListenedSet=new Set();totalCollectionsCreated=0;updateUserBadge();updateTabCounts();updateBellBadge();updateFriendsBadge();if(currentTab==='favorites')renderFavorites();if(currentTab==='collections')renderCollections();renderMods();renderRecommendations();closeUserDropdown();showToast('error','🗑️ Compte supprimé')}catch(e){closePromptModal();showToast('error','Erreur. Reconnectez-vous d\'abord puis réessayez.')}
+    try{await deleteUser(window.firebaseAuth.currentUser);await deleteDoc(doc(window.firebaseDb,'users',currentUser.uid));await deleteDoc(doc(window.firebaseDb,'pseudos',currentUser.pseudo.toLowerCase()));closePromptModal();if(realtimeUnsubscribe){realtimeUnsubscribe();realtimeUnsubscribe=null}currentUser=null;localStorage.removeItem(LS_CURRENT_USER);favorites=[];collections=[];notifications=[];friends=[];pendingFriends=[];viewHistory=[];modsViewedSet=new Set();badgesUnlocked=[];tracksListenedSet=new Set();totalCollectionsCreated=0;updateUserBadge();updateTabCounts();updateBellBadge();updateFriendsBadge();if(currentTab==='favorites')renderFavorites();if(currentTab==='collections')renderCollections();renderMods();renderRecommendations();closeUserDropdown();showToast('error','🗑️ Compte supprimé')}catch(e){closePromptModal();showToast('error','Erreur. Reconnectez-vous d\'abord puis réessayez.')}
 }
 
 // ═══ USER DROPDOWN (avec historique + badges) ═══
-function toggleUserDropdown(f){if(f===false){userDropdown.classList.remove('open');return}if(!currentUser){openAuthModal('login');return}userDropdown.classList.toggle('open');if(userDropdown.classList.contains('open'))renderUserDropdown()}
+function toggleUserDropdown(f){
+    if(f===false){userDropdown.classList.remove('open');return}
+    if(!currentUser){openAuthModal('login');return}
+    closeBellDropdown();
+    closeFriendsDropdown();
+    const md=document.getElementById('musicDropdown');
+    if(md)md.classList.remove('open');
+    userDropdown.classList.toggle('open');
+    if(userDropdown.classList.contains('open'))renderUserDropdown();
+}
+
+function toggleBellDropdown(){
+    if(!currentUser){openAuthModal('login');return}
+    closeFriendsDropdown();
+    closeUserDropdown();
+    const md=document.getElementById('musicDropdown');
+    if(md)md.classList.remove('open');
+    bellDropdown.classList.toggle('open');
+    if(bellDropdown.classList.contains('open')){
+        const tabsEl=document.getElementById('notifTabs');
+        if(isModAdmin()){
+            if(tabsEl)tabsEl.style.display='flex';
+            notifAdminTab='general';
+            document.querySelectorAll('.notif-tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.notiftab==='general'));
+            renderBellList();
+        }else{
+            if(tabsEl)tabsEl.style.display='none';
+            renderBellList();
+            notifications.forEach(n=>n.read=true);
+            saveNotifications();
+        }
+        updateBellBadge();
+    }
+}
+
+function toggleFriendsDropdown(){
+    if(!currentUser){openAuthModal('login');return}
+    closeBellDropdown();
+    closeUserDropdown();
+    const md=document.getElementById('musicDropdown');
+    if(md)md.classList.remove('open');
+    const dd=document.getElementById('friendsDropdown');
+    dd.classList.toggle('open');
+    if(dd.classList.contains('open')){
+        document.getElementById('friendSearchInput').value='';
+        renderFriendsDropdownList();
+    }
+}
+
+function toggleMusicDropdown(){
+    closeBellDropdown();
+    closeFriendsDropdown();
+    closeUserDropdown();
+    const dd=document.getElementById('musicDropdown');
+    dd.classList.toggle('open');
+    if(dd.classList.contains('open'))loadMusicList();
+}
+
 function closeUserDropdown(){userDropdown.classList.remove('open')}
 userBadge.addEventListener('click',e=>{e.stopPropagation();toggleUserDropdown()});
 
 function renderUserDropdown(){
     if(!currentUser)return;
     const unlockedCount=badgesUnlocked.length;
+    const historyCount=getViewHistoryUniqueCount();
+    const viewedCount=getViewedModsCount();
     let h=`<div class="user-dropdown-header">Connecté</div>`;
     h+=`<div style="padding:0 14px 8px;font-size:14px;font-weight:800">${escapeHtml(currentUser.pseudo)}</div>`;
-    h+=`<div style="padding:0 14px 10px;font-size:12px;color:var(--text-muted)">${getViewHistoryUniqueCount()} mods téléchargés</div>`;
+    h+=`<div style="padding:0 14px 10px;font-size:12px;color:var(--text-muted)">${viewedCount} fiche${viewedCount>1?'s':''} consultée${viewedCount>1?'s':''}</div>`;
     h+=`<div class="user-dropdown-divider"></div>`;
     h+=`<button class="user-dropdown-item" onclick="closeUserDropdown();switchTab('favorites')">⭐ Favoris (${favorites.length})</button>`;
     h+=`<button class="user-dropdown-item" onclick="closeUserDropdown();switchTab('collections')">📁 Collections (${collections.length})</button>`;
-    h+=`<button class="user-dropdown-item" onclick="openHistoryModal()">🕐 Téléchargements (${getViewHistoryUniqueCount()})</button>`;
-    h+=`<button class="user-dropdown-item" onclick="openHistoryModal()">🕐 Historique (${getViewHistoryUniqueCount()})</button>`;
+    h+=`<button class="user-dropdown-item" onclick="openBadgesModal()">🏆 Succès (${unlockedCount}/${BADGE_DEFS.length})</button>`;
+    h+=`<button class="user-dropdown-item" onclick="openHistoryModal()">🕐 Historique (${historyCount})</button>`;
     h+=`<button class="user-dropdown-item" onclick="openAvatarUpload()">🖼️ Changer l'avatar</button>`;
     h+=`<div class="user-dropdown-divider"></div>`;
     h+=`<button class="user-dropdown-item" onclick="logout()">🚪 Déconnexion</button>`;
@@ -1594,14 +1723,35 @@ function openBadgesModal(){
     closeUserDropdown();
     const unlockedCount=badgesUnlocked.length;
     const progressPct=Math.round((unlockedCount/BADGE_DEFS.length)*100);
-    let content=`<div style="margin-bottom:20px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:13px;font-weight:700;color:var(--text-secondary)"><span>Progression</span><span>${unlockedCount}/${BADGE_DEFS.length}</span></div><div style="height:8px;background:var(--bg-secondary);border-radius:4px;overflow:hidden"><div style="width:${progressPct}%;height:100%;background:linear-gradient(90deg,var(--mc-green),var(--mc-gold));transition:width .8s ease"></div></div></div>`;
-    content+=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;max-height:400px;overflow-y:auto;overflow-x:hidden;padding-right:6px;box-sizing:border-box;width:100%">`;
+
+    let content=`<div style="margin-bottom:20px;width:100%;box-sizing:border-box">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:13px;font-weight:700;color:var(--text-secondary)">
+            <span>Progression</span><span>${unlockedCount}/${BADGE_DEFS.length}</span>
+        </div>
+        <div style="height:8px;background:var(--bg-secondary);border-radius:4px;overflow:hidden">
+            <div style="width:${progressPct}%;height:100%;background:linear-gradient(90deg,var(--mc-green),var(--mc-gold));transition:width .8s ease"></div>
+        </div>
+    </div>`;
+
+    content+=`<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-height:400px;overflow-y:auto;overflow-x:hidden;padding-right:6px;box-sizing:border-box;width:100%">`;
     content+=BADGE_DEFS.map(bd=>{
         const unlocked=badgesUnlocked.includes(bd.id);
-        return`<div style="padding:12px;border-radius:12px;background:var(--bg-secondary);border:1px solid ${unlocked?'var(--mc-gold)':'var(--border-color)'};display:flex;align-items:center;gap:10px;min-width:0;${!unlocked?'opacity:0.4;filter:grayscale(1)':''}"><div style="font-size:24px;flex-shrink:0">${bd.icon}</div><div style="flex:1;min-width:0;overflow:hidden"><div style="font-size:12px;font-weight:800;color:${unlocked?'var(--mc-gold)':'var(--text-primary)'};overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${bd.name}</div><div style="font-size:10.5px;color:var(--text-muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${bd.desc}</div></div></div>`;
+        return`<div style="padding:12px;border-radius:12px;background:var(--bg-secondary);border:1px solid ${unlocked?'var(--mc-gold)':'var(--border-color)'};display:flex;align-items:center;gap:10px;min-width:0;box-sizing:border-box;overflow:hidden;${!unlocked?'opacity:0.4;filter:grayscale(1)':''}">
+            <div style="font-size:24px;flex-shrink:0;line-height:1">${bd.icon}</div>
+            <div style="flex:1;min-width:0;overflow:hidden">
+                <div style="font-size:12px;font-weight:800;color:${unlocked?'var(--mc-gold)':'var(--text-primary)'};overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${bd.name}</div>
+                <div style="font-size:10.5px;color:var(--text-muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${bd.desc}</div>
+            </div>
+        </div>`;
     }).join('');
     content+=`</div>`;
-    openPromptModal({title:`🏆 Vos succès`,hint:'Consultez vos accomplissements sur MineMods.',extraContent:content,actionsHtml:`<button class="btn-primary" onclick="closePromptModal()">Fermer</button>`});
+
+    openPromptModal({
+        title:`🏆 Vos succès`,
+        hint:'Consultez vos accomplissements sur MineMods.',
+        extraContent:content,
+        actionsHtml:`<button class="btn-primary" onclick="closePromptModal()">Fermer</button>`
+    });
 }
 
 function openHistoryModal(){
@@ -1619,7 +1769,7 @@ function openHistoryModal(){
         content+=`</div>`;
     }
     const actions=viewHistory.length>0?`<button class="btn-secondary" onclick="clearHistory()">🗑️ Effacer tout</button><button class="btn-primary" onclick="closePromptModal()">Fermer</button>`:`<button class="btn-primary" onclick="closePromptModal()">Fermer</button>`;
-    openPromptModal({title:'🕐 Historique de téléchargements',hint:`${viewHistory.length} mod${viewHistory.length>1?'s':''} récemment téléchargé${viewHistory.length>1?'s':''} depuis CurseForge.`,extraContent:content,actionsHtml:actions});
+    openPromptModal({title:'🕐 Historique de téléchargements',hint:`${viewHistory.length} mod${viewHistory.length>1?'s':''} téléchargé${viewHistory.length>1?'s':''} depuis CurseForge.`,extraContent:content,actionsHtml:actions});
 }
 
 function clearHistory(){
@@ -1644,7 +1794,13 @@ async function removeAvatar(){currentUser.avatar=null;try{await window.firebaseF
 // ═══ NOTIFICATIONS ═══
 async function createNotification(target,notif){const{doc,updateDoc,arrayUnion}=window.firebaseFn;const u=await fbGetUser(target);if(!u)return false;try{await updateDoc(doc(window.firebaseDb,'users',u.uid),{notifications:arrayUnion({id:Date.now()+Math.floor(Math.random()*10000),read:false,timestamp:Date.now(),...notif})});return true}catch(e){return false}}
 function updateBellBadge(){if(!currentUser){bellBadge.classList.remove('visible');bellBtn.classList.remove('has-notif');return}const u=notifications.filter(n=>!n.read).length;if(u>0){bellBadge.textContent=u>9?'9+':String(u);bellBadge.classList.toggle('wide',u>9);bellBadge.classList.add('visible');bellBtn.classList.add('has-notif')}else{bellBadge.classList.remove('visible');bellBtn.classList.remove('has-notif')}}
-function toggleBellDropdown(){if(!currentUser){openAuthModal('login');return}closeFriendsDropdown();const md=document.getElementById('musicDropdown');if(md)md.classList.remove('open');bellDropdown.classList.toggle('open');if(bellDropdown.classList.contains('open')){const tabsEl=document.getElementById('notifTabs');if(isModAdmin()){if(tabsEl)tabsEl.style.display='flex';notifAdminTab='general';document.querySelectorAll('.notif-tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.notiftab==='general'));renderBellList()}else{if(tabsEl)tabsEl.style.display='none';renderBellList();notifications.forEach(n=>n.read=true);saveNotifications()}updateBellBadge()}}
+function toggleBellDropdown(){
+    if(!currentUser){openAuthModal('login');return}
+    closeFriendsDropdown();
+    closeUserDropdown();
+    const md=document.getElementById('musicDropdown');
+    if(md)md.classList.remove('open');
+    bellDropdown.classList.toggle('open');if(bellDropdown.classList.contains('open')){const tabsEl=document.getElementById('notifTabs');if(isModAdmin()){if(tabsEl)tabsEl.style.display='flex';notifAdminTab='general';document.querySelectorAll('.notif-tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.notiftab==='general'));renderBellList()}else{if(tabsEl)tabsEl.style.display='none';renderBellList();notifications.forEach(n=>n.read=true);saveNotifications()}updateBellBadge()}}
 function closeBellDropdown(){bellDropdown.classList.remove('open')}
 bellBtn.addEventListener('click',e=>{e.stopPropagation();toggleBellDropdown()});
 let notifAdminTab='general';
@@ -1672,7 +1828,13 @@ async function acceptImport(nid){const n=notifications.find(x=>x.id===nid);if(!n
 async function rejectImport(nid){const n=notifications.find(x=>x.id===nid);if(!n)return;notifications=notifications.filter(x=>x.id!==nid);await fbSaveCurrentUserData();await createNotification(n.from,{type:'rejected',from:currentUser.pseudo,data:{collectionName:n.data.collectionName}});updateBellBadge();renderBellList()}
 
 // ═══ FRIENDS ═══
-function toggleFriendsDropdown(){if(!currentUser){openAuthModal('login');return}closeBellDropdown();const md=document.getElementById('musicDropdown');if(md)md.classList.remove('open');const dd=document.getElementById('friendsDropdown');dd.classList.toggle('open');if(dd.classList.contains('open')){document.getElementById('friendSearchInput').value='';renderFriendsDropdownList()}}
+function toggleFriendsDropdown(){
+    if(!currentUser){openAuthModal('login');return}
+    closeBellDropdown();
+    closeUserDropdown();
+    const md=document.getElementById('musicDropdown');
+    if(md)md.classList.remove('open');
+    const dd=document.getElementById('friendsDropdown');dd.classList.toggle('open');if(dd.classList.contains('open')){document.getElementById('friendSearchInput').value='';renderFriendsDropdownList()}}
 function closeFriendsDropdown(){document.getElementById('friendsDropdown').classList.remove('open')}
 document.getElementById('friendsBtn').addEventListener('click',e=>{e.stopPropagation();toggleFriendsDropdown()});
 function renderFriendsDropdownList(){const list=document.getElementById('friendsDropdownList');const q=(document.getElementById('friendSearchInput').value||'').trim().toLowerCase();if(!currentUser){list.innerHTML=`<div class="dropdown-empty">🔐 Connectez-vous</div>`;return}let h='';const received=pendingFriends.filter(p=>p.direction==='received');if(received.length>0&&!q){h+=`<div class="friend-search-section-title">📬 Demandes (${received.length})</div>`;h+=received.map(p=>`<div class="friend-item" style="border-left:3px solid var(--mc-gold)"><div class="avatar-circle">${escapeHtml(p.pseudo.charAt(0).toUpperCase())}</div><div style="flex:1"><div class="name">${escapeHtml(p.pseudo)}</div><div class="subtitle">Veut être votre ami</div></div><div style="display:flex;gap:4px"><button class="friend-card-btn accept-btn" onclick="acceptFriend('${escapeHtml(p.pseudo).replace(/'/g,"\\'")}')">✓</button><button class="friend-card-btn reject-btn" onclick="rejectFriend('${escapeHtml(p.pseudo).replace(/'/g,"\\'")}')">✕</button></div></div>`).join('')}const ff=q?friends.filter(f=>f.pseudo.toLowerCase().includes(q)):friends;if(ff.length>0){h+=`<div class="friend-search-section-title">Amis (${ff.length})</div>`;h+=ff.map(f=>`<div class="friend-item"><div class="avatar-circle">${escapeHtml(f.pseudo.charAt(0).toUpperCase())}</div><div class="name">${q?highlightMatch(f.pseudo,q):escapeHtml(f.pseudo)}</div><button class="friend-card-btn reject-btn" onclick="removeFriend('${escapeHtml(f.pseudo).replace(/'/g,"\\'")}')" title="Retirer" style="margin-left:auto">🗑️</button></div>`).join('')}if(!q&&friends.length===0&&received.length===0)h=`<div class="dropdown-empty"><div class="dropdown-empty-icon">👥</div>Aucun ami. Cliquez ➕.</div>`;if(q&&ff.length===0)h+=`<div style="padding:12px;text-align:center;color:var(--text-muted);font-size:13px">Aucun ami pour « ${escapeHtml(q)} »</div>`;list.innerHTML=h}
@@ -1687,7 +1849,7 @@ async function removeFriend(p){openPromptModal({title:'👥 Retirer un ami',hint
 async function doRemoveFriend(p){closePromptModal();const t=await fbGetUser(p);friends=friends.filter(f=>f.pseudo.toLowerCase()!==p.toLowerCase());await fbSaveCurrentUserData();if(t){try{const td=await fbGetUser(p);if(td)await window.firebaseFn.updateDoc(window.firebaseFn.doc(window.firebaseDb,'users',t.uid),{friends:(td.friends||[]).filter(f=>f.pseudo.toLowerCase()!==currentUser.pseudo.toLowerCase())})}catch(e){}}showToast('info',`${p} retiré`);renderFriendsDropdownList();updateFriendsBadge();updateTabCounts()}
 
 // ═══ REALTIME SYNC ═══
-function setupRealtimeSync(){if(!currentUser||!currentUser.uid)return;if(realtimeUnsubscribe){realtimeUnsubscribe();realtimeUnsubscribe=null}const{doc,onSnapshot}=window.firebaseFn;realtimeUnsubscribe=onSnapshot(doc(window.firebaseDb,'users',currentUser.uid),snap=>{if(!snap.exists())return;const d=snap.data();const oldNIds=new Set(notifications.map(n=>n.id));const newN=(d.notifications||[]).filter(n=>!oldNIds.has(n.id));favorites=d.favorites||[];collections=d.collections||[];notifications=d.notifications||[];friends=d.friends||[];pendingFriends=d.pendingFriends||[];viewHistory=d.viewHistory||[];badgesUnlocked=d.badgesUnlocked||[];tracksListenedSet=new Set(Array.isArray(d.tracksListenedSet)?d.tracksListenedSet:[]);totalCollectionsCreated=d.totalCollectionsCreated||0;currentUser.avatar=d.avatar||null;updateTabCounts();updateBellBadge();updateFriendsBadge();updateUserBadge();if(bellDropdown.classList.contains('open'))renderBellList();if(document.getElementById('friendsDropdown').classList.contains('open'))renderFriendsDropdownList();if(currentTab==='favorites')renderFavorites();if(currentTab==='collections')renderCollections();renderRecommendations();const nr=newN.filter(n=>!n.read);if(nr.length>0)showToast('info',`🔔 ${nr.length} nouvelle${nr.length>1?'s':''} notification${nr.length>1?'s':''}`)})}
+function setupRealtimeSync(){if(!currentUser||!currentUser.uid)return;if(realtimeUnsubscribe){realtimeUnsubscribe();realtimeUnsubscribe=null}const{doc,onSnapshot}=window.firebaseFn;realtimeUnsubscribe=onSnapshot(doc(window.firebaseDb,'users',currentUser.uid),snap=>{if(!snap.exists())return;const d=snap.data();const oldNIds=new Set(notifications.map(n=>n.id));const newN=(d.notifications||[]).filter(n=>!oldNIds.has(n.id));favorites=d.favorites||[];collections=d.collections||[];notifications=d.notifications||[];friends=d.friends||[];pendingFriends=d.pendingFriends||[];viewHistory=d.viewHistory||[];modsViewedSet=new Set(Array.isArray(d.modsViewedSet)?d.modsViewedSet:[]);badgesUnlocked=d.badgesUnlocked||[];tracksListenedSet=new Set(Array.isArray(d.tracksListenedSet)?d.tracksListenedSet:[]);totalCollectionsCreated=d.totalCollectionsCreated||0;currentUser.avatar=d.avatar||null;updateTabCounts();updateBellBadge();updateFriendsBadge();updateUserBadge();if(bellDropdown.classList.contains('open'))renderBellList();if(document.getElementById('friendsDropdown').classList.contains('open'))renderFriendsDropdownList();if(currentTab==='favorites')renderFavorites();if(currentTab==='collections')renderCollections();renderRecommendations();const nr=newN.filter(n=>!n.read);if(nr.length>0)showToast('info',`🔔 ${nr.length} nouvelle${nr.length>1?'s':''} notification${nr.length>1?'s':''}`)})}
 
 // ═══ MUSIC PLAYER ═══
 const MUSIC_FOLDER='./musics/';
@@ -1715,7 +1877,9 @@ let musicHistory=[];
 let musicSeeking=false;
 
 function toggleMusicDropdown(){
-    closeBellDropdown();closeFriendsDropdown();
+    closeBellDropdown();
+    closeFriendsDropdown();
+    closeUserDropdown();
     const dd=document.getElementById('musicDropdown');
     dd.classList.toggle('open');
     if(dd.classList.contains('open'))loadMusicList();
@@ -1980,22 +2144,23 @@ function initFirebaseAuth(){
                     friends=d.friends||[];
                     pendingFriends=d.pendingFriends||[];
                     viewHistory=d.viewHistory||[];
+                    modsViewedSet=new Set(Array.isArray(d.modsViewedSet)?d.modsViewedSet:[]);
                     badgesUnlocked=d.badgesUnlocked||[];
                     tracksListenedSet=new Set(Array.isArray(d.tracksListenedSet)?d.tracksListenedSet:[]);
                     totalCollectionsCreated=d.totalCollectionsCreated||0;
 
                     // Migration silencieuse pour anciens comptes
-                    if(d.viewHistory===undefined||d.badgesUnlocked===undefined||d.tracksListenedSet===undefined||d.totalCollectionsCreated===undefined){
+                    if(d.viewHistory===undefined||d.modsViewedSet===undefined||d.badgesUnlocked===undefined||d.tracksListenedSet===undefined||d.totalCollectionsCreated===undefined){
                         try{
                             await updateDoc(doc(window.firebaseDb,'users',user.uid),{
                                 viewHistory:viewHistory,
+                                modsViewedSet:[...modsViewedSet],
                                 badgesUnlocked:badgesUnlocked,
                                 tracksListenedSet:[...tracksListenedSet],
                                 totalCollectionsCreated:totalCollectionsCreated
                             });
                         }catch(err){console.error('Migration:',err)}
                     }
-
                     updateUserBadge();
                     updateTabCounts();
                     updateBellBadge();
@@ -2005,6 +2170,7 @@ function initFirebaseAuth(){
                     renderRecommendations();
                     setupRealtimeSync();
                     renderSuggestions();
+                    initBadgesSystem();
                 }
             }catch(e){console.error('Auth error:',e)}
         }
