@@ -1592,38 +1592,17 @@ function renderUserDropdown(){
 
 function openBadgesModal(){
     closeUserDropdown();
-    const stats=getBadgeStats();
     const unlockedCount=badgesUnlocked.length;
     const progressPct=Math.round((unlockedCount/BADGE_DEFS.length)*100);
-
-    let content=`<div style="margin-bottom:20px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:13px;font-weight:700;color:var(--text-secondary)">
-            <span>Progression</span><span>${unlockedCount}/${BADGE_DEFS.length}</span>
-        </div>
-        <div style="height:8px;background:var(--bg-secondary);border-radius:4px;overflow:hidden">
-            <div style="width:${progressPct}%;height:100%;background:linear-gradient(90deg,var(--mc-green),var(--mc-gold));transition:width .8s ease"></div>
-        </div>
-    </div>`;
-
+    let content=`<div style="margin-bottom:20px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:13px;font-weight:700;color:var(--text-secondary)"><span>Progression</span><span>${unlockedCount}/${BADGE_DEFS.length}</span></div><div style="height:8px;background:var(--bg-secondary);border-radius:4px;overflow:hidden"><div style="width:${progressPct}%;height:100%;background:linear-gradient(90deg,var(--mc-green),var(--mc-gold));transition:width .8s ease"></div></div></div>`;
     content+=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;max-height:400px;overflow-y:auto;overflow-x:hidden;padding-right:6px;box-sizing:border-box;width:100%">`;
     content+=BADGE_DEFS.map(bd=>{
         const unlocked=badgesUnlocked.includes(bd.id);
-        return`<div style="padding:12px;border-radius:12px;background:var(--bg-secondary);border:1px solid ${unlocked?'var(--mc-gold)':'var(--border-color)'};display:flex;align-items:center;gap:10px;min-width:0;${!unlocked?'opacity:0.4;filter:grayscale(1)':''}">
-            <div style="font-size:24px;flex-shrink:0">${bd.icon}</div>
-            <div style="flex:1;min-width:0;overflow:hidden">
-                <div style="font-size:12px;font-weight:800;color:${unlocked?'var(--mc-gold)':'var(--text-primary)'};overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${bd.name}</div>
-                <div style="font-size:10.5px;color:var(--text-muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${bd.desc}</div>
-            </div>
-        </div>`;
+        return`<div style="padding:12px;border-radius:12px;background:var(--bg-secondary);border:1px solid ${unlocked?'var(--mc-gold)':'var(--border-color)'};display:flex;align-items:center;gap:10px;min-width:0;${!unlocked?'opacity:0.4;filter:grayscale(1)':''}"><div style="font-size:24px;flex-shrink:0">${bd.icon}</div><div style="flex:1;min-width:0;overflow:hidden"><div style="font-size:12px;font-weight:800;color:${unlocked?'var(--mc-gold)':'var(--text-primary)'};overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${bd.name}</div><div style="font-size:10.5px;color:var(--text-muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${bd.desc}</div></div></div>`;
     }).join('');
     content+=`</div>`;
-
-    openPromptModal({
-        title:'🕐 Historique de téléchargements',
-        hint:`${viewHistory.length} mod${viewHistory.length>1?'s':''} récemment téléchargé${viewHistory.length>1?'s':''} depuis CurseForge.`,
-        extraContent:content,
-        actionsHtml:actions
-    });
+    openPromptModal({title:`🏆 Vos succès`,hint:'Consultez vos accomplissements sur MineMods.',extraContent:content,actionsHtml:`<button class="btn-primary" onclick="closePromptModal()">Fermer</button>`});
+}
 
 function openHistoryModal(){
     closeUserDropdown();
@@ -1644,18 +1623,14 @@ function openHistoryModal(){
 }
 
 function clearHistory(){
-    openPromptModal({
-        title:'🗑️ Vider l\'historique',
-        hint:'Êtes-vous sûr de vouloir supprimer tout votre historique de consultation ? Cette action est irréversible.',
-        actionsHtml:`<button class="btn-secondary" onclick="openHistoryModal()">← Retour</button><button class="btn-primary" style="background:linear-gradient(135deg,var(--mc-redstone),#cc1111)" onclick="doClearHistory()">Vider</button>`
-    });
+    openPromptModal({title:'🗑️ Effacer l\'historique',hint:'Êtes-vous sûr de vouloir supprimer tout votre historique de téléchargements ? Cette action est irréversible.',actionsHtml:`<button class="btn-secondary" onclick="openHistoryModal()">← Retour</button><button class="btn-primary" style="background:linear-gradient(135deg,var(--mc-redstone),#cc1111)" onclick="doClearHistory()">Effacer tout</button>`});
 }
 
 async function doClearHistory(){
     viewHistory=[];
     await fbSaveCurrentUserData();
     closePromptModal();
-    showToast('info','🗑️ Historique vidé');
+    showToast('info','🗑️ Historique effacé');
 }
 
 function updateUserBadge(){if(currentUser){userPseudoEl.textContent=currentUser.pseudo;if(currentUser.avatar){userAvatar.innerHTML=`<img src="${currentUser.avatar}" style="width:100%;height:100%;object-fit:cover">`}else{userAvatar.innerHTML='';userAvatar.textContent=currentUser.pseudo.charAt(0).toUpperCase()}userBadge.classList.add('logged-in')}else{userPseudoEl.textContent='Se connecter';userAvatar.innerHTML='';userAvatar.textContent='?';userBadge.classList.remove('logged-in')}}
