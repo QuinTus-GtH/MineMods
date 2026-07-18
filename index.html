@@ -1629,39 +1629,18 @@ function openHistoryModal(){
     closeUserDropdown();
     let content='';
     if(viewHistory.length===0){
-        content=`<div style="text-align:center;padding:40px 20px;color:var(--text-muted)">
-            <div style="font-size:48px;margin-bottom:12px;opacity:.4">🕐</div>
-            <div style="font-size:14px">Aucun téléchargement pour le moment.</div>
-            <div style="font-size:12px;margin-top:8px">Cliquez sur "CurseForge" d'un mod pour l'ajouter à votre historique !</div>
-        </div>`;
-    }
+        content=`<div style="text-align:center;padding:40px 20px;color:var(--text-muted)"><div style="font-size:48px;margin-bottom:12px;opacity:.4">🕐</div><div style="font-size:14px">Aucun téléchargement pour le moment.</div><div style="font-size:12px;margin-top:8px">Cliquez sur "CurseForge" d'un mod pour l'ajouter à votre historique !</div></div>`;
     }else{
         content=`<div style="max-height:450px;overflow-y:auto;padding-right:4px">`;
         content+=viewHistory.map(entry=>{
             const m=MODS_DATABASE.find(x=>x.id===entry.modId);
             if(!m)return'';
-            return`<div style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;background:var(--bg-secondary);border:1px solid var(--border-color);margin-bottom:6px;cursor:pointer;transition:var(--transition)" onclick="closePromptModal();openModal(${m.id})" onmouseover="this.style.borderColor='var(--mc-green)'" onmouseout="this.style.borderColor='var(--border-color)'">
-                <img src="${getModImageUrl(m)}" alt="" style="width:40px;height:40px;border-radius:8px;object-fit:cover;flex-shrink:0;background:var(--bg-card)" onerror="this.onerror=null;this.src='${getImageFallback()}'">
-                <div style="flex:1;min-width:0">
-                    <div style="font-size:14px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHtml(m.name)}</div>
-                    <div style="font-size:11px;color:var(--text-muted);margin-top:2px">${m.categories.slice(0,2).map(c=>getCategoryLabel(c)).join(' · ')}</div>
-                </div>
-                <div style="font-size:11px;color:var(--text-muted);flex-shrink:0">${formatRelativeTime(entry.timestamp)}</div>
-            </div>`;
+            return`<div style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;background:var(--bg-secondary);border:1px solid var(--border-color);margin-bottom:6px;cursor:pointer;transition:var(--transition)" onclick="closePromptModal();openModal(${m.id})" onmouseover="this.style.borderColor='var(--mc-green)'" onmouseout="this.style.borderColor='var(--border-color)'"><img src="${getModImageUrl(m)}" alt="" style="width:40px;height:40px;border-radius:8px;object-fit:cover;flex-shrink:0;background:var(--bg-card)" onerror="this.onerror=null;this.src='${getImageFallback()}'"><div style="flex:1;min-width:0"><div style="font-size:14px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHtml(m.name)}</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px">${m.categories.slice(0,2).map(c=>getCategoryLabel(c)).join(' · ')}</div></div><div style="font-size:11px;color:var(--text-muted);flex-shrink:0">${formatRelativeTime(entry.timestamp)}</div></div>`;
         }).join('');
         content+=`</div>`;
     }
-
-    const actions=viewHistory.length>0
-        ?`<button class="btn-secondary" onclick="clearHistory()">🗑️ Effacer tout</button><button class="btn-primary" onclick="closePromptModal()">Fermer</button>`
-        :`<button class="btn-primary" onclick="closePromptModal()">Fermer</button>`;
-
-    openPromptModal({
-        title:'🕐 Historique de consultation',
-        hint:`${viewHistory.length} mod${viewHistory.length>1?'s':''} récemment consulté${viewHistory.length>1?'s':''}.`,
-        extraContent:content,
-        actionsHtml:actions
-    });
+    const actions=viewHistory.length>0?`<button class="btn-secondary" onclick="clearHistory()">🗑️ Effacer tout</button><button class="btn-primary" onclick="closePromptModal()">Fermer</button>`:`<button class="btn-primary" onclick="closePromptModal()">Fermer</button>`;
+    openPromptModal({title:'🕐 Historique de téléchargements',hint:`${viewHistory.length} mod${viewHistory.length>1?'s':''} récemment téléchargé${viewHistory.length>1?'s':''} depuis CurseForge.`,extraContent:content,actionsHtml:actions});
 }
 
 function clearHistory(){
