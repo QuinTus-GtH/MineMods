@@ -1,0 +1,4718 @@
+[
+  {
+    "id": 64,
+    "name": "Apotheosis",
+    "categories": [
+      "aventure",
+      "utilitaire"
+    ],
+    "description": "Refonte du système d'enchantement et de loot avec affixes et gemmes.",
+    "fullDescription": "Apotheosis révolutionne les enchantements, potions, spawners et loot vanilla de Minecraft. Ajoute des affixes légendaires sur les équipements, des gemmes à sertir dans des emplacements spéciaux, et un système de rarités RPG complet. Les spawners deviennent modifiables, les potions améliorables au-delà de leurs limites vanilla. La progression endgame est considérablement enrichie avec des loots excitants à chaque exploration.",
+    "image": "apotheosis.png",
+    "versions": [
+      "26.1.2",
+      "1.21.1",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.18.1",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.16.2",
+      "1.16.1",
+      "1.15.1",
+      "1.14.4",
+      "1.12.2"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 6.8,
+    "sizePerVersion": {
+      "26.1.2": { "NeoForge": 6.8 },
+      "1.21.1": { "NeoForge": 6.8 },
+      "1.20.1": { "Forge": 2.7 },
+      "1.19.2": { "Forge": 2.2 },
+      "1.18.2": { "Forge": 1.5 },
+      "1.18.1": { "Forge": 0.9 },
+      "1.16.5": { "Forge": 1.1 },
+      "1.16.4": { "Forge": 0.9 },
+      "1.16.3": { "Forge": 0.7 },
+      "1.16.2": { "Forge": 0.7 },
+      "1.16.1": { "Forge": 0.7 },
+      "1.15.2": { "Forge": 0.7 },
+      "1.15.1": { "Forge": 0.5 },
+      "1.14.4": { "Forge": 0.5 },
+      "1.12.2": { "Forge": 0.5 }
+    },
+    "dependencies": [
+      "Placebo"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/apotheosis",
+    "slug": "apotheosis",
+    "modrinthUrl": "https://modrinth.com/mod/apotheosis",
+    "tags": [
+      "combat",
+      "rpg"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Ars Nouveau",
+    "categories": [
+      "aventure",
+      "creatures"
+    ],
+    "description": "Créez vos propres sorts personnalisés et apprivoisez des familiers uniques.",
+    "fullDescription": "Ars Nouveau propose un système de magie entièrement personnalisable où vous combinez des glyphes pour créer des sorts uniques. Projectiles de feu, zones de soin, invocations de créatures, téléportation — les possibilités sont infinies. Apprivoisez des familiers magiques comme les Starbuncles collecteurs d'items et les Whirlisperds volants. Cultivez des plantes mystiques, construisez une tour de mage et progressez à travers un arbre de compétences magiques.",
+    "image": "ars-nouveau.png",
+    "versions": [
+      "1.21.1",
+      "1.21",
+      "1.20.2",
+      "1.20.1",
+      "1.20",
+      "1.19.2",
+      "1.19.1",
+      "1.19",
+      "1.18.2",
+      "1.18.1",
+      "1.18",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.16.2",
+      "1.15.2",
+      "1.15"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 19.2,
+    "sizePerVersion": {
+      "1.21.1": { "NeoForge": 19.2 },
+      "1.21": { "NeoForge": 19.2 },
+      "1.20.2": { "Forge": 12.2 },
+      "1.20.1": { "Forge": 11.9 },
+      "1.20": { "Forge": 11.8 },
+      "1.19.2": { "Forge": 13.9 },
+      "1.19.1": { "Forge": 5.9 },
+      "1.19": { "Forge": 4.7 },
+      "1.18.2": { "Forge": 6.5 },
+      "1.18.1": { "Forge": 4.0 },
+      "1.18": { "Forge": 3.8 },
+      "1.16.5": { "Forge": 4.5 },
+      "1.16.4": { "Forge": 3.3 },
+      "1.16.3": { "Forge": 2.1 },
+      "1.16.2": { "Forge": 1.7 },
+      "1.15.2": { "Forge": 1.8 },
+      "1.15": { "Forge": 0.8 }
+    },
+    "dependencies": [
+      "GeckoLib",
+      "Patchouli",
+      "Curios API"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/ars-nouveau",
+    "slug": "ars-nouveau",
+    "modrinthUrl": "https://modrinth.com/mod/ars-nouveau",
+    "tags": [
+      "magie",
+      "fantastique"
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Better Combat",
+    "categories": [
+      "aventure",
+      "utilitaire"
+    ],
+    "description": "Refonte du système de combat avec animations et combos réalistes.",
+    "fullDescription": "Better Combat révolutionne le combat de Minecraft en ajoutant des animations d'attaque uniques pour chaque type d'arme. Les épées balayent horizontalement, les haches fracassent verticalement, les lances transpercent en avant. Système de combos enchaînés, dual-wielding fonctionnel et attaques directionnelles rendent chaque confrontation dynamique et engageante. Compatible avec les armes modées pour une expérience de combat complètement transformée.",
+    "image": "better-combat.png",
+    "versions": [
+      "26.2",
+      "26.1.2",
+      "26.1.1",
+      "26.1",
+      "1.21.11",
+      "1.21.10",
+      "1.21.9",
+      "1.21.8",
+      "1.21.7",
+      "1.21.6",
+      "1.21.4",
+      "1.21.1",
+      "1.21",
+      "1.20.4",
+      "1.20.2",
+      "1.20.1",
+      "1.20",
+      "1.19.4",
+      "1.19.3",
+      "1.19.2",
+      "1.19.1",
+      "1.19",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge",
+      "Fabric"
+    ],
+    "sizeMo": 1,
+    "sizePerVersion": {
+      "26.2": { "Fabric": 0.9, "NeoForge": 1 },
+      "26.1.2": { "Fabric": 0.9, "NeoForge": 1 },
+      "26.1.1": { "Fabric": 0.9, "NeoForge": 1 },
+      "26.1": { "Fabric": 0.9, "NeoForge": 1 },
+      "1.21.11": { "Fabric": 0.9, "NeoForge": 1 },
+      "1.21.10": { "Fabric": 0.9, "NeoForge": 1 },
+      "1.21.9": { "Fabric": 0.9, "NeoForge": 1 },
+      "1.21.8": { "Fabric": 0.9, "NeoForge": 1 },
+      "1.21.7": { "Fabric": 0.9, "NeoForge": 1 },
+      "1.21.6": { "Fabric": 0.9, "NeoForge": 1 },
+      "1.21.4": { "Fabric": 0.9, "NeoForge": 1 },
+      "1.21.1": { "Fabric": 0.9, "NeoForge": 1 },
+      "1.21": { "Fabric": 0.9, "NeoForge": 1 },
+      "1.20.4": { "Fabric": 0.8, "NeoForge": 0.9 },
+      "1.20.2": { "Fabric": 0.9, "Forge": 1 },
+      "1.20.1": { "Fabric": 0.9, "Forge": 1 },
+      "1.20": { "Fabric": 0.9, "Forge": 1 },
+      "1.19.4": { "Fabric": 0.7, "Forge": 0.9 },
+      "1.19.3": { "Fabric": 0.7, "Forge": 0.9 },
+      "1.19.2": { "Fabric": 0.7, "Forge": 0.9 },
+      "1.19.1": { "Fabric": 0.7, "Forge": 0.9 },
+      "1.19": { "Fabric": 0.7, "Forge": 0.9 },
+      "1.18.2": { "Fabric": 0.7, "Forge": 0.9 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/better-combat-by-daedelus",
+    "modrinthUrl": "https://modrinth.com/mod/better-combat",
+    "slug": "better-combat-by-daedelus",
+    "tags": [
+      "combat",
+      "animation"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Blood Magic",
+    "categories": [
+      "aventure"
+    ],
+    "description": "Aventure sombre utilisant le sang comme source de pouvoir.",
+    "fullDescription": "Blood Magic explore le côté sombre de la magie en transformant votre propre santé en ressource magique puissante. Construisez des autels sanglants de plus en plus grands, invoquez des démons servants et forgez des armes maudites dévastatrices. Progressez à travers cinq niveaux d'autel et débloquez des rituels capables de modifier le terrain, contrôler la météo ou ouvrir des portails dimensionnels. Un mod réservé aux joueurs qui osent risquer leur vie pour la puissance.",
+    "image": "blood-magic.png",
+    "versions": [
+      "1.20.1",
+      "1.18.2",
+      "1.16.5",
+      "1.16.4",
+      "1.12.2",
+      "1.11.2",
+      "1.11",
+      "1.10.2",
+      "1.10",
+      "1.9.4",
+      "1.9",
+      "1.8.9",
+      "1.8.8",
+      "1.7.10",
+      "1.7.2"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 14.4,
+    "sizePerVersion": {
+      "1.20.1": { "Forge": 14.4 },
+      "1.18.2": { "Forge": 13.7 },
+      "1.16.5": { "Forge": 9.6 },
+      "1.16.4": { "Forge": 9.6 },
+      "1.12.2": { "Forge": 6.9 },
+      "1.11.2": { "Forge": 6.2 },
+      "1.11": { "Forge": 6.2 },
+      "1.10.2": { "Forge": 6.6 },
+      "1.10": { "Forge": 6.5 },
+      "1.9.4": { "Forge": 6.5 },
+      "1.9": { "Forge": 8.3 },
+      "1.8.9": { "Forge": 8.0 },
+      "1.8.8": { "Forge": 7.6 },
+      "1.7.10": { "Forge": 8.8 },
+      "1.7.2": { "Forge": 1.4 }
+    },
+    "dependencies": [
+      "Patchouli"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/blood-magic",
+    "slug": "blood-magic",
+    "modrinthUrl": "https://modrinth.com/mod/blood-magic",
+    "tags": [
+      "magie",
+      "fantastique"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Electroblob's Wizardry",
+    "categories": [
+      "aventure"
+    ],
+    "description": "RPG avec sorts découvrables, baguettes et robes de mage.",
+    "fullDescription": "Electroblob's Wizardry offre une expérience RPG magique complète avec plus de 170 sorts découvrables répartis en cinq éléments (feu, glace, foudre, nécromancie et terre). Trouvez des baguettes légendaires dans les donjons, portez des robes de mage enchantées pour renforcer vos pouvoirs et affrontez des sorciers ennemis hostiles. Le système de progression par découverte encourage l'exploration constante, et chaque sort peut être amélioré pour devenir plus puissant.",
+    "image": "electroblobs-wizardry.png",
+    "versions": [
+      "1.12.2",
+      "1.11.2",
+      "1.10.2",
+      "1.7.10"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 10.5,
+    "sizePerVersion": {
+      "1.12.2": { "Forge": 10.5 },
+      "1.11.2": { "Forge": 2.6 },
+      "1.10.2": { "Forge": 2.6 },
+      "1.7.10": { "Forge": 12.4 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/electroblobs-wizardry",
+    "slug": "electroblobs-wizardry",
+    "modrinthUrl": "",
+    "tags": [
+      "magie",
+      "rpg",
+      "fantastique"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Epic Fight",
+    "categories": [
+      "aventure",
+      "utilitaire"
+    ],
+    "description": "Système de combat souls-like avec parades, esquives et combos avancés.",
+    "fullDescription": "Epic Fight transforme Minecraft en véritable action-RPG avec un système de combat inspiré des jeux Souls. Parez les attaques ennemies avec un timing précis, esquivez avec des roulades directionnelles, enchaînez des combos aériens dévastateurs et changez de style de combat selon votre arme. Chaque type d'arme (épée, hache, lance, katana) possède ses propres animations détaillées et mouvements spéciaux. Les mobs vanilla reçoivent également de nouvelles animations d'attaque.",
+    "image": "epic-fight.png",
+    "versions": [
+      "1.21.1",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.17.1",
+      "1.16.5",
+      "1.16.4",
+      "1.14.4",
+      "1.12.2"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 8.2,
+    "sizePerVersion": {
+      "1.21.1": { "NeoForge": 8.2 },
+      "1.20.1": { "Forge": 7.7 },
+      "1.19.2": { "Forge": 5.5 },
+      "1.18.2": { "Forge": 5.5 },
+      "1.17.1": { "Forge": 3.8 },
+      "1.16.5": { "Forge": 4.0 },
+      "1.16.4": { "Forge": 2.7 },
+      "1.14.4": { "Forge": 2.5 },
+      "1.12.2": { "Forge": 2.3 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/epic-fight-mod",
+    "modrinthUrl": "https://modrinth.com/mod/epic-fight",
+    "slug": "epic-fight-mod",
+    "tags": [
+      "combat",
+      "animation"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "EvilCraft",
+    "categories": [
+      "aventure"
+    ],
+    "description": "Un mod de magie sombre avec autels de sang, envouteurs et rituels démoniaques.",
+    "fullDescription": "EvilCraft est un mod de magie noire qui vous permet de manipuler les forces occultes de Minecraft. Créez des broyeurs de sang pour extraire l'essence vitale des créatures, fabriquez des poupées vaudou pour torturer vos ennemis à distance, et construisez des autels corrompus pour invoquer des démons. Le mod ajoute un système complet de rituels sombres, des potions de sang uniques et des artefacts maudits. Une exploration profonde et immersive du côté obscur du jeu.",
+    "image": "evilcraft.png",
+    "versions": [
+      "26.2",
+      "26.1.2",
+      "26.1.1",
+      "1.21.11",
+      "1.21.10",
+      "1.21.8",
+      "1.21.4",
+      "1.21.1",
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.4",
+      "1.19.3",
+      "1.19.2",
+      "1.19",
+      "1.18.2",
+      "1.18.1",
+      "1.16.5",
+      "1.16.4",
+      "1.15.2",
+      "1.12.2",
+      "1.12.1",
+      "1.12",
+      "1.11.2",
+      "1.10.2",
+      "1.10",
+      "1.9.4",
+      "1.9",
+      "1.8.9",
+      "1.8",
+      "1.7.10",
+      "1.7.2",
+      "1.6.4"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 2.9,
+    "sizePerVersion": {
+      "26.2": { "NeoForge": 2.9 },
+      "26.1.2": { "NeoForge": 2.9 },
+      "26.1.1": { "NeoForge": 2.9 },
+      "1.21.11": { "NeoForge": 2.7 },
+      "1.21.10": { "NeoForge": 2.7 },
+      "1.21.8": { "NeoForge": 2.8 },
+      "1.21.4": { "NeoForge": 2.6 },
+      "1.21.1": { "NeoForge": 2.7 },
+      "1.21": { "NeoForge": 2.6 },
+      "1.20.4": { "NeoForge": 2.6 },
+      "1.20.1": { "Forge": 2.6 },
+      "1.19.4": { "Forge": 3.0 },
+      "1.19.3": { "Forge": 3.0 },
+      "1.19.2": { "Forge": 2.6 },
+      "1.19": { "Forge": 3.0 },
+      "1.18.2": { "Forge": 2.6 },
+      "1.18.1": { "Forge": 3.0 },
+      "1.16.5": { "Forge": 2.9 },
+      "1.16.4": { "Forge": 2.9 },
+      "1.15.2": { "Forge": 2.9 },
+      "1.12.2": { "Forge": 2.8 },
+      "1.12.1": { "Forge": 3.5 },
+      "1.12": { "Forge": 3.5 },
+      "1.11.2": { "Forge": 3.5 },
+      "1.10.2": { "Forge": 3.5 },
+      "1.10": { "Forge": 3.4 },
+      "1.9.4": { "Forge": 3.4 },
+      "1.9": { "Forge": 3.4 },
+      "1.8.9": { "Forge": 3.2 },
+      "1.8": { "Forge": 3.1 },
+      "1.7.10": { "Forge": 3.4 },
+      "1.7.2": { "Forge": 1.5 },
+      "1.6.4": { "Forge": 1.5 }
+    },
+    "dependencies": [
+      "Cyclops Core"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/evilcraft",
+    "modrinthUrl": "https://modrinth.com/mod/evilcraft",
+    "slug": "evilcraft",
+    "tags": [
+      "magie",
+      "fantastique"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Legacy Hals Exploration Mod",
+    "categories": [
+      "aventure",
+      "biomes"
+    ],
+    "description": "Ajoute une nouvelle dimension mystérieuse à explorer avec biomes et créatures uniques.",
+    "fullDescription": "Legacy Hals Exploration Mod (HEM) ajoute une toute nouvelle dimension parallèle débordante de mystères et d'aventures. Explorez des biomes uniques aux couleurs surréalistes, découvrez des créatures inédites aux comportements surprenants et affrontez des boss légendaires protégeant des trésors rares. Le mod met l'accent sur l'exploration et la découverte, avec des structures cachées à trouver et des secrets enfouis dans chaque recoin de ce monde fantastique.",
+    "image": "hem.png",
+    "versions": [
+      "1.18.2",
+      "1.17.1",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.15.2"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 2.4,
+    "sizePerVersion": {
+      "1.18.2": { "Forge": 2.4 },
+      "1.17.1": { "Forge": 11.9 },
+      "1.16.5": { "Forge": 3.6 },
+      "1.16.4": { "Forge": 3.1 },
+      "1.16.3": { "Forge": 3.1 },
+      "1.15.2": { "Forge": 3.0 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/legacy-hals-exploration-mod",
+    "slug": "legacy-hals-exploration-mod",
+    "modrinthUrl": "https://modrinth.com/mod/hals-exploration-mod-legacy",
+    "tags": [
+      "dimension",
+      "exploration",
+      "biomes"
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Origins",
+    "categories": [
+      "aventure",
+      "utilitaire"
+    ],
+    "description": "Choisissez une origine avec pouvoirs et faiblesses uniques dès le début.",
+    "fullDescription": "Origins vous permet de choisir une race de personnage au début de votre aventure, chacune offrant des pouvoirs et des faiblesses radicalement différents. Les Avians peuvent planer depuis les hauteurs, les Merlings respirent sous l'eau mais se dessèchent en surface, les Enderians se téléportent mais brûlent au contact de l'eau. Chaque origine transforme complètement votre façon de jouer, offrant une rejouabilité infinie et des défis uniques à chaque nouvelle partie.",
+    "image": "origins.png",
+    "versions": [
+      "1.21.1",
+      "1.20.2",
+      "1.20.1",
+      "1.20",
+      "1.19.4",
+      "1.19.3",
+      "1.19.2",
+      "1.19.1",
+      "1.19",
+      "1.18.2",
+      "1.18.1",
+      "1.18",
+      "1.17.1",
+      "1.17",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.16.2",
+      "1.16.1",
+      "1.16"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "Quilt"
+    ],
+    "sizeMo": 4.5,
+    "sizePerVersion": {
+      "1.21.1": { "Fabric": 4.5 },
+      "1.20.2": { "Fabric": 2.9 },
+      "1.20.1": { "Fabric": 2.7, "Forge": 2.2 },
+      "1.20": { "Fabric": 2.4 },
+      "1.19.4": { "Fabric": 2.4 },
+      "1.19.3": { "Fabric": 2.2 },
+      "1.19.2": { "Fabric": 2.2, "Forge": 1.8 },
+      "1.19.1": { "Fabric": 2.2 },
+      "1.19": { "Fabric": 2.1, "Forge": 1.7 },
+      "1.18.2": { "Fabric": 2.0, "Forge": 1.6 },
+      "1.18.1": { "Fabric": 1.9, "Forge": 1.7 },
+      "1.18": { "Fabric": 1.9 },
+      "1.17.1": { "Fabric": 2.0, "Forge": 1.3 },
+      "1.17": { "Fabric": 2.0 },
+      "1.16.5": { "Fabric": 1.8, "Forge": 0.7 },
+      "1.16.4": { "Fabric": 1.3 },
+      "1.16.3": { "Fabric": 1.3 },
+      "1.16.2": { "Fabric": 1.3 },
+      "1.16.1": { "Fabric": 0.3 },
+      "1.16": { "Fabric": 0.3 }
+    },
+    "dependencies": [
+      "Fabric API"
+    ],
+    "curseforgeUrl": {
+      "Forge/NeoForge": "https://www.curseforge.com/minecraft/mc-mods/origins-forge",
+      "Fabric": "https://www.curseforge.com/minecraft/mc-mods/origins"
+    },
+    "modrinthUrl": "https://modrinth.com/mod/origins",
+    "slug": "origins",
+    "tags": [
+      "rpg",
+      "combat"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "The Aether",
+    "categories": [
+      "aventure",
+      "biomes"
+    ],
+    "description": "Dimension céleste avec donjons, boss et créatures uniques.",
+    "fullDescription": "The Aether ajoute une magnifique dimension céleste opposée au Nether, accessible via un portail d'eau encadré de Glowstone. Explorez des îles flottantes verdoyantes suspendues dans un ciel infini, découvrez trois grands donjons thématiques avec leurs boss légendaires (Slider, Valkyrie Queen et Sun Spirit). Apprivoisez des Moas volants comme montures, collectez des matériaux exclusifs comme le Gravitite anti-gravité et vivez une aventure enchanteresse dans les cieux.",
+    "image": "the-aether.png",
+    "versions": [
+      "1.21.1",
+      "1.20.4",
+      "1.20.2",
+      "1.20.1",
+      "1.19.4",
+      "1.19.2",
+      "1.12.2",
+      "1.7.10"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge",
+      "Fabric"
+    ],
+    "sizeMo": 38.4,
+    "sizePerVersion": {
+      "1.21.1": { "Fabric": 39.0, "NeoForge": 38.4 },
+      "1.20.4": { "NeoForge": 37.8 },
+      "1.20.2": { "NeoForge": 37.6 },
+      "1.20.1": { "Fabric": 49.0, "Forge": 37.9 },
+      "1.19.4": { "Forge": 37.9 },
+      "1.19.2": { "Forge": 37.7 },
+      "1.12.2": { "Forge": 14.1 },
+      "1.7.10": { "Forge": 13.7 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/aether",
+    "slug": "aether",
+    "modrinthUrl": "https://modrinth.com/mod/aether",
+    "tags": [
+      "dimension",
+      "boss",
+      "donjons",
+      "fantastique"
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Twilight Forest",
+    "categories": [
+      "aventure",
+      "creatures",
+      "biomes"
+    ],
+    "description": "Un monde parallèle rempli de donjons, de boss et de forêts mystérieuses.",
+    "fullDescription": "The Twilight Forest est un mod d'aventure culte qui ajoute une dimension entière baignée d'une lumière crépusculaire permanente. Explorez des forêts denses et mystérieuses, affrontez des boss épiques et mémorables comme le Naga serpentin, le Lich nécromancien et l'Hydra à têtes multiples. Progressez à travers une aventure structurée où chaque boss débloque l'accès à la zone suivante. Découvrez des dizaines de structures uniques, des labyrinthes souterrains et des trésors cachés.",
+    "image": "twilight-forest.png",
+    "versions": [
+      "1.21.1",
+      "1.20.6",
+      "1.20.4",
+      "1.20.2",
+      "1.20.1",
+      "1.19.4",
+      "1.19.3",
+      "1.19.2",
+      "1.19.1",
+      "1.18.2",
+      "1.17.1",
+      "1.16.5",
+      "1.12.2",
+      "1.7.10",
+      "1.7.2",
+      "1.6.4",
+      "1.6.2",
+      "1.5.2",
+      "1.5.1",
+      "1.4.7",
+      "1.4.6",
+      "1.3.2",
+      "1.2.5",
+      "1.2.4",
+      "1.2.3",
+      "1.1",
+      "1.0"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge",
+      "Fabric"
+    ],
+    "sizeMo": 25.9,
+    "sizePerVersion": {
+      "1.21.1": { "NeoForge": 25.9 },
+      "1.20.6": { "NeoForge": 23.7 },
+      "1.20.4": { "NeoForge": 22.6 },
+      "1.20.2": { "NeoForge": 22.3 },
+      "1.20.1": { "Forge": 22.3 },
+      "1.19.4": { "Forge": 22.7 },
+      "1.19.3": { "Forge": 22.6 },
+      "1.19.2": { "Fabric": 25.1, "Forge": 22.5 },
+      "1.19.1": { "Forge": 22.2 },
+      "1.18.2": { "Fabric": 33.3, "Forge": 31.4 },
+      "1.17.1": { "Forge": 30.8 },
+      "1.16.5": { "Forge": 30.3 },
+      "1.12.2": { "Forge": 27.4 },
+      "1.7.10": { "Forge": 3.5 },
+      "1.7.2": { "Forge": 3.1 },
+      "1.6.4": { "Forge": 2.8 },
+      "1.6.2": { "Forge": 2.7 },
+      "1.5.2": { "Forge": 2.7 },
+      "1.5.1": { "Forge": 2.6 },
+      "1.4.7": { "Forge": 2.2 },
+      "1.4.6": { "Forge": 2.0 },
+      "1.3.2": { "Forge": 1.9 },
+      "1.2.5": { "Forge": 1.2 },
+      "1.2.4": { "Forge": 0.3 },
+      "1.2.3": { "Forge": 0.5 },
+      "1.1": { "Forge": 0.2 },
+      "1.0": { "Forge": 0.4 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest",
+    "modrinthUrl": "https://modrinth.com/mod/the-twilight-forest-unofficial",
+    "slug": "the-twilight-forest",
+    "tags": [
+      "dimension",
+      "boss",
+      "donjons",
+      "fantastique"
+    ]
+  },
+  {
+    "id": 104,
+    "name": "Mine and Slash",
+    "categories": [
+      "aventure",
+      "utilitaire"
+    ],
+    "description": "Transforme Minecraft en action-RPG type Diablo avec loot, stats et sorts.",
+    "fullDescription": "Mine and Slash transforme radicalement Minecraft en un véritable action-RPG à la Diablo. Ajoute un système complet de niveaux, statistiques (force, intelligence, dextérité), points de compétences à distribuer, arbre de talents avec plusieurs classes (guerrier, mage, archer, assassin), loot aléatoire avec rareté (commun, rare, épique, légendaire, unique), sorts customisables et donjons scalés au niveau du joueur. Une refonte complète pour ceux qui veulent une expérience RPG immersive.",
+    "image": "mine-and-slash.png",
+    "versions": [
+      "1.20.1",
+      "1.20",
+      "1.16.5",
+      "1.15.2",
+      "1.14.4",
+      "1.14.3",
+      "1.12.2"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 7.6,
+    "sizePerVersion": {
+      "1.20.1": { "Forge": 7.6 },
+      "1.20": { "Forge": 7.6 },
+      "1.16.5": { "Forge": 4.9 },
+      "1.15.2": { "Forge": 8.5 },
+      "1.14.4": { "Forge": 5.3 },
+      "1.14.3": { "Forge": 2.8 },
+      "1.12.2": { "Forge": 2.5 }
+    },
+    "dependencies": [
+      "Curios API",
+      "Cloth Config API"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/mine-and-slash-reloaded",
+    "modrinthUrl": "https://modrinth.com/mod/mine-and-slash",
+    "slug": "mine-and-slash",
+    "tags": [
+      "rpg",
+      "combat"
+    ]
+  },
+  {
+    "id": 105,
+    "name": "Spartan Weaponry",
+    "categories": [
+      "aventure"
+    ],
+    "description": "Ajoute plus de 20 nouvelles armes (lances, haches d'armes, arbalètes...).",
+    "fullDescription": "Spartan Weaponry enrichit considérablement l'arsenal de Minecraft avec plus de 20 nouvelles armes historiques inspirées des armes médiévales et antiques. Lances longues pour tenir les ennemis à distance, hallebardes puissantes, dagues rapides pour le stealth, marteaux de guerre écrasants, katanas élégants, arbalètes lourdes, lances de jet et bâtons de combat. Chaque arme possède ses propres stats de dégâts, portée, vitesse et effets spéciaux. Compatible avec les enchantements vanilla et de nombreux mods de combat.",
+    "image": "spartan-weaponry.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.15.2",
+      "1.14.4",
+      "1.12.2",
+      "1.12.1",
+      "1.12",
+      "1.11.2",
+      "1.10.2"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 2.7,
+    "sizePerVersion": {
+      "1.20.1": { "Forge": 2.7 },
+      "1.19.2": { "Forge": 2.6 },
+      "1.18.2": { "Forge": 2.6 },
+      "1.16.5": { "Forge": 1.6 },
+      "1.16.4": { "Forge": 1.1 },
+      "1.16.3": { "Forge": 1.1 },
+      "1.15.2": { "Forge": 1.0 },
+      "1.14.4": { "Forge": 1.0 },
+      "1.12.2": { "Forge": 2.3 },
+      "1.12.1": { "Forge": 0.5 },
+      "1.12": { "Forge": 0.5 },
+      "1.11.2": { "Forge": 0.4 },
+      "1.10.2": { "Forge": 0.4 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/spartan-weaponry",
+    "modrinthUrl": "https://modrinth.com/mod/spartan-weaponry",
+    "slug": "spartan-weaponry",
+    "tags": [
+      "combat",
+      "rpg"
+    ]
+  },
+  {
+    "id": 106,
+    "name": "Simply Skills",
+    "categories": [
+      "aventure",
+      "utilitaire"
+    ],
+    "description": "Système d'arbre de compétences avec classes et progression RPG.",
+    "fullDescription": "Simply Skills ajoute un système de progression RPG complet avec un arbre de compétences interactif accessible via un livre spécial. Choisissez parmi plusieurs classes (Berserker, Mage, Rôdeur, Voleur, Paladin) et débloquez des dizaines de compétences actives et passives : sauts améliorés, sorts de feu, invisibilité, régénération, dégâts critiques... Gagnez des points de compétences en tuant des monstres et en accomplissant des quêtes. Personnalisez complètement votre style de jeu.",
+    "image": "simply-skills.png",
+    "versions": [
+      "1.20.1",
+      "1.20",
+      "1.19.2"
+    ],
+    "loaders": [
+      "Fabric"
+    ],
+    "sizeMo": 14.9,
+    "sizePerVersion": {
+      "1.20.1": { "Fabric": 14.9 },
+      "1.20": { "Fabric": 3.9 },
+      "1.19.2": { "Fabric": 1.7 }
+    },
+    "dependencies": [
+      "Fabric API",
+      "Cloth Config API"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/simply-skills",
+    "modrinthUrl": "https://modrinth.com/mod/simply-skills",
+    "slug": "simply-skills",
+    "tags": [
+      "rpg",
+      "combat"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Chisel & Bits",
+    "categories": [
+      "decoration",
+      "utilitaire"
+    ],
+    "description": "Sculptez chaque bloc pour des créations d'une précision inégalée.",
+    "fullDescription": "Chisel & Bits vous permet de modifier chaque bloc de Minecraft au niveau du 1/16ème (un bit) pour créer des détails architecturaux impossibles autrement. Sculptez des colonnes ornées, des arches gracieuses, des statues détaillées et des moulures fines. Combinez différents matériaux dans un même bloc pour des effets visuels uniques. Copiez et collez des motifs complexes pour accélérer votre travail. Le mod ultime pour les constructeurs perfectionnistes et les artistes de Minecraft.",
+    "image": "chisel-and-bits.png",
+    "versions": [
+      "26.1.2",
+      "1.21.11",
+      "1.21.10",
+      "1.21.1",
+      "1.20.4",
+      "1.20.1",
+      "1.20",
+      "1.19.4",
+      "1.19.3",
+      "1.19.2",
+      "1.18.2",
+      "1.18.1",
+      "1.17.1",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.16.2",
+      "1.12.2",
+      "1.12.1",
+      "1.11.2",
+      "1.10.2",
+      "1.9.4",
+      "1.8.9"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 1.6,
+    "sizePerVersion": {
+      "26.1.2": { "Fabric": 1.6, "NeoForge": 1.6 },
+      "1.21.11": { "Fabric": 2.5, "NeoForge": 1.6 },
+      "1.21.10": { "Fabric": 2.2, "NeoForge": 1.6 },
+      "1.21.1": { "Fabric": 2.7, "NeoForge": 1.6 },
+      "1.20.4": { "Fabric": 2.5, "NeoForge": 1.7 },
+      "1.20.1": { "Fabric": 1.9, "Forge": 2.0 },
+      "1.20": { "Fabric": 1.9, "Forge": 2.0 },
+      "1.19.4": { "Fabric": 1.9, "Forge": 2.0 },
+      "1.19.3": { "Fabric": 1.9, "Forge": 2.0 },
+      "1.19.2": { "Fabric": 1.9, "Forge": 2.0 },
+      "1.18.2": { "Fabric": 1.9, "Forge": 1.9 },
+      "1.18.1": { "Fabric": 1.8, "Forge": 1.8 },
+      "1.17.1": { "Forge": 1.3 },
+      "1.16.5": { "Forge": 1.2 },
+      "1.16.4": { "Forge": 1.2 },
+      "1.16.3": { "Forge": 1.2 },
+      "1.16.2": { "Forge": 1.2 },
+      "1.12.2": { "Forge": 0.7 },
+      "1.12.1": { "Forge": 0.7 },
+      "1.11.2": { "Forge": 0.7 },
+      "1.10.2": { "Forge": 0.6 },
+      "1.9.4": { "Forge": 0.6 },
+      "1.8.9": { "Forge": 0.5 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": {
+      "Forge/NeoForge": "https://www.curseforge.com/minecraft/mc-mods/chisels-bits",
+      "Fabric": "https://www.curseforge.com/minecraft/mc-mods/chisels-bits-for-fabric"
+    },
+    "modrinthUrl": "",
+    "slug": "chisels-bits",
+    "tags": [
+      "decoration",
+      "esthetique"
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Macaw's Doors",
+    "categories": [
+      "decoration"
+    ],
+    "description": "Une variété de portes stylées dans tous les matériaux vanilla et modés.",
+    "fullDescription": "Macaw's Doors offre plus de 20 styles de portes différents déclinés dans tous les matériaux vanilla. Des portes coulissantes japonaises aux lourdes portes médiévales en passant par des portes vitrées modernes et des portails ornés, chaque style apporte du caractère à vos constructions. Portes simples, doubles et portes de garage fonctionnelles sont disponibles. Les hitboxes sont parfaitement ajustées et les animations fluides pour une intégration sans faille.",
+    "image": "mcw-doors.png",
+    "versions": [
+      "26.2",
+      "26.1.2",
+      "26.1.1",
+      "26.1",
+      "1.21.11",
+      "1.21.10",
+      "1.21.9",
+      "1.21.8",
+      "1.21.7",
+      "1.21.6",
+      "1.21.5",
+      "1.21.4",
+      "1.21.3",
+      "1.21.1",
+      "1.21",
+      "1.20.6",
+      "1.20.4",
+      "1.20.3",
+      "1.20.2",
+      "1.20.1",
+      "1.20",
+      "1.19.4",
+      "1.19.3",
+      "1.19.2",
+      "1.19.1",
+      "1.19",
+      "1.18.2",
+      "1.18.1",
+      "1.18",
+      "1.17.1",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.16.2",
+      "1.16.1",
+      "1.15.2",
+      "1.15.1",
+      "1.14.4",
+      "1.12.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 1.3,
+    "sizePerVersion": {
+      "26.2": { "Fabric": 1.4, "Forge": 1.3, "NeoForge": 1.3 },
+      "26.1.2": { "Fabric": 1.4, "Forge": 1.3, "NeoForge": 1.3 },
+      "26.1.1": { "Fabric": 1.4, "Forge": 1.3, "NeoForge": 1.3 },
+      "26.1": { "Fabric": 1.4, "Forge": 1.3, "NeoForge": 1.3 },
+      "1.21.11": { "Fabric": 1.3, "Forge": 1.3, "NeoForge": 1.3 },
+      "1.21.10": { "Fabric": 1.3, "Forge": 1.3, "NeoForge": 1.3 },
+      "1.21.9": { "Fabric": 1.3, "Forge": 1.3, "NeoForge": 1.3 },
+      "1.21.8": { "Fabric": 1.3, "Forge": 1.3, "NeoForge": 1.3 },
+      "1.21.7": { "Fabric": 1.3, "Forge": 1.3, "NeoForge": 1.3 },
+      "1.21.6": { "Fabric": 1.3, "Forge": 1.3, "NeoForge": 1.3 },
+      "1.21.5": { "Fabric": 1.3, "Forge": 1.3, "NeoForge": 1.3 },
+      "1.21.4": { "Fabric": 1.3, "Forge": 1.3, "NeoForge": 1.3 },
+      "1.21.3": { "Fabric": 1.1, "Forge": 1.1, "NeoForge": 1.1 },
+      "1.21.1": { "Fabric": 1.2, "Forge": 1.1, "NeoForge": 1.1 },
+      "1.21": { "Fabric": 1.2, "Forge": 1.1, "NeoForge": 1.1 },
+      "1.20.6": { "Fabric": 1.2, "Forge": 1.1, "NeoForge": 1.1 },
+      "1.20.4": { "Fabric": 1.2, "Forge": 1.2, "NeoForge": 1.1 },
+      "1.20.3": { "Fabric": 1.2, "Forge": 1.2 },
+      "1.20.2": { "Fabric": 1.2, "Forge": 1.2 },
+      "1.20.1": { "Fabric": 1.2, "Forge": 1.2 },
+      "1.20": { "Fabric": 1.2, "Forge": 1.2 },
+      "1.19.4": { "Fabric": 1.1, "Forge": 1.1 },
+      "1.19.3": { "Fabric": 1.1, "Forge": 1.1 },
+      "1.19.2": { "Fabric": 1.1, "Forge": 1.1 },
+      "1.19.1": { "Fabric": 1.1, "Forge": 1.1 },
+      "1.19": { "Fabric": 1.1, "Forge": 1.1 },
+      "1.18.2": { "Fabric": 1.0, "Forge": 1.0 },
+      "1.18.1": { "Forge": 1.0 },
+      "1.18": { "Forge": 0.8 },
+      "1.17.1": { "Forge": 1.0 },
+      "1.16.5": { "Forge": 1.0 },
+      "1.16.4": { "Forge": 0.9 },
+      "1.16.3": { "Forge": 0.7 },
+      "1.16.2": { "Forge": 0.7 },
+      "1.16.1": { "Forge": 0.7 },
+      "1.15.2": { "Forge": 0.6 },
+      "1.15.1": { "Forge": 0.6 },
+      "1.14.4": { "Forge": 0.6 },
+      "1.12.2": { "Forge": 0.5 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/macaws-doors",
+    "slug": "macaws-doors",
+    "modrinthUrl": "https://modrinth.com/mod/macaws-doors",
+    "tags": [
+      "decoration",
+      "esthetique"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Macaw's Furniture",
+    "categories": [
+      "decoration"
+    ],
+    "description": "Des dizaines de meubles réalistes pour décorer vos constructions Minecraft.",
+    "fullDescription": "Macaw's Furniture ajoute une vaste collection de meubles réalistes pour transformer vos maisons Minecraft en intérieurs vivants et détaillés. Tables de tous styles, chaises confortables, canapés accueillants, armoires fonctionnelles, lampes décoratives, cuisines équipées complètes et bien plus encore. Chaque meuble est disponible dans toutes les essences de bois vanilla et se fond parfaitement dans le style du jeu. Devenu un incontournable pour tout joueur souhaitant meubler ses constructions.",
+    "image": "macaws-furniture.png",
+    "versions": [
+      "26.2",
+      "26.1.2",
+      "26.1.1",
+      "26.1",
+      "1.21.11",
+      "1.21.10",
+      "1.21.9",
+      "1.21.8",
+      "1.21.7",
+      "1.21.6",
+      "1.21.5",
+      "1.21.4",
+      "1.21.3",
+      "1.21.1",
+      "1.21",
+      "1.20.6",
+      "1.20.4",
+      "1.20.3",
+      "1.20.2",
+      "1.20.1",
+      "1.20",
+      "1.19.4",
+      "1.19.3",
+      "1.19.2",
+      "1.19.1",
+      "1.19",
+      "1.18.2",
+      "1.18.1",
+      "1.17.1",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.15.2",
+      "1.15.1",
+      "1.14.4",
+      "1.12.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 2.2,
+    "sizePerVersion": {
+      "26.2": { "Fabric": 2.3, "Forge": 2.2, "NeoForge": 2.2 },
+      "26.1.2": { "Fabric": 2.3, "Forge": 2.2, "NeoForge": 2.2 },
+      "26.1.1": { "Fabric": 2.3, "Forge": 2.2, "NeoForge": 2.2 },
+      "26.1": { "Fabric": 2.3, "Forge": 2.2, "NeoForge": 2.2 },
+      "1.21.11": { "Fabric": 2.1, "Forge": 2.2, "NeoForge": 2.2 },
+      "1.21.10": { "Fabric": 2.2, "Forge": 2.2, "NeoForge": 2.2 },
+      "1.21.9": { "Fabric": 2.2, "Forge": 2.2, "NeoForge": 2.2 },
+      "1.21.8": { "Fabric": 2.2, "Forge": 2.2, "NeoForge": 2.2 },
+      "1.21.7": { "Fabric": 2.2, "Forge": 2.2, "NeoForge": 2.2 },
+      "1.21.6": { "Fabric": 2.2, "Forge": 2.2, "NeoForge": 2.2 },
+      "1.21.5": { "Fabric": 2.2, "Forge": 2.2, "NeoForge": 2.2 },
+      "1.21.4": { "Fabric": 2.2, "Forge": 2.2, "NeoForge": 2.2 },
+      "1.21.3": { "Fabric": 2.0, "Forge": 2.0, "NeoForge": 2.0 },
+      "1.21.1": { "Fabric": 2.0, "Forge": 2.0, "NeoForge": 2.0 },
+      "1.21": { "Fabric": 2.0, "Forge": 2.0, "NeoForge": 2.0 },
+      "1.20.6": { "Fabric": 2.0, "Forge": 2.0, "NeoForge": 2.0 },
+      "1.20.4": { "Fabric": 2.0, "Forge": 2.1, "NeoForge": 2.0 },
+      "1.20.3": { "Fabric": 2.0, "Forge": 2.1 },
+      "1.20.2": { "Fabric": 2.0, "Forge": 2.1 },
+      "1.20.1": { "Fabric": 2.0, "Forge": 2.1 },
+      "1.20": { "Fabric": 2.0, "Forge": 2.1 },
+      "1.19.4": { "Fabric": 1.8, "Forge": 1.9 },
+      "1.19.3": { "Fabric": 1.8, "Forge": 1.9 },
+      "1.19.2": { "Fabric": 1.8, "Forge": 1.9 },
+      "1.19.1": { "Fabric": 1.8, "Forge": 1.9 },
+      "1.19": { "Fabric": 1.8, "Forge": 1.9 },
+      "1.18.2": { "Fabric": 1.7, "Forge": 1.7 },
+      "1.18.1": { "Forge": 1.7 },
+      "1.17.1": { "Forge": 1.7 },
+      "1.16.5": { "Forge": 1.7 },
+      "1.16.4": { "Forge": 1.5 },
+      "1.16.3": { "Forge": 1.4 },
+      "1.15.2": { "Forge": 1.2 },
+      "1.15.1": { "Forge": 0.9 },
+      "1.14.4": { "Forge": 0.9 },
+      "1.12.2": { "Forge": 0.6 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/macaws-furniture",
+    "slug": "macaws-furniture",
+    "modrinthUrl": "https://modrinth.com/mod/macaws-furniture",
+    "tags": [
+      "decoration",
+      "esthetique"
+    ]
+  },
+  {
+    "id": 77,
+    "name": "Macaw's Roofs",
+    "categories": [
+      "decoration"
+    ],
+    "description": "Ajoute des toits inclinés et angles décoratifs pour tous les blocs.",
+    "fullDescription": "Macaw's Roofs résout enfin le problème des toits plats dans Minecraft en ajoutant des tuiles inclinées, des angles et des raccords parfaits dans tous les matériaux vanilla. Créez des constructions avec des toits triangulaires réalistes, des lucarnes élégantes, des cheminées et des façades architecturales complexes. Pentes douces, angles aigus, coins intérieurs et extérieurs, faîtières — tout est prévu pour des toitures professionnelles. Le complément parfait de Macaw's Furniture et Doors.",
+    "image": "mcw-roofs.png",
+    "versions": [
+      "26.2",
+      "26.1.2",
+      "26.1.1",
+      "26.1",
+      "1.21.11",
+      "1.21.10",
+      "1.21.9",
+      "1.21.8",
+      "1.21.7",
+      "1.21.6",
+      "1.21.5",
+      "1.21.4",
+      "1.21.3",
+      "1.21.1",
+      "1.21",
+      "1.20.6",
+      "1.20.4",
+      "1.20.3",
+      "1.20.2",
+      "1.20.1",
+      "1.20",
+      "1.19.4",
+      "1.19.3",
+      "1.19.2",
+      "1.19.1",
+      "1.19",
+      "1.18.2",
+      "1.18.1",
+      "1.17.1",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.16.2",
+      "1.16.1",
+      "1.15.2",
+      "1.15.1",
+      "1.14.4",
+      "1.12.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 1.8,
+    "sizePerVersion": {
+      "26.2": { "Fabric": 1.8, "Forge": 1.8, "NeoForge": 1.7 },
+      "26.1.2": { "Fabric": 1.8, "Forge": 1.8, "NeoForge": 1.7 },
+      "26.1.1": { "Fabric": 1.8, "Forge": 1.8, "NeoForge": 1.7 },
+      "26.1": { "Fabric": 1.8, "Forge": 1.8, "NeoForge": 1.7 },
+      "1.21.11": { "Fabric": 1.7, "Forge": 1.8, "NeoForge": 1.7 },
+      "1.21.10": { "Fabric": 1.7, "Forge": 1.8, "NeoForge": 1.7 },
+      "1.21.9": { "Fabric": 1.7, "Forge": 1.8, "NeoForge": 1.7 },
+      "1.21.8": { "Fabric": 1.7, "Forge": 1.8, "NeoForge": 1.7 },
+      "1.21.7": { "Fabric": 1.7, "Forge": 1.8, "NeoForge": 1.7 },
+      "1.21.6": { "Fabric": 1.7, "Forge": 1.8, "NeoForge": 1.7 },
+      "1.21.5": { "Fabric": 1.7, "Forge": 1.8, "NeoForge": 1.7 },
+      "1.21.4": { "Fabric": 1.7, "Forge": 1.8, "NeoForge": 1.7 },
+      "1.21.3": { "Fabric": 1.7, "Forge": 1.7, "NeoForge": 1.7 },
+      "1.21.1": { "Fabric": 1.7, "Forge": 1.7, "NeoForge": 1.7 },
+      "1.21": { "Fabric": 1.7, "Forge": 1.7, "NeoForge": 1.7 },
+      "1.20.6": { "Fabric": 1.7, "Forge": 1.7, "NeoForge": 1.7 },
+      "1.20.4": { "Fabric": 1.7, "Forge": 1.8, "NeoForge": 1.7 },
+      "1.20.3": { "Fabric": 1.7, "Forge": 1.8 },
+      "1.20.2": { "Fabric": 1.7, "Forge": 1.8 },
+      "1.20.1": { "Fabric": 1.7, "Forge": 1.8 },
+      "1.20": { "Fabric": 1.7, "Forge": 1.8 },
+      "1.19.4": { "Fabric": 1.7, "Forge": 1.7 },
+      "1.19.3": { "Fabric": 1.7, "Forge": 1.7 },
+      "1.19.2": { "Fabric": 1.7, "Forge": 1.7 },
+      "1.19.1": { "Fabric": 1.7, "Forge": 1.7 },
+      "1.19": { "Fabric": 1.7, "Forge": 1.7 },
+      "1.18.2": { "Fabric": 1.6, "Forge": 1.6 },
+      "1.18.1": { "Forge": 1.6 },
+      "1.17.1": { "Forge": 1.6 },
+      "1.16.5": { "Forge": 1.6 },
+      "1.16.4": { "Forge": 1.5 },
+      "1.16.3": { "Forge": 1.2 },
+      "1.16.2": { "Forge": 1.2 },
+      "1.16.1": { "Forge": 1.3 },
+      "1.15.2": { "Forge": 1.3 },
+      "1.15.1": { "Forge": 0.5 },
+      "1.14.4": { "Forge": 1.3 },
+      "1.12.2": { "Forge": 0.4 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/macaws-roofs",
+    "slug": "macaws-roofs",
+    "modrinthUrl": "https://modrinth.com/mod/macaws-roofs",
+    "tags": [
+      "decoration",
+      "esthetique"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Supplementaries",
+    "categories": [
+      "decoration",
+      "utilitaire"
+    ],
+    "description": "Blocs décoratifs et fonctionnels qui complètent le vanilla.",
+    "fullDescription": "Supplementaries ajoute plus de 100 blocs décoratifs et fonctionnels qui auraient parfaitement leur place dans le Minecraft vanilla. Enseignes tournantes, panneaux directionnels, jarres décoratives, cages à oiseaux fonctionnelles, catapultes amusantes, drapeaux personnalisables, horloges murales et bien plus encore. Chaque ajout est soigneusement conçu avec des textures cohérentes et des fonctionnalités utiles. Un des mods les plus appréciés des constructeurs pour enrichir leurs créations.",
+    "image": "supplementaries.png",
+    "versions": [
+      "1.21.1",
+      "1.21",
+      "1.20.1",
+      "1.20",
+      "1.19.4",
+      "1.19.2",
+      "1.19.1",
+      "1.19",
+      "1.18.2",
+      "1.18.1",
+      "1.18",
+      "1.17.1",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.15.2"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge",
+      "Fabric"
+    ],
+    "sizeMo": 12.8,
+    "sizePerVersion": {
+      "1.21.1": { "Fabric": 12.7, "NeoForge": 12.8 },
+      "1.21": { "Fabric": 12.5, "NeoForge": 12.7 },
+      "1.20.1": { "Fabric": 12.9, "Forge": 13.0 },
+      "1.20": { "Fabric": 13.6, "Forge": 13.8 },
+      "1.19.4": { "Fabric": 13.7, "Forge": 13.9 },
+      "1.19.2": { "Fabric": 14.0, "Forge": 14.3 },
+      "1.19.1": { "Fabric": 13.5, "Forge": 13.8 },
+      "1.19": { "Fabric": 12.9, "Forge": 13.1 },
+      "1.18.2": { "Forge": 13.3 },
+      "1.18.1": { "Forge": 13.3 },
+      "1.18": { "Forge": 12.0 },
+      "1.17.1": { "Forge": 11.7 },
+      "1.16.5": { "Forge": 13.4 },
+      "1.16.4": { "Forge": 13.4 },
+      "1.16.3": { "Forge": 13.2 },
+      "1.15.2": { "Forge": 3.5 }
+    },
+    "dependencies": [
+      "Moonlight Lib"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/supplementaries",
+    "slug": "supplementaries",
+    "modrinthUrl": "https://modrinth.com/mod/supplementaries",
+    "tags": [
+      "decoration",
+      "esthetique"
+    ]
+  },
+  {
+    "id": 113,
+    "name": "Decorative Blocks",
+    "categories": [
+      "decoration"
+    ],
+    "description": "Ajoute chaises, poutres, rideaux et détails architecturaux vanilla.",
+    "fullDescription": "Decorative Blocks ajoute plus de 50 blocs décoratifs qui s'intègrent parfaitement au style vanilla de Minecraft : chaises et bancs dans toutes les essences de bois, poutres et poteaux pour vos charpentes, rideaux colorés, tabourets, palissades ornées, corniches, moulures et détails architecturaux subtils. Chaque bloc est fabriqué avec des recettes intuitives et cohérentes. Idéal pour ajouter la touche finale à vos constructions sans sortir du style Minecraft classique. Complément parfait de Macaw's Furniture.",
+    "image": "decorative-blocks.png",
+    "versions": [
+      "1.20.4",
+      "1.20.3",
+      "1.20.2",
+      "1.20.1",
+      "1.19.2",
+      "1.19.1",
+      "1.19",
+      "1.18.2",
+      "1.18.1",
+      "1.18",
+      "1.17.1",
+      "1.17",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.16.2",
+      "1.16.1",
+      "1.16",
+      "1.15.2",
+      "1.14.4"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge",
+      "Fabric",
+      "Quilt"
+    ],
+    "sizeMo": 0.5,
+    "sizePerVersion": {
+      "1.20.4": { "Fabric": 0.5, "Quilt": 0.5, "NeoForge": 0.5 },
+      "1.20.3": { "Fabric": 0.5, "Quilt": 0.5, "Forge": 0.6 },
+      "1.20.2": { "Fabric": 0.5, "Quilt": 0.5, "Forge": 0.6 },
+      "1.20.1": { "Fabric": 0.5, "Quilt": 0.5, "Forge": 0.6 },
+      "1.19.2": { "Fabric": 0.5, "Forge": 0.5 },
+      "1.19.1": { "Fabric": 0.5, "Forge": 0.5 },
+      "1.19": { "Fabric": 0.5, "Forge": 0.5 },
+      "1.18.2": { "Fabric": 0.5, "Forge": 0.5 },
+      "1.18.1": { "Fabric": 0.5, "Forge": 0.5 },
+      "1.18": { "Fabric": 0.5, "Forge": 0.5 },
+      "1.17.1": { "Fabric": 0.4, "Forge": 0.4 },
+      "1.17": { "Forge": 0.4 },
+      "1.16.5": { "Forge": 0.6 },
+      "1.16.4": { "Forge": 0.6 },
+      "1.16.3": { "Forge": 0.6 },
+      "1.16.2": { "Forge": 0.6 },
+      "1.16.1": { "Forge": 0.6 },
+      "1.16": { "Forge": 0.4 },
+      "1.15.2": { "Forge": 0.5 },
+      "1.14.4": { "Forge": 0.5 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/decorative-blocks",
+    "slug": "decorative-blocks",
+    "modrinthUrl": "https://modrinth.com/mod/decorative-blocks",
+    "tags": [
+      "decoration",
+      "esthetique"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Alex's Caves",
+    "categories": [
+      "aventure",
+      "creatures",
+      "biomes"
+    ],
+    "description": "6 biomes de grottes uniques avec créatures et loots exclusifs.",
+    "fullDescription": "Alex's Caves ajoute 6 nouveaux biomes de grottes complètement uniques, chacun avec son propre écosystème, ses créatures et ses mécaniques. Explorez les Magnetic Caves où la gravité est altérée, les Primordial Caves peuplées de dinosaures, les Toxic Caves radioactives dangereuses, l'Abyssal Chasm sous-marin terrifiant, les Forlorn Hollows hantés par des spectres et les Underground Cabin mystérieuses. Chaque biome offre des loots exclusifs et des boss optionnels.",
+    "image": "alexs-caves.png",
+    "versions": [
+      "1.20.1"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 71.4,
+    "sizePerVersion": {
+      "1.20.1": { "Forge": 71.4 }
+    },
+    "dependencies": [
+      "Citadel"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/alexs-caves",
+    "modrinthUrl": "https://modrinth.com/mod/alexs-caves",
+    "slug": "alexs-caves",
+    "tags": [
+      "biomes",
+      "creatures-hostiles",
+      "exploration"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Alex's Mobs",
+    "categories": [
+      "creatures"
+    ],
+    "description": "Plus de 80 créatures réalistes et fantastiques avec des comportements uniques.",
+    "fullDescription": "Alex's Mobs enrichit la faune de Minecraft avec plus de 80 créatures soigneusement modélisées et animées. Des grizzlis dans les forêts aux crocodiles dans les marais, chaque mob possède un comportement réaliste et des interactions naturelles avec son environnement. Certaines créatures peuvent être apprivoisées, chevauchées ou utilisées pour des mécaniques de gameplay uniques. Le mod ajoute aussi des boss comme le Void Worm et des créatures fantastiques comme le Cosmic Cod.",
+    "image": "alexs-mobs.png",
+    "versions": [
+      "1.20.1",
+      "1.20",
+      "1.19.4",
+      "1.19.3",
+      "1.19.2",
+      "1.19.1",
+      "1.19",
+      "1.18.2",
+      "1.18.1",
+      "1.18",
+      "1.17.1",
+      "1.17",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 25.1,
+    "sizePerVersion": {
+      "1.20.1": { "Forge": 25.1 },
+      "1.20": { "Forge": 24.6 },
+      "1.19.4": { "Forge": 24.6 },
+      "1.19.3": { "Forge": 24.6 },
+      "1.19.2": { "Forge": 24.5 },
+      "1.19.1": { "Forge": 24.4 },
+      "1.19": { "Forge": 24.0 },
+      "1.18.2": { "Forge": 21.4 },
+      "1.18.1": { "Forge": 21.4 },
+      "1.18": { "Forge": 20.9 },
+      "1.17.1": { "Forge": 18.5 },
+      "1.17": { "Forge": 18.5 },
+      "1.16.5": { "Forge": 17.3 },
+      "1.16.4": { "Forge": 17.3 },
+      "1.16.3": { "Forge": 17.3 }
+    },
+    "dependencies": [
+      "Citadel"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/alexs-mobs",
+    "slug": "alexs-mobs",
+    "modrinthUrl": "https://modrinth.com/mod/alexs-mobs",
+    "tags": [
+      "animaux",
+      "fantastique",
+      "creatures-hostiles"
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Aquaculture 2",
+    "categories": [
+      "creatures",
+      "aventure"
+    ],
+    "description": "Ajoute plus de 30 poissons, des cannes améliorées et un système de pêche complet.",
+    "fullDescription": "Aquaculture 2 étend considérablement la pêche vanilla avec plus de 30 espèces de poissons uniques réparties dans les différents biomes aquatiques du jeu. Utilisez le couteau à fileter pour transformer vos prises en filets et sous-produits, débloquez des cannes à pêche améliorées et des appâts spécifiques, et pêchez dans une boîte à hameçons pour attraper plusieurs poissons à la fois. L'armure et les outils en néptunium récompensent les pêcheurs les plus assidus. Un vrai mini-jeu de pêche complet greffé sur Minecraft.",
+    "image": "aquaculture.png",
+    "versions": [
+      "26.1.2",
+      "26.1.1",
+      "26.1",
+      "1.21.11",
+      "1.21.10",
+      "1.21.8",
+      "1.21.7",
+      "1.21.6",
+      "1.21.5",
+      "1.21.4",
+      "1.21.1",
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.4",
+      "1.19.3",
+      "1.19.2",
+      "1.19.1",
+      "1.19",
+      "1.18.2",
+      "1.18.1",
+      "1.18",
+      "1.17.1",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.16.1",
+      "1.15.2",
+      "1.15.1",
+      "1.14.4",
+      "1.12.2",
+      "1.11.2",
+      "1.10.2",
+      "1.8.9",
+      "1.7.10",
+      "1.7.2",
+      "1.6.2",
+      "1.5.2"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 0.6,
+    "sizePerVersion": {
+      "26.1.2": { "NeoForge": 0.6 },
+      "26.1.1": { "NeoForge": 0.6 },
+      "26.1": { "NeoForge": 0.6 },
+      "1.21.11": { "NeoForge": 0.6 },
+      "1.21.10": { "NeoForge": 0.6 },
+      "1.21.8": { "NeoForge": 0.6 },
+      "1.21.7": { "NeoForge": 0.6 },
+      "1.21.6": { "NeoForge": 0.6 },
+      "1.21.5": { "NeoForge": 0.6 },
+      "1.21.4": { "NeoForge": 0.6 },
+      "1.21.1": { "NeoForge": 0.6 },
+      "1.21": { "NeoForge": 0.6 },
+      "1.20.4": { "NeoForge": 0.6 },
+      "1.20.1": { "Forge": 0.6 },
+      "1.19.4": { "Forge": 0.6 },
+      "1.19.3": { "Forge": 0.6 },
+      "1.19.2": { "Forge": 0.6 },
+      "1.19.1": { "Forge": 0.6 },
+      "1.19": { "Forge": 0.6 },
+      "1.18.2": { "Forge": 0.6 },
+      "1.18.1": { "Forge": 0.6 },
+      "1.18": { "Forge": 0.6 },
+      "1.17.1": { "Forge": 0.6 },
+      "1.16.5": { "Forge": 0.5 },
+      "1.16.4": { "Forge": 0.5 },
+      "1.16.3": { "Forge": 0.5 },
+      "1.16.1": { "Forge": 0.5 },
+      "1.15.2": { "Forge": 0.5 },
+      "1.15.1": { "Forge": 0.4 },
+      "1.14.4": { "Forge": 0.4 },
+      "1.12.2": { "Forge": 0.2 },
+      "1.11.2": { "Forge": 0.2 },
+      "1.10.2": { "Forge": 0.2 },
+      "1.8.9": { "Forge": 0.2 },
+      "1.7.10": { "Forge": 0.1 },
+      "1.7.2": { "Forge": 0.1 },
+      "1.6.2": { "Forge": 0.1 },
+      "1.5.2": { "Forge": 0.1 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/aquaculture",
+    "slug": "aquaculture",
+    "modrinthUrl": "https://modrinth.com/mod/aquaculture",
+    "tags": [
+      "animaux",
+      "cuisine"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Better Animals Plus",
+    "categories": [
+      "creatures"
+    ],
+    "description": "Ajoute une trentaine de nouveaux animaux réalistes à travers les biomes.",
+    "fullDescription": "Better Animals Plus ajoute une trentaine d'animaux réalistes qui peuplent naturellement les biomes de Minecraft, des cerfs aux sangliers en passant par les mouffettes, ratons laveurs et hiboux. Chaque créature possède ses propres comportements, drops et habitats cohérents avec l'écosystème vanilla. Certains animaux peuvent être apprivoisés ou élevés, d'autres offrent de nouvelles ressources comme la viande de sanglier ou les bois de cerf. Un mod léger et discret qui rend le monde beaucoup plus vivant sans le dénaturer.",
+    "image": "better-animals-plus.png",
+    "versions": [
+      "1.19.2",
+      "1.19.1",
+      "1.19",
+      "1.18.2",
+      "1.18.1",
+      "1.17.1",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.15.2",
+      "1.14.4",
+      "1.13.2",
+      "1.13.1",
+      "1.13",
+      "1.12.2",
+      "1.12.1",
+      "1.12"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "Quilt"
+    ],
+    "sizeMo": 2.2,
+    "sizePerVersion": {
+      "1.19.2": { "Fabric": 2.3, "Quilt": 2.3, "Forge": 2.2 },
+      "1.19.1": { "Fabric": 2.3, "Quilt": 2.3, "Forge": 2.1 },
+      "1.19": { "Fabric": 2.3, "Quilt": 2.3, "Forge": 2.1 },
+      "1.18.2": { "Fabric": 2.3, "Forge": 2.1 },
+      "1.18.1": { "Fabric": 2.3, "Forge": 2.0 },
+      "1.17.1": { "Fabric": 2.3, "Forge": 2.1 },
+      "1.16.5": { "Fabric": 2.4, "Forge": 2.1 },
+      "1.16.4": { "Forge": 8.0 },
+      "1.16.3": { "Forge": 8.0 },
+      "1.15.2": { "Forge": 8.0 },
+      "1.14.4": { "Forge": 8.0 },
+      "1.13.2": { "Forge": 8.0 },
+      "1.13.1": { "Forge": 8.0 },
+      "1.13": { "Forge": 8.0 },
+      "1.12.2": { "Forge": 7.8 },
+      "1.12.1": { "Forge": 7.8 },
+      "1.12": { "Forge": 7.8 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/betteranimalsplus",
+    "slug": "betteranimalsplus",
+    "modrinthUrl": "",
+    "tags": [
+      "animaux",
+      "biomes"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Better Animations Collection",
+    "categories": [
+      "creatures",
+      "utilitaire"
+    ],
+    "description": "Remplace les animations vanilla des mobs pour les rendre plus fluides et réalistes.",
+    "fullDescription": "Better Animations Collection remplace les animations rigides et saccadées des mobs vanilla par des mouvements fluides et naturels. Les zombies marchent de façon plus organique, les araignées animent correctement leurs huit pattes, l'Ender Dragon bat des ailes avec plus de grâce et les créatures aquatiques nagent de manière crédible. Aucun changement de gameplay, de modèle ou de texture : uniquement une refonte visuelle des squelettes d'animation. Un mod purement cosmétique mais qui change radicalement l'ambiance générale du jeu.",
+    "image": "better-animations.png",
+    "versions": [
+      "26.2",
+      "26.1.2",
+      "26.1.1",
+      "26.1",
+      "1.21.11",
+      "1.21.10",
+      "1.21.9",
+      "1.21.8",
+      "1.21.7",
+      "1.21.6",
+      "1.21.5",
+      "1.21.4",
+      "1.21.3",
+      "1.21.1",
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.20",
+      "1.19.4",
+      "1.19.3",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.16.2",
+      "1.14.4",
+      "1.12.2",
+      "1.11.2",
+      "1.11",
+      "1.10.2",
+      "1.10",
+      "1.9.4"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge",
+      "Fabric"
+    ],
+    "sizeMo": 0.2,
+    "sizePerVersion": {
+      "26.2": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "26.1.2": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "26.1.1": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "26.1": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "1.21.11": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "1.21.10": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "1.21.9": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "1.21.8": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "1.21.7": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "1.21.6": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "1.21.5": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "1.21.4": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "1.21.3": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "1.21.1": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "1.21": { "Fabric": 0.2, "NeoForge": 0.2 },
+      "1.20.4": { "Fabric": 0.2, "Forge": 0.2, "NeoForge": 0.2 },
+      "1.20.1": { "Fabric": 0.2, "Forge": 0.2 },
+      "1.20": { "Fabric": 0.2, "Forge": 0.2 },
+      "1.19.4": { "Fabric": 0.2, "Forge": 0.2 },
+      "1.19.3": { "Fabric": 0.2, "Forge": 0.2 },
+      "1.19.2": { "Fabric": 0.2, "Forge": 0.2 },
+      "1.18.2": { "Fabric": 0.2, "Forge": 0.2 },
+      "1.16.5": { "Forge": 0.2 },
+      "1.16.4": { "Forge": 0.2 },
+      "1.16.3": { "Forge": 0.2 },
+      "1.16.2": { "Forge": 0.2 },
+      "1.14.4": { "Forge": 0.1 },
+      "1.12.2": { "Forge": 0.1 },
+      "1.11.2": { "Forge": 0.1 },
+      "1.11": { "Forge": 0.1 },
+      "1.10.2": { "Forge": 0.1 },
+      "1.10": { "Forge": 0.1 },
+      "1.9.4": { "Forge": 0.1 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/better-animations-collection",
+    "modrinthUrl": "https://modrinth.com/mod/better-animations-collection",
+    "slug": "better-animations-collection",
+    "tags": [
+      "animation",
+      "esthetique"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Exotic Birds",
+    "categories": [
+      "creatures"
+    ],
+    "description": "Ajoute plus de 40 espèces d'oiseaux exotiques à travers le monde.",
+    "fullDescription": "Exotic Birds peuple les cieux et les biomes de Minecraft avec plus de 40 espèces d'oiseaux magnifiques venus du monde entier, des perroquets colorés aux rapaces majestueux. Chaque espèce a son propre chant, son propre comportement de vol et son habitat naturel préféré. Certains oiseaux peuvent être attirés avec de la nourriture, apprivoisés ou installés dans des volières décoratives pour embellir vos constructions. Un mod purement esthétique qui ajoute énormément de vie et de détails sonores à vos parties.",
+    "image": "exotic-birds.png",
+    "versions": [
+      "1.20.1",
+      "1.19.3",
+      "1.19.2",
+      "1.19",
+      "1.18.2",
+      "1.16.5",
+      "1.16.4",
+      "1.15.2",
+      "1.14.4",
+      "1.12.2",
+      "1.11.2",
+      "1.10.2",
+      "1.8.9",
+      "1.8",
+      "1.7.10"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 2.1,
+    "sizePerVersion": {
+      "1.20.1": { "Forge": 2.1 },
+      "1.19.3": { "Forge": 2.1 },
+      "1.19.2": { "Forge": 2.1 },
+      "1.19": { "Forge": 2.1 },
+      "1.18.2": { "Forge": 2.0 },
+      "1.16.5": { "Forge": 2.0 },
+      "1.16.4": { "Forge": 2.0 },
+      "1.15.2": { "Forge": 1.9 },
+      "1.14.4": { "Forge": 1.9 },
+      "1.12.2": { "Forge": 2.2 },
+      "1.11.2": { "Forge": 2.2 },
+      "1.10.2": { "Forge": 2.2 },
+      "1.8.9": { "Forge": 1.9 },
+      "1.8": { "Forge": 2.1 },
+      "1.7.10": { "Forge": 2.1 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/exotic-birds",
+    "slug": "exotic-birds",
+    "modrinthUrl": "",
+    "tags": [
+      "animaux",
+      "esthetique"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Ice and Fire",
+    "categories": [
+      "aventure",
+      "creatures"
+    ],
+    "description": "Dragons, hippogriffes et créatures mythologiques épiques.",
+    "fullDescription": "Ice and Fire ajoute les créatures mythologiques les plus impressionnantes jamais créées pour Minecraft : dragons de feu, de glace et d'éclair, hippogriffes chevauchables, sirènes, gorgones pétrifiantes, myrmex géants et bien d'autres. Chaque dragon dispose de son propre repaire, de trésors à piller et d'une armure ainsi que d'armes forgées à partir de ses écailles et de ses os. Les combats de boss sont spectaculaires et demandent une vraie préparation. Un mod d'aventure et de fantasy incontournable pour les amateurs de créatures légendaires.",
+    "image": "ice-and-fire.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.17.1",
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.16.1",
+      "1.15.2",
+      "1.12.2",
+      "1.11.2",
+      "1.10.2"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 20.8,
+    "sizePerVersion": {
+      "1.20.1": { "Forge": 20.8 },
+      "1.19.2": { "Forge": 20.6 },
+      "1.18.2": { "Forge": 20.5 },
+      "1.17.1": { "Forge": 20.5 },
+      "1.16.5": { "Forge": 20.5 },
+      "1.16.4": { "Forge": 20.5 },
+      "1.16.3": { "Forge": 20.5 },
+      "1.16.1": { "Forge": 23.0 },
+      "1.15.2": { "Forge": 23.4 },
+      "1.12.2": { "Forge": 19.5 },
+      "1.11.2": { "Forge": 6.8 },
+      "1.10.2": { "Forge": 4.8 }
+    },
+    "dependencies": [
+      "Citadel"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/ice-and-fire-dragons",
+    "modrinthUrl": "https://modrinth.com/mod/ice-and-fire-dragons",
+    "slug": "ice-and-fire-dragons",
+    "tags": [
+      "fantastique",
+      "boss",
+      "combat"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "More Villagers",
+    "categories": [
+      "creatures",
+      "utilitaire"
+    ],
+    "description": "Ajoute des villageois spécialisés avec de nouveaux métiers et échanges.",
+    "fullDescription": "More Villagers enrichit considérablement les villages en ajoutant plus de 12 nouveaux métiers de villageois spécialisés, comme le cuisinier, le mercenaire ou le posticheur. Chaque profession propose ses propres échanges uniques, ses propres tenues et parfois de nouvelles mécaniques comme l'embauche d'un garde armé pour défendre votre base. Les villages deviennent des lieux beaucoup plus vivants, variés et utiles pour la progression du joueur. Idéal pour qui trouve les villages vanilla trop répétitifs et sous-exploités.",
+    "image": "morevillagers.png",
+    "versions": [
+      "26.2",
+      "26.1.2",
+      "26.1.1",
+      "26.1",
+      "1.21.11",
+      "1.21.1",
+      "1.20.1",
+      "1.19.3",
+      "1.19.2",
+      "1.19.1",
+      "1.19",
+      "1.18.2",
+      "1.18.1",
+      "1.18",
+      "1.17.1",
+      "1.17",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge",
+      "Fabric"
+    ],
+    "sizeMo": 0.3,
+    "sizePerVersion": {
+      "26.2": { "Fabric": 1.3, "NeoForge": 0.3 },
+      "26.1.2": { "Fabric": 1.3, "NeoForge": 0.3 },
+      "26.1.1": { "Fabric": 1.3, "NeoForge": 0.3 },
+      "26.1": { "Fabric": 1.3, "NeoForge": 0.3 },
+      "1.21.11": { "Fabric": 1.2, "NeoForge": 0.2 },
+      "1.21.1": { "Fabric": 1.2, "NeoForge": 0.2 },
+      "1.20.1": { "Fabric": 1.2, "Forge": 0.2 },
+      "1.19.3": { "Fabric": 1.2, "Forge": 0.2 },
+      "1.19.2": { "Fabric": 1.2, "Forge": 0.2 },
+      "1.19.1": { "Fabric": 1.2, "Forge": 0.2 },
+      "1.19": { "Fabric": 1.2, "Forge": 0.2 },
+      "1.18.2": { "Fabric": 1.2, "Forge": 0.2 },
+      "1.18.1": { "Fabric": 1.1, "Forge": 0.3 },
+      "1.18": { "Fabric": 1.1, "Forge": 0.3 },
+      "1.17.1": { "Fabric": 1.1, "Forge": 0.3 },
+      "1.17": { "Fabric": 1.1, "Forge": 0.3 },
+      "1.16.5": { "Fabric": 0.2, "Forge": 0.3 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": {
+      "Forge/NeoForge": "https://www.curseforge.com/minecraft/mc-mods/more-villagers",
+      "Fabric": "https://www.curseforge.com/minecraft/mc-mods/more-villagers-fabric"
+    },
+    "modrinthUrl": "",
+    "slug": "more-villagers-fabric",
+    "tags": [
+      "commerce",
+      "villageois"
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Mowzie's Mobs",
+    "categories": [
+      "aventure",
+      "creatures"
+    ],
+    "description": "Ajoute des boss et créatures uniques inspirés de mythologies du monde.",
+    "fullDescription": "Mowzie's Mobs ajoute une poignée de créatures et de boss épiques inspirés de mythologies du monde entier, chacun avec des mécaniques de combat uniques et travaillées. Affrontez Frostmaw le géant des glaces, le Naga venimeux, le redoutable Ferrous Wroughtnaut ou encore le Foliaath carnivore, chacun exigeant une stratégie différente. Les combats sont pensés comme de véritables mini-boss fights, avec des attaques variées et des phases distinctes. Un mod qualitatif plutôt que quantitatif, très apprécié pour son originalité artistique.",
+    "image": "mowzies-mobs.png",
+    "versions": [
+      "1.21.1",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.17.1",
+      "1.16.5"
+      "1.16.4",
+      "1.16.3",
+      "1.15.2",
+      "1.14.4",
+      "1.12.2",
+      "1.11.2",
+      "1.11",
+      "1.10.2",
+      "1.7.10"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 34.4,
+    "sizePerVersion": {
+      "1.21.1": { "NeoForge": 34.4 },
+      "1.20.1": { "Forge": 34.4 },
+      "1.19.2": { "Forge": 14.4 },
+      "1.18.2": { "Forge": 14.4 },
+      "1.17.1": { "Forge": 12.9 },
+      "1.16.5": { "Forge": 12.9 },
+      "1.16.4": { "Forge": 12.9 },
+      "1.16.3": { "Forge": 12.9 },
+      "1.15.2": { "Forge": 4.8 },
+      "1.14.4": { "Forge": 5.1 },
+      "1.12.2": { "Forge": 4.9 },
+      "1.11.2": { "Forge": 4.7 },
+      "1.11": { "Forge": 2.6 },
+      "1.10.2": { "Forge": 2.6 },
+      "1.7.10": { "Forge": 2.4 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/mowzies-mobs",
+    "modrinthUrl": "https://modrinth.com/mod/mowzies-mobs",
+    "slug": "mowzies-mobs",
+    "tags": [
+      "boss",
+      "fantastique",
+      "combat"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Naturalist",
+    "categories": [
+      "creatures",
+      "biomes"
+    ],
+    "description": "Animaux réalistes et adorables qui enrichissent l'écosystème.",
+    "fullDescription": "Naturalist ajoute une trentaine d'animaux réalistes et adorables qui viennent enrichir naturellement les écosystèmes de Minecraft, des ratons laveurs curieux aux variantes sauvages de chats en passant par des oiseaux discrets. Chaque créature s'intègre à son biome d'origine avec des comportements crédibles et des animations soignées. Certaines peuvent être apprivoisées ou nourries pour se lier au joueur. Un mod pensé pour Fabric qui privilégie la cohérence visuelle et l'ambiance plutôt que la quantité de contenu.",
+    "image": "naturalist.png",
+    "versions": [
+      "1.21.1",
+      "1.20.1",
+      "1.19.2",
+      "1.19.1",
+      "1.19",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge",
+      "Fabric"
+    ],
+    "sizeMo": 10.8,
+    "sizePerVersion": {
+      "1.21.1": { "Fabric": 10.7, "NeoForge": 10.8 },
+      "1.20.1": { "Fabric": 4.5, "Forge": 3.6 },
+      "1.19.2": { "Fabric": 4.2, "Forge": 3.3 },
+      "1.19.1": { "Fabric": 2.9, "Forge": 2.0 },
+      "1.19": { "Fabric": 2.9, "Forge": 2.0 },
+      "1.18.2: { "Fabric": 2.9, "Forge": 2.0 }"
+    },
+    "dependencies": [
+      "GeckoLib"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/naturalist",
+    "modrinthUrl": "https://modrinth.com/mod/naturalist",
+    "slug": "naturalist",
+    "tags": [
+      "animaux",
+      "biomes"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Pandora's Creatures",
+    "categories": [
+      "creatures",
+      "aventure"
+    ],
+    "description": "Ajoute une variété de nouvelles créatures uniques et hostiles à travers l'Overworld.",
+    "fullDescription": "Pandora's Creatures enrichit l'Overworld de Minecraft avec une multitude de nouvelles créatures uniques, souvent dangereuses et parfois franchement inquiétantes. Chaque monstre possède son propre design, ses propres attaques et son propre butin, ajoutant une couche de tension supplémentaire à l'exploration nocturne ou souterraine. Certaines créatures rares ne se rencontrent que dans des conditions bien précises. Un mod centré sur l'ambiance horrifique et la diversité du bestiaire hostile plutôt que sur de nouvelles mécaniques.",
+    "image": "pandoras-creatures.png",
+    "versions": [
+      "1.16.5",
+      "1.16.4",
+      "1.16.3",
+      "1.15.2",
+      "1.14.4"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 1.4,
+    "sizePerVersion": {
+      "1.16.5": { "Forge": 1.4 },
+      "1.16.4": { "Forge": 1.4 },
+      "1.16.3": { "Forge": 1.4 },
+      "1.15.2": { "Forge": 1.3 },
+      "1.14.4": { "Forge": 1.3 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/pandoras-creatures",
+    "slug": "pandoras-creatures",
+    "modrinthUrl": "",
+    "tags": [
+      "creatures-hostiles",
+      "fantastique"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Untamed Wilds",
+    "categories": [
+      "creatures",
+      "biomes"
+    ],
+    "description": "Créatures sauvages, prédateurs et espèces menacées du monde réel.",
+    "fullDescription": "Untamed Wilds ajoute une multitude de créatures sauvages du monde réel, incluant des espèces menacées et des prédateurs impressionnants comme des ours, des loups et de grands félins. Chaque animal possède un comportement réaliste, un habitat cohérent et parfois des interactions de chasse ou de meute entre eux. Le mod met l'accent sur la sensibilisation à la biodiversité tout en restant fidèle à l'esprit survie de Minecraft. Une belle alternative pour qui cherche un bestiaire plus terre-à-terre que fantastique.",
+    "image": "untamed-wilds.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5",
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 2.8,
+    "sizePerVersion": {
+      "1.20.1": { "Forge": 2.8 },
+      "1.19.2": { "Forge": 2.9 },
+      "1.18.2": { "Forge": 2.9 },
+      "1.16.5": { "Forge": 2.1 }
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/untamedwilds",
+    "modrinthUrl": "https://modrinth.com/mod/untamed-wilds-(unofficial-port)",
+    "slug": "untamedwilds",
+    "tags": [
+      "animaux",
+      "biomes"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Xenoclus 2",
+    "categories": [
+      "aventure",
+      "creatures"
+    ],
+    "description": "Ajoute un boss légendaire extraterrestre avec un donjon dédié.",
+    "fullDescription": "Xenoclus 2 est un mod boss endgame qui ajoute une créature extraterrestre titanesque cachée dans un donjon spatial unique et complexe. L'arrivée du boss est annoncée par la chute spectaculaire d'un météore, marquant le début d'une traque à haut risque à travers des chambres truffées de pièges et de gardiens. Vaincre Xenoclus rapporte un butin exclusif et des équipements aux capacités uniques, introuvables ailleurs. Un contenu de fin de partie pensé pour les joueurs cherchant un défi supplémentaire après le Dragon de l'End.",
+    "image": "xenoclus.png",
+    "versions": [
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 4.3,
+    "sizePerVersion": {
+      "1.19.2": 4.3,
+      "1.18.2": 4
+    },
+    "dependencies": [
+      "GeckoLib"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/xenoclus-2",
+    "slug": "xenoclus-2",
+    "modrinthUrl": "",
+    "tags": [
+      "boss",
+      "donjons",
+      "combat"
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Man of Many Planes",
+    "categories": [
+      "aventure",
+      "creatures"
+    ],
+    "description": "Ajoute d'énormes araignées géantes et créatures interdimensionnelles terrifiantes.",
+    "fullDescription": "Man of Many Planes ajoute des créatures cauchemardesques venues d'autres dimensions, dont des araignées géantes (Broodmothers) atteignant plusieurs blocs de haut, capables de pondre des œufs et d'invoquer des essaims. Le mod inclut aussi le Wither Storm inspiré de Minecraft Story Mode, des créatures faites d'ombres et d'autres abominations. Chaque créature possède des animations spectaculaires, des attaques dévastatrices et des mécaniques de combat uniques. Réservé aux joueurs qui n'ont pas peur des araignées géantes !",
+    "image": "man-of-many-planes.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 0.3,
+    "sizePerVersion": {
+      "1.20.1": 0.3,
+      "1.19.2": 0.3,
+      "1.18.2": 15.8
+    },
+    "dependencies": [
+      "GeckoLib"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/man-of-many-planes",
+    "modrinthUrl": "https://modrinth.com/mod/man-of-many-planes",
+    "slug": "man-of-many-planes",
+    "tags": [
+      "creatures-hostiles",
+      "dimension",
+      "fantastique"
+    ]
+  },
+  {
+    "id": 101,
+    "name": "The Graveyard",
+    "categories": [
+      "aventure",
+      "creatures",
+      "biomes"
+    ],
+    "description": "Cimetières hantés avec zombies, squelettes et fantômes uniques.",
+    "fullDescription": "The Graveyard ajoute des cimetières atmosphériques générés naturellement dans l'Overworld, peuplés de créatures mortes-vivantes uniques : goules affamées, revenants enragés, moines fantômes protégeant leurs tombes, et des liches puissantes gardant des trésors. Les cimetières contiennent des chapelles, cryptes souterraines, mausolées et statues brisées. L'ambiance sombre et mystérieuse est renforcée par de nouveaux blocs décoratifs gothiques : sarcophages, cercueils, gargouilles et bougies noires.",
+    "image": "the-graveyard.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 9.8,
+    "sizePerVersion": {
+      "1.20.1": 9.8,
+      "1.19.2": 12.9,
+      "1.18.2": 13.1
+    },
+    "dependencies": [],
+    "curseforgeUrl": {
+      "Forge/NeoForge": "https://www.curseforge.com/minecraft/mc-mods/the-graveyard-forge",
+      "Fabric": "https://www.curseforge.com/minecraft/mc-mods/the-graveyard-fabric"
+    },
+    "modrinthUrl": {
+      "Forge/NeoForge": "https://modrinth.com/mod/the-graveyard-forge",
+      "Fabric": "https://modrinth.com/mod/the-graveyard-fabric"
+    },
+    "slug": "the-graveyard-forge",
+    "tags": [
+      "creatures-hostiles",
+      "biomes"
+    ]
+  },
+  {
+    "id": 102,
+    "name": "L_Ender's Cataclysm",
+    "categories": [
+      "aventure",
+      "creatures"
+    ],
+    "description": "Boss épiques ultime avec loot légendaire et combats mémorables.",
+    "fullDescription": "Cataclysm ajoute plusieurs boss ultimes conçus pour le endgame, chacun proposant un combat unique et spectaculaire. Affrontez l'Ender Guardian dans un monolithe cristallin, le Netherite Monstrosity géant de fer et de lave, l'Ancient Remnant nécromancien titanesque, et le Harbinger dragon-mécanique venu du Nether. Chaque boss droppe des armes et armures légendaires exclusives avec des pouvoirs uniques. Combats calibrés pour du full-diamond enchanté.",
+    "image": "cataclysm.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 24.7,
+    "sizePerVersion": {
+      "1.20.1": 24.7,
+      "1.19.2": 22.9,
+      "1.18.2": 21.3
+    },
+    "dependencies": [
+      "GeckoLib"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/lendercataclysm",
+    "modrinthUrl": "https://modrinth.com/mod/l_enders-cataclysm",
+    "slug": "l-enders-cataclysm",
+    "tags": [
+      "boss",
+      "combat",
+      "fantastique"
+    ]
+  },
+  {
+    "id": 103,
+    "name": "Guard Villagers",
+    "categories": [
+      "creatures",
+      "utilitaire"
+    ],
+    "description": "Ajoute des gardes armés protégeant activement les villages.",
+    "fullDescription": "Guard Villagers ajoute des villageois gardes armés qui patrouillent activement dans les villages et protègent les habitants contre les mobs hostiles. Équipés d'épées, arcs, boucliers et armures variées selon leur rang, ils combattent les zombies, squelettes et raids de pillards. Vous pouvez leur donner du meilleur équipement pour les rendre plus puissants, les recruter comme gardes personnels ou les échanger avec un capitaine pour de nouvelles recrues. Un ajout essentiel pour rendre les villages vivants et défendus.",
+    "image": "guard-villagers.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 0.2,
+    "sizePerVersion": {
+      "1.20.1": 0.2,
+      "1.19.2": 0.2,
+      "1.18.2": 0.2,
+      "1.16.5": 0.2
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/guard-villagers",
+    "slug": "guard-villagers",
+    "modrinthUrl": "https://modrinth.com/mod/guard-villagers",
+    "tags": [
+      "protection",
+      "villageois"
+    ]
+  },
+  {
+    "id": 118,
+    "name": "Spider's World",
+    "categories": [
+      "creatures",
+      "biomes"
+    ],
+    "description": "Ajoute plus de 25 espèces d'araignées uniques du monde entier.",
+    "fullDescription": "Spider's World enrichit considérablement la faune arachnide de Minecraft avec plus de 25 espèces d'araignées réalistes du monde entier. Découvrez des mygales géantes tropicales terrifiantes, des veuves noires venimeuses cachées dans les grottes, des araignées sauteuses colorées inoffensives, des tarentules imposantes, des araignées-loup rapides et agiles, des tisseuses d'orbes majestueuses avec leurs toiles géantes, et bien d'autres espèces uniques. Chaque araignée possède des comportements réalistes : certaines chassent activement, d'autres tendent des embuscades dans leurs toiles, certaines sont apprivoisables comme animaux de compagnie. Les biomes influencent naturellement les espèces rencontrées : jungles humides, déserts arides, cavernes profondes, forêts tempérées. Un mod à la fois éducatif et terrifiant pour les arachnophobes !",
+    "image": "spiders-world.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 15.7,
+    "sizePerVersion": {
+      "1.20.1": 15.7,
+      "1.19.2": 14.5,
+      "1.18.2": 13.4
+    },
+    "dependencies": [
+      "GeckoLib"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/spider-mod-ification",
+    "modrinthUrl": "",
+    "slug": "spiders-world",
+    "tags": [
+      "animaux",
+      "biomes",
+      "creatures-hostiles"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Better Nether",
+    "categories": [
+      "biomes"
+    ],
+    "description": "Refonte complète du Nether avec de nouveaux biomes exotiques.",
+    "fullDescription": "Better Nether transforme radicalement le Nether en ajoutant plus de 20 nouveaux biomes exotiques et variés, chacun avec ses propres blocs, sa propre flore et sa propre ambiance visuelle. Fini le paysage rouge et répétitif : forêts d'os, cavernes cristallines, marais toxiques et bien d'autres paysages viennent diversifier cette dimension infernale. De nouvelles créatures et ressources accompagnent souvent chaque biome. Un indispensable pour quiconque trouve le Nether vanilla trop monotone à explorer.",
+    "image": "better-nether.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Fabric",
+      "Quilt"
+    ],
+    "sizeMo": 21.9,
+    "sizePerVersion": {
+      "1.20.1": 21.9,
+      "1.19.2": 20.9,
+      "1.18.2": 20.9,
+      "1.16.5": 21.3
+    },
+    "dependencies": [
+      "Fabric API"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/betternether",
+    "modrinthUrl": "https://modrinth.com/mod/betternether",
+    "slug": "betternether",
+    "tags": [
+      "biomes",
+      "exploration"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Better Village",
+    "categories": [
+      "decoration",
+      "biomes"
+    ],
+    "description": "Améliore drastiquement les villages avec de nouvelles structures et bâtiments.",
+    "fullDescription": "Better Village transforme les villages vanilla en communautés vivantes, détaillées et variées, avec de nouvelles structures comme des tavernes, des forges ou des maisons de garde. Les bâtiments s'adaptent au biome environnant pour un rendu beaucoup plus cohérent et immersif, et certains villages intègrent des défenses ou des points d'intérêt uniques. Les villageois profitent eux aussi d'une mise en scène plus riche autour de ces nouvelles constructions. Idéal pour redonner vie et crédibilité aux villages trop simplistes de base.",
+    "image": "better-village.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 2.5,
+    "sizePerVersion": {
+      "1.20.1": 2.5,
+      "1.19.2": 2.5,
+      "1.18.2": 2.5
+    },
+    "dependencies": [],
+    "curseforgeUrl": {
+      "Forge/NeoForge": "https://www.curseforge.com/minecraft/mc-mods/better-village-forge",
+      "Fabric": "https://www.curseforge.com/minecraft/mc-mods/better-village-fabric"
+    },
+    "modrinthUrl": "https://modrinth.com/mod/better-village",
+    "slug": "better-village-forge",
+    "tags": [
+      "structures",
+      "decoration"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Biomes O' Plenty",
+    "categories": [
+      "biomes",
+      "decoration"
+    ],
+    "description": "Plus de 50 nouveaux biomes spectaculaires pour une exploration infinie.",
+    "fullDescription": "Biomes O' Plenty est le mod de biomes le plus emblématique et populaire de Minecraft, ajoutant plus de 50 nouveaux paysages spectaculaires à explorer. Marais brumeux, forêts de bambous, prairies fleuries, déserts de cristal ou volcans font partie des dizaines d'environnements uniques, chacun avec sa propre flore, ses propres blocs décoratifs et parfois ses propres créatures. La génération du monde devient beaucoup plus variée et surprenante à chaque nouvelle exploration. Un classique incontournable depuis les débuts du modding Minecraft.",
+    "image": "biomes-o-plenty.png",
+    "versions": [
+      "1.20.1",
+      "1.19.4",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 20.8,
+    "sizePerVersion": {
+      "1.20.1": 20.8,
+      "1.19.4": 20.7,
+      "1.18.2": 20.3,
+      "1.16.5": 3.5
+    },
+    "dependencies": [
+      "GlitchCore"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty",
+    "slug": "biomes-o-plenty",
+    "modrinthUrl": "https://modrinth.com/mod/biomes-o-plenty",
+    "tags": [
+      "biomes",
+      "exploration"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Dark Caverns",
+    "categories": [
+      "aventure",
+      "biomes"
+    ],
+    "description": "Rend les grottes plus sombres, dangereuses et immersives.",
+    "fullDescription": "Dark Caverns modifie l'éclairage et l'ambiance des grottes de Minecraft pour les rendre véritablement sombres, effrayantes et immersives. La luminosité naturelle des cavernes est fortement réduite et les spawns de mobs hostiles sont ajustés pour rendre la spéléologie beaucoup plus tendue et dangereuse. Une simple torche ne suffit plus toujours à sécuriser un couloir, obligeant à explorer avec bien plus de prudence. Un mod idéal pour qui trouve les grottes vanilla trop lumineuses et peu menaçantes.",
+    "image": "dark-caverns.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 0.5,
+    "sizePerVersion": {
+      "1.20.1": 0.5,
+      "1.19.2": 0.5,
+      "1.18.2": 0.4
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/dark-caverns",
+    "modrinthUrl": "https://modrinth.com/mod/dark-caverns",
+    "slug": "dark-caverns",
+    "tags": [
+      "biomes",
+      "survie"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Oh The Biomes You'll Go",
+    "categories": [
+      "decoration",
+      "biomes"
+    ],
+    "description": "80+ biomes magnifiques dans l'Overworld, le Nether et l'End.",
+    "fullDescription": "Oh The Biomes You'll Go (BYG) ajoute plus de 80 biomes visuellement époustouflants répartis dans l'Overworld, le Nether et l'End. Chaque nouvel environnement possède sa propre palette de couleurs, ses arbres uniques, ses fleurs, ses blocs décoratifs et parfois ses créatures dédiées, offrant une diversité visuelle rarement égalée. La génération de terrain est entièrement repensée pour intégrer harmonieusement ces nouveaux paysages aux biomes vanilla existants. Un mod pensé avant tout pour les amateurs d'exploration et de constructions inspirées par des décors uniques.",
+    "image": "oh-the-biomes.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 27.6,
+    "sizePerVersion": {
+      "1.20.1": 27.6,
+      "1.19.2": 35.5,
+      "1.18.2": 34.8
+    },
+    "dependencies": [
+      "Cristel Lib",
+      "Architectury API"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go",
+    "modrinthUrl": "https://modrinth.com/mod/biomesyougo",
+    "slug": "oh-the-biomes-youll-go",
+    "tags": [
+      "biomes",
+      "exploration"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Repurposed Structures",
+    "categories": [
+      "aventure",
+      "biomes"
+    ],
+    "description": "Réutilise les structures vanilla dans de nouveaux biomes avec variations.",
+    "fullDescription": "Repurposed Structures ajoute plus de 60 nouvelles variantes des structures vanilla adaptées à différents biomes, comme des villages de neige, des temples du désert version jungle ou des bastions revisités. Chaque variante conserve la fonction de la structure d'origine tout en modifiant son architecture, ses textures et parfois son butin pour coller à son nouvel environnement. Cela évite l'incohérence des structures identiques peu importe le biome traversé. Un mod discret mais qui améliore grandement l'immersion et la cohérence visuelle du monde généré.",
+    "image": "repurposed-structures.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 7.9,
+    "sizePerVersion": {
+      "1.20.1": 7.9,
+      "1.19.2": 7.3,
+      "1.18.2": 5.9,
+      "1.16.5": 5.3
+    },
+    "dependencies": [],
+    "curseforgeUrl": {
+      "Forge/NeoForge": "https://www.curseforge.com/minecraft/mc-mods/repurposed-structures",
+      "Fabric": "https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric"
+    },
+    "modrinthUrl": {
+      "Forge/NeoForge": "https://modrinth.com/mod/repurposed-structures-forge",
+      "Fabric": "https://modrinth.com/mod/repurposed-structures-fabric"
+    },
+    "slug": "repurposed-structures",
+    "tags": [
+      "structures",
+      "biomes"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Terralith",
+    "categories": [
+      "biomes"
+    ],
+    "description": "Refonte complète de la génération du monde avec des biomes époustouflants.",
+    "fullDescription": "Terralith transforme radicalement la génération du terrain de Minecraft sans ajouter aucun nouveau bloc, se reposant entièrement sur les blocs vanilla agencés de façon spectaculaire. Canyons vertigineux, archipels flottants, forêts denses et montagnes démesurées redessinent complètement le paysage exploré. Le mod reste totalement compatible avec la plupart des autres mods de génération de monde grâce à son approche non intrusive. Idéal pour qui souhaite un monde visuellement renversant sans bouleverser l'identité vanilla de Minecraft.",
+    "image": "terralith.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.4"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge",
+      "Quilt"
+    ],
+    "sizeMo": 3,
+    "sizePerVersion": {
+      "1.21": 3,
+      "1.20.4": 3,
+      "1.20.1": 3,
+      "1.19.4": 2.8
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/terralith",
+    "slug": "terralith",
+    "modrinthUrl": "https://modrinth.com/mod/terralith",
+    "tags": [
+      "biomes",
+      "exploration"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "The Undergarden",
+    "categories": [
+      "biomes",
+      "aventure",
+      "creatures"
+    ],
+    "description": "Une nouvelle dimension souterraine sombre et mystérieuse.",
+    "fullDescription": "The Undergarden ajoute une toute nouvelle dimension entièrement souterraine, sombre et brumeuse, accessible via un portail d'améthyste plutôt que d'obsidienne ou de portails classiques. On y trouve une flore bioluminescente, des créatures inédites et hostiles ainsi que des ressources exclusives à cette dimension miroir de l'Overworld. L'ambiance oppressante et les paysages inversés en font une exploration radicalement différente du Nether ou de l'End. Un mod de dimension à part entière, pensé pour les amateurs d'exploration atypique.",
+    "image": "the-undergarden.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 43,
+    "sizePerVersion": {
+      "1.20.1": 43,
+      "1.19.2": 58.4,
+      "1.18.2": 58.3,
+      "1.16.5": 60.5
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/the-undergarden",
+    "slug": "the-undergarden",
+    "modrinthUrl": "https://modrinth.com/mod/the-undergarden",
+    "tags": [
+      "dimension",
+      "biomes",
+      "creatures-hostiles"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Towns and Towers",
+    "categories": [
+      "biomes",
+      "aventure"
+    ],
+    "description": "Ajoute villes, tours, camps et navires perdus à travers le monde.",
+    "fullDescription": "Towns and Towers ajoute des dizaines de nouvelles structures spectaculaires à travers le monde, comme des villes fortifiées, des tours de guet isolées, des campements de bandits ou des navires échoués. Chaque structure propose son propre butin, parfois gardé par des ennemis, ainsi qu'une architecture détaillée qui s'intègre naturellement au paysage environnant. Cela multiplie les points d'intérêt à découvrir lors de vos explorations et casse la monotonie du monde généré. Un excellent complément pour les joueurs friands de loot et de nouvelles structures à piller.",
+    "image": "towns-and-towers.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.4"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 3.5,
+    "sizePerVersion": {
+      "1.21": 3.5,
+      "1.20.4": 3.4,
+      "1.20.1": 2.7,
+      "1.19.4": 2.7
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/towns-and-towers",
+    "slug": "towns-and-towers",
+    "modrinthUrl": "https://modrinth.com/mod/towns-and-towers",
+    "tags": [
+      "structures",
+      "exploration"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "When Dungeons Arise",
+    "categories": [
+      "aventure",
+      "biomes"
+    ],
+    "description": "Ajoute plus de 40 donjons et structures colossaux répartis dans le monde.",
+    "fullDescription": "When Dungeons Arise ajoute plus de 40 donjons et structures monumentales dans le monde de Minecraft, des forteresses en ruines aux arènes de combat en passant par des tours géantes. Chaque structure est conçue à la main avec un souci du détail architectural poussé, souvent peuplée de mobs hostiles et remplie de coffres au butin généreux. Certaines structures colossales rivalisent en taille avec des villes entières, offrant des heures d'exploration. Un mod idéal pour donner du relief et des objectifs concrets à vos parties d'aventure.",
+    "image": "dungeons-arise.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 8.4,
+    "sizePerVersion": {
+      "1.20.1": 8.4,
+      "1.19.2": 7.8,
+      "1.18.2": 7.2,
+      "1.16.5": 6.4
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/when-dungeons-arise",
+    "modrinthUrl": "https://www.curseforge.com/minecraft/mc-mods/when-dungeons-arise-fabric",
+    "slug": "when-dungeons-arise",
+    "tags": [
+      "donjons",
+      "structures"
+    ]
+  },
+  {
+    "id": 71,
+    "name": "William Wythers' Overhauled Overworld",
+    "categories": [
+      "biomes"
+    ],
+    "description": "Refonte complète de l'Overworld avec des dizaines de nouveaux biomes.",
+    "fullDescription": "William Wythers' Overhauled Overworld réimagine complètement la surface de Minecraft avec des dizaines de nouveaux biomes détaillés et cohérents entre eux. Les transitions entre environnements sont travaillées pour éviter les ruptures visuelles brutales typiques des mods de biomes, offrant une génération de monde particulièrement naturelle et fluide. De nouvelles variantes d'arbres, de fleurs et de terrains viennent enrichir chaque zone traversée. Un mod pensé pour les explorateurs en quête d'un Overworld totalement renouvelé mais toujours crédible.",
+    "image": "wwoo.png",
+    "versions": [
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 9.2,
+    "sizePerVersion": {
+      "1.19.2": 9.2,
+      "1.18.2": 8.5,
+      "1.16.5": 7.6
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/william-wythers-overhauled-overworld",
+    "modrinthUrl": "https://modrinth.com/mod/wwoo",
+    "slug": "william-wythers-overhauled-overworld",
+    "tags": [
+      "biomes",
+      "exploration"
+    ]
+  },
+  {
+    "id": 68,
+    "name": "YUNG's Better Dungeons",
+    "categories": [
+      "aventure",
+      "biomes"
+    ],
+    "description": "Refonte complète des donjons vanilla avec structures massives et loot amélioré.",
+    "fullDescription": "YUNG's Better Dungeons remplace les donjons vanilla ennuyeux par des structures colossales et complexes, comprenant plusieurs étages, des pièges variés et des salles thématiques uniques. Le butin est nettement plus généreux et cohérent avec la difficulty du donjon, récompensant vraiment l'exploration prudente. Les spawners multiples et la diversité des agencements rendent chaque donjon visité différent du précédent. Un mod indispensable pour qui trouve les donjons vanilla trop petits et répétitifs.",
+    "image": "yungs-dungeons.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 3.4,
+    "sizePerVersion": {
+      "1.20.1": 3.4,
+      "1.19.2": 3.1,
+      "1.18.2": 2.9,
+      "1.16.5": 2.5
+    },
+    "dependencies": [
+      "YUNG's API"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-dungeons",
+    "modrinthUrl": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-dungeons-fabric",
+    "slug": "yungs-better-dungeons",
+    "tags": [
+      "donjons",
+      "structures"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "YUNG's Better Strongholds",
+    "categories": [
+      "aventure",
+      "biomes"
+    ],
+    "description": "Refonte totale des Strongholds vanilla, transformés en immenses forteresses.",
+    "fullDescription": "YUNG's Better Strongholds transforme les Strongholds vanilla en véritables forteresses souterraines impressionnantes, bien plus vastes et détaillées que leur version d'origine. De nouvelles salles, couloirs et pièges viennent enrichir l'exploration jusqu'au portail de l'End, avec un butin repensé pour récompenser la progression. L'architecture varie légèrement d'une génération à l'autre pour éviter la monotonie. Un excellent complément à YUNG's Better Dungeons pour une aventure souterraine cohérente et beaucoup plus mémorable.",
+    "image": "yungs-strongholds.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 2.6,
+    "sizePerVersion": {
+      "1.20.1": 2.6,
+      "1.19.2": 2.4,
+      "1.18.2": 2.2,
+      "1.16.5": 1.9
+    },
+    "dependencies": [
+      "YUNG's API"
+    ],
+    "curseforgeUrl": {
+      "Forge/NeoForge": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-strongholds",
+      "Fabric": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-strongholds-fabric"
+    },
+    "modrinthUrl": "https://modrinth.com/mod/yungs-better-strongholds",
+    "slug": "yungs-better-strongholds",
+    "tags": [
+      "donjons",
+      "structures"
+    ]
+  },
+  {
+    "id": 111,
+    "name": "YUNG's Better Mineshafts",
+    "categories": [
+      "aventure",
+      "biomes"
+    ],
+    "description": "Refonte totale des mines abandonnées avec réseaux souterrains massifs.",
+    "fullDescription": "YUNG's Better Mineshafts transforme les mines abandonnées ennuyeuses en gigantesques complexes miniers labyrinthiques. Explorez des puits verticaux vertigineux, des rails sur plusieurs niveaux, des campements de mineurs abandonnés avec forges, cantines et dortoirs, des zones effondrées dangereuses et des salles au trésor cachées. Les mines varient selon les biomes : mines de sel dans les déserts, mines glacées dans la toundra, mines infestées d'araignées dans la jungle. Compatible avec YUNG's Better Dungeons et Strongholds.",
+    "image": "yungs-mineshafts.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 2.9,
+    "sizePerVersion": {
+      "1.20.1": 2.9,
+      "1.19.2": 2.7,
+      "1.18.2": 2.5,
+      "1.16.5": 2.2
+    },
+    "dependencies": [
+      "YUNG's API"
+    ],
+    "curseforgeUrl": {
+      "Forge/NeoForge": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-mineshafts-forge",
+      "Fabric": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-mineshafts-fabric"
+    },
+    "modrinthUrl": "https://modrinth.com/mod/yungs-better-mineshafts",
+    "slug": "yungs-better-mineshafts",
+    "tags": [
+      "donjons",
+      "structures"
+    ]
+  },
+  {
+    "id": 112,
+    "name": "Deeper and Darker",
+    "categories": [
+      "aventure",
+      "creatures",
+      "biomes"
+    ],
+    "description": "Nouvelle dimension Otherside profonde et sombre avec créatures uniques.",
+    "fullDescription": "Deeper and Darker ajoute une toute nouvelle dimension appelée l'Otherside, accessible via un portail construit avec du Warden Heart. Ce monde sombre et oppressant est peuplé de créatures inspirées du Warden, avec ses propres biomes uniques (Blooming Caverns, Echoing Forest, Ancient City ruins), des minerais exclusifs comme la Sculkstone et Echo Ingots, et des armes légendaires forgées à partir de matériaux de l'Otherside. Une expérience horrifique et fascinante inspirée du Deep Dark vanilla.",
+    "image": "deeper-and-darker.png",
+    "versions": [
+      "1.20.1",
+      "1.19.4",
+      "1.19.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 14.6,
+    "sizePerVersion": {
+      "1.20.1": 14.6,
+      "1.19.4": 13.8,
+      "1.19.2": 13.2
+    },
+    "dependencies": [
+      "Architectury API"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/deeperdarker",
+    "modrinthUrl": "https://modrinth.com/mod/deeperdarker",
+    "slug": "deeper-and-darker",
+    "tags": [
+      "dimension",
+      "biomes",
+      "creatures-hostiles"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Applied Energistics 2",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Un système de stockage numérique et d'automatisation avancé.",
+    "fullDescription": "Applied Energistics 2 révolutionne le stockage dans Minecraft en offrant un réseau de stockage numérique ultra-efficace basé sur des cellules capables de contenir des milliers d'objets dans un minimum d'espace. Le système ME permet l'autocrafting automatisé, l'accès sans fil à distance et la synchronisation de plusieurs bases via des ponts quantiques. Terminaux, capteurs et interfaces s'intègrent avec la plupart des mods d'automatisation populaires. Un mod technique exigeant mais redoutablement puissant une fois maîtrisé.",
+    "image": "applied-energistics-2.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 9.4,
+    "sizePerVersion": {
+      "1.20.1": 9.4,
+      "1.19.2": 9.5,
+      "1.18.2": 5.1,
+      "1.16.5": 4.6
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2",
+    "slug": "applied-energistics-2",
+    "modrinthUrl": "https://modrinth.com/mod/ae2",
+    "tags": [
+      "technologie",
+      "stockage"
+    ]
+  },
+  {
+    "id": 73,
+    "name": "AppleSkin",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Affiche la nourriture, saturation et effet potentiel des aliments dans le HUD.",
+    "fullDescription": "AppleSkin est un mod QoL essentiel et léger qui améliore le HUD de nourriture vanilla de Minecraft en affichant des informations normalement cachées. La barre de faim indique désormais l'exhaustion accumulée, la saturation restante et l'effet exact que procurera chaque aliment avant même de le consommer. Un simple survol d'un item alimentaire dans l'inventaire affiche toutes ces valeurs sous forme de tooltip clair. Un mod discret mais extrêmement pratique pour gérer sa nourriture de façon optimale en mode survie.",
+    "image": "appleskin.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5",
+      "1.12.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 0.1,
+    "sizePerVersion": {
+      "1.21": 0.1,
+      "1.20.4": 0,
+      "1.20.1": 0,
+      "1.19.2": 0,
+      "1.18.2": 0,
+      "1.16.5": 0,
+      "1.12.2": 0
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/appleskin",
+    "slug": "appleskin",
+    "modrinthUrl": "https://modrinth.com/mod/appleskin",
+    "tags": [
+      "interface",
+      "survie"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "AstikorCarts",
+    "categories": [
+      "decoration",
+      "utilitaire"
+    ],
+    "description": "Ajoute des chariots tirés par des chevaux pour transporter items et animaux.",
+    "fullDescription": "AstikorCarts ajoute plusieurs types de chariots réalistes que vous pouvez atteler à vos chevaux pour transporter items, coffres et même d'autres animaux à travers le monde. Certains modèles sont spécialisés dans le transport de marchandises en vrac, d'autres dans le déplacement de troupeaux entiers vers une nouvelle ferme. Les chariots suivent la physique du terrain et peuvent être personnalisés visuellement. Un excellent mod d'immersion pour les joueurs orientés élevage et agriculture à grande échelle.",
+    "image": "astikorcarts.png",
+    "versions": [
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 0.2,
+    "sizePerVersion": {
+      "1.19.2": 0.2,
+      "1.18.2": 0.2,
+      "1.16.5": 0.2
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/astikorcarts",
+    "modrinthUrl": "https://modrinth.com/mod/astikorcarts",
+    "slug": "astikorcarts",
+    "tags": [
+      "transport",
+      "agriculture"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Botania",
+    "categories": [
+      "decoration",
+      "utilitaire"
+    ],
+    "description": "Un mod basé sur la nature avec des fleurs magiques et de superbes blocs décoratifs.",
+    "fullDescription": "Botania est un mod unique inspiré de la magie florale qui transforme la nature en source de puissance grâce à un système de mana généré par des fleurs fonctionnelles. Chaque fleur possède un effet différent : génération de mana, téléportation, culture automatique ou destruction de blocs, permettant de construire des chaînes d'automatisation entièrement organiques. Le mod propose également plusieurs donjons optionnels remplis d'énigmes et de butin exclusif. Une alternative magique et poétique aux mods technologiques classiques.",
+    "image": "botania.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 11.6,
+    "sizePerVersion": {
+      "1.20.1": 11.6,
+      "1.19.2": 11,
+      "1.18.2": 10.9,
+      "1.16.5": 14.3
+    },
+    "dependencies": [
+      "Patchouli",
+      "Curios API"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/botania",
+    "slug": "botania",
+    "modrinthUrl": "https://modrinth.com/mod/botania",
+    "tags": [
+      "magie",
+      "decoration",
+      "fantastique"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Corail Tombstone",
+    "categories": [
+      "aventure",
+      "utilitaire"
+    ],
+    "description": "Une tombe apparaît à votre mort avec tout votre équipement conservé en sécurité.",
+    "fullDescription": "Corail Tombstone résout le cauchemar de tout joueur Minecraft : perdre son inventaire complet en mourant. À votre mort, une tombe personnalisable apparaît à l'endroit du décès, conservant en sécurité tout votre équipement, votre expérience et même une épitaphe de votre choix. Le mod propose plusieurs styles de tombes et options de configuration pour s'adapter à tous les serveurs. Idéal pour les parties en groupe ou pour simplement dédramatiser la mort en survie sans dénaturer sa difficulté.",
+    "image": "tombstone.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5",
+      "1.12.2"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 2.5,
+    "sizePerVersion": {
+      "1.20.1": 2.5,
+      "1.19.2": 2.1,
+      "1.18.2": 2.1,
+      "1.16.5": 2,
+      "1.12.2": 1.5
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/corail-tombstone",
+    "modrinthUrl": "",
+    "slug": "corail-tombstone",
+    "tags": [
+      "survie",
+      "protection"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Create",
+    "categories": [
+      "utilitaire",
+      "decoration"
+    ],
+    "description": "Construisez des machines et systèmes mécaniques avec une esthétique magnifique.",
+    "fullDescription": "Create est une révolution dans les mods d'automatisation qui mise tout sur l'esthétique et le réalisme mécanique, avec des engrenages, courroies, pistons et arbres de transmission visuellement animés. Construisez des usines entières, des trains fonctionnels ou des contraptions mobiles capables de miner, récolter ou construire automatiquement. Chaque mécanisme est physiquement simulé et s'assemble comme un vrai casse-tête d'ingénierie. Un mod aussi impressionnant visuellement que profond dans ses possibilités de création.",
+    "image": "create.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 18.3,
+    "sizePerVersion": {
+      "1.20.1": 18.3,
+      "1.19.2": 14.8,
+      "1.18.2": 14.8
+    },
+    "dependencies": [
+      "Flywheel"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/create",
+    "slug": "create",
+    "modrinthUrl": "https://modrinth.com/mod/create",
+    "tags": [
+      "technologie",
+      "decoration",
+      "esthetique"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Essential",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Mod social avec skins cape, chat vocal, invitations et coop instantanée.",
+    "fullDescription": "Essential est un mod social populaire qui transforme Minecraft en expérience communautaire grâce à des fonctionnalités habituellement réservées aux launchers tiers. Personnalisez votre avatar avec des capes et des cosmétiques exclusifs, discutez en chat vocal directement en jeu, invitez facilement des amis dans votre partie sans configuration réseau complexe et hébergez des mondes en un clic. L'interface reste simple et intuitive, pensée pour les joueurs non techniques. Un excellent moyen de jouer entre amis sans se soucier des serveurs ou des ports à ouvrir.",
+    "image": "essential.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5",
+      "1.12.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 50.6,
+    "sizePerVersion": {
+      "1.21": 50.6,
+      "1.20.4": 49.5,
+      "1.20.1": 49.6,
+      "1.19.2": 49.5,
+      "1.18.2": 49.5,
+      "1.16.5": 49.5,
+      "1.12.2": 53.5
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/essential-mod",
+    "modrinthUrl": "https://modrinth.com/mod/essential",
+    "slug": "essential-mod",
+    "tags": [
+      "multijoueur",
+      "interface"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Immersive Engineering",
+    "categories": [
+      "decoration",
+      "utilitaire"
+    ],
+    "description": "Machines industrielles avec une esthétique steampunk magnifique.",
+    "fullDescription": "Immersive Engineering se distingue de tous les mods tech par son approche réaliste et son esthétique steampunk magnifique, avec des câbles électriques visibles, des multiblocks imposants et des machines animées de façon crédible. Générez de l'électricité via des éoliennes ou des générateurs à combustion, transportez-la sur de longues distances via des pylônes, puis transformez vos ressources dans des concasseurs, hauts-fourneaux ou raffineries. Chaque structure occupe un espace physique cohérent avec sa fonction. Un mod technique exigeant qui récompense particulièrement les joueurs aimant construire de grandes usines.",
+    "image": "immersive-engineering.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 11.6,
+    "sizePerVersion": {
+      "1.20.1": 11.6,
+      "1.19.2": 10.5,
+      "1.18.2": 10.5,
+      "1.16.5": 9
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/immersive-engineering",
+    "modrinthUrl": "https://modrinth.com/mod/immersiveengineering",
+    "slug": "immersive-engineering",
+    "tags": [
+      "technologie",
+      "decoration",
+      "esthetique"
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Inventory Sorter",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Trie automatiquement votre inventaire et vos coffres d'un clic.",
+    "fullDescription": "Inventory Sorter est un petit mod utilitaire qui permet de trier automatiquement n'importe quel inventaire, coffre ou conteneur d'un simple clic ou raccourci clavier. Les objets similaires sont regroupés et empilés intelligemment, et un double-clic permet de transférer rapidement un stack complet vers l'autre inventaire ouvert. Le tri respecte les catégories logiques d'objets pour rester lisible en un coup d'œil. Un mod minimaliste mais qui fait gagner énormément de temps en survie comme en creative.",
+    "image": "inventory-sorter.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 0.1,
+    "sizePerVersion": {
+      "1.20.1": 0.1,
+      "1.19.2": 0,
+      "1.18.2": 0,
+      "1.16.5": 0
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/inventory-sorter",
+    "modrinthUrl": "https://modrinth.com/mod/inventory-sorter-configurable",
+    "slug": "inventory-sorter",
+    "tags": [
+      "interface",
+      "stockage"
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Iron Chests",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Ajoute des coffres améliorés en cuivre, fer, or, diamant, obsidienne et crystal.",
+    "fullDescription": "Iron Chests ajoute 6 nouveaux types de coffres avec des capacités de stockage croissantes, du cuivre modeste jusqu'au coffre de crystal quasi illimité, en passant par le fer, l'or, le diamant et l'obsidiaire ignifugé. Chaque coffre conserve l'apparence et le fonctionnement familier du coffre vanilla, sans complexifier son utilisation. Le coffre en obsidienne résiste notamment aux explosions et au feu, un vrai atout en cas de raid ou d'incendie. Une extension simple et efficace pour organiser un stockage qui évolue avec votre progression.",
+    "image": "iron-chests.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 0.3,
+    "sizePerVersion": {
+      "1.20.1": 0.3,
+      "1.19.2": 0.3,
+      "1.18.2": 0.3,
+      "1.16.5": 0.2
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/iron-chests",
+    "slug": "iron-chests",
+    "modrinthUrl": "https://modrinth.com/mod/iron-chests",
+    "tags": [
+      "stockage",
+      "survie"
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Iron Furnaces",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Ajoute des fours améliorés (cuivre → néthérite) plus rapides et efficaces.",
+    "fullDescription": "Iron Furnaces ajoute une série de fours améliorés utilisant différents matériaux du cuivre à la néthérite, chacun plus rapide et plus efficace en combustible que le précédent. Les fours haut de gamme peuvent cuire plusieurs items simultanément et certains disposent même d'un réservoir de combustible intégré pour fonctionner en continu sans surveillance. Le four en néthérite représente le summum de l'efficacité de cuisson du mod. Idéal pour automatiser la fonte de minerais à grande échelle sans recourir à des mods de tech complexes.",
+    "image": "iron-furnaces.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 0.6,
+    "sizePerVersion": {
+      "1.20.1": 0.6,
+      "1.19.2": 0.6,
+      "1.18.2": 0.6,
+      "1.16.5": 0.5
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/iron-furnaces",
+    "slug": "iron-furnaces",
+    "modrinthUrl": "https://modrinth.com/mod/iron-furnaces",
+    "tags": [
+      "automatisation",
+      "technologie"
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Jade",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Affiche des informations sur les blocs et entités visés.",
+    "fullDescription": "Jade est le successeur moderne et amélioré de WAILA/HWYLA, affichant une info-bulle détaillée sur le bloc ou l'entité visé par le joueur. Nom, quantité de PV, progression de croissance des cultures, contenu des conteneurs ou informations spécifiques à d'autres mods s'affichent instantanément à l'écran. De nombreux mods proposent directement leur propre plugin de compatibilité pour enrichir l'affichage de Jade. Un mod de confort quasi indispensable dans n'importe quelle installation moddée un tant soit peu conséquente.",
+    "image": "jade.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 0.6,
+    "sizePerVersion": {
+      "1.21": 0.6,
+      "1.20.4": 0.6,
+      "1.20.1": 0.5,
+      "1.19.2": 0.4,
+      "1.18.2": 0.3,
+      "1.16.5": 0.2
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/jade",
+    "slug": "jade",
+    "modrinthUrl": "https://modrinth.com/mod/jade",
+    "tags": [
+      "interface",
+      "outils"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "JEI",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "L'outil indispensable pour consulter toutes les recettes de craft.",
+    "fullDescription": "Just Enough Items (JEI) est LE mod utilitaire incontournable pour tout joueur de Minecraft modé, permettant de consulter instantanément toutes les recettes de craft, de four et bien d'autres depuis une simple interface superposée à l'inventaire. Recherchez un item par nom, découvrez comment le fabriquer ou dans quoi il est utilisé, et profitez d'un mode triche en creative pour obtenir directement n'importe quel objet. La plupart des mods intègrent nativement leurs propres recettes dans JEI. Un outil qui devient vite indispensable dès que plus de quelques mods sont installés.",
+    "image": "jei.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5",
+      "1.12.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 1.5,
+    "sizePerVersion": {
+      "1.21": 1.5,
+      "1.20.4": 1,
+      "1.20.1": 1.3,
+      "1.19.2": 1,
+      "1.18.2": 1,
+      "1.16.5": 0.8,
+      "1.12.2": 0.6
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/jei",
+    "slug": "jei",
+    "modrinthUrl": "https://modrinth.com/mod/jei",
+    "tags": [
+      "interface",
+      "outils"
+    ],
+    "dateAdded": 1784931315420
+  },
+  {
+    "id": 38,
+    "name": "JourneyMap",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Minimap en temps réel avec carte du monde complète et waypoints.",
+    "fullDescription": "JourneyMap est une minimap et carte du monde complète offrant une multitude de fonctionnalités professionnelles, disponible directement en jeu ou via une interface web accessible depuis un navigateur. Placez des waypoints personnalisés, suivez les entités hostiles à proximité grâce au radar de mobs et explorez une carte du monde entièrement explorable en plein écran. Le rendu se met à jour en temps réel au fur et à mesure de votre exploration. Un classique de la navigation qui s'adapte aussi bien au jeu solo qu'aux serveurs multijoueurs.",
+    "image": "journeymap.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5",
+      "1.12.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 3.2,
+    "sizePerVersion": {
+      "1.21": 3.2,
+      "1.20.4": 6.8,
+      "1.20.1": 6.8,
+      "1.19.2": 6.8,
+      "1.18.2": 6.8,
+      "1.16.5": 6.4,
+      "1.12.2": 6.5
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/journeymap",
+    "slug": "journeymap",
+    "modrinthUrl": "https://modrinth.com/mod/journeymap",
+    "tags": [
+      "minimap",
+      "exploration"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "JustHammers",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Ajoute des marteaux qui minent plusieurs blocs à la fois.",
+    "fullDescription": "JustHammers ajoute une série de marteaux puissants dans tous les matériaux, du bois à la néthérite, capables de miner plusieurs blocs à la fois en une seule frappe. La zone de minage s'agrandit avec la qualité du matériau utilisé, permettant de creuser rapidement de larges galeries ou de raser une zone entière de terrain. Les marteaux consomment davantage de durabilité que les outils classiques en contrepartie de leur efficacité. Un mod simple mais redoutablement pratique pour les gros travaux de terrassement.",
+    "image": "justhammers.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 0.1,
+    "sizePerVersion": {
+      "1.20.1": 0.1,
+      "1.19.2": 0.1
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/justhammers",
+    "modrinthUrl": "https://modrinth.com/mod/just-hammers",
+    "slug": "justhammers",
+    "tags": [
+      "outils",
+      "minage"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Mekanism",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Machines avancées, réacteur à fusion et jetpacks.",
+    "fullDescription": "Mekanism propose un système complet de machines de traitement de minerais capable de quintupler le rendu d'un minerai brut grâce à des chaînes d'enrichissement successives. Le mod introduit également un réacteur à fusion pour une énergie quasi illimitée, des jetpacks volants, des armures technologiques et un mineur digital capable d'extraire des ressources à distance. Un système de tuyaux et de câbles universel permet de transporter énergie, fluides, gaz et items à travers toute une base. Un mod tech complet qui peut littéralement remplacer plusieurs mods d'automatisation à lui seul.",
+    "image": "mekanism.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 12,
+    "sizePerVersion": {
+      "1.20.1": 12,
+      "1.19.2": 11.7,
+      "1.18.2": 11.1,
+      "1.16.5": 10.7
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/mekanism",
+    "slug": "mekanism",
+    "modrinthUrl": "https://modrinth.com/mod/mekanism",
+    "tags": [
+      "technologie",
+      "automatisation",
+      "stockage"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Small Ships",
+    "categories": [
+      "utilitaire",
+      "aventure",
+      "decoration"
+    ],
+    "description": "Ajoute plusieurs types de navires jouables.",
+    "fullDescription": "Small Ships ajoute différents types de navires historiques entièrement jouables et navigables, des simples barques aux voiliers plus imposants. Chaque navire se pilote directement en jeu avec une physique de flottaison crédible et peut transporter le joueur ainsi que quelques items ou passagers. Les navires peuvent être personnalisés visuellement et s'intègrent naturellement dans les décors côtiers ou fluviaux. Un mod idéal pour les joueurs souhaitant explorer les océans et rivières de Minecraft de façon plus immersive que la simple barque vanilla.",
+    "image": "smallships.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 6.7,
+    "sizePerVersion": {
+      "1.20.1": 6.7,
+      "1.19.2": 6.2,
+      "1.18.2": 5.8
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/small-ships",
+    "slug": "small-ships",
+    "modrinthUrl": "https://modrinth.com/mod/small-ships",
+    "tags": [
+      "transport",
+      "exploration"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Sophisticated Backpacks",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Sacs à dos évolutifs avec upgrades, filtres et automatisation.",
+    "fullDescription": "Sophisticated Backpacks ajoute des sacs à dos hautement personnalisables grâce à un système d'upgrades interchangeables : filtres de tri automatique, réservoirs de fluides, four intégré pour cuire en marchant ou encore compression de stack. Chaque sac à dos dispose de son propre inventaire consultable sans l'équiper, et certains modèles peuvent même être améliorés en taille au fil de la progression. La compatibilité avec de nombreux autres mods permet d'ajouter des upgrades supplémentaires. Un mod de stockage mobile devenu quasiment indispensable pour l'exploration prolongée.",
+    "image": "sophisticated-backpacks.png",
+    "versions": [
+      "1.21",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 0.8,
+    "sizePerVersion": {
+      "1.21": 0.8,
+      "1.20.1": 1.1,
+      "1.19.2": 0.8,
+      "1.18.2": 0.8,
+      "1.16.5": 1.4
+    },
+    "dependencies": [
+      "Sophisticated Core"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/sophisticated-backpacks",
+    "slug": "sophisticated-backpacks",
+    "modrinthUrl": "https://modrinth.com/mod/sophisticated-backpacks",
+    "tags": [
+      "stockage",
+      "automatisation"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Tough As Nails",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Ajoute la faim, la soif et la température corporelle pour un survival réaliste.",
+    "fullDescription": "Tough As Nails ajoute des mécaniques de survie avancées pour rendre Minecraft significativement plus challengeant, avec une barre de soif à gérer en plus de la faim et un système de température corporelle influencé par la météo et les biomes traversés. Boire de l'eau contaminée peut rendre malade, tandis qu'un froid extrême ou une chaleur intense sans protection adéquate inflige des dégâts progressifs. De nouveaux équipements permettent de se prémunir contre ces éléments. Un mod parfait pour pimenter un mode survie devenu trop confortable.",
+    "image": "tough-as-nails.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 0.6,
+    "sizePerVersion": {
+      "1.20.1": 0.6,
+      "1.19.2": 0.2,
+      "1.18.2": 0.2,
+      "1.16.5": 0.1
+    },
+    "dependencies": [
+      "GlitchCore"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/tough-as-nails",
+    "slug": "tough-as-nails",
+    "modrinthUrl": "https://modrinth.com/mod/tough-as-nails",
+    "tags": [
+      "survie",
+      "interface"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Waystones",
+    "categories": [
+      "utilitaire",
+      "aventure"
+    ],
+    "description": "Pierres de téléportation pour voyager rapidement entre vos bases.",
+    "fullDescription": "Waystones ajoute des pierres de téléportation élégantes que vous placez stratégiquement à travers votre monde pour voyager instantanément entre vos différentes bases. Une fois découverte, chaque Waystone est enregistrée et accessible depuis n'importe quelle autre pierre déjà activée, sans nécessiter de coûteux portails ou de longs trajets à pied. Un système de warp scroll permet même de se téléporter sans avoir besoin d'une Waystone à proximité. Un mod de confort qui réduit drastiquement le temps de trajet dans les grands mondes explorés.",
+    "image": "waystones.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 0.8,
+    "sizePerVersion": {
+      "1.21": 0.8,
+      "1.20.4": 0.6,
+      "1.20.1": 0.5,
+      "1.19.2": 0.4,
+      "1.18.2": 0.4
+    },
+    "dependencies": [
+      "Balm"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/waystones",
+    "slug": "waystones",
+    "modrinthUrl": "https://modrinth.com/mod/waystones",
+    "tags": [
+      "transport",
+      "exploration"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Xaero's Minimap",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Minimap complète avec waypoints, radar de mobs et carte.",
+    "fullDescription": "Xaero's Minimap est une minimap ultra-personnalisable affichant en temps réel votre environnement proche, vos waypoints enregistrés et un radar détectant les mobs hostiles à proximité. Un mode cave spécial adapte l'affichage lors de l'exploration souterraine pour rester lisible malgré la complexité des galeries. La minimap se combine parfaitement avec l'extension World Map du même auteur pour obtenir une carte du monde complète en plein écran. Un mod de navigation extrêmement populaire, léger et compatible avec la quasi-totalité des autres mods.",
+    "image": "xaeros-minimap.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge",
+      "Quilt"
+    ],
+    "sizeMo": 2.1,
+    "sizePerVersion": {
+      "1.21": 2.1,
+      "1.20.4": 2.1,
+      "1.20.1": 2.1,
+      "1.19.2": 2.1,
+      "1.18.2": 2.1,
+      "1.16.5": 2.2
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/xaeros-minimap",
+    "slug": "xaeros-minimap",
+    "modrinthUrl": "https://modrinth.com/mod/xaeros-minimap",
+    "tags": [
+      "minimap",
+      "exploration"
+    ]
+  },
+  {
+    "id": 107,
+    "name": "Sodium",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Optimisation majeure du rendu pour un boost massif de FPS.",
+    "fullDescription": "Sodium est le mod d'optimisation graphique le plus performant pour Minecraft Fabric, offrant souvent 2 à 5 fois plus de FPS que le vanilla. Il réécrit intégralement le moteur de rendu du jeu pour utiliser les capacités modernes des GPU, réduit drastiquement l'utilisation CPU, améliore la fluidité des animations et supprime le stuttering lors du chargement des chunks. Compatible avec Iris Shaders pour un rendu graphique premium tout en gardant d'excellentes performances. Un incontournable pour tout joueur Fabric.",
+    "image": "sodium.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Fabric",
+      "Quilt"
+    ],
+    "sizeMo": 1.2,
+    "sizePerVersion": {
+      "1.21": 1.2,
+      "1.20.4": 0.9,
+      "1.20.1": 0.9,
+      "1.19.2": 1.3,
+      "1.18.2": 1.3
+    },
+    "dependencies": [
+      "Fabric API"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/sodium",
+    "slug": "sodium",
+    "modrinthUrl": "https://modrinth.com/mod/sodium",
+    "tags": [
+      "optimisation",
+      "configuration"
+    ],
+    "updates": [
+      {
+        "date": 1785017715420,
+        "note": "Compatibilité ajoutée pour la version 1.21.1",
+        "version": "1.21.1"
+      }
+    ]
+  },
+  {
+    "id": 108,
+    "name": "Iris Shaders",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Support des shaders pour Fabric, alternative moderne à OptiFine.",
+    "fullDescription": "Iris Shaders est un mod révolutionnaire qui apporte le support complet des shaders OptiFine sur Fabric, tout en étant beaucoup plus performant. Utilisez vos shader packs préférés (BSL, SEUS, Complementary, ChocaPic...) avec des performances nettement supérieures à OptiFine. Compatible avec Sodium pour un combo puissance-beauté optimal. Interface de configuration in-game intuitive pour ajuster tous les paramètres visuels sans quitter votre partie.",
+    "image": "iris-shaders.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2"
+    ],
+    "loaders": [
+      "Fabric",
+      "Quilt"
+    ],
+    "sizeMo": 5.8,
+    "sizePerVersion": {
+      "1.21": 6.4,
+      "1.20.4": 6,
+      "1.20.1": 5.8,
+      "1.19.2": 5.4
+    },
+    "dependencies": [
+      "Fabric API",
+      "Sodium"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/irisshaders",
+    "slug": "irisshaders",
+    "modrinthUrl": "https://modrinth.com/mod/iris",
+    "tags": [
+      "optimisation",
+      "esthetique"
+    ]
+  },
+  {
+    "id": 109,
+    "name": "Cooking for Blockheads",
+    "categories": [
+      "utilitaire",
+      "nourriture"
+    ],
+    "description": "Cuisine multiblocs avec four, frigo, évier et livre de recettes.",
+    "fullDescription": "Cooking for Blockheads ajoute une véritable cuisine fonctionnelle multiblocs à Minecraft. Placez ensemble un four, un frigo (garde la nourriture fraîche plus longtemps), un évier (source d'eau infinie), un plan de travail et une hotte pour créer une cuisine complète et connectée. Le livre de cuisine intégré affiche automatiquement toutes les recettes que vous pouvez cuisiner avec les ingrédients disponibles dans les blocs connectés, et vous permet de cuisiner en un clic. Compatible avec Farmer's Delight et Pam's HarvestCraft.",
+    "image": "cooking-for-blockheads.png",
+    "versions": [
+      "1.21",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 1.2,
+    "sizePerVersion": {
+      "1.21": 1.2,
+      "1.20.1": 0.8,
+      "1.19.2": 0.7,
+      "1.18.2": 0.7,
+      "1.16.5": 0.7
+    },
+    "dependencies": [
+      "Balm"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/cooking-for-blockheads",
+    "slug": "cooking-for-blockheads",
+    "modrinthUrl": "https://modrinth.com/mod/cooking-for-blockheads",
+    "tags": [
+      "cuisine",
+      "stockage"
+    ]
+  },
+  {
+    "id": 110,
+    "name": "FTB Chunks",
+    "categories": [
+      "utilitaire"
+    ],
+    "description": "Protégez vos bases avec un système de claim de chunks et mini-map.",
+    "fullDescription": "FTB Chunks est un mod essentiel pour le multijoueur qui permet de claim (revendiquer) des chunks pour protéger vos constructions contre les autres joueurs. Interface intuitive avec carte du monde, chunks visualisés en couleurs, gestion fine des permissions par ami/équipe/public, protection contre le grief, PvP et vol d'items. Inclut une minimap performante avec waypoints, radar de mobs, et affichage des chunks claimed par les autres joueurs. Serveurs et communautés le considèrent comme incontournable.",
+    "image": "ftb-chunks.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 1.1,
+    "sizePerVersion": {
+      "1.20.1": 1.1,
+      "1.19.2": 0.8,
+      "1.18.2": 0.8
+    },
+    "dependencies": [
+      "Architectury API"
+    ],
+    "curseforgeUrl": {
+      "Forge/NeoForge": "https://www.curseforge.com/minecraft/mc-mods/ftb-chunks-forge",
+      "Fabric": "https://www.curseforge.com/minecraft/mc-mods/ftb-chunks-fabric"
+    },
+    "modrinthUrl": "",
+    "slug": "ftb-chunks",
+    "tags": [
+      "protection",
+      "minimap",
+      "multijoueur"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Farmer's Delight",
+    "categories": [
+      "nourriture",
+      "utilitaire"
+    ],
+    "description": "Étend le système de cuisine avec de nouvelles cultures et repas.",
+    "fullDescription": "Farmer's Delight enrichit considérablement le système alimentaire de Minecraft en ajoutant de nouvelles cultures comme la tomate, le chou ou le riz sauvage, ainsi que des dizaines de recettes cuisinées dans une nouvelle marmite. Le couteau de cuisine permet de découper plus efficacement viandes et légumes, tandis que de nouveaux fours et plans de travail complètent l'expérience culinaire. Quelques mobs et structures viennent également enrichir le contenu du mod. Une extension incontournable et pourtant très fidèle à l'esprit vanilla de Minecraft.",
+    "image": "farmers-delight.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 3.2,
+    "sizePerVersion": {
+      "1.20.1": 3.2,
+      "1.19.2": 2.6,
+      "1.18.2": 2.6,
+      "1.16.5": 2.4
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/farmers-delight",
+    "slug": "farmers-delight",
+    "modrinthUrl": "https://modrinth.com/mod/farmers-delight",
+    "tags": [
+      "cuisine",
+      "agriculture"
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Let's Do: Bakery",
+    "categories": [
+      "decoration",
+      "nourriture"
+    ],
+    "description": "Créez votre boulangerie avec fours, viennoiseries et pains artisanaux.",
+    "fullDescription": "Let's Do: Bakery vous permet de créer une boulangerie complète et fonctionnelle dans Minecraft, avec de nouveaux fours artisanaux, plans de travail et ustensiles dédiés à la pâtisserie. Préparez des viennoiseries, des pains spécialisés et des gâteaux variés à partir de nouvelles cultures comme le blé raffiné ou de nouveaux ingrédients sucrés. Chaque recette suit un processus de préparation détaillé qui immerge vraiment le joueur dans le rôle de boulanger. Un excellent complément pour les fans de mods culinaires cherchant plus de profondeur que la cuisine vanilla.",
+    "image": "bakery.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 1.5,
+    "sizePerVersion": {
+      "1.20.1": 1.5,
+      "1.19.2": 1.6
+    },
+    "dependencies": [
+      "Let's Do API"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/lets-do-bakery",
+    "modrinthUrl": "https://modrinth.com/mod/lets-do-bakery-farmcharm-compat",
+    "slug": "lets-do-bakery",
+    "tags": [
+      "cuisine",
+      "decoration"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Let's Do: Vinery",
+    "categories": [
+      "decoration",
+      "nourriture"
+    ],
+    "description": "Cultivez la vigne, produisez du vin et gérez votre propre vignoble.",
+    "fullDescription": "Let's Do: Vinery est un mod agricole splendide qui vous permet de gérer votre propre vignoble, de la plantation des ceps de vigne jusqu'à la mise en bouteille du vin fini. Récoltez le raisin, pressez-le pour en extraire le jus, laissez fermenter dans des tonneaux en bois et affinez le résultat pour obtenir différents crus aux effets variés. Le mod ajoute également des décorations thématiques pour recréer un domaine viticole crédible. Idéal pour les joueurs qui aiment les mods agricoles centrés sur un processus de fabrication complet et détaillé.",
+    "image": "vinery.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 14.8,
+    "sizePerVersion": {
+      "1.20.1": 14.8,
+      "1.19.2": 13.7
+    },
+    "dependencies": [
+      "Let's Do API"
+    ],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/vinery",
+    "modrinthUrl": "https://modrinth.com/mod/lets-do-vinery",
+    "slug": "vinery",
+    "tags": [
+      "agriculture",
+      "cuisine"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Pam's HarvestCraft 2 - Food Core",
+    "categories": [
+      "nourriture"
+    ],
+    "description": "Centaines de nouvelles cultures, arbres fruitiers et recettes.",
+    "fullDescription": "Pam's HarvestCraft 2 est le mod alimentaire de référence absolue, servant de base commune à toute une famille d'extensions dédiées à l'agriculture et à la cuisine. Il introduit des centaines de nouvelles cultures, arbres fruitiers et ingrédients de base qui viennent alimenter des milliers de recettes différentes réparties dans ses divers add-ons. Ce mod cœur ne fait qu'installer les fondations techniques et graphiques nécessaires au fonctionnement des extensions culinaires. Indispensable si vous installez n'importe quel autre mod de la gamme Pam's HarvestCraft 2.",
+    "image": "pams-harvestcraft.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 0.9,
+    "sizePerVersion": {
+      "1.20.1": 0.9,
+      "1.19.2": 0.4,
+      "1.18.2": 0.4,
+      "1.16.5": 0.3
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/pams-harvestcraft-2-food-core",
+    "modrinthUrl": "https://modrinth.com/mod/pams-harvestcraft-2-food-core",
+    "slug": "pams-harvestcraft-2-food-core",
+    "tags": [
+      "cuisine",
+      "agriculture",
+      "librairie"
+    ]
+  },
+  {
+    "id": 114,
+    "name": "Croptopia",
+    "categories": [
+      "nourriture"
+    ],
+    "description": "Ajoute 60+ nouvelles cultures et 200+ recettes délicieuses.",
+    "fullDescription": "Croptopia est un mod agricole complet qui ajoute plus de 60 nouvelles cultures (bananes, café, olives, riz, tomates, avocats, kiwis...) et 200 recettes culinaires détaillées. Cultivez vos plantes dans des champs, récoltez fruits et légumes, préparez des repas complets (pizzas, sushis, tacos, salades, smoothies, cocktails), et gagnez des bonus de saturation. Les arbres fruitiers apparaissent naturellement dans les biomes appropriés. Beaucoup plus léger et moderne que Pam's HarvestCraft. Un incontournable pour enrichir votre alimentation.",
+    "image": "croptopia.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 2.1,
+    "sizePerVersion": {
+      "1.20.1": 2.1,
+      "1.19.2": 2.8,
+      "1.18.2": 2.7
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/croptopia",
+    "modrinthUrl": "",
+    "slug": "croptopia",
+    "tags": [
+      "cuisine",
+      "agriculture"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Architectury API",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "API multi-loader.",
+    "fullDescription": "Architectury API est une bibliothèque essentielle.",
+    "image": "architectury.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge",
+      "Quilt"
+    ],
+    "sizeMo": 1.4,
+    "sizePerVersion": {
+      "1.21": 1.5,
+      "1.20.4": 1.4,
+      "1.20.1": 1.4,
+      "1.19.2": 1.3,
+      "1.18.2": 1.2,
+      "1.16.5": 1.1
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/architectury-api",
+    "slug": "architectury-api",
+    "modrinthUrl": "https://modrinth.com/mod/architectury-api",
+    "tags": [
+      "librairie"
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Balm",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Bibliothèque pour les mods de BlayTheNinth.",
+    "fullDescription": "Balm est une bibliothèque de compatibilité.",
+    "image": "balm.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 1,
+    "sizePerVersion": {
+      "1.21": 1.1,
+      "1.20.4": 1,
+      "1.20.1": 1,
+      "1.19.2": 0.9,
+      "1.18.2": 0.9
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/balm",
+    "slug": "balm",
+    "modrinthUrl": "https://modrinth.com/mod/balm",
+    "tags": [
+      "librairie"
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Citadel",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Bibliothèque pour l'IA et les rendus 3D.",
+    "fullDescription": "Citadel est une bibliothèque puissante.",
+    "image": "citadel.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 3,
+    "sizePerVersion": {
+      "1.20.1": 3,
+      "1.19.2": 2.9,
+      "1.18.2": 0.5,
+      "1.16.5": 0.5
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/citadel",
+    "slug": "citadel",
+    "modrinthUrl": "https://modrinth.com/mod/citadel",
+    "tags": [
+      "librairie",
+      "animation"
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Cristel Lib",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Bibliothèque pour mods de biomes.",
+    "fullDescription": "Cristel Lib fournit des outils communs.",
+    "image": "cristellib.png",
+    "versions": [
+      "1.21",
+      "1.20.1",
+      "1.19.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 0.4,
+    "sizePerVersion": {
+      "1.21": 0.4,
+      "1.20.1": 0.4,
+      "1.19.2": 0.5
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/cristel-lib",
+    "modrinthUrl": "https://modrinth.com/mod/cristel-lib",
+    "slug": "cristel-lib",
+    "tags": [
+      "librairie"
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Curios API",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Emplacements d'accessoires.",
+    "fullDescription": "Curios API ajoute un système d'emplacements d'accessoires.",
+    "image": "curios.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 0.4,
+    "sizePerVersion": {
+      "1.20.1": 0.4,
+      "1.19.2": 0.3,
+      "1.18.2": 0.3,
+      "1.16.5": 0.3
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/curios",
+    "slug": "curios",
+    "modrinthUrl": "https://modrinth.com/mod/curios",
+    "tags": [
+      "librairie",
+      "accessoires"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Cyclops Core",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Bibliothèque pour les mods de kroeser.",
+    "fullDescription": "Cyclops Core est la bibliothèque partagée par les mods de kroeser.",
+    "image": "cyclopscore.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5",
+      "1.12.2"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 0.9,
+    "sizePerVersion": {
+      "1.20.1": 0.9,
+      "1.19.2": 0.9,
+      "1.18.2": 0.8,
+      "1.16.5": 0.8,
+      "1.12.2": 1
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/cyclops-core",
+    "slug": "cyclops-core",
+    "modrinthUrl": "https://modrinth.com/mod/cyclops-core",
+    "tags": [
+      "librairie"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Fabric API",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "API essentielle pour Fabric.",
+    "fullDescription": "Fabric API est la bibliothèque de base pour Fabric.",
+    "image": "fabric-api.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Fabric",
+      "Quilt"
+    ],
+    "sizeMo": 2.2,
+    "sizePerVersion": {
+      "1.21": 2.2,
+      "1.20.4": 2.1,
+      "1.20.1": 2,
+      "1.19.2": 1.8,
+      "1.18.2": 1.4,
+      "1.16.5": 1
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/fabric-api",
+    "slug": "fabric-api",
+    "modrinthUrl": "https://modrinth.com/mod/fabric-api",
+    "tags": [
+      "librairie"
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Flywheel",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Rendu optimisé pour Create.",
+    "fullDescription": "Flywheel est une bibliothèque de rendu ultra-optimisé.",
+    "image": "flywheel.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 1.3,
+    "sizePerVersion": {
+      "1.20.1": 1.3,
+      "1.19.2": 1.2,
+      "1.18.2": 1.1
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/flywheel",
+    "slug": "flywheel",
+    "modrinthUrl": "https://modrinth.com/mod/flywheel",
+    "tags": [
+      "librairie",
+      "optimisation"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "GeckoLib",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Animations pour mobs et blocs.",
+    "fullDescription": "GeckoLib est une bibliothèque d'animations puissante.",
+    "image": "geckolib.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge",
+      "Quilt"
+    ],
+    "sizeMo": 0.5,
+    "sizePerVersion": {
+      "1.21": 0.5,
+      "1.20.4": 0.9,
+      "1.20.1": 1,
+      "1.19.2": 2.8,
+      "1.18.2": 3.5,
+      "1.16.5": 3.4
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/geckolib",
+    "slug": "geckolib",
+    "modrinthUrl": "https://modrinth.com/mod/geckolib",
+    "tags": [
+      "librairie",
+      "animation"
+    ]
+  },
+  {
+    "id": 59,
+    "name": "GlitchCore",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Bibliothèque de Glitchfiend.",
+    "fullDescription": "GlitchCore est la bibliothèque commune de Glitchfiend.",
+    "image": "glitchcore.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 1,
+    "sizePerVersion": {
+      "1.21": 1,
+      "1.20.4": 0.9,
+      "1.20.1": 0.9
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/glitchcore",
+    "modrinthUrl": "https://modrinth.com/mod/glitchcore",
+    "slug": "glitchcore",
+    "tags": [
+      "librairie"
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Let's Do API",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "API pour la série Let's Do.",
+    "fullDescription": "Let's Do API est la bibliothèque de base pour la série Let's Do.",
+    "image": "letsdo-api.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 1.4,
+    "sizePerVersion": {
+      "1.20.1": 1.4,
+      "1.19.2": 0.3
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/do-api",
+    "modrinthUrl": "https://modrinth.com/mod/do-api",
+    "slug": "do-api",
+    "tags": [
+      "librairie"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Library Ferret",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Bibliothèque utilitaire légère.",
+    "fullDescription": "LibraryFerret est une petite bibliothèque utilitaire.",
+    "image": "library-ferret.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 0.2,
+    "sizePerVersion": {
+      "1.20.1": 0.2,
+      "1.19.2": 0.2,
+      "1.18.2": 0.2
+    },
+    "dependencies": [],
+    "curseforgeUrl": {
+      "Forge": "https://www.curseforge.com/minecraft/mc-mods/library-ferret-forge",
+      "NeoForge": "https://www.curseforge.com/minecraft/mc-mods/library-ferret-neoforge",
+      "Fabric": "https://www.curseforge.com/minecraft/mc-mods/library-ferret-fabric"
+    },
+    "modrinthUrl": {
+      "Forge": "https://modrinth.com/mod/library-ferret"
+    },
+    "slug": "library-ferret-forge",
+    "tags": [
+      "librairie"
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Moonlight Lib",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Bibliothèque de MehVahdJukaar.",
+    "fullDescription": "Moonlight Lib est la bibliothèque de MehVahdJukaar.",
+    "image": "moonlight.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 1.7,
+    "sizePerVersion": {
+      "1.20.1": 1.7,
+      "1.19.2": 1.5,
+      "1.18.2": 1.4
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/selene",
+    "slug": "selene",
+    "modrinthUrl": "https://modrinth.com/mod/moonlight",
+    "tags": [
+      "librairie"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Patchouli",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Guides et livres in-game.",
+    "fullDescription": "Patchouli permet de créer des livres-guides interactifs.",
+    "image": "patchouli.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric"
+    ],
+    "sizeMo": 0.6,
+    "sizePerVersion": {
+      "1.20.1": 0.6,
+      "1.19.2": 0.6,
+      "1.18.2": 0.6,
+      "1.16.5": 0.6
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/patchouli",
+    "slug": "patchouli",
+    "modrinthUrl": "https://modrinth.com/mod/patchouli",
+    "tags": [
+      "librairie",
+      "interface"
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Placebo",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Bibliothèque de Shadows_of_Fire.",
+    "fullDescription": "Placebo est une bibliothèque de Shadows_of_Fire.",
+    "image": "placebo.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge"
+    ],
+    "sizeMo": 0.3,
+    "sizePerVersion": {
+      "1.20.1": 0.3,
+      "1.19.2": 0.2,
+      "1.18.2": 0.2,
+      "1.16.5": 0.2
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/placebo",
+    "slug": "placebo",
+    "modrinthUrl": "https://modrinth.com/mod/placebo",
+    "tags": [
+      "librairie"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "PuzzlesLib",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Bibliothèque de Fuzs.",
+    "fullDescription": "Puzzles Lib est une bibliothèque de Fuzs.",
+    "image": "puzzleslib.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 1,
+    "sizePerVersion": {
+      "1.21": 1,
+      "1.20.4": 0.9,
+      "1.20.1": 1,
+      "1.19.2": 0.4,
+      "1.18.2": 0.8
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/puzzles-lib",
+    "slug": "puzzles-lib",
+    "modrinthUrl": "https://modrinth.com/mod/puzzles-lib",
+    "tags": [
+      "librairie"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Sophisticated Core",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Bibliothèque pour les mods Sophisticated.",
+    "fullDescription": "Sophisticated Core est la bibliothèque partagée par les mods Sophisticated.",
+    "image": "sophisticated-core.png",
+    "versions": [
+      "1.21",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 2.3,
+    "sizePerVersion": {
+      "1.21": 2.5,
+      "1.20.1": 2.3,
+      "1.19.2": 2.1,
+      "1.18.2": 2,
+      "1.16.5": 1.8
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/sophisticated-core",
+    "slug": "sophisticated-core",
+    "modrinthUrl": "https://modrinth.com/mod/sophisticated-core",
+    "tags": [
+      "librairie",
+      "stockage"
+    ]
+  },
+  {
+    "id": 80,
+    "name": "YUNG's API",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "API commune requise par tous les mods de structures de YUNG.",
+    "fullDescription": "YUNG's API est la bibliothèque commune à tous les mods de structures développés par YUNGNICKYOUNG (Better Dungeons, Better Strongholds, etc.).",
+    "image": "yungs-api.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 0.4,
+    "sizePerVersion": {
+      "1.20.1": 0.4,
+      "1.19.2": 0.3,
+      "1.18.2": 0.3,
+      "1.16.5": 0.1
+    },
+    "dependencies": [],
+    "curseforgeUrl": {
+      "Forge/NeoForge": "https://www.curseforge.com/minecraft/mc-mods/yungs-api",
+      "Fabric": "https://www.curseforge.com/minecraft/mc-mods/yungs-api-fabric"
+    },
+    "modrinthUrl": "https://modrinth.com/mod/yungs-api",
+    "slug": "yungs-api",
+    "tags": [
+      "librairie",
+      "donjons"
+    ]
+  },
+  {
+    "id": 115,
+    "name": "Cloth Config API",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "API de configuration in-game pour de nombreux mods Fabric et Forge.",
+    "fullDescription": "Cloth Config API fournit une interface de configuration in-game élégante et unifiée, utilisée par de nombreux mods comme Simply Skills, Mine and Slash, Roughly Enough Items et beaucoup d'autres. Permet aux joueurs de modifier facilement les paramètres des mods sans éditer manuellement des fichiers de config.",
+    "image": "cloth-config.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge",
+      "Quilt"
+    ],
+    "sizeMo": 1.3,
+    "sizePerVersion": {
+      "1.21": 1.3,
+      "1.20.4": 1.2,
+      "1.20.1": 1.1,
+      "1.19.2": 1,
+      "1.18.2": 1.1,
+      "1.16.5": 1
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/cloth-config",
+    "slug": "cloth-config",
+    "modrinthUrl": "https://modrinth.com/mod/cloth-config",
+    "tags": [
+      "librairie",
+      "configuration"
+    ]
+  },
+  {
+    "id": 116,
+    "name": "Kotlin",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Support du langage Kotlin pour les mods Forge/NeoForge/Fabric.",
+    "fullDescription": "Kotlin fournit les bibliothèques Kotlin nécessaires au fonctionnement des mods développés dans ce langage moderne. De plus en plus de mods l'utilisent pour bénéficier d'un code plus concis et sûr. Requis par plusieurs mods populaires.",
+    "image": "kotlin.png",
+    "versions": [
+      "1.21",
+      "1.20.4",
+      "1.20.1",
+      "1.19.2",
+      "1.18.2"
+    ],
+    "loaders": [
+      "Forge",
+      "Fabric",
+      "NeoForge"
+    ],
+    "sizeMo": 6.9,
+    "sizePerVersion": {
+      "1.21": 6.9,
+      "1.20.4": 7.1,
+      "1.20.1": 7.1,
+      "1.19.2": 7,
+      "1.18.2": 7
+    },
+    "dependencies": [],
+    "curseforgeUrl": {
+      "Forge/NeoForge": "https://www.curseforge.com/minecraft/mc-mods/kotlin-for-forge",
+      "Fabric": "https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin"
+    },
+    "modrinthUrl": {
+      "Forge/NeoForge": "https://modrinth.com/mod/kotlin-for-forge",
+      "Fabric": "https://modrinth.com/mod/fabric-language-kotlin"
+    },
+    "slug": "kotlin",
+    "tags": [
+      "librairie"
+    ]
+  },
+  {
+    "id": 117,
+    "name": "Iceberg",
+    "categories": [
+      "bibliotheque"
+    ],
+    "description": "Bibliothèque utilisée par les mods de Grend_G (Enigmatic Legacy...).",
+    "fullDescription": "Iceberg est une bibliothèque légère fournissant des outils communs pour plusieurs mods populaires, notamment ceux de Grend_G et de nombreux mods QoL. Améliore le rendu de tooltips, ajoute des utilitaires pour les développeurs et facilite la création de systèmes d'items complexes.",
+    "image": "iceberg.png",
+    "versions": [
+      "1.20.1",
+      "1.19.2",
+      "1.18.2",
+      "1.16.5"
+    ],
+    "loaders": [
+      "Forge",
+      "NeoForge"
+    ],
+    "sizeMo": 0.1,
+    "sizePerVersion": {
+      "1.20.1": 0.1,
+      "1.19.2": 0.1,
+      "1.18.2": 0.1,
+      "1.16.5": 0.1
+    },
+    "dependencies": [],
+    "curseforgeUrl": "https://www.curseforge.com/minecraft/mc-mods/iceberg",
+    "slug": "iceberg",
+    "modrinthUrl": "https://modrinth.com/mod/iceberg",
+    "tags": [
+      "librairie"
+    ]
+  }
+]
